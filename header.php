@@ -12,4 +12,4 @@
 
 <body>
 
-	<h1 class="name-site"><?php echo get_bloginfo('name'); ?></h1>
+	<h1 class="name-site">News &amp; Events</h1>
