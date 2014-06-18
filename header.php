@@ -13,3 +13,5 @@
 <body>
 
 	<h1 class="name-site">News &amp; Events</h1>
+
+	<?php get_search_form(); ?> 
