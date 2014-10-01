@@ -22,7 +22,8 @@ function register_news_posts() {
 	$argsFeatures = array(
 		'labels'  => $labelsFeatures,
 		'public' => true,
-		'menu_position' => 5
+		'menu_position' => 5,
+		'taxonomies' => 'feature-categories'
 	);
 	register_post_type('Features', $argsFeatures);
 
@@ -124,3 +125,16 @@ function register_news_posts() {
 }
 
 add_action('init', 'register_news_posts');
+
+function register_news_taxonomies() {
+	// create a new taxonomy
+	register_taxonomy(
+		'feature-categories',
+		'features',
+		array(
+			'label' => __( 'Feature Categories' ),
+			'rewrite' => array( 'slug' => 'feature-categories' )
+		)
+	);
+}
+add_action( 'init', 'register_news_taxonomies' );
