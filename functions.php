@@ -53,7 +53,7 @@ function mitlibnews_submitted_dashboard_widget_function() {
 }
 
 // Register the custom post types
-function register_news_posts() {
+function mitlibnews_register_news_posts() {
 	// Features
 	$labelsFeatures = array(
 		'name' => 'Features',
@@ -176,7 +176,7 @@ function register_news_posts() {
 	register_post_type('Updates', $argsUpdates);
 }
 
-add_action('init', 'register_news_posts');
+add_action('init', 'mitlibnews_register_news_posts');
 
 function register_news_taxonomies() {
 	// create a new taxonomy
