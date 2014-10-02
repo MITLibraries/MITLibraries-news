@@ -8,9 +8,14 @@ function mitlibnews_remove_dashboard_widgets() {
 
 add_action('do_meta_boxes', 'mitlibnews_remove_dashboard_widgets' );
 
-// Add a widget to the dashboard.
-
+// Add dashboard widgets
 function mitlibnews_add_dashboard_widgets() {
+	// Add a pending posts dashboard widget
+	wp_add_dashboard_widget(
+		'mitlibnews_pending_dashboard_widget',         // Widget slug.
+		'Pending posts',         // Title.
+		'mitlibnews_pending_dashboard_widget_function' // Display function.
+	);
 	wp_add_dashboard_widget(
 		'mitlibnews_submitted_dashboard_widget',         // Widget slug.
 		'Submitted for review',         // Title.
@@ -20,9 +25,8 @@ function mitlibnews_add_dashboard_widgets() {
 
 add_action( 'wp_dashboard_setup', 'mitlibnews_add_dashboard_widgets' );
 
-// Create the function to output the contents of our Dashboard Widget.
-
-function mitlibnews_submitted_dashboard_widget_function() {
+// Build the Pending posts dashboard widget
+function mitlibnews_pending_dashboard_widget_function() {
 
 	$args = array(
 	  'post_type' => 'post',
