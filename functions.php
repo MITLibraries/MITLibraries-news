@@ -178,7 +178,7 @@ function mitlibnews_register_news_posts() {
 
 add_action('init', 'mitlibnews_register_news_posts');
 
-function register_news_taxonomies() {
+function mitlibnews_register_news_taxonomies() {
 	// create a new taxonomy
 	register_taxonomy(
 		'feature-categories',
@@ -189,7 +189,7 @@ function register_news_taxonomies() {
 		)
 	);
 }
-add_action( 'init', 'register_news_taxonomies' );
+add_action( 'init', 'mitlibnews_register_news_taxonomies' );
 
 
 // function wp_api_encode_acf($data,$post,$context){
