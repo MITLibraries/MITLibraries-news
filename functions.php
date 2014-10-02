@@ -1,4 +1,13 @@
-<?php 
+<?php
+
+// Remove unneeded dashboard widgets
+function mitlibnews_remove_dashboard_widgets() {
+ 	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' ); // Quickpress widget
+ 	remove_meta_box( 'dashboard_primary', 'dashboard', 'side' ); // Wordpress news
+} 
+
+add_action('do_meta_boxes', 'mitlibnews_remove_dashboard_widgets' );
+
 // Add a widget to the dashboard.
 
 function mitlibnews_add_dashboard_widgets() {
