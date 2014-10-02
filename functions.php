@@ -194,7 +194,8 @@ function mitlibnews_register_news_taxonomies() {
 		'features',
 		array(
 			'label' => __( 'Feature Categories' ),
-			'rewrite' => array( 'slug' => 'feature-categories' )
+			'rewrite' => array( 'slug' => 'feature-categories' ),
+			'show_ui' => false
 		)
 	);
 }
