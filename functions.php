@@ -1,4 +1,56 @@
 <?php 
+// Add a widget to the dashboard.
+
+function mitlibnews_add_dashboard_widgets() {
+	wp_add_dashboard_widget(
+		'mitlibnews_submitted_dashboard_widget',         // Widget slug.
+		'Submitted for review',         // Title.
+		'mitlibnews_submitted_dashboard_widget_function' // Display function.
+	);	
+}
+
+add_action( 'wp_dashboard_setup', 'mitlibnews_add_dashboard_widgets' );
+
+// Create the function to output the contents of our Dashboard Widget.
+
+function mitlibnews_submitted_dashboard_widget_function() {
+
+	$args = array(
+	  'post_type' => 'post',
+	  'orderby'   => 'title',
+	  'order'     => 'ASC',
+	  'post_status' => 'pending',
+	  'posts_per_page' => -1
+	);
+
+	$pending_posts = new WP_Query( $args );
+
+	// The Loop
+	if ( $pending_posts->have_posts() ) {
+		echo  '<table class="widefat">' .
+						'<thead>' .
+							'<tr>' .
+								'<th class="row-title">Post title</th>' .
+								'<th>Post author</th>' .
+							'</tr>' .
+						'</thead>' .
+						'<tbody>';
+		while ( $pending_posts->have_posts() ) {
+			$pending_posts->the_post();
+			echo  '<tr>' .
+							'<td class="row-title"><a href="' . get_edit_post_link() . '">' . get_the_title() . '</a></td>' .
+							'<td>' . get_the_author() . '</td>' .
+						'</tr>';
+		}
+		echo    '</tbody>' .
+					'</table>';
+	} else {
+		echo 'There are no pending posts.';
+	}
+
+	wp_reset_postdata();
+	
+}
 
 // Register the custom post types
 function register_news_posts() {
