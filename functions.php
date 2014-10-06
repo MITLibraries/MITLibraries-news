@@ -109,6 +109,13 @@ function mitlibnews_urgent_dashboard_widget_function() {
 
 // Register the custom post types
 function mitlibnews_register_news_posts() {
+	$supports_default = array(
+		'title',
+		'editor',
+		'thumbnail',
+		'excerpt'
+	);
+
 	// Features
 	$labelsFeatures = array(
 		'name' => 'Features',
@@ -130,6 +137,7 @@ function mitlibnews_register_news_posts() {
 		'labels'  => $labelsFeatures,
 		'public' => true,
 		'menu_position' => 5,
+		'supports' => $supports_default,
 		'taxonomies' => 'feature-categories'
 	);
 	register_post_type('Features', $argsFeatures);
@@ -154,7 +162,8 @@ function mitlibnews_register_news_posts() {
 	$argsExhibits = array(
 		'labels'  => $labelsExhibits,
 		'public' => true,
-		'menu_position' => 5
+		'menu_position' => 5,
+		'supports' => $supports_default
 	);
 	register_post_type('Exhibits', $argsExhibits);
 
@@ -178,7 +187,8 @@ function mitlibnews_register_news_posts() {
 	$argsTips = array(
 		'labels'  => $labelsTips,
 		'public' => true,
-		'menu_position' => 5
+		'menu_position' => 5,
+		'supports' => $supports_default
 	);
 	register_post_type('Tips', $argsTips);
 
@@ -202,7 +212,8 @@ function mitlibnews_register_news_posts() {
 	$argsFacts = array(
 		'labels'  => $labelsFacts,
 		'public' => true,
-		'menu_position' => 5
+		'menu_position' => 5,
+		'supports' => $supports_default
 	);
 	register_post_type('Facts', $argsFacts);
 
@@ -226,7 +237,8 @@ function mitlibnews_register_news_posts() {
 	$argsUpdates = array(
 		'labels'  => $labelsUpdates,
 		'public' => true,
-		'menu_position' => 5
+		'menu_position' => 5,
+		'supports' => $supports_default
 	);
 	register_post_type('Updates', $argsUpdates);
 }
