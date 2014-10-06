@@ -23,10 +23,10 @@
 
 	<div class="entry-content">
 		<?php
-			the_content();
 			if (has_post_thumbnail()) {
 				the_post_thumbnail();
 			}
+			the_content();
 		?>
 	</div><!-- .entry-content -->
 
