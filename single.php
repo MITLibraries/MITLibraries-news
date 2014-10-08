@@ -22,7 +22,7 @@ get_header(); ?>
 			?>
 
 		<?php endwhile; // end of the loop. ?>
-
+		<?php get_template_part('inc/related'); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
