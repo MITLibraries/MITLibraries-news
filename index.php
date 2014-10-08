@@ -4,6 +4,8 @@
 
 <div class="content-all">
 
+	<?php get_template_part('inc/sub-header'); ?>
+
 	<?php  while ( have_posts() ): the_post(); ?>
 	
 	<div class="post">
