@@ -232,6 +232,12 @@ function mitlibnews_register_news_taxonomies() {
 }
 add_action( 'init', 'mitlibnews_register_news_taxonomies' );
 
+// Remove tags support from posts
+function mitlibnews_unregister_tags() {
+	unregister_taxonomy_for_object_type('post_tag', 'post');
+}
+add_action('init', 'mitlibnews_unregister_tags');
+
 
 // function wp_api_encode_acf($data,$post,$context){
 // 	$data['meta'] = array_merge($data['meta'],get_fields($post['ID']));
