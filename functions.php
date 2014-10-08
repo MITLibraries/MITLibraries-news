@@ -12,12 +12,6 @@ add_action('do_meta_boxes', 'mitlibnews_remove_dashboard_widgets' );
 
 // Add dashboard widgets
 function mitlibnews_add_dashboard_widgets() {
-	// Add a pending posts dashboard widget
-	wp_add_dashboard_widget(
-		'mitlibnews_pending_dashboard_widget',         // Widget slug.
-		'Pending posts',         // Title.
-		'mitlibnews_pending_dashboard_widget_function' // Display function.
-	);
 	// Add an urgent posts dashboard widget
 	wp_add_dashboard_widget(
 		'mitlibnews_urgent_dashboard_widget',
@@ -27,46 +21,6 @@ function mitlibnews_add_dashboard_widgets() {
 }
 
 add_action( 'wp_dashboard_setup', 'mitlibnews_add_dashboard_widgets' );
-
-// Build the Pending posts dashboard widget
-function mitlibnews_pending_dashboard_widget_function() {
-
-	$args = array(
-	  'post_type' => 'post',
-	  'orderby'   => 'title',
-	  'order'     => 'ASC',
-	  'post_status' => 'pending',
-	  'posts_per_page' => -1
-	);
-
-	$pending_posts = new WP_Query( $args );
-
-	// The Loop
-	if ( $pending_posts->have_posts() ) {
-		echo  '<table class="widefat">' .
-						'<thead>' .
-							'<tr>' .
-								'<th class="row-title">Post title</th>' .
-								'<th>Post author</th>' .
-							'</tr>' .
-						'</thead>' .
-						'<tbody>';
-		while ( $pending_posts->have_posts() ) {
-			$pending_posts->the_post();
-			echo  '<tr>' .
-							'<td class="row-title"><a href="' . get_edit_post_link() . '">' . get_the_title() . '</a></td>' .
-							'<td>' . get_the_author() . '</td>' .
-						'</tr>';
-		}
-		echo    '</tbody>' .
-					'</table>';
-	} else {
-		echo 'There are no pending posts.';
-	}
-
-	wp_reset_postdata();
-	
-}
 
 // Build Urgent posts dashboard widget
 function mitlibnews_urgent_dashboard_widget_function() {
