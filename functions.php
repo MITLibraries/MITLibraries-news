@@ -10,12 +10,15 @@ add_action('do_meta_boxes', 'mitlibnews_remove_dashboard_widgets' );
 
 // Add dashboard widgets
 function mitlibnews_add_dashboard_widgets() {
-	// Add an urgent posts dashboard widget
-	wp_add_dashboard_widget(
-		'mitlibnews_urgent_dashboard_widget',
-		'Urgent posts',
-		'mitlibnews_urgent_dashboard_widget_function'
-	);
+	// Admin-level users only
+	if (current_user_can('add_users')) {
+		// Add an urgent posts dashboard widget
+		wp_add_dashboard_widget(
+			'mitlibnews_urgent_dashboard_widget',
+			'Urgent posts',
+			'mitlibnews_urgent_dashboard_widget_function'
+		);
+	}
 }
 
 add_action( 'wp_dashboard_setup', 'mitlibnews_add_dashboard_widgets' );
