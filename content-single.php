@@ -2,14 +2,15 @@
 /**
  * @package MIT Libraries News
  */
-
+	
+	$category = get_the_category();
 	$type_post = get_post_type();
 	$subtitle;
 	$type;
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> data-category="<?php echo $category[0]->slug; ?>">
+	<header class="title-page">
 		<?php if (get_field('mark_as_new') === true): ?>
 		<span>New!</span>
 		<?php endif; ?>
