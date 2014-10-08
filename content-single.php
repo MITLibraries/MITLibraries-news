@@ -35,7 +35,7 @@
 				the_post_thumbnail();
 			}
 			the_content();
-			
+			// Echo type of Feature, if Feature
 			if ($type_post === 'features') {
 				$type = get_field('type');
 				echo $type;
