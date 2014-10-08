@@ -18,6 +18,11 @@
 			<span class="date-post">
 				<?php echo ' on '; the_date(); ?>
 			</span>
+			<?php if(has_category()): ?>
+			<span class="category-post">
+				<?php echo ' in '; the_category(); ?>
+			</span>
+			<?php endif; ?>
 		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
 
