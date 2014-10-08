@@ -202,36 +202,6 @@ function mitlibnews_register_news_posts() {
 
 add_action('init', 'mitlibnews_register_news_posts');
 
-function mitlibnews_register_news_taxonomies() {
-	// Don't show taxonomy UI below admin permission level
-	$show_ui = true;
-	if (!current_user_can('add_users')) {
-		$show_ui = false;
-	}
-	// "Feature" categories
-	register_taxonomy(
-		'feature-categories',
-		'features',
-		array(
-			'label' => __( 'Feature Categories' ),
-			'rewrite' => array( 'slug' => 'feature-categories' ),
-			'show_ui' => $show_ui
-		)
-	);
-
-	// "Update" categories
-	register_taxonomy(
-		'update-categories',
-		'updates',
-		array(
-			'label' => __('Update Categories'),
-			'rewrite' => array('slug' => 'update-categories'),
-			'show_ui' => $show_ui
-		)
-	);
-}
-add_action( 'init', 'mitlibnews_register_news_taxonomies' );
-
 // Remove tags support from posts
 function mitlibnews_unregister_tags() {
 	unregister_taxonomy_for_object_type('post_tag', 'post');
