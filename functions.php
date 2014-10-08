@@ -95,7 +95,7 @@ function mitlibnews_register_news_posts() {
 		'public' => true,
 		'menu_position' => 5,
 		'supports' => $supports_default,
-		'taxonomies' => 'feature-categories'
+		'taxonomies' => array('category')
 	);
 	register_post_type('Features', $argsFeatures);
 
@@ -120,7 +120,8 @@ function mitlibnews_register_news_posts() {
 		'labels'  => $labelsExhibits,
 		'public' => true,
 		'menu_position' => 5,
-		'supports' => $supports_default
+		'supports' => $supports_default,
+		'taxonomies' => array('category')
 	);
 	register_post_type('Exhibits', $argsExhibits);
 
@@ -145,7 +146,8 @@ function mitlibnews_register_news_posts() {
 		'labels'  => $labelsTips,
 		'public' => true,
 		'menu_position' => 5,
-		'supports' => $supports_default
+		'supports' => $supports_default,
+		'taxonomies' => array('category')
 	);
 	register_post_type('Tips', $argsTips);
 
@@ -170,7 +172,8 @@ function mitlibnews_register_news_posts() {
 		'labels'  => $labelsFacts,
 		'public' => true,
 		'menu_position' => 5,
-		'supports' => $supports_default
+		'supports' => $supports_default,
+		'taxonomies' => array('category')
 	);
 	register_post_type('Facts', $argsFacts);
 
@@ -195,7 +198,8 @@ function mitlibnews_register_news_posts() {
 		'labels'  => $labelsUpdates,
 		'public' => true,
 		'menu_position' => 5,
-		'supports' => $supports_default
+		'supports' => $supports_default,
+		'taxonomies' => array('category')
 	);
 	register_post_type('Updates', $argsUpdates);
 }
