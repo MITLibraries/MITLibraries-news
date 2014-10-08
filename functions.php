@@ -2,10 +2,8 @@
 
 // Remove unneeded dashboard widgets
 function mitlibnews_remove_dashboard_widgets() {
-	if (!current_user_can('add_users')) {
-		remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' ); // Quickpress widget
- 		remove_meta_box( 'dashboard_primary', 'dashboard', 'side' ); // Wordpress news
-	}
+	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' ); // Quickpress widget
+	remove_meta_box( 'dashboard_primary', 'dashboard', 'side' ); // Wordpress news
 } 
 
 add_action('do_meta_boxes', 'mitlibnews_remove_dashboard_widgets' );
