@@ -4,6 +4,7 @@
  */
 
 	$type_post = get_post_type();
+	$subtitle;
 	$type;
 ?>
 
@@ -13,6 +14,10 @@
 		<span>New!</span>
 		<?php endif; ?>
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<?php if($type_post === 'post') {
+			$subtitle = get_field('subtitle');
+			echo '<h2 class=subtitle>' . $subtitle . '</h2>';
+		} ?>
 
 		<div class="entry-meta">
 			<span class="author">
