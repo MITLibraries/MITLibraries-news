@@ -29,7 +29,7 @@
 			</span>
 			<?php if(has_category()): ?>
 			<span class="category-post">
-				<?php echo ' in '; the_category(); ?>
+				<?php echo ' in ' . array_slice($category, 0, 2); ?>
 			</span>
 			<?php endif; ?>
 		</div><!-- .entry-meta -->
