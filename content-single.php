@@ -2,6 +2,9 @@
 /**
  * @package MIT Libraries News
  */
+
+	$type_post = get_post_type();
+	$type;
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -32,7 +35,13 @@
 				the_post_thumbnail();
 			}
 			the_content();
+			
+			if ($type_post === 'features') {
+				$type = get_field('type');
+				echo $type;
+			}
 		?>
+
 	</div><!-- .entry-content -->
 
 </article><!-- #post-## -->
