@@ -21,7 +21,6 @@
 				for (var i = 0; i < 3; i++) {
 					relatedCompiled = _.template(
 						'<div class="post-preview">' +
-							'<div class="image" style="background-image: <%= featured_image.source %>"></div>' +
 							'<h3><%= title %></h3>' +
 						'</div>'
 					);
