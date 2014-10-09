@@ -12,7 +12,7 @@
 		console.log(cat);
 		$.ajax({
 				cache: true,
-				// All post types
+				// Filter by current post category
 				url: "/news/wp-json/posts?filter[category_name]=" + cat,
 				dataType: "json"
 			})
