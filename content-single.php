@@ -45,7 +45,7 @@
 			// Echo type of Feature, if Feature
 			if ($type_post === 'features') {
 				$type = get_field('feature_type');
-				echo $type;
+				echo 'The feature type is' . $type;
 			}
 		?>
 
