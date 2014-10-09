@@ -17,7 +17,6 @@
 				dataType: "json"
 			})
 			.done(function(json) {
-				console.log('got the JSON');
 				for (var i = 0; i < 3; i++) {
 					relatedCompiled = _.template(
 						'<div class="post-preview">' +
