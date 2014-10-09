@@ -54,6 +54,12 @@
 				echo '<div>Start date is ' . $date_start . '</div>';
 				echo '<div>End date is ' . $date_end . '</div>';
 			}
+			// Check for events
+			if ($type_post === 'post' && get_field('is_event') === true) {
+				echo '<div>Event date is ' . get_field('event_date') . '</div>';
+				echo '<div>Event start time is ' . get_field('event_start_time') . '</div>';
+				echo '<div>Event end time is ' . get_field('event_end_time') . '</div>';
+			}
 		?>
 
 	</div><!-- .entry-content -->
