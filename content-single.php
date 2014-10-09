@@ -39,6 +39,7 @@
 		<?php
 			if (has_post_thumbnail()) {
 				the_post_thumbnail();
+				echo '<span>' . get_post(get_post_thumbnail_id())->post_excerpt . '</span>';
 			}
 			the_content();
 			// Echo type of Feature, if Feature
