@@ -47,6 +47,13 @@
 				$type = get_field('feature_type');
 				echo 'The feature type is' . $type;
 			}
+			// Echo start/end dates, if they exist
+			if ($type_post === 'exhibits' || $type_post === 'updates') {
+				$date_start = get_field('date_start');
+				$date_end = get_field('date_end');
+				echo '<div>Start date is ' . $date_start . '</div>';
+				echo '<div>End date is ' . $date_end . '</div>';
+			}
 		?>
 
 	</div><!-- .entry-content -->
