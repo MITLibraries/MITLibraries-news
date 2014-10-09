@@ -1,6 +1,7 @@
 <?php $category = get_the_category(); ?>
-<div class="posts-related flex-container">
+<div class="posts-related">
 	<h3>More in <?php echo $category[0]->cat_name; ?></h3>
+	<div class="flex-container space-between"></div>
 </div>
 <script>
 	function mitlib_related_posts() {
@@ -24,7 +25,7 @@
 						'</div>'
 					);
 					relatedTemplate = relatedCompiled(json[i]);
-					$('.posts-related').append(relatedTemplate);
+					$('.posts-related > .flex-container').append(relatedTemplate);
 				};
 			})
 	}
