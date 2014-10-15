@@ -1,5 +1,15 @@
 <?php
 
+// Remove dashboard menu items
+function mitlibnews_remove_dashboard_menu_items() {
+	if (!current_user_can('add_users')) {
+		remove_menu_page('edit-comments.php');
+		remove_menu_page('tools.php');
+	}
+}
+
+add_action('admin_menu', 'mitlibnews_remove_dashboard_menu_items');
+
 // Remove unneeded dashboard widgets
 function mitlibnews_remove_dashboard_widgets() {
 	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' ); // Quickpress widget
