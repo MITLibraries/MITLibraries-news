@@ -52,7 +52,7 @@ function mitlibnews_urgent_dashboard_widget_function() {
 	if ( $urgent_posts->have_posts() ) {
 		echo  '<table class="widefat">' .
 						'<thead>' .
-							'<tr class="form-invalid">' .
+							'<tr>' .
 								'<th class="row-title">Post title</th>' .
 								'<th>Post author</th>' .
 							'</tr>' .
@@ -60,7 +60,7 @@ function mitlibnews_urgent_dashboard_widget_function() {
 						'<tbody>';
 		while ( $urgent_posts->have_posts() ) {
 			$urgent_posts->the_post();
-			echo  '<tr>' .
+			echo  '<tr class="form-invalid">' .
 							'<td class="row-title"><a href="' . get_edit_post_link() . '">' . get_the_title() . '</a></td>' .
 							'<td>' . get_the_author() . '</td>' .
 						'</tr>';
