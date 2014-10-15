@@ -249,6 +249,8 @@ function mitlibnews_unregister_tags() {
 }
 add_action('init', 'mitlibnews_unregister_tags');
 
+// Disable admin color scheme
+remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
 
 // function wp_api_encode_acf($data,$post,$context){
 // 	$data['meta'] = array_merge($data['meta'],get_fields($post['ID']));
