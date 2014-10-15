@@ -14,6 +14,10 @@ add_action('admin_menu', 'mitlibnews_remove_dashboard_menu_items');
 function mitlibnews_remove_dashboard_widgets() {
 	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' ); // Quickpress widget
 	remove_meta_box( 'dashboard_primary', 'dashboard', 'side' ); // Wordpress news
+	if (!current_user_can('add_users')) {
+		remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' ); // "At a glance" widget
+		remove_meta_box( 'dashboard_activity', 'dashboard', 'normal'); // Activity widget
+	}
 } 
 
 add_action('do_meta_boxes', 'mitlibnews_remove_dashboard_widgets' );
