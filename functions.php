@@ -80,6 +80,32 @@ function mitlibnews_register_news_posts() {
 		'excerpt'
 	);
 
+	// Bibliotech
+	$labelsFeatures = array(
+		'name' => 'Bibliotech',
+		'singular_name' => 'Bibliotech',
+		'menu_name' => 'Bibliotech',
+		'name_admin_bar' => 'Bibliotech',
+		'add_new' => 'Add New',
+		'add_new_item' => 'Add New Bibliotech',
+		'new_item' => 'New Bibliotech',
+		'edit_item' => 'Edit Bibliotech',
+		'view_item' => 'View Bibliotech',
+		'all_items' => 'All Bibliotech',
+		'search_items' => 'Search Bibliotech',
+		'parent_item_colon' => 'Parent Bibliotech:',
+		'not_found' => 'No Bibliotech found.',
+		'not_found_in_trash' => 'No Bibliotech found in Trash.'
+	);
+	$argsFeatures = array(
+		'labels'  => $labelsFeatures,
+		'public' => true,
+		'menu_position' => 5,
+		'supports' => $supports_default,
+		'taxonomies' => array('category')
+	);
+	register_post_type('Bibliotech', $argsFeatures);
+
 	// Features
 	$labelsFeatures = array(
 		'name' => 'Features',
