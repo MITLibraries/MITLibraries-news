@@ -108,7 +108,7 @@ function mitlibnews_register_news_posts() {
 		'supports' => $supports_default,
 		'taxonomies' => array('category')
 	);
-	register_post_type('Bibliotech', $argsFeatures);
+	register_post_type('bibliotech', $argsFeatures);
 
 	// Features
 	$labelsFeatures = array(
@@ -134,7 +134,7 @@ function mitlibnews_register_news_posts() {
 		'supports' => $supports_default,
 		'taxonomies' => array('category')
 	);
-	register_post_type('Features', $argsFeatures);
+	register_post_type('features', $argsFeatures);
 
 	// Exhibits
 	$labelsExhibits = array(
@@ -160,7 +160,7 @@ function mitlibnews_register_news_posts() {
 		'supports' => $supports_default,
 		'taxonomies' => array('category')
 	);
-	register_post_type('Exhibits', $argsExhibits);
+	register_post_type('exhibits', $argsExhibits);
 
 	// Tips
 	$labelsTips = array(
@@ -186,7 +186,7 @@ function mitlibnews_register_news_posts() {
 		'supports' => $supports_default,
 		'taxonomies' => array('category')
 	);
-	register_post_type('Tips', $argsTips);
+	register_post_type('tips', $argsTips);
 
 	// Facts
 	$labelsFacts = array(
@@ -212,7 +212,7 @@ function mitlibnews_register_news_posts() {
 		'supports' => $supports_default,
 		'taxonomies' => array('category')
 	);
-	register_post_type('Facts', $argsFacts);
+	register_post_type('facts', $argsFacts);
 
 	// Updates
 	$labelsUpdates = array(
@@ -238,7 +238,7 @@ function mitlibnews_register_news_posts() {
 		'supports' => $supports_default,
 		'taxonomies' => array('category')
 	);
-	register_post_type('Updates', $argsUpdates);
+	register_post_type('updates', $argsUpdates);
 }
 
 add_action('init', 'mitlibnews_register_news_posts');
