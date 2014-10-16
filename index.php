@@ -2,7 +2,7 @@
 	get_header();
 ?>
 
-<div class="content-all">
+<div class="content-main">
 
 	<?php get_template_part('inc/sub-header'); ?>
 
