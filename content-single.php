@@ -22,7 +22,7 @@
 
 		<div class="entry-meta">
 			<span class="author">
-				<?php echo 'By '; the_author(); ?>
+				By <?php the_author_posts_link(); ?>
 			</span>
 			<span class="date-post">
 				<?php echo ' on '; the_date(); ?>
