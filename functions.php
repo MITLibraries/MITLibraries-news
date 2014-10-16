@@ -22,59 +22,6 @@ function mitlibnews_remove_dashboard_widgets() {
 
 add_action('do_meta_boxes', 'mitlibnews_remove_dashboard_widgets' );
 
-// Add dashboard widgets
-function mitlibnews_add_dashboard_widgets() {
-	// Add an urgent posts dashboard widget
-	wp_add_dashboard_widget(
-		'mitlibnews_urgent_dashboard_widget',
-		'Urgent posts',
-		'mitlibnews_urgent_dashboard_widget_function'
-	);
-}
-
-add_action( 'wp_dashboard_setup', 'mitlibnews_add_dashboard_widgets' );
-
-// Build Urgent posts dashboard widget
-function mitlibnews_urgent_dashboard_widget_function() {
-
-	$args = array(
-	  'post_type' => 'post',
-	  'orderby'   => 'title',
-	  'order'     => 'ASC',
-	  'posts_per_page' => 5,
-	  'meta_key'		=> 'urgent',
-		'meta_value'		=> true
-	);
-
-	$urgent_posts = new WP_Query( $args );
-
-	// The Loop
-	if ( $urgent_posts->have_posts() ) {
-		echo  '<table class="widefat">' .
-						'<thead>' .
-							'<tr>' .
-								'<th class="row-title">Post title</th>' .
-								'<th>Post author</th>' .
-							'</tr>' .
-						'</thead>' .
-						'<tbody>';
-		while ( $urgent_posts->have_posts() ) {
-			$urgent_posts->the_post();
-			echo  '<tr class="form-invalid">' .
-							'<td class="row-title"><a href="' . get_edit_post_link() . '">' . get_the_title() . '</a></td>' .
-							'<td>' . get_the_author() . '</td>' .
-						'</tr>';
-		}
-		echo    '</tbody>' .
-					'</table>';
-	} else {
-		echo 'There are no urgent posts.';
-	}
-
-	wp_reset_postdata();
-	
-}
-
 // Register the custom post types
 function mitlibnews_register_news_posts() {
 	$supports_default = array(
