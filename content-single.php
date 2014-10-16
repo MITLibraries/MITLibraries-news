@@ -10,7 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> data-category="<?php echo $category[0]->slug; ?>">
-	<header class="title-page">
+	<div class="title-page">
 		<?php if (get_field('mark_as_new') === true): ?>
 		<span>New!</span>
 		<?php endif; ?>
@@ -33,7 +33,7 @@
 			</span>
 			<?php endif; ?>
 		</div><!-- .entry-meta -->
-	</header><!-- .entry-header -->
+	</div><!-- .title-page -->
 
 	<div class="entry-content">
 		<?php
