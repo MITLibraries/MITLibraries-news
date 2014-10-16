@@ -1,5 +1,5 @@
 <?php $category = get_the_category(); ?>
-<div class="posts-related">
+<div class="posts--related">
 	<h3>More in <?php echo $category[0]->cat_name; ?></h3>
 	<div class="flex-container space-between"></div>
 </div>
@@ -25,7 +25,7 @@
 						'</div>'
 					);
 					relatedTemplate = relatedCompiled(json[i]);
-					$('.posts-related > .flex-container').append(relatedTemplate);
+					$('.posts--related > .flex-container').append(relatedTemplate);
 				};
 			})
 	}
