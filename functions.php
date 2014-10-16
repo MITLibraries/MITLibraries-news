@@ -112,20 +112,20 @@ function mitlibnews_register_news_posts() {
 
 	// Features
 	$labelsFeatures = array(
-		'name' => 'Features',
-		'singular_name' => 'Feature',
-		'menu_name' => 'Features',
-		'name_admin_bar' => 'Feature',
+		'name' => 'Spotlights - Featured',
+		'singular_name' => 'Spotlight - Featured',
+		'menu_name' => 'Spotlights - Featured',
+		'name_admin_bar' => 'Spotlight - Featured',
 		'add_new' => 'Add New',
-		'add_new_item' => 'Add New Feature',
-		'new_item' => 'New Feature',
-		'edit_item' => 'Edit Feature',
-		'view_item' => 'View Feature',
-		'all_items' => 'All Features',
-		'search_items' => 'Search Features',
-		'parent_item_colon' => 'Parent Features:',
-		'not_found' => 'No Features found.',
-		'not_found_in_trash' => 'No Features found in Trash.'
+		'add_new_item' => 'Add New Spotlight - Featured',
+		'new_item' => 'New Spotlight - Featured',
+		'edit_item' => 'Edit Spotlight - Featured',
+		'view_item' => 'View Spotlight - Featured',
+		'all_items' => 'All Spotlights - Featured',
+		'search_items' => 'Search Spotlights - Featured',
+		'parent_item_colon' => 'Parent Spotlights - Featured:',
+		'not_found' => 'No Spotlights - Featured found.',
+		'not_found_in_trash' => 'No Spotlights - Featured found in Trash.'
 	);
 	$argsFeatures = array(
 		'labels'  => $labelsFeatures,
@@ -138,20 +138,20 @@ function mitlibnews_register_news_posts() {
 
 	// Exhibits
 	$labelsExhibits = array(
-		'name' => 'Exhibits',
-		'singular_name' => 'Exhibit',
-		'menu_name' => 'Exhibits',
-		'name_admin_bar' => 'Exhibit',
+		'name' => 'Spotlights - Exhibits',
+		'singular_name' => 'Spotlights - Exhibit',
+		'menu_name' => 'Spotlights - Exhibits',
+		'name_admin_bar' => 'Spotlights - Exhibit',
 		'add_new' => 'Add New',
-		'add_new_item' => 'Add New Exhibit',
-		'new_item' => 'New Exhibit',
-		'edit_item' => 'Edit Exhibit',
-		'view_item' => 'View Exhibit',
-		'all_items' => 'All Exhibits',
-		'search_items' => 'Search Exhibits',
-		'parent_item_colon' => 'Parent Exhibits:',
-		'not_found' => 'No Exhibits found.',
-		'not_found_in_trash' => 'No Exhibits found in Trash.'
+		'add_new_item' => 'Add New Spotlights - Exhibit',
+		'new_item' => 'New Spotlights - Exhibit',
+		'edit_item' => 'Edit Spotlights - Exhibit',
+		'view_item' => 'View Spotlights - Exhibit',
+		'all_items' => 'All Spotlights - Exhibits',
+		'search_items' => 'Search Spotlights - Exhibits',
+		'parent_item_colon' => 'Parent Spotlights - Exhibits:',
+		'not_found' => 'No Spotlights - Exhibits found.',
+		'not_found_in_trash' => 'No Spotlights - Exhibits found in Trash.'
 	);
 	$argsExhibits = array(
 		'labels'  => $labelsExhibits,
@@ -164,20 +164,20 @@ function mitlibnews_register_news_posts() {
 
 	// Tips
 	$labelsTips = array(
-		'name' => 'Tips',
-		'singular_name' => 'Tip',
-		'menu_name' => 'Tips',
-		'name_admin_bar' => 'Tip',
+		'name' => 'Spotlights - Tips',
+		'singular_name' => 'Spotlights - Tip',
+		'menu_name' => 'Spotlights - Tips',
+		'name_admin_bar' => 'Spotlights - Tip',
 		'add_new' => 'Add New',
-		'add_new_item' => 'Add New Tip',
-		'new_item' => 'New Tip',
-		'edit_item' => 'Edit Tip',
-		'view_item' => 'View Tip',
-		'all_items' => 'All Tips',
-		'search_items' => 'Search Tips',
-		'parent_item_colon' => 'Parent Tips:',
-		'not_found' => 'No Tips found.',
-		'not_found_in_trash' => 'No Tips found in Trash.'
+		'add_new_item' => 'Add New Spotlights - Tip',
+		'new_item' => 'New Spotlights - Tip',
+		'edit_item' => 'Edit Spotlights - Tip',
+		'view_item' => 'View Spotlights - Tip',
+		'all_items' => 'All Spotlights - Tips',
+		'search_items' => 'Search Spotlights - Tips',
+		'parent_item_colon' => 'Parent Spotlights - Tips:',
+		'not_found' => 'No Spotlights - Tips found.',
+		'not_found_in_trash' => 'No Spotlights - Tips found in Trash.'
 	);
 	$argsTips = array(
 		'labels'  => $labelsTips,
@@ -190,20 +190,20 @@ function mitlibnews_register_news_posts() {
 
 	// Facts
 	$labelsFacts = array(
-		'name' => 'Facts',
-		'singular_name' => 'Fact',
-		'menu_name' => 'Facts',
-		'name_admin_bar' => 'Fact',
+		'name' => 'Spotlights - Facts',
+		'singular_name' => 'Spotlights - Fact',
+		'menu_name' => 'Spotlights - Facts',
+		'name_admin_bar' => 'Spotlights - Fact',
 		'add_new' => 'Add New',
-		'add_new_item' => 'Add New Fact',
-		'new_item' => 'New Fact',
-		'edit_item' => 'Edit Fact',
-		'view_item' => 'View Fact',
-		'all_items' => 'All Facts',
-		'search_items' => 'Search Facts',
-		'parent_item_colon' => 'Parent Facts:',
-		'not_found' => 'No Facts found.',
-		'not_found_in_trash' => 'No Facts found in Trash.'
+		'add_new_item' => 'Add New Spotlights - Fact',
+		'new_item' => 'New Spotlights - Fact',
+		'edit_item' => 'Edit Spotlights - Fact',
+		'view_item' => 'View Spotlights - Fact',
+		'all_items' => 'All Spotlights - Facts',
+		'search_items' => 'Search Spotlights - Facts',
+		'parent_item_colon' => 'Parent Spotlights - Facts:',
+		'not_found' => 'No Spotlights - Facts found.',
+		'not_found_in_trash' => 'No Spotlights - Facts found in Trash.'
 	);
 	$argsFacts = array(
 		'labels'  => $labelsFacts,
@@ -216,20 +216,20 @@ function mitlibnews_register_news_posts() {
 
 	// Updates
 	$labelsUpdates = array(
-		'name' => 'Updates',
-		'singular_name' => 'Update',
-		'menu_name' => 'Updates',
-		'name_admin_bar' => 'Update',
+		'name' => 'Spotlights - Updates',
+		'singular_name' => 'Spotlights - Update',
+		'menu_name' => 'Spotlights - Updates',
+		'name_admin_bar' => 'Spotlights - Update',
 		'add_new' => 'Add New',
-		'add_new_item' => 'Add New Update',
-		'new_item' => 'New Update',
-		'edit_item' => 'Edit Update',
-		'view_item' => 'View Update',
-		'all_items' => 'All Updates',
-		'search_items' => 'Search Updates',
-		'parent_item_colon' => 'Parent Updates:',
-		'not_found' => 'No Updates found.',
-		'not_found_in_trash' => 'No Updates found in Trash.'
+		'add_new_item' => 'Add New Spotlights - Update',
+		'new_item' => 'New Spotlights - Update',
+		'edit_item' => 'Edit Spotlights - Update',
+		'view_item' => 'View Spotlights - Update',
+		'all_items' => 'All Spotlights - Updates',
+		'search_items' => 'Search Spotlights - Updates',
+		'parent_item_colon' => 'Parent Spotlights - Updates:',
+		'not_found' => 'No Spotlights - Updates found.',
+		'not_found_in_trash' => 'No Spotlights - Updates found in Trash.'
 	);
 	$argsUpdates = array(
 		'labels'  => $labelsUpdates,
