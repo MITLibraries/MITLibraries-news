@@ -8,7 +8,7 @@
 		<div class="search"><?php get_search_form('true'); ?></div>
 	</div>
 </div>
-<div class="flex-container">
+<div class="flex-container space-between">
 	<nav class="types-posts">
 		<a class="button-secondary" href="#0">Show All</a>
 		<a class="button-secondary" href="#0">Events</a>
