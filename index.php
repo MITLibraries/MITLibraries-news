@@ -7,8 +7,20 @@
 	<?php get_template_part('inc/sub-header'); ?>
 	
 	<section class="posts--preview flex-container--wrap--3-col space-between">
+	<?php
 
-	<?php  while ( have_posts() ): the_post(); ?>
+	// WP Query args
+	$args = array(
+		'post_type' => 'any'
+	);
+
+	// The Query
+	$the_query = new WP_Query( $args );
+
+	// The loop
+	while ( $the_query->have_posts() ): $the_query->the_post();
+	
+	?>
 
 	<a href="<?php echo get_post_permalink(); ?>" class="post--full-bleed <?php if (!has_post_thumbnail()) { echo "no-image"; } else { echo "has-image"; } ?>">
 		<?php if (get_field('mark_as_new') === true): ?>
@@ -33,7 +45,14 @@
 		</div>
 	</a>
 	
-	<?php endwhile; ?>
+	<?php
+
+	endwhile;
+
+	/* Restore original Post Data */
+	wp_reset_postdata();
+
+	?>
 
 	</section>
 
