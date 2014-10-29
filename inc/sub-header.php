@@ -9,11 +9,11 @@
 	</div>
 </div>
 <div class="flex-container space-between">
-	<nav class="types-posts">
-		<a class="button-secondary" href="#0">Show All</a>
-		<a class="button-secondary" href="#0">Events</a>
-		<a class="button-secondary" href="#0">News</a>
-		<a class="button-secondary" href="#0">Bibliotech</a>
+	<nav class="nav-post-types">
+		<a class="button-secondary--blue" href="#0">Show All</a>
+		<a class="button-secondary--blue" href="#0">Events</a>
+		<a class="button-secondary--blue" href="#0">News</a>
+		<a class="button-secondary--blue" href="#0">Bibliotech</a>
 	</nav>
 	<form action="#0">
 		<select name="" id="">
