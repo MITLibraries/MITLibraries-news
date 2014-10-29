@@ -53,7 +53,8 @@ function mitlibnews_register_news_posts() {
 		'public' => true,
 		'menu_position' => 5,
 		'supports' => $supports_default,
-		'taxonomies' => array('category')
+		'taxonomies' => array('category'),
+		'has_archive' => true
 	);
 	register_post_type('bibliotech', $argsFeatures);
 
@@ -79,7 +80,8 @@ function mitlibnews_register_news_posts() {
 		'public' => true,
 		'menu_position' => 5,
 		'supports' => $supports_default,
-		'taxonomies' => array('category')
+		'taxonomies' => array('category'),
+		'has_archive' => true
 	);
 	register_post_type('spotlights', $argsFeatures);
 }
