@@ -6,7 +6,7 @@
 
 	<?php get_template_part('inc/sub-header'); ?>
 	
-	<section class="posts--preview flex-container--wrap">
+	<section class="posts--preview flex-container--wrap--3-col space-between">
 
 	<?php  while ( have_posts() ): the_post(); ?>
 
