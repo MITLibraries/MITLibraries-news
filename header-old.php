@@ -28,10 +28,10 @@
 <!-- Latest compiled and minified CSS 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 -->
-<link rel="stylesheet" href="http://libraries-dev.mit.edu/news/wp-content/themes/mit-libraries-news/css/bootstrap.css">
 
 <!-- Latest compiled and minified JavaScript -->
-
+ 
+ 
 
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
 <?php wp_head(); ?>
@@ -40,17 +40,19 @@
 		$askUrl = "";
 		if ($askUrl == "") $askUrl = "/ask";
 ?>
+	
+
+
+	
 	<script type="text/javascript">
 		todayDate="";
 	</script>
     
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <script src="http://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
-<script src="<?php echo site_url(); ?>/wp-content/themes/mit-libraries-news/js/lazyload.js" type="text/javascript"></script>
+   
 </head>
 
 <body <?php body_class(); ?>>
-	<div class="wrap-page">
+	<div class="container">
 		<header class="header-main flex-container flex-end">
 			
 			<h1 class="name-site group">
@@ -79,3 +81,6 @@
 			$section = get_post($pageRoot);
 
 		?>
+		
+        
+      

@@ -1,12 +1,12 @@
-<div class="newsSubHeader">
-	<div class="container">
-<div class="title-page col-xs-6  col-sm-7 col-sm-A-6 col-md-8 col-lg-8">
+<div class="newsSubHeader clearfix">
+<div class="innerPadding clearfix">
+<div class="title-page no-padding-left col-xs-12  col-sm-12 col-md-5 col-lg-5">
 	
     <?php if( is_single($post)){ ?>
-    	<h2 class="name-site2">News &amp; events</h2>
+    	<h2 class="name-site2"><a href="/news/">News &amp; events</a></h2>
       <?php }else{ ?>
     
-    <h1 class="name-site">News &amp; events
+    <h1 class="name-site"><a href="/news/">News &amp; events</a>
 	<?php 
 	if(is_category()){
 	 printf('<span>'. ': ' . single_cat_title( '', false ) . '</span>' ); 
@@ -16,48 +16,28 @@
    <?php } ?>
     
  </div>   
-    <div class="socialNav col-xs-6 col-sm-5 col-sm-A-5 col-md-4 col-lg-4">
+<div class="socialNav singleSocialNav hidden-xs not_on_phone socialNav col-xs-12 col-sm-12 col-md-7  col-lg-7 clearfix ">
+
+
+ <?php get_template_part('inc/social'); ?>
 
 
 
 
 
 
-		   <?php
-$defaults = array(
-	'theme_location'  => '',
-	'menu'            => 'subscribe',
-	'container'       => '<div>',
-	'container_class' => '',
-	'container_id'    => '',
-	'menu_class'      => '',
-	'menu_id'         => '',
-	'echo'            => true,
-	'fallback_cb'     => 'wp_page_menu',
-	'before'          => '',
-	'after'           => '',
-	'link_before'     => '',
-	'link_after'      => '',
-	'items_wrap'      => '<ul id="%1$s" class="%2$s udClear">%3$s</ul>',
-	'depth'           => 0,
-	'walker'          => ''
-);
-wp_nav_menu( $defaults );
-?>	    
-	
+
+<?php /*?><a href="">Subscribe</a>
 <?php previous_post('%','Previous story', 'no'); ?>
-<span class="not_on_phone">|</span> <?php next_post('%','Next story ', 'no'); ?>
-	
-	
-	<?php /*?>	<a href="https://plus.google.com/+mit/posts"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/google.jpg" /></a><?php */?>
-		
-	</div>
+<span class="not_on_phone">|</span> 
+<?php next_post('%','Next story ', 'no'); ?><?php */?>
+</div>
 
 
-<hr class="news col-xs-12 col-sm-12 col-md-12 col-lg-12 clearfix">
+<hr class="news hidden-xs col-sm-12 col-md-12 col-lg-12 clearfix">
 
 
-<div class="flex-container subNavH">
+<?php /*?><div class="flex-container subNavH">
   <div class="leftNav">
     <div class="box-row newsNav">
 	 
@@ -138,10 +118,9 @@ wp_nav_menu( $defaults );
 </script>
  </div>
   </div>
-</div>
-	</div><!--close div -->
-</div><!--100%-->
+</div><?php */?>
+</div><!--innerpadding-->
+</div><!--news-->
 </div>
 <div class="clearfix newsBackGround">
 
-<div class="container">

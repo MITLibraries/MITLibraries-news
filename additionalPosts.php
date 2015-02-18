@@ -44,14 +44,18 @@ $date = DateTime::createFromFormat('Ymd', get_field('event_date'));
 	
 ?>
 <?php if( $the_query->have_posts() ):  ?>
+
+
 <?php 
+$o = -1;	
+
 while ( $the_query->have_posts() ) : $the_query->the_post(); 
-
-
+ $o++;
 ?>
 
- <div class="col-xs-12  col-xs-B-6 col-sm-4 col-md-4">
-      <div class="hentry flex-item blueTop  eventsBox <?php if(has_post_thumbnail()){ echo "has-image"; }elseif (get_field("listImg")) { echo "has-image";} else { echo "no-image"; } ?>" onClick='location.href="<?php if((get_field("external_link") != "") && $post->post_type == 'spotlights'){ the_field("external_link");}else{ echo get_post_permalink();}  ?>"'> 
+
+ <div id="theBox" class="<?php if ($o % 3 == 0){ echo "third "; } ?> col-xs-12  col-xs-B-6 col-sm-4 col-md-4 no-padding-left-mobile">
+      <div class="flex-item blueTop  eventsBox <?php if (get_field("listImg")) { echo "has-image";} else { echo "no-image"; } ?>" onClick='location.href="<?php if((get_field("external_link") != "") && $post->post_type == 'spotlights'){ the_field("external_link");}else{ echo get_post_permalink();}  ?>"'> 
         <?php get_template_part('inc/spotlights'); ?>
        
         <?php
@@ -61,7 +65,7 @@ while ( $the_query->have_posts() ) : $the_query->the_post();
         
         
         <h2 class="entry-title title-post  <?php if($post->post_type == 'spotlights'){ echo "spotlights"; } ?>">
-          <?php  the_title(); ?>
+          <a href="<?php the_permalink(); ?>"><?php the_title();?></a>
         </h2>
         
         
@@ -93,7 +97,12 @@ while ( $the_query->have_posts() ) : $the_query->the_post();
     </div>
     <!--close div that opens in bilbio if statement-->
     <?php } ?>
-<?php endwhile; 
+    
+
+<?php
+
+ endwhile; 
+
 else : ?>
 
 <script>

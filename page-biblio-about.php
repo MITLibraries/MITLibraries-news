@@ -13,7 +13,9 @@ get_template_part('inc/bib-header');
  <div class="col-md-12"> 
  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
  <?php the_title( '<h1 class="entry-title single">', '</h1>' ); ?>
+     <?php if(get_field("subtitle")){ ?>
       <h2 class="subtitle"><?php the_field("subtitle"); ?></h2>
+      <?php } ?>
   </div>
 
 
@@ -40,4 +42,5 @@ get_template_part('inc/bib-header');
 	<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
 <?php endif; ?>
 </div><!--close biblio about-->
+<div class="container">
 <?php get_footer(); ?>

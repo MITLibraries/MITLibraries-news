@@ -8,31 +8,52 @@
 */
 
 @import url("../libraries/style.css");
+h2 a {
+	color: #111;
+}
+.single h2 a {
+	color: #338bc5;
+}
 .hrList td.loc {
 	width: 200px;
 }
 .socialNavSearch {
 	padding: 19px !important;
-
-	
 }
 .socialNavMiddle {
 	padding: 19px !important;
-
-	
 }
-ul.anotherMenu li{
-	float:left;
-	margin-right:10px;
-
-	}
-ul#menu-subscribe{
+ul.anotherMenu li {
 	float: left;
-
-	}
-.catNav{
-padding-right: 26px !important;	
-	}
+}
+li.sub {
+	margin-right: 13px;
+	padding-top: 0px;
+}
+li.fb {
+	margin-left: 5px;
+	margin-top: 1px;
+	margin-right: 5px;
+}
+li.tw {
+	margin-top: 0px;
+	margin-right: 8px;
+}
+li.ig {
+	margin-right: 14px;
+	margin-top: 2px;
+}
+.image_off, .sIcons li:hover .image_on {
+	display: none
+}
+.image_on, .sIcons li:hover .image_off {
+	display: inline-block
+}
+ul#menu-subscribe {
+	float: left;
+	padding-right: 14px;
+	padding-top: 4px;
+}
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
 	padding-right: 2px;
 	padding-left: 12px;
@@ -50,24 +71,29 @@ padding-right: 26px !important;
 	color: #222;
 	font-weight: 200;
 }
+.singleMargin {
+	background-color: rgb(233, 233, 233);
+}
 .newsBackGround {
 	background-color: rgb(233, 233, 233);
 	width: 100%;
 	border-top: 4px solid rgb(224,224,224);
 	padding-top: 20px;
 }
+.single .newsBackGround {
+	background-color: rgb(255, 255, 255);
+	width: 100%;
+	border-top: none;
+	padding-top: 0px;
+}
 table.hrList tr:nth-child(even) {
 	background: #eceaea;
 }
 .moreBtn {
 	margin: 30px;
-0px;
 }
 .socialNav {
 	padding-top: 19px !important;
-}
-.no-image .event {
-	margin-bottom: 10px;
 }
 .twitterLink {
 	margin-top: 1px;
@@ -75,13 +101,11 @@ table.hrList tr:nth-child(even) {
 .eventsPage h2 a {
 	font-size: 16pt;
 	line-height: 18pt;
-	text-decoration: none;
 	margin: 9px 0px 10px 0px;
 	letter-spacing: 0px;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
 	color: #111;
-	text-decoration: none;
 }
 .category-post-single {
 	font-weight: 600;
@@ -108,15 +132,23 @@ table.hrList tr:nth-child(even) {
  font-family:font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
 }
+.single .entry-content p:last-of-type {
+	margin-bottom: 83px!important;
+}
+.single p {
+padding-bottom: 10px!important;
+margin-bottom:0px !important;
+}
+
+
 h1.single {
 	font-size: 27pt !important;
-line-height: 27pt;
-color: rgb(89,89,89);
-font-family: 'Open Sans', sans-serif;
-font-weight: 400;
-margin-top: 31px;
-margin-bottom: 10px;
-
+	line-height: 27pt;
+	color: rgb(89,89,89);
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	margin-top: 0px;
+	margin-bottom: 10px;
 }
 .title-page h1.name-site, h2.name-site2 {
 	font-size: 43px;
@@ -124,7 +156,7 @@ margin-bottom: 10px;
 	color: #5889C2;
 	line-height: 38px;
 	margin: 15px 0px;
-	padding: 0px 4px;
+	padding: 0px 0px;
 }
 .entry-meta .author, .entry-meta .date-post, .entry-meta .category-post-single {
 	font-size: 11px;
@@ -139,7 +171,7 @@ margin-bottom: 10px;
 	-webkit-justify-content: center;
 	justify-content: center;
 }
-.moreBtn button {
+.readMorePosts button {
 	background-color: rgb(255,136,39);
 	padding: 10px;
 	-webkit-border-radius: 5px;
@@ -149,10 +181,17 @@ margin-bottom: 10px;
 	font-weight: 500;
 	color: white;
 	border: 1px solid rgb(255, 125, 46);
-	width: 254px;
+	width: 100%;
+	margin-bottom: 20px;
+	margin-top: 13px;
+}
+.readMorePosts button:hover {
+	background-color: #f7700a;
+	color: #fff0e5;
+	background-image: none;
 }
 .subNavH {
-	padding: 9px 23px 9px 19px!important
+	padding: 9px 0px 9px 0px!important;
 }
 .single .category-post {
 	position: absolute;
@@ -163,8 +202,8 @@ margin-bottom: 10px;
 	padding: 10px 0px;
 }
 .biblioBox p {
-	font-size: 12px;
-	padding-top: 31px;
+	font-size: 18px;
+	padding-top: 17px;
 	padding-left: 5px;
 	font-weight: 100;
 }
@@ -173,10 +212,12 @@ margin-bottom: 10px;
 .biblioBox:first-child {
 	border-right: 1px solid #ccc;
 }
-.biblioBox  img{padding-left:16px;}
+.biblioBox img {
+	padding-left: 6px;
+}
 .biblioBox:last-child {
 	padding-top: 20px;
-	padding-right: 37px;
+	padding-right: 21px;
 	padding-bottom: 14px;
 }
 .moreBtn button:active, .moreBtn button:focus, .moreBtn button:hover {
@@ -364,7 +405,7 @@ margin-bottom: 10px;
 	margin: 6px 0px 5px 0px;
 	letter-spacing: 0px;
 	font-family: 'Open Sans', sans-serif;
-	font-weight: 300;
+	font-weight: 400;
 	color: #111;
 	padding: 0px 10px !important;
 }
@@ -375,7 +416,7 @@ margin-bottom: 10px;
 	margin: 9px 0px 0px 0px;
 	letter-spacing: 0px;
 	font-family: 'Open Sans', sans-serif;
-	font-weight: 300;
+	font-weight: 400;
 	color: #111;
 }
 .eventsBox h2.title-postnoImg {
@@ -392,7 +433,7 @@ margin-bottom: 10px;
 .mitDate {
 	float: right;
 	font-family: 'Open Sans', sans-serif;
-	color: #ABABAB;
+	color: #6d6d6d;
 	font-size: 10px;
 }
 .featured {
@@ -421,7 +462,7 @@ margin-bottom: 10px;
 	width: 30px;
 }
 .biblioPadding {
-	padding: 9px 9px 0px 0px
+	padding: 11px 9px 0px 0px;
 }
 .biblioFloat {
 	float: left;
@@ -438,18 +479,6 @@ margin-bottom: 10px;
 }
 .category-post.Bibliotech img {
 	margin-bottom: -3px;
-}
-.event {
-	color: #F58733;
-	background-image: url(images/event.jpg);
-	background-repeat: no-repeat;
-	background-position: 7px 2px;
-	padding-left: 30px;
-	font-size: 12pt;
-}
-body.single .event {
-	background-position: -2px 3px;
-	padding-left: 20px;
 }
 .time {
 	color: #ABABAB;
@@ -514,23 +543,22 @@ h1 {
 }
 .title-page {
 	margin-bottom: 0px !important;
-	padding: 7px 0px 0px 0px !important;
+	padding: 15px 0px 0px 0px !important;
 }
 .featuredColImg {
 	position: absolute;
-	right: -2px;
-	top: -25px;
+	left: 18px;
+	top: 6px;
 }
 .featuredColImg img {
 	opacity: 1;
 	z-index: 1;
-	width: 31px;
 }
 .featuredCol {
 	position: absolute;
-	top: -21px;
-	left: 11px;
-	color: white;
+	top: 10px;
+	left: 48px;
+	color: #f58733;
 	font-size: 10pt;
 	font-family: 'Open Sans', sans-serif;
 }
@@ -580,8 +608,8 @@ select#cat, select#mitArchive, select#dynamic_select, select#bilbioMenu, select#
 	margin: 0px;
 	font-size: 17px;
 	color: #595959;
-	width: 155px;
-	max-width: 155px;
+	width: 284px;
+	max-width: 300px;
 	font-family: "open sans", sans-serif;
 	font-weight: 600;
 	line-height: 28pt;
@@ -595,11 +623,22 @@ select#cat, select#mitArchive, select#dynamic_select, select#bilbioMenu, select#
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 }
+select#bibMenu {
+	width: 160px;
+	max-width: 300px;
+}
 .newIcon {
 	position: absolute;
 	top: -22px;
 	left: -16px;
 	width: 56px;
+}
+.no-padding-left {
+	padding-left: 0px;
+}
+.innerPadding {
+	padding-left: 16px;
+	padding-right: 16px;
 }
 .newsSubHeader {
 	/*-webkit-box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
@@ -618,11 +657,9 @@ select#cat, select#mitArchive, select#dynamic_select, select#bilbioMenu, select#
 .mitCaption {
 	text-align: center;
 }
-
-.mySinglePicMobile{
-	
-	margin:0 auto;
-	}
+.mySinglePicMobile {
+	margin: 0 auto;
+}
 .biblioAbout {
 	background-color: white;
 }
@@ -650,13 +687,14 @@ select#cat, select#mitArchive, select#dynamic_select, select#bilbioMenu, select#
 	margin: 0px;
 	padding: 0px;
 }
-
-h2.grid{font-size: 14pt;
-line-height: 19pt;
-color: #909090;
-margin: 0px;
-padding: 0px;
-padding-left: 8px;}
+h2.grid {
+	font-size: 14pt;
+	line-height: 19pt;
+	color: #909090;
+	margin: 0px;
+	padding: 0px;
+	padding-left: 8px;
+}
 .mitContent h2, .mitContent h3, .mitContent h4 {
 	margin: 0px;
 	padding: 0px;
@@ -673,14 +711,6 @@ padding-left: 8px;}
 }
 .bgWhite .excerpt-post p {
 	padding-left: 0px;
-}
-.bgWhite .event {
-	color: #F58733;
-	background-image: url(images/event.jpg);
-	background-repeat: no-repeat;
-	background-position: -3px 2px;
-	padding-left: 20px;
-	font-size: 12pt;
 }
 a, .comments-link a, .entry-meta a {
 	color: rgb(88,137,193);
@@ -719,10 +749,9 @@ article {
 	display: block;
 	width: 100%;
 }
-.not_on_phone{
-	display:none;
-	}
-
+.not_on_phone {
+	display: none;
+}
 }
 
 
@@ -852,53 +881,6 @@ width: 334px;
 }
 .biblioPadding {
 }
-/*NAV BEGINS*/
-
-.newsNav {
-}
-.newsNav ul {
-	padding-left: 0px;
-}
-.newsNav ul li.current-menu-item {
-	border-radius: 5px;
-	background-color: rgb(88,137,193);
-	display: inline;
-}
-hr.news {
-	background-color: rgb(230, 230, 230);
-	border: 0;
-	height: 1px;
-	margin-top: 0px;
-	margin-bottom: 15px;
-	margin-left: 0px;
-	margin-right: 0px;
-}
-.newsNav ul li {
-	border-radius: 5px;
-	background-color: #fff;
-	display: inline;
-	border: 1px solid rgb(230,230,230);
-	margin-right: 5px;
-}
-.newsNav ul li.current-menu-item a {
-	color: #fff;
-}
-.newsNav ul li a {
-	color: rgb(88,137,193);
-	font-size: 12pt;
-}
-.newsNav ul li a:hover {
-	text-decoration: none;
-}
-.newsNav {
-	margin-bottom: 13px;
-}
-/*NAV*/
-
-
-
-
-
 }
 
 /* Large devices (large desktops, 1200px and up) */
@@ -958,8 +940,6 @@ width: 292px;
 	position: relative;
 }
 .newsNav li a {
-	border-bottom: 1px solid #576979;
-	border-right: 1px solid #576979;
 }
 .newsNav a {
 	text-align: left;
@@ -990,14 +970,14 @@ width: 292px;
 	border-radius: 5px;
 }
 .newsNav a#pull:after {
-	content: "";
+/*content: "";
 	background: url('/wp-content/themes/mit-libraries-news/images/nav-icon.png') no-repeat;
 	width: 30px;
 	height: 30px;
 	display: inline-block;
 	position: absolute;
 	right: 15px;
-	top: 10px;
+	top: 10px;*/
 }
 .biblioBox {
 	text-align: center;
@@ -1015,13 +995,11 @@ width: 292px;
 	height: auto;
 }
 .newsNav li {
-	width: 100%;
+	width: 80%;
 	float: left;
 	position: relative;
 }
 .newsNav li a {
-	border-bottom: 1px solid #576979;
-	border-right: 1px solid #576979;
 }
 .newsNav a {
 	text-align: left;
@@ -1052,14 +1030,14 @@ width: 292px;
 	border-radius: 5px;
 }
 .newsNav a#pull:after {
-	content: "";
+/*	content: "";
 	background: url('/wp-content/themes/mit-libraries-news/images/nav-icon.png') no-repeat;
 	width: 30px;
 	height: 30px;
 	display: inline-block;
 	position: absolute;
 	right: 15px;
-	top: 10px;
+	top: 10px;*/
 }
 .newsNav ul li.current-menu-item {
 	border-radius: 5px;
@@ -1084,23 +1062,12 @@ width: 292px;
 .newsNav a#pull {
 	display: block;
 	background-color: rgb(244,244,244);
-	width: 186px;
-	position: relative;
-	padding: 8px;
-	border-bottom: 1px solid rgb(225, 225, 225);
-	background-color: rgb(244, 244, 244);
-	border-top: 1px solid rgb(242, 242, 242);
-	border-left: 1px solid rgb(242, 242, 242);
-	border-right: 1px solid rgb(229, 229, 229);
-	height: 38px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
+	width: 136px;
 }
 .newsNav a#pull:after {
 	content: "";
-	background: url('/wp-content/themes/mit-libraries-news/images/nav-icon.png') no-repeat;
-	width: 30px;
+ background: 
+ width: 30px;
 	height: 30px;
 	display: inline-block;
 	position: absolute;
@@ -1117,16 +1084,23 @@ width: 292px;
 	color: rgb(88,137,193);
 }
 ul#menu-subscribe {
-float: left;
- margin-left: 0px; 
- text-align:center;
+	float: left;
+	margin-left: 0px;
+	text-align: center;
 }
-
-
 }
 
 /*Smartphone*/
+@media only screen and (max-width : 400px) {
+.no-padding-left-mobile {
+	padding-left: 0px !important;
+}
+}
+
 @media only screen and (max-width : 320px) {
+.no-padding-left-mobile {
+	padding-left: 0px !important;
+}
 .newsNav li {
 	display: block;
 	float: none;
@@ -1177,8 +1151,6 @@ nav li {
 	position: relative;
 }
 nav li a {
-	border-bottom: 1px solid #576979;
-	border-right: 1px solid #576979;
 }
 nav a {
 	text-align: left;
@@ -1193,7 +1165,7 @@ nav a {
 	color: #5889C2;
 	line-height: 38px;
 	margin: 6px 0px;
-	padding: 0px 18px;
+	padding: 0px 0px;
 }
 .single li#menu-item-14139 {
 	margin-top: -2px;
@@ -1231,15 +1203,163 @@ img.singleImg {
 .inlineHeader h1, .inlineHeader h2, .inlineHeader h3, .inlineHeader h4 {
 	display: inline;
 }
-.eventsBox h2.spotlights{
-	margin:40px 10px 0px 11px;
-	}
-.single article{
-padding-left: 45px;
-padding-right: 45px;
-	}
+.eventsBox h2.spotlights {
+	margin: 40px 10px 0px 11px;
+}
+.single article {
+	padding-left: 16px;
+	padding-right: 16px;
+}
+.biblioAbout h1 {
+	padding-top: 16px;
+	margin-bottom: 16px;
+}
+.container {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.title-page {
+	box-shadow: none !important;
+}
+input.searchForm {
+	width: 140px;
+}
+h2.search, p.search {
+	padding: 1px 0px 15px 16px
+}
+button#dropdownMenu1 {
+	padding: 6px 43px;
+}
+.bgWhite .event {
+	color: #F58733;
+	padding-left: 20px;
+	font-size: 12pt;
+}
+.bgWhite .events {
+	padding-left: 0px;
+}
+.events {
+	color: #F58733;
+	padding-left: 8px;
+	font-size: 12pt;
+}
+/*SRPITE*/
+.biblioHeader, .or_cog-25, .or_check-25, .bilbioTechIcon, .event, .or_check-25, .or_star-25,  .or_eye-25, .or_life-25, .or_pin-25, .or_sun-25, .or_thumb-25, .si_facebook, .si_facebookBlue, .si_instagram, .si_instagramBlue, .si_twitter, .si_twitterBlue {
+	background: url(images/sprites.png) no-repeat;
+}
+.biblioHeader {
+	background-position: -11px -374px;
+	width: 331px;
+	height: 75px;
+}
+.bilbioTechIcon {
+	background-position: -60px -18px;
+	width: 27px;
+	height: 30px;
+}
+.event {
+	background-position: -11px -31px;
+	width: 17px;
+	height: 18px;
+	display: inline-block;
+}
+.or_check-25 {
+	background-position: -61px -177px;
+	width: 25px;
+	height: 25px;
+}
+.or_eye-25 {
+	background-position: -10px -176px;
+	width: 25px;
+	height: 25px;
+}
+.or_life-25 {
+	background-position: -8px -76px;
+	width: 25px;
+	height: 25px;
+}
+.or_pin-25 {
+	background-position: -63px -74px;
+	width: 25px;
+	height: 25px;
+}
+.or_sun-25 {
+	background-position: -9px -128px;
+	width: 25px;
+	height: 25px;
+}
+.or_thumb-25 {
+	background-position: -62px -127px;
+	width: 25px;
+	height: 25px;
+}
+.or_cog-25 {
+	background-position: -113px -175px;
+	width: 25px;
+	height: 25px;
+}
+.or_check-25 {
+	background-position: -61px -177px;
+	width: 25px;
+	height: 25px;
+}
+.si_facebook {
+	background-position: -161px -27px;
+	width: 26px;
+	height: 24px;
+}
+.si_facebookBlue {
+	background-position: -160px -79px;
+	width: 26px;
+	height: 24px;
+}
+.si_instagram {
+	background-position: -213px -28px;
+	width: 26px;
+	height: 24px;
+}
+.si_instagramBlue {
+	background-position: -214px -79px;
+	width: 26px;
+	height: 24px;
+}
+.si_twitter {
+	background-position: -111px -25px;
+	width: 26px;
+	height: 24px;
+}
+.si_twitterBlue {
+	background-position: -110px -76px;
+	width: 26px;
+	height: 24px;
+}
+.or_star-25{
+	background-position: -112px -127px ;
+	width: 25px;
+	height: 25px;
+}
+/*SPRINT ENDS*/
+.col-centered {
+	float: none;
+	margin: 0 auto;
+}
+
+.single ul {
+	padding-left: 40px !important;
+	margin-bottom:10px !important;
+	display: block;
+	list-style-type: disc;
+	-webkit-margin-before: 1em;
+	-webkit-margin-after: 1em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	-webkit-padding-start: 40px;
 	
-	
-.biblioAbout p, 
-.biblioAbout h1, 
-.biblioAbout h2{padding-left:20px}
+}
+.single ul li {
+	list-style-type: disc;
+}
+.single li{margin-bottom:5px;}
+
+
+.single ul.sIcons li {list-style-type:none}

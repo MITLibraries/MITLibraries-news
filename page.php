@@ -22,15 +22,16 @@ $isRoot = $section->ID == $post->ID;
 get_header(); ?>
 	<?php get_template_part('inc/sub-header'); ?>
 
-
+	<?php while ( have_posts() ) : the_post(); ?>
+		<div class="container">
+        <div class="row">
+		<div id="stage" class="inner column3 tertiaryPage" role="main">
+			<div class="col-xs-12 col-xs-B-12 col-sm-12 col-md-12 col-lg-12 ">
 
 		<div id="breadcrumb" class="inner hidden-phone" role="navigation" aria-label="breadcrumbs">
 			<?php wsf_breadcrumbs(" &raquo; ", ""); ?>
 		</div>
 
-		<?php while ( have_posts() ) : the_post(); ?>
-		
-		<div id="stage" class="inner column3 tertiaryPage" role="main">
 	
 			<div class="title-page">
 				<?php if ($isRoot): ?>
@@ -40,9 +41,12 @@ get_header(); ?>
 				<?php endif; ?>
 			</div>
 			
-			<div class="content-main">
+			<div class="">
 				<?php get_template_part( 'content', 'page' ); ?>
 			</div>
+            </div>
 		</div>
+        </div>
+        </div>
 		<?php endwhile; // end of the loop. ?>
 <?php get_footer(); ?>

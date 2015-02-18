@@ -3,7 +3,12 @@
 				$date = DateTime::createFromFormat('Ymd', get_field('event_date'));
 				
 			?>
-          <div class="event"><?php echo $date->format('F, j Y'); ?>&nbsp;&nbsp; &nbsp; <span class="time">
+          
+          
+          <div class="events">
+		  <div class="event"> </div>
+		  <?php echo $date->format('F j, Y'); ?>&nbsp;&nbsp; &nbsp; 
+          <span class="time">
             <?php if( get_field('event_start_time') ){ 
 			  		echo the_field('event_start_time'); 
 					} ?>
@@ -13,6 +18,8 @@
             <?php if( get_field('event_end_time') ){ 
 			  		echo the_field('event_end_time'); 
 			}  ?>
-            </span> </div>
+            </span> 
+          
+           </div>
           <?php 	}	?>
           <!--EVENT --> 

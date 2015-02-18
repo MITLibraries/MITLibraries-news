@@ -97,34 +97,35 @@
 
 </div><!-- end div.wrap-page -->
 
+
 <script>
-jQuery(function() {
-			var pull 		= jQuery('#pull');
-				menu 		= jQuery('nav ul');
-				menuHeight	= menu.height();
+//jQuery(function() {
+//			var pull 		= jQuery('#pull');
+//				menu 		= jQuery('nav ul');
+//				menuHeight	= menu.height();
+//
+//			jQuery(pull).on('click', function(e) {
+//				e.preventDefault();
+//				menu.slideToggle();
+//			});
+//
+//			jQuery(window).resize(function(){
+//        		var w = jQuery (window).width();
+//        		if(w > 320 && menu.is(':hidden')) {
+//        			menu.removeAttr('style');
+//        		}
+//    		});
+//		});
+//		
+//jQuery('header .menu--toggle').click(function(){
+//jQuery('#nav-main').toggleClass('active');
+//jQuery('.wrap-page').toggleClass('mobile-nav-active');
+//	});	
 
-			jQuery(pull).on('click', function(e) {
-				e.preventDefault();
-				menu.slideToggle();
-			});
-
-			jQuery(window).resize(function(){
-        		var w = jQuery (window).width();
-        		if(w > 320 && menu.is(':hidden')) {
-        			menu.removeAttr('style');
-        		}
-    		});
-		});
 		
-jQuery('header .menu--toggle').click(function(){
-jQuery('#nav-main').toggleClass('active');
-jQuery('.wrap-page').toggleClass('mobile-nav-active');
+		
 		
 
-		
-		
-		
-});
 var $j = jQuery.noConflict(); 
 $j(function() {
   $j("img.img-responsive").lazyload({ 
@@ -134,20 +135,12 @@ $j(function() {
   }); 
 });	
 	
-/*	
-jQuery(function() {
-    if (localStorage.getItem('bibMenu')) {
-        jQuery("#bibMenu option").eq(localStorage.getItem('bibMenu')).prop('selected', true);
-    }
 
-    jQuery("#bibMenu").on('change', function() {
-        localStorage.setItem('bibMenu', jQuery('option:selected', this).index());
-    });
-});
-*/	
 		
 		
 </script>
+
+
 
 
 <?php wp_footer(); ?>

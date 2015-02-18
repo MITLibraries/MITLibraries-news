@@ -1,67 +1,41 @@
 <div class="newsSubHeader">
-<div class="container">
+<div class="innerPadding">
 <div class="title-page row">
- <div class="col-xs-12  col-sm-6  col-sm-6  col-md-6 col-lg-6">
-    <?php if( is_single($post)){ ?>
-    	<h2 class="name-site2">News &amp; events</h2>
+ <div class="no-padding-left col-xs-12  col-sm-12 col-md-5 col-lg-5">
+	<?php 
+	global $post;
+	if (is_home()){ ?>
+		 <h1 class="name-site">News &amp; events</h1>
+	 <?php	}elseif ( is_single($post)){ ?>
+    	<h2 class="name-site2"><a href="/news/">News &amp; events</a></h2>
       <?php }else{ ?>
-    <h1 class="name-site">News &amp; events
+    <h1 class="name-site"><a href="/news/">News &amp; events</a>
 	<?php 
 	if(is_category()){
-	 printf('<span>'. ': ' . single_cat_title( '', false ) . '</span>' ); 
+	 printf('<span class="lowercase">'. ': ' . single_cat_title( '', false ) . '</span>' ); 
 	}  ?>        
     </h1>
    <?php } ?>
   </div>
    
   
- <div class="socialNav col-xs-12  col-sm-push-1 col-sm-6  col-sm-6 col-md-push-1  col-md-6 col-lg-push-1 col-lg-6 clearfix "> 
-   <?php
-$defaults = array(
-	'theme_location'  => '',
-	'menu'            => 'subscribe',
-	'container'       => '<div>',
-	'container_class' => '',
-	'container_id'    => '',
-	'menu_class'      => '',
-	'menu_id'         => '',
-	'echo'            => true,
-	'fallback_cb'     => 'wp_page_menu',
-	'before'          => '',
-	'after'           => '',
-	'link_before'     => '',
-	'link_after'      => '',
-	'items_wrap'      => '<ul id="%1$s" class="%2$s udClear">%3$s</ul>',
-	'depth'           => 0,
-	'walker'          => ''
-);
-wp_nav_menu( $defaults );
-?>	
- <ul class="anotherMenu clearfix">
- <li>
+  
+  
+  
+  
+  
+  <div class="socialNav col-xs-12 col-sm-12 col-md-7  col-lg-7 clearfix "> 
+	
+ <?php get_template_part('inc/social'); ?>
 
-		<a href="http://twitter.com/mitlibraries" class="twitterLink"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/twitter.jpg" /></a>
-        </li>
-        
-        <li>
-    
-		<a href="http://libraries.mit.edu/facebook" class="facebookLink"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/facebook.jpg" /></a>
-    	</li>
-	<?php /*?>	<a href="https://plus.google.com/+mit/posts"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/google.jpg" /></a><?php */?>
-   
-     <li>
-   <?php get_search_form('true'); ?>
-   </li>
-   
-   </ul>
 
 
 </div><!--row ends-->
 </div><!--container ends-->
-<hr class="news">
-<div class="container subNavH">
+<hr class="hidden-xs news">
+<div class="subNavH">
   <div class="row">
-    <div class="col-xs-6  col-sm-6  col-sm-6  col-md-6 col-lg-6  newsNav">
+    <div class="no-padding-left  col-xs-6  col-sm-6  col-sm-6  col-md-6 col-lg-6  newsNav dropdown">
 <?php
 //main nav
 $defaults = array(
@@ -69,7 +43,7 @@ $defaults = array(
 	'menu'            => 'mainNav',
 	'container'       => 'nav',
 	'container_class' => '',
-	'container_id'    => '',
+	'container_id'    => 'nav-main',
 	'menu_class'      => 'menu',
 	'menu_id'         => '',
 	'echo'            => true,
@@ -78,19 +52,32 @@ $defaults = array(
 	'after'           => '',
 	'link_before'     => '',
 	'link_after'      => '',
-	'items_wrap'      => '<ul id="%1$s" class="%2$s udClear nav nav-pills" role="tablist">%3$s</ul><a href="#" id="pull">Menu</a>',
+	'items_wrap'      => '<ul id="%1$s" class="%2$s udClear nav nav-pills dropdown-menu" aria-labelledby="dropdownMenu1" role="menu">%3$s</ul>
+
+	<button class="btn btn-default dropdown-toggle hidden-sm hidden-md hidden-lg" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+    MENU
+    <span class="caret"></span>
+  </button> ',
 	'depth'           => 0,
 	'walker'          => ''
 );
 
 wp_nav_menu( $defaults );
 ?>	    
+  
     </div>
- 
+    
+    
+
+                                <!--only on mobile --> 
+                                 <div class="col-xs-6 hidden-sm hidden-md hidden-lg">
+                                    <div class=" pull-right clearfix"><?php get_search_form('true'); ?></div>
+                                 </div>
+                                <!--only on mobile ENDS -->  
  
 
  
-    <div class="col-xs-6  col-sm-6  col-sm-6  col-md-6 col-lg-6 catNav">
+    <div class="hidden-xs   col-sm-6  col-sm-6  col-md-6 col-lg-6 catNav">
 
 <ul>
 
@@ -140,9 +127,12 @@ wp_nav_menu( $defaults );
  
 </div>
   </div><!--row -->
-	</div><!--close container -->
-</div><!--100%-->
-</div>
-<div class="udClear newsBackGround" >
+	
+</div> <!--innerpaddingends-->
 
-<div class="container">
+<!--100%-->
+</div>
+</div><!--closes page wrap from header this is open on main page !important-->
+<div class="clearfix newsBackGround">
+
+

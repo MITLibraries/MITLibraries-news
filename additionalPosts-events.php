@@ -31,13 +31,19 @@ $j(function() {
 
 
 $args = array(
-	'post__not_in' => get_option('sticky_posts'),
-	'tag' =>'oldevents',
 	'offset'  => 11,
-  	 'posts_per_page' => $limit
+  	 'posts_per_page' => $limit,
+	'post__not_in' => get_option('sticky_posts'),
+	'meta_query'             => array(
+		array(
+			'key'       => 'is_event',
+			'value'     =>'1',
+			'orderby'    => 'meta_value_num',
+			'order'      => 'DESC',
 
 
-
+		),
+	),
 );
 
 
@@ -47,8 +53,12 @@ $args = array(
 
 
       <?php if( $the_query->have_posts() ):  ?>
-      <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-      <div class="col-xs-12  col-xs-B-6 col-sm-4 col-md-4">
+      <?php 
+	  $x = 0;	
+	  while ( $the_query->have_posts() )   : $the_query->the_post(); 
+	
+	  ?>
+      <div class="<?php if ($x % 3 == 0){ echo "third "; } ?> col-xs-12  col-xs-B-6 col-sm-4 col-md-4 eventsPage no-padding-left-mobile">
       <div class="flex-item blueTop eventsBox <?php if (get_field("listImg")) { echo "has-image";} else { echo "no-image"; } ?>" onClick='location.href="<?php if((get_field("external_link") != "") && $post->post_type == 'spotlights'){ the_field("external_link");}else{ echo get_post_permalink();}  ?>"'>
     <?php
 if (get_field("listImg") != "" ) { ?>
@@ -78,7 +88,9 @@ $time = strtotime("{$d}-{$m}-{$y}");
           <time itemprop="startDate" datetime="<?php	echo date('d/m/Y', $time);  ?>">
             <?php  	$date = DateTime::createFromFormat('Ymd', get_field('event_date'));?>
           </time>
-          <div class="event"><?php echo $date->format('F, j Y'); ?>&nbsp;&nbsp; &nbsp; <span class="time">
+              
+          <div class="events">
+		  <div class="event"> </div><?php echo $date->format('F, j Y'); ?>&nbsp;&nbsp; &nbsp; <span class="time">
             <?php if( get_field('event_start_time') ){  ?>
             <?php	echo the_field('event_start_time');  ?>
             <?php  } ?>
@@ -94,12 +106,7 @@ $time = strtotime("{$d}-{$m}-{$y}");
           
           <div itemprop="description" class="excerpt-post">
             <p class="entry-summary">
-              <?php if (excerpt()) {
-   				 echo excerpt(15);
-					} elseif (content()){
-     				  echo content(15);
-					}
-			?>
+              <?php get_template_part('inc/entry'); ?>
             </p>
           </div>
           
@@ -113,9 +120,13 @@ $time = strtotime("{$d}-{$m}-{$y}");
 				$r = rand(0, $rCat -1);
 				echo '<a title="'.$category[$r]->cat_name.'"  title="'.$category[$r]->cat_name.'" href="'.get_category_link($category[$r]->term_id ).'">'.$category[$r]->cat_name.'</a>';
             ?>
-            </span> </div>
+          <span class="mitDate">
+          <time class="updated"  datetime="<?php echo get_the_date(); ?>">&nbsp;&nbsp;<?php echo get_the_date(); ?></time>
+        </span> </div>
         </div>
       </div>
-      <?php endwhile; ?>
+      <?php
+	  $x++;
+	   endwhile; ?>
       <?php endif;  ?>
       <?php wp_reset_query();  // Restore global post data stomped by the_post(). ?>

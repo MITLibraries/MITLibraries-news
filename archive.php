@@ -38,8 +38,12 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of(73, $c
     <!-- .archive-header -->
     <div class="container">
     <div class="row">
-      <?php while ( have_posts() ) : the_post(); ?>
-      <div class="col-xs-12  col-xs-B-6 col-sm-4 col-md-4">
+      <?php 
+	  $i = -1;	
+	  while ( have_posts() ) : the_post(); 
+	  	$i++;
+	  ?>
+      <div class="<?php if ($i % 3 == 0){ echo "third "; } ?> col-xs-12  col-xs-B-6 col-sm-4 col-md-4 no-padding-left-mobile">
       <div class="hentry flex-item blueTop eventsBox <?php if (get_field("listImg")) { echo "has-image";} else { echo "no-image"; } ?>" onClick='location.href="<?php if((get_field("external_link") != "") && $post->post_type == 'spotlights'){ the_field("external_link");}else{ echo get_post_permalink();}  ?>"'>
 
 
@@ -93,6 +97,6 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of(73, $c
   <!-- #content --> 
 </section>
 <!-- #primary -->
-
+<div class="container">
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

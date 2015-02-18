@@ -10,36 +10,37 @@ get_header(); ?>
 <?php get_template_part('inc/sub-header'); ?>
 
 <div class="news-site">
-<div>
+
   <div class="container">
-    
+ <?php
+$events = array (
 
-
-<?php 
-// WP_Query arguments
-$args = array (
-	'tag_name'               => 'oldevents',
 	'posts_per_page'         => '9',
-	'ignore_sticky_posts'    => true,
+	'post__not_in' => get_option('sticky_posts'),
+	'meta_query'             => array(
+		array(
+			'key'       => 'is_event',
+			'value'     =>'1',
+			'orderby'    => 'meta_value_num',
+			'order'      => 'DESC',
+			
+		),
+	),
 );
 
 // The Query
-$the_query = new WP_Query( $args );
-
-
+$the_query = new WP_Query($events);
 ?>
+    <?php //echo $GLOBALS['wp_query']->request; ?>
 
-<?php echo $GLOBALS['wp_query']->request; ?>
-
-
-
-    <pre>
-<?php //print_r($the_query); ?>
-</pre>
     <div class="row">
       <?php if( $the_query->have_posts() ):  ?>
-      <?php while ( $the_query->have_posts() ) : $the_query->the_post();  ?>
-      <div class="col-xs-12  col-xs-B-6 col-sm-4 col-md-4 eventsPage">
+      <?php 
+	  $i = -1;	
+	  while ( $the_query->have_posts() ) : $the_query->the_post();  
+	  $i++; 
+	  ?>
+      <div class="<?php if ($i % 3 == 0){ echo "third "; } ?> col-xs-12  col-xs-B-6 col-sm-4 col-md-4 eventsPage no-padding-left-mobile">
         <div itemscope itemtype="http://data-vocabulary.org/Event" class="flex-item blueTop eventsBox <?php if (get_field("listImg")) { echo "has-image";} else { echo "no-image"; } ?>" onClick='location.href="<?php if((get_field("external_link") != "") && $post->post_type == 'spotlights'){ the_field("external_link");}else{ echo get_post_permalink();}  ?>"'>
           <?php
 if (get_field("listImg") != "" ) { ?>
@@ -69,7 +70,9 @@ $time = strtotime("{$d}-{$m}-{$y}");
           <time itemprop="startDate" datetime="<?php	echo date('d/m/Y', $time);  ?>">
             <?php  	$date = DateTime::createFromFormat('Ymd', get_field('event_date'));?>
           </time>
-          <div class="event"><?php echo $date->format('F, j Y'); ?>&nbsp;&nbsp; &nbsp; <span class="time">
+              
+          <div class="events">
+		  <div class="event"> </div><?php echo $date->format('F j, Y'); ?>&nbsp;&nbsp; &nbsp; <span class="time">
             <?php if( get_field('event_start_time') ){  ?>
             <?php	echo the_field('event_start_time');  ?>
             <?php  } ?>
@@ -84,14 +87,7 @@ $time = strtotime("{$d}-{$m}-{$y}");
           <!--EVENT -->
           
           <div itemprop="description" class="excerpt-post">
-            <p class="entry-summary">
-              <?php if (excerpt()) {
-   				 echo excerpt(15);
-					} elseif (content()){
-     				  echo content(15);
-					}
-			?>
-            </p>
+             <?php get_template_part('inc/entry'); ?>
           </div>
           
           <!--final **** else-->
@@ -104,26 +100,29 @@ $time = strtotime("{$d}-{$m}-{$y}");
 				$r = rand(0, $rCat -1);
 				echo '<a title="'.$category[$r]->cat_name.'"  title="'.$category[$r]->cat_name.'" href="'.get_category_link($category[$r]->term_id ).'">'.$category[$r]->cat_name.'</a>';
             ?>
-            </span> </div>
+           
+           
+           <span class="mitDate">
+          <time class="updated"  datetime="<?php echo get_the_date(); ?>">&nbsp;&nbsp;<?php echo get_the_date(); ?></time>
+          </span> 
+            </div>
         </div>
       </div>
       <?php endwhile; ?>
       <?php endif; ?>
       <?php wp_reset_query();  // Restore global post data stomped by the_post(). ?>
     </div>
-    </main>
-    <!-- #main --> 
+   
     
   </div>
   <!-- #primary --> 
 </div>
 <!--close container-->
-<div class="container">
-  <div id="postContainer" class="row" style="display:none">... loading ...</div>
-  <div class="moreBtn">
-    <button id="another">Show more</button>
-  </div>
-</div>
+ <?php get_template_part('inc/more-posts'); ?>
+ 
+ 
+ 
+ 
 <script>
 var $j = jQuery.noConflict(); 
 $j(function(){
@@ -154,6 +153,7 @@ $j(function(){
 
 });
 </script>
+<div class="container">
 <?php 
 	get_footer();
 ?>

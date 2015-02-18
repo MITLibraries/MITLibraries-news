@@ -1,0 +1,467 @@
+.no-padding-right {
+	padding-right: 0px!important;
+}
+
+/*xs small */
+@media(max-width:767px) {
+li#menu-item-17026 {
+	display: none
+}
+.nav > li > a {
+	padding: 9px 0px;
+}
+.newsNav ul li.current-menu-item a {
+color: rgb(88,137,193);
+}
+
+	
+}
+
+/*col-sm*/
+@media (min-width: 768px) {
+	ul#menu-mainnav{
+margin-top: -10px !important;
+border: 0 !important;
+box-shadow: 0px 0 !important;
+}
+.newsNav ul li.current-menu-item a {
+color: rgb(88,137,193);
+}
+
+li#menu-item-17509, li#menu-item-17558 {
+	display: none
+}
+.nav > li > a {
+	padding: 9px 10px;
+}
+.socialNav {
+	padding-left: 40px !important;
+}
+/*NAV BEGINS*/
+
+.newsNav {
+}
+.newsNav ul {
+	padding-left: 0px;
+}
+.newsNav ul li.current-menu-item {
+	border-radius: 5px;
+	background-color: rgb(88,137,193);
+	display: inline;
+}
+hr.news {
+	background-color: rgb(230, 230, 230);
+	border: 0;
+	height: 1px;
+	margin-top: 0px;
+	margin-bottom: 15px;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+.newsNav ul li {
+	border-radius: 5px;
+	background-color: #fff;
+	display: inline;
+	border: 1px solid rgb(230,230,230);
+	margin-right: 5px;
+}
+.newsNav ul li.current-menu-item a {
+	color: #fff;
+}
+.newsNav ul li a {
+	color: rgb(88,137,193);
+	font-size: 12pt;
+}
+body.tax-bibliotech_issues .newsNav ul li a {
+	color: rgb(88,137,193);
+}
+.newsNav ul li a:hover {
+	text-decoration: none;
+}
+.newsNav {
+	margin-bottom: 13px;
+	padding-left: 0px;
+}
+.newsNav ul li.current-menu-item a:hover {
+	color: rgb(88,137,193);
+}
+body.tax-bibliotech_issues .newsNav ul li#menu-item-17024, body.page-bibliotech-about .newsNav ul li#menu-item-17024, body.single-bibliotech .newsNav ul li#menu-item-17024 {
+	border-radius: 5px;
+	background-color: rgb(88,137,193);
+	display: inline;
+	color: white;
+}
+body.tax-bibliotech_issues .newsNav ul li#menu-item-17024 a, body.page-bibliotech-about .newsNav ul li#menu-item-17024 a, body.single-bibliotech .newsNav ul li#menu-item-17024 a {
+	color: #fff;
+}
+/*NAV*/
+#singleBox:first-child {
+	padding-left: 0px !important;
+}
+/*col-sm ends*/	}
+
+/*col-md*/
+@media (min-width: 992px) {
+ul#menu-mainnav{
+margin-top: -10px !important;
+border: 0 !important;
+box-shadow: 0px 0 !important;
+}
+	
+li#menu-item-17509, li#menu-item-17558 {
+	display: none
+}
+.third {
+	padding-left: 0px !important;
+}
+.nav > li > a {
+	padding: 9px 10px;
+}
+
+/*NAV BEGINS*/
+
+.newsNav {
+}
+.newsNav ul {
+	padding-left: 0px;
+}
+.newsNav ul li.current-menu-item {
+	border-radius: 5px;
+	background-color: rgb(88,137,193);
+	display: inline;
+}
+hr.news {
+	background-color: rgb(230, 230, 230);
+	border: 0;
+	height: 1px;
+	margin-top: 0px;
+	margin-bottom: 15px;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+.newsNav ul li {
+	border-radius: 5px;
+	background-color: #fff;
+	display: inline;
+	border: 1px solid rgb(230,230,230);
+	margin-right: 5px;
+}
+.newsNav ul li.current-menu-item a {
+	color: #fff;
+}
+.newsNav ul li a {
+	color: rgb(88,137,193);
+	font-size: 12pt;
+}
+body.tax-bibliotech_issues .newsNav ul li a {
+	color: rgb(88,137,193);
+}
+.newsNav ul li a:hover {
+	text-decoration: none;
+}
+.newsNav {
+	margin-bottom: 13px;
+	padding-left: 0px;
+}
+.newsNav ul li.current-menu-item a:hover {
+	color: rgb(88,137,193);
+}
+body.tax-bibliotech_issues .newsNav ul li#menu-item-17024, body.page-bibliotech-about .newsNav ul li#menu-item-17024, body.single-bibliotech .newsNav ul li#menu-item-17024 {
+	border-radius: 5px;
+	background-color: rgb(88,137,193);
+	display: inline;
+	color: white;
+}
+body.tax-bibliotech_issues .newsNav ul li#menu-item-17024 a, body.page-bibliotech-about .newsNav ul li#menu-item-17024 a, body.single-bibliotech .newsNav ul li#menu-item-17024 a {
+	color: #fff;
+}
+/*NAV*/
+#singleBox:first-child {
+	padding-left: 0px !important;
+}
+.nav > li > a {
+	padding: 9px 10px;
+}
+/*col-md ENDS*/}
+
+/*col-lg*/
+@media (min-width: 1200px) {
+	
+ul#menu-mainnav{
+margin-top: -10px !important;
+border: 0 !important;
+box-shadow: 0px 0 !important;
+}
+.nav > li > a {
+	padding: 9px 10px;
+}
+li#menu-item-17509, li#menu-item-17558 {
+	display: none
+}
+.socialNav {
+	padding-left: 52px !important;
+}
+/*NAV BEGINS*/
+
+.newsNav {
+}
+.newsNav ul {
+	padding-left: 0px;
+}
+.newsNav ul li.current-menu-item {
+	border-radius: 5px;
+	background-color: rgb(88,137,193);
+	display: inline;
+}
+hr.news {
+	background-color: rgb(230, 230, 230);
+	border: 0;
+	height: 1px;
+	margin-top: 0px;
+	margin-bottom: 15px;
+	margin-left: 2px;
+	margin-right: 0px;
+	width: 99%;
+}
+.newsNav ul li {
+	border-radius: 5px;
+	background-color: #fff;
+	display: inline;
+	border: 1px solid rgb(230,230,230);
+	margin-right: 5px;
+}
+.newsNav ul li.current-menu-item a {
+	color: #fff;
+}
+.newsNav ul li a {
+	color: rgb(88,137,193);
+	font-size: 12pt;
+}
+body.tax-bibliotech_issues .newsNav ul li a {
+	color: rgb(88,137,193);
+}
+.newsNav ul li a:hover {
+	text-decoration: none;
+}
+.newsNav {
+	margin-bottom: 13px;
+	padding-left: 0px;
+}
+.newsNav ul li.current-menu-item a:hover {
+	color: rgb(88,137,193);
+}
+body.tax-bibliotech_issues .newsNav ul li#menu-item-17024, body.page-bibliotech-about .newsNav ul li#menu-item-17024, body.single-bibliotech .newsNav ul li#menu-item-17024 {
+	border-radius: 5px;
+	background-color: rgb(88,137,193);
+	display: inline;
+	color: white;
+}
+body.tax-bibliotech_issues .newsNav ul li#menu-item-17024 a, body.page-bibliotech-about .newsNav ul li#menu-item-17024 a, body.single-bibliotech .newsNav ul li#menu-item-17024 a {
+	color: #fff;
+}
+/*NAV*/
+
+	
+	
+.sticky {
+	padding-left: 0px !important;
+}
+.sticky img {
+	width: 100%;
+}
+.third {
+	padding-left: 0px !important;
+}
+#singleBox:first-child .socialNav {
+	padding-left: 2px !important;
+}
+
+#singleBox:first-child {
+	padding-left: 0px !important;
+}
+/*col-lg-ENDS*/}
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+.sticky {
+	padding-left: 0px !important;
+}
+.sticky img {
+	width: 100%;
+}
+.second {
+	padding-left: 0px !important;
+}
+}
+ @media only screen and (min-width : 700px) and (max-width : 1500px) {
+.sticky {
+	padding-left: 0px !important;
+}
+.sticky img {
+	width: 100%;
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+.sub {
+ padding-left:23px;
+}
+h1.name-site {
+text-align:center;
+}
+}
+
+/*mobile site */
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+li#menu-item-17509 {
+display:block
+}
+container {
+ padding:0;
+ margin:0;
+}
+ body {
+ padding:0;
+}
+ #theBox, #onlyMobile {
+ margin-right:0px;
+ margin-left:0px;
+ padding-left:0px;
+ padding-right:0px;
+}
+h1.name-site {
+text-align:center;
+}
+ .newsNav ul li.current-menu-item {
+ border-radius: 0px 0px 0px 0px;
+ background-color: #FFF;
+ display: inline;
+ color: #5889C1;
+}
+ .sub {
+ padding-left:23px;
+}
+#singleBox:nth-child(even) {
+ display:none;
+}
+}
+ @media only screen and (max-width : 400px) {
+li#menu-item-17509 {
+display:block;
+}
+li#menu-item-17026 {
+display:none
+}
+}
+/* Custom, iPhone Retina potrate*/ 
+@media only screen and (max-width : 320px) {
+/*body{background-color:pink;}*/
+li#menu-item-17026 {
+display:none
+}
+container {
+ padding:0;
+ margin:0;
+}
+ body {
+ padding:0;
+}
+#theBox {
+ margin-right:0px;
+ margin-left:0px;
+ padding-left:0px;
+ padding-right:0px;
+}
+}
+
+/* Phones Landscape */
+@media screen and (min-width: 321px) {
+ container {
+ padding:0;
+ margin:0;
+}
+ body {
+ padding:0;
+}
+}
+ @media only screen and (min-device-width : 375px) and (max-device-width : 667px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+}
+ @media only screen and (min-device-width : 375px) and (max-device-width : 667px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+}
+
+/* Samsung Galaxy S5 ----------- */
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
+}
+
+/* ipad */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+}
+
+/* ipad  landscape*/
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+}
+
+/* ipad  portrait*/
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+}
+
+/* iphone 6 */
+@media only screen and (min-device-width : 375px) and (max-device-width : 667px) {
+/*body {
+	background-color: orange;
+}*/
+
+
+
+}
+
+/* iphone 6  landscape*/
+@media only screen and (min-device-width : 375px) and (max-device-width : 667px) and (orientation : landscape) {
+/*body {
+	background-color: yellow;
+}*/
+}
+
+/* iphone 6 Port*/
+@media only screen and (min-device-width : 375px) and (max-device-width : 667px) and (orientation : portrait) {
+/*body {
+	background-color: grey;
+}*/
+
+}
+
+/* iphone 6 PLUS Landscape*/	
+@media only screen and (min-device-width : 540px) and (max-device-width : 960px) and (orientation : landscape) {
+/*body {
+	background-color: purple;
+}*/
+}
+
+/* iphone 6 PLUS PORT*/	
+@media only screen and (min-device-width : 540px) and (max-device-width : 960px) and (orientation : portrait) {
+}
+
+/* iphone 5*/
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) {
+/*body {
+	background-color: red;
+}*/
+
+}
+
+/* iphone 5 land*/
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape) {
+/*body {
+	background-color: blue
+}*/
+
+
+}
+/* iphone 5 p*/
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
+}
