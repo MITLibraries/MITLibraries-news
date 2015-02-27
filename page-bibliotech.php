@@ -50,7 +50,7 @@ if (get_field("listImg") != "" ) { ?>
 </div>
 <!-- ////////////////////////END ONLY VISIBLE ON MOBILE\\\\\\\\\\\\\\\\\\\\ -->
 <div class="sticky hidden-xs hidden-sm col-md-12 clearfix no-padding-right">
-  <div class="sticky col-xs-3 col-xs-B-6 col-sm-8 col-lg-8 col-md-8" onClick='location.href="<?php echo get_post_permalink(); ?>"' style="padding-right:0px;" > <img data-original="<?php the_field("featuredListImg") ?>" class="img-responsive"  width="679" height="245" alt="<?php the_title(); ?>"   /> </div>
+  <div class="sticky col-xs-3 col-xs-B-6 col-sm-8 col-lg-8 col-md-8" onClick='location.href="<?php echo get_post_permalink(); ?>"' style="padding-right:0px;" > <img data-original="<?php the_field("featuredListImg") ?>" class="img-responsive"  width="679" height="260" alt="<?php the_title(); ?>"   /> </div>
   <div class="bgWhite col-xs-5 col-sm-4 col-md-4" onClick='location.href="<?php echo get_post_permalink(); ?>"'>
     <h2>
       <a href="<?php the_permalink(); ?>"><?php the_title();?></a>

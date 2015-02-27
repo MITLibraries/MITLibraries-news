@@ -17,7 +17,7 @@
  * @subpackage Twenty_Twelve
  * @since Twenty Twelve 1.0
  */
-
+get_template_part('inc/wejnswpwhitespacefix');
 get_header(); 
 $date = DateTime::createFromFormat('Ymd', get_field('event_date'));
 

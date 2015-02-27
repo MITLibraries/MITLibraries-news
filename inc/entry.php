@@ -25,7 +25,7 @@
 			
 			}elseif(($mitlistImg) && ($newsTitle <= 90)) {
    					//echo "HELLO";
-					echo strip_tags(content(20));
+					echo strip_tags(content(7));
 			
 			}elseif(($mitlistImg) && ($newsTitle <= 90)) {
    					//echo "HELLO";

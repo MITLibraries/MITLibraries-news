@@ -11,9 +11,6 @@
 h2 a {
 	color: #111;
 }
-.single h2 a {
-	color: #338bc5;
-}
 .hrList td.loc {
 	width: 200px;
 }
@@ -254,8 +251,8 @@ h1.single {
 	-webkit-box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
 	-moz-box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
 	box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
-	min-height: 244px;
-	max-height: 256px;
+	min-height: 261px;
+	max-height: 261px;
 	cursor: pointer;
 	margin-top: 0px;
 }
@@ -589,7 +586,9 @@ h1 {
 	color: #111;
 }
 #search {
-	background: url(images/searchIcon.jpg) no-repeat scroll 0px 5px;
+	background-image:url(images/searchIcon.jpg);
+	background-position:0px 4px;
+	background-repeat:no-repeat;
 	padding-left: 30px;
 }
 #subBtn {
@@ -1175,8 +1174,6 @@ nav a {
 	color: #909090;
 }
 .single .socialNav a {
-	margin-left: 10px;
-	margin-right: 7px;
 	font-size: 13px;
 	font-weight: 600;
 }
@@ -1184,7 +1181,7 @@ nav a {
 	font-size: 30px;
 	color: rgb(107, 107, 107);
 	font-weight: 300;
-	margin: 39px 0px 16px 0px;
+	margin: 39px 2px 33px 0px;
 	line-height: 30px;
 }
 .smallerTxt {
@@ -1204,7 +1201,7 @@ img.singleImg {
 	display: inline;
 }
 .eventsBox h2.spotlights {
-	margin: 40px 10px 0px 11px;
+	margin: 50px 10px 0px 11px;
 }
 .single article {
 	padding-left: 16px;
@@ -1244,7 +1241,7 @@ button#dropdownMenu1 {
 	font-size: 12pt;
 }
 /*SRPITE*/
-.biblioHeader, .or_cog-25, .or_check-25, .bilbioTechIcon, .event, .or_check-25, .or_star-25,  .or_eye-25, .or_life-25, .or_pin-25, .or_sun-25, .or_thumb-25, .si_facebook, .si_facebookBlue, .si_instagram, .si_instagramBlue, .si_twitter, .si_twitterBlue {
+.biblioHeader, .or_cog-25, .or_check-25, .bilbioTechIcon, .event, .or_check-25, .or_star-25,  .or_eye-25, .or_life-25, .or_pin-25, .or_sun-25, .or_thumb-25, .si_facebook, .si_facebookBlue, .si_instagram, .si_instagramBlue, .si_twitter, .si_twitterBlue,  .info, .update, .searchIcon {
 	background: url(images/sprites.png) no-repeat;
 }
 .biblioHeader {
@@ -1338,7 +1335,27 @@ button#dropdownMenu1 {
 	width: 25px;
 	height: 25px;
 }
+.info{
+	background-position: -161px -125px ;
+	width: 24px;
+	height: 26px;
+}
+
+.update{
+	background-position: -161px -175px ;
+	width: 27px;
+	height: 26px;
+}
+.searchIcon{
+	background-position: -211px -125px ;
+	width: 26px;
+	height: 26px;
+
+	
+}
 /*SPRINT ENDS*/
+
+
 .col-centered {
 	float: none;
 	margin: 0 auto;

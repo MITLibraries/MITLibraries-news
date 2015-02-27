@@ -1,4 +1,6 @@
+
 <?php  
+include('wejnswpwhitespacefix.php');
 $pageRoot = getRoot($post);$section = get_post($pageRoot);$isRoot = $section->ID == $post->ID; get_header(); get_template_part('inc/sub-header');
 $sticky = get_option( 'sticky_posts' );
 $args = array(
@@ -61,7 +63,7 @@ if ( isset($sticky[0]) ) { ?>
 
 
  <div class="sticky  hidden-xs hidden-sm col-md-12 clearfix">
-    <div class="no-padding-left-mobile sticky col-xs-3 col-xs-B-6 col-sm-8 col-lg-8 col-md-8" onClick='location.href="<?php echo get_post_permalink(); ?>"' style="padding-right:0px;" > <img src="<?php the_field("featuredListImg"); ?>" class="img-responsive" width="679" height="245" alt="<?php the_title();?>" /> </div>
+    <div class="no-padding-left-mobile sticky col-xs-3 col-xs-B-6 col-sm-8 col-lg-8 col-md-8" onClick='location.href="<?php echo get_post_permalink(); ?>"' style="padding-right:0px;" > <img src="<?php the_field("featuredListImg"); ?>" class="img-responsive" width="679" height="260" alt="<?php the_title();?>" /> </div>
     <div class=" hidden-xs bgWhite col-xs-12 col-xs-B-6 col-sm-4 col-md-4 col-lg-4" onClick='location.href="<?php if((get_field("external_link") != "") && $post->post_type == 'spotlights'){ the_field("external_link");}else{ echo get_post_permalink();}  ?>"'>
       <?php if($post->post_type == 'spotlights'){ ?>
 			 <h2 class="entry-title title-post spotlights">
@@ -213,7 +215,7 @@ $j(function(){
             .load("/news/test/?offset="+offset+"&limit="+limit, function() {
 			 //.load("/news/test/?offset="+offset, function() {
 			   $j(this).slideDown();
-			 
+			 	
 			   
     	});
             

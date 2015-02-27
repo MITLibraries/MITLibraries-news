@@ -46,7 +46,8 @@ $the_query = new WP_Query($events);
 if (get_field("listImg") != "" ) { ?>
           <img data-original="<?php the_field("listImg") ?>" width="100%" height="111"  alt="<?php the_title(); ?>" itemprop="photo" class="img-responsive"  />
           <?php } ?>
-          <h2 itemprop="summary" class="entry-title title-post"> <a itemprop="url" href="<?php the_permalink(); ?>">
+          <h2 itemprop="summary" class="entry-title title-post">
+           <a itemprop="url" href="<?php the_permalink(); ?>">
             <?php the_title(); ?>
             </a> </h2>
           <!--/EVENT  DATE-->

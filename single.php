@@ -51,7 +51,9 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of(73, $c
 		$date = DateTime::createFromFormat('Ymd', get_field('event_date'));
    if (($type_post == 'post') && get_field('is_event') == 1) { ?>
     <div class="events">
+    <?php if(get_field("event_date")){ ?>
 		  <div class="event"> </div>
+      <?php }  ?>
      <?php if(get_field("event_date")){ ?>
     	<span class="time">Event date </span> <?php echo $date->format('F j, Y'); ?>
      <?php } ?>
@@ -61,8 +63,9 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of(73, $c
 	 <?php if(get_field('event_end_time') != ""){ ?>
         <span class="time"> <?php echo get_field('event_end_time'); ?></span>
 	<?php } ?>
+      </div>
 <?php } ?>
-  </div>
+
  <!--=================image=================== -->       
     <?php if (get_field('image')){ ?>
      <div class="mySinglePicMobile hidden-md hidden-lg col-xs-12">
@@ -83,7 +86,11 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of(73, $c
      </div>   
       <?php } ?>   
  <!--=================image=================== --> 
+ 
+ 
  <?php the_content();  ?>
+ 
+ 
  <?php
 			
 			// Echo type of Feature, if Feature
@@ -165,11 +172,17 @@ foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
        
         <?php
 		if (get_field("listImg") != "" ) { ?>
-        <img data-original="<?php the_field("listImg") ?>" width="100%" height="111" class="img-responsive"  alt="<?php the_title(); ?>"/>
+        <img src="<?php the_field("listImg") ?>" width="100%" height="111" class="img-responsive"  alt="<?php the_title(); ?>"/>
         <?php } ?>
-        <h2 class="entry-title title-post  <?php if($post->post_type == 'spotlights'){ echo "spotlights"; } ?>">
-        <?php  the_title(); ?>
+         <?php if($post->post_type == 'spotlights'){ ?>
+			 <h2 class="entry-title title-post spotlights">
+          <a href="<?php the_field("external_link"); ?>"><?php the_title();?></a>
+        </h2> 
+		<?php }else{ ?>
+        <h2 class="entry-title title-post">
+          <a href="<?php the_permalink(); ?>"><?php the_title();?></a>
         </h2>
+        <?php 	} ?>
     	<?php get_template_part('inc/events'); ?>
         <?php get_template_part('inc/entry'); ?>
         <!--final **** else-->
@@ -200,8 +213,12 @@ wp_reset_postdata();?>
  <div style="background-color:rgb(233, 233, 233);padding-bottom:28px;">
 <div class="container">
 <?php get_footer(); ?>
+
 <script>
-select = document.getElementById("#bibMenu");
-select.onload= function(){
-	alert(this.options[this.selectedIndex].text);
-};</script>
+//select = document.getElementById("#bibMenu");
+//select.onload= function(){
+//	alert(this.options[this.selectedIndex].text);
+//	
+//};
+//
+</script>

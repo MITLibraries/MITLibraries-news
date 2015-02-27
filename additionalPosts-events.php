@@ -1,14 +1,3 @@
-<script>
-$j(function() {
-  $j("img.img-responsive").lazyload({ 
-    effect : "fadeIn", 
-    effectspeed: 450 ,
-	failure_limit: 999999
-  }); 
-});	
-
-</script>
-
 <?php
     /*
         Template Name: Additional Posts Events
@@ -25,11 +14,6 @@ $j(function() {
     }	
 ?>
 <?php
-
-//query
-
-
-
 $args = array(
 	'offset'  => 11,
   	 'posts_per_page' => $limit,
@@ -45,9 +29,6 @@ $args = array(
 		),
 	),
 );
-
-
-
  $the_query = new WP_Query($args); 
 ?>
 
@@ -56,17 +37,31 @@ $args = array(
       <?php 
 	  $x = 0;	
 	  while ( $the_query->have_posts() )   : $the_query->the_post(); 
-	
+	  $x++;
 	  ?>
+    
       <div class="<?php if ($x % 3 == 0){ echo "third "; } ?> col-xs-12  col-xs-B-6 col-sm-4 col-md-4 eventsPage no-padding-left-mobile">
       <div class="flex-item blueTop eventsBox <?php if (get_field("listImg")) { echo "has-image";} else { echo "no-image"; } ?>" onClick='location.href="<?php if((get_field("external_link") != "") && $post->post_type == 'spotlights'){ the_field("external_link");}else{ echo get_post_permalink();}  ?>"'>
     <?php
 if (get_field("listImg") != "" ) { ?>
           <img data-original="<?php the_field("listImg") ?>" width="100%" height="111"  alt="<?php the_title(); ?>" itemprop="photo" class="img-responsive"  />
           <?php } ?>
-          <h2 itemprop="summary" class="entry-title title-post"> <a itemprop="url" href="<?php the_permalink; ?>">
+          
+          
+          
+          
+          
+          
+         
+         
+           <h2 itemprop="summary" class="entry-title title-post">
+           <a itemprop="url" href="<?php the_permalink(); ?>">
             <?php the_title(); ?>
             </a> </h2>
+          
+          
+          
+         
           <!--/EVENT  DATE-->
           <?php            
 $date = get_field('event_date');
@@ -126,7 +121,7 @@ $time = strtotime("{$d}-{$m}-{$y}");
         </div>
       </div>
       <?php
-	  $x++;
+	  
 	   endwhile; ?>
       <?php endif;  ?>
       <?php wp_reset_query();  // Restore global post data stomped by the_post(). ?>

@@ -17,14 +17,7 @@
     </h1>
    <?php } ?>
   </div>
-   
-  
-  
-  
-  
-  
-  
-  <div class="socialNav col-xs-12 col-sm-12 col-md-7  col-lg-7 clearfix "> 
+ <div class="socialNav col-xs-12 col-sm-12 col-md-7  col-lg-7 clearfix "> 
 	
  <?php get_template_part('inc/social'); ?>
 
@@ -71,7 +64,7 @@ wp_nav_menu( $defaults );
 
                                 <!--only on mobile --> 
                                  <div class="col-xs-6 hidden-sm hidden-md hidden-lg">
-                                    <div class=" pull-right clearfix"><?php get_search_form('true'); ?></div>
+                                    <div class=" pull-right clearfix "><?php get_search_form('true'); ?></div>
                                  </div>
                                 <!--only on mobile ENDS -->  
  
