@@ -10,6 +10,10 @@ $category = get_the_category();
 	$subtitle;
 	$type;
 ?>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4eaa9b83318e4d02" async="async"></script>
 <?php get_template_part('inc/sub-headerSingle'); ?>
 <?php
 if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of(73, $cat) or is_category(73))){  ?>
@@ -27,6 +31,7 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of(73, $c
       <div class="entry-meta"> <span class="author"> By
         <?php the_author_posts_link(); ?>
         </span> <span class="date-post"> <?php echo ' on '; the_date(); ?> </span>
+        
         <?php if(has_category()): ?>
         <span class="category-post-single"> in
         <?php 
@@ -38,7 +43,9 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of(73, $c
         <?php //echo ' in ' . array_slice($category, 0, 2); ?>
         </span>
         <?php endif; ?>
-      </div>  
+      </div> 
+      <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_sharing_toolbox"></div> 
     <div class="clearfix"></div>
     <!-- .entry-meta --> 
   </div>

@@ -46,9 +46,15 @@ get_header(); ?>
         <?php } ?>
         
         
-        <h2 class="entry-title title-post  <?php if($post->post_type == 'spotlights'){ echo "spotlights"; } ?>">
-          <?php  the_title(); ?>
+       <?php if($post->post_type == 'spotlights'){ ?>
+			 <h2 class="entry-title title-post spotlights">
+          <a href="<?php the_field("external_link"); ?>"><?php the_title();?></a>
+        </h2> 
+		<?php }else{ ?>
+        <h2 class="entry-title title-post">
+          <a href="<?php the_permalink(); ?>"><?php the_title();?></a>
         </h2>
+        <?php 	} ?>
         
         
     	 <?php get_template_part('inc/events'); ?>
@@ -59,21 +65,28 @@ get_header(); ?>
         <?php {  ?>
         <!--EVENT -->
         <?php } ?>
-        <div class="category-post <?php  if(get_post_type( get_the_ID() ) == 'bibliotech'){ echo "Bibliotech";} ?>">
+ <div class="category-post <?php  if(get_post_type( get_the_ID() ) == 'bibliotech'){ echo "Bibliotech";} ?>">
 <?php 
   if(get_post_type( get_the_ID() ) == 'bibliotech'){
-	   echo "<div class='bilbioImg'><img src='wp-content/themes/mit-libraries-news/images/bilbioTechIcon.png' alt='bilbiotech icon' width='30' height='32' /></div>";
-	   echo "<div class='biblioPadding'>&nbsp;<a href='/news/bibliotech/' title='Bibliotech'>Bibliotech</a>";
-	 	  }else{
+	   echo "<div class='bilbioImg bilbioTechIcon'>
+	   </div>";
+	   echo "<div class='biblioPadding'>&nbsp;<a href='/news/bibliotech/' title='Bibliotech'>Bibliotech</a>"; ?>
+	   
+	    <span class="mitDate">
+          <time class="updated"  datetime="<?php echo get_the_date(); ?>">&nbsp;&nbsp;<?php echo get_the_date(); ?></time>
+          </span> </div> 
+	  
+	<?php 	  }else{
 				$category = get_the_category();     
 				$rCat = count($category);
 				$r = rand(0, $rCat -1);
-				echo '<a title="'.$category[$r]->cat_name.'"  title="'.$category[$r]->cat_name.'" href="'.get_category_link($category[$r]->term_id ).'">'.$category[$r]->cat_name.'</a>';
-	  } ?>
+				echo '<a title="'.$category[$r]->cat_name.'"  title="'.$category[$r]->cat_name.'" href="'.get_category_link($category[$r]->term_id ).'">'.$category[$r]->cat_name.'</a>'; ?>
+	 
           <span class="mitDate">
           <time class="updated"  datetime="<?php echo get_the_date(); ?>">&nbsp;&nbsp;<?php echo get_the_date(); ?></time>
-          </span> </div>
-      </div><!--last-->
+          </span> </div> 
+        <?php  } ?>
+       </div><!--last-->
     </div>
     <?php  if(get_post_type( get_the_ID() ) == 'bibliotech'){ ?>
     </div><!--this div closes the open div in biblio padding-->

@@ -1,4 +1,4 @@
-here<?php
+<?php
 /**
  * The template for displaying Archive pages.
  *

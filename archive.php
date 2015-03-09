@@ -57,10 +57,15 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of(73, $c
         <?php } ?>
         
         
-        <h2 class="entry-title title-post  <?php if($post->post_type == 'spotlights'){ echo "spotlights"; } ?>">
-          <?php  the_title(); ?>
+        <?php if($post->post_type == 'spotlights'){ ?>
+			 <h2 class="entry-title title-post spotlights">
+          <a href="<?php the_field("external_link"); ?>"><?php the_title();?></a>
+        </h2> 
+		<?php }else{ ?>
+        <h2 class="entry-title title-post">
+          <a href="<?php the_permalink(); ?>"><?php the_title();?></a>
         </h2>
-        
+        <?php 	} ?>
         
     	 <?php get_template_part('inc/events'); ?>
         
@@ -98,5 +103,4 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of(73, $c
 </section>
 <!-- #primary -->
 <div class="container">
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

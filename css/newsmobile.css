@@ -4,7 +4,7 @@
 
 /*xs small */
 @media(max-width:767px) {
-li#menu-item-17026 {
+li#menu-item-17753 {
 	display: none
 }
 .nav > li > a {
@@ -19,7 +19,8 @@ color: rgb(88,137,193);
 
 /*col-sm*/
 @media (min-width: 768px) {
-	ul#menu-mainnav{
+	.newsNav ul li#menu-item-17754{display: none}	
+ul#menu-mainnav{
 margin-top: -10px !important;
 border: 0 !important;
 box-shadow: 0px 0 !important;
@@ -28,7 +29,7 @@ box-shadow: 0px 0 !important;
 color: rgb(88,137,193);
 }
 
-li#menu-item-17509, li#menu-item-17558 {
+li#menu-item-17755, li#menu-item-17832  {
 	display: none
 }
 .nav > li > a {
@@ -108,7 +109,7 @@ border: 0 !important;
 box-shadow: 0px 0 !important;
 }
 	
-li#menu-item-17509, li#menu-item-17558 {
+li#menu-item-17755, li#menu-item-17832  {
 	display: none
 }
 .third {
@@ -186,7 +187,7 @@ body.tax-bibliotech_issues .newsNav ul li#menu-item-17024 a, body.page-bibliotec
 
 /*col-lg*/
 @media (min-width: 1200px) {
-	
+li#menu-item-17754{display: none}	
 ul#menu-mainnav{
 margin-top: -10px !important;
 border: 0 !important;
@@ -195,7 +196,7 @@ box-shadow: 0px 0 !important;
 .nav > li > a {
 	padding: 9px 10px;
 }
-li#menu-item-17509, li#menu-item-17558 {
+li#menu-item-17755, li#menu-item-17832  {
 	display: none
 }
 .socialNav {
@@ -288,6 +289,8 @@ body.tax-bibliotech_issues .newsNav ul li#menu-item-17024 a, body.page-bibliotec
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px) {
+.newsNav ul li#menu-item-17754{display: none}	
+
 .sticky {
 	padding-left: 0px !important;
 	margin-bottom:5px;
@@ -311,6 +314,7 @@ body.tax-bibliotech_issues .newsNav ul li#menu-item-17024 a, body.page-bibliotec
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
+
 .sub {
  padding-left:23px;
 }
@@ -358,14 +362,14 @@ text-align:center;
 li#menu-item-17509 {
 display:block;
 }
-li#menu-item-17026 {
+li#menu-item-17753 {
 display:none
 }
 }
 /* Custom, iPhone Retina potrate*/ 
 @media only screen and (max-width : 320px) {
 /*body{background-color:pink;}*/
-li#menu-item-17026 {
+li#menu-item-17753 {
 display:none
 }
 container {

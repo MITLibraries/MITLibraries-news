@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Events RSS
+Template Name: Bilbio RSS
 */
 
 $numposts = 5;
@@ -20,14 +20,14 @@ function yoast_rss_text_limit($string, $length, $replacer = '...') {
 
 
 $args = array(
-	'post__not_in' => get_option('sticky_posts'),
-   'meta_key' => 'is_event',
-   'orderby' => 'meta_value_num',
-   'order' => 'DESC',
-   'posts_per_page' => -1
-
- 
-);
+			'posts_per_page'      => -1,
+			'post__not_in'        => get_option( 'sticky_posts' ),
+			'ignore_sticky_posts' => 1,
+			'post_type'       	  => 'bibliotech',
+			'orderby'        	  => 'menu_order',
+			'order'          	  => 'ASC',
+			'suppress_filters'    => false
+			);
 $the_query = new WP_Query( $args );	 
 $lastpost = $numposts - 1;
 header("Content-Type: application/rss+xml; charset=UTF-8");

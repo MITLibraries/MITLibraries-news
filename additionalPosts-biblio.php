@@ -35,8 +35,8 @@ $j(function() {
 	 	'ignore_sticky_posts' => 1,
 		'offset'    => 10,
 		'posts_per_page'  => $limit,
-		'orderby'   	=> 'menu_order',
-		'order'     	=> 'ASC',
+		'orderby'   	=> 'date',
+		'order'     	=> 'DESC',
 		'suppress_filters' => false
 				
 		

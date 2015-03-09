@@ -8,8 +8,36 @@
 */
 
 @import url("../libraries/style.css");
+
+a:link { }
+
+a:visited { text-decoration:none;}
+
+a:hover { }
+
+a:focus { text-decoration:none}
+
+a:active {text-decoration:none }
+
 h2 a {
 	color: #111;
+}
+.single h2 a {
+	color: #338bc5
+}
+aside .widget {
+	background: #ede8e2;
+	border-bottom: 2px solid #c6b6a3;
+	padding: 20px;
+}
+.page h2 {
+	margin: 0px 0px 10px 0px !important;
+}
+.subscribe .sidebar {
+	padding-top: 55px;
+}
+h3 {
+	font-weight: 400
 }
 .hrList td.loc {
 	width: 200px;
@@ -40,6 +68,7 @@ li.ig {
 	margin-right: 14px;
 	margin-top: 2px;
 }
+li.soc{padding-top:5px;}
 .image_off, .sIcons li:hover .image_on {
 	display: none
 }
@@ -75,11 +104,15 @@ ul#menu-subscribe {
 	background-color: rgb(233, 233, 233);
 	width: 100%;
 	border-top: 4px solid rgb(224,224,224);
-	padding-top: 20px;
+	padding-top: 5px;
 }
 .single .newsBackGround {
 	background-color: rgb(255, 255, 255);
 	width: 100%;
+	border-top: none;
+	padding-top: 0px;
+}
+.page-bibliotech-index .newsBackGround {
 	border-top: none;
 	padding-top: 0px;
 }
@@ -133,19 +166,17 @@ table.hrList tr:nth-child(even) {
 	margin-bottom: 83px!important;
 }
 .single p {
-padding-bottom: 10px!important;
-margin-bottom:0px !important;
+	padding-bottom: 10px!important;
+	margin-bottom: 0px !important;
 }
-
-
 h1.single {
 	font-size: 27pt !important;
 	line-height: 27pt;
 	color: rgb(89,89,89);
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
-	margin-top: 0px;
-	margin-bottom: 10px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 .title-page h1.name-site, h2.name-site2 {
 	font-size: 43px;
@@ -192,6 +223,9 @@ h1.single {
 }
 .single .category-post {
 	position: absolute;
+}
+#mc_embed_signup form input, #mc_embed_signup form select {
+	color: #111
 }
 .biblio {
 	background-color: rgb(152, 150, 152);
@@ -255,6 +289,10 @@ h1.single {
 	max-height: 261px;
 	cursor: pointer;
 	margin-top: 0px;
+}
+.subscribe {
+	background-color: white;
+	
 }
 .col-md-9 {
 	width: 69% !important;
@@ -410,7 +448,7 @@ h1.single {
 	font-size: 24px;
 	line-height: 30px;
 	text-decoration: none;
-	margin: 9px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 	letter-spacing: 0px;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
@@ -586,9 +624,9 @@ h1 {
 	color: #111;
 }
 #search {
-	background-image:url(images/searchIcon.jpg);
-	background-position:0px 4px;
-	background-repeat:no-repeat;
+	background-image: url(images/searchIcon.jpg);
+	background-position: 0px 4px;
+	background-repeat: no-repeat;
 	padding-left: 30px;
 }
 #subBtn {
@@ -1221,8 +1259,11 @@ img.singleImg {
 input.searchForm {
 	width: 140px;
 }
-h2.search, p.search {
+h2.search {
 	padding: 1px 0px 15px 16px
+}
+p.search {
+	padding: 1px 0px 43px 22px;
 }
 button#dropdownMenu1 {
 	padding: 6px 43px;
@@ -1241,7 +1282,7 @@ button#dropdownMenu1 {
 	font-size: 12pt;
 }
 /*SRPITE*/
-.biblioHeader, .or_cog-25, .or_check-25, .bilbioTechIcon, .event, .or_check-25, .or_star-25,  .or_eye-25, .or_life-25, .or_pin-25, .or_sun-25, .or_thumb-25, .si_facebook, .si_facebookBlue, .si_instagram, .si_instagramBlue, .si_twitter, .si_twitterBlue,  .info, .update, .searchIcon {
+.biblioHeader, .or_cog-25, .or_check-25, .bilbioTechIcon, .event, .or_check-25, .or_star-25, .or_eye-25, .or_life-25, .or_pin-25, .or_sun-25, .or_thumb-25, .si_facebook, .si_facebookBlue, .si_instagram, .si_instagramBlue, .si_twitter, .si_twitterBlue, .info, .update, .searchIcon {
 	background: url(images/sprites.png) no-repeat;
 }
 .biblioHeader {
@@ -1330,28 +1371,25 @@ button#dropdownMenu1 {
 	width: 26px;
 	height: 24px;
 }
-.or_star-25{
-	background-position: -112px -127px ;
+.or_star-25 {
+	background-position: -112px -127px;
 	width: 25px;
 	height: 25px;
 }
-.info{
-	background-position: -161px -125px ;
+.info {
+	background-position: -161px -125px;
 	width: 24px;
 	height: 26px;
 }
-
-.update{
-	background-position: -161px -175px ;
+.update {
+	background-position: -161px -175px;
 	width: 27px;
 	height: 26px;
 }
-.searchIcon{
-	background-position: -211px -125px ;
+.searchIcon {
+	background-position: -211px -125px;
 	width: 26px;
 	height: 26px;
-
-	
 }
 /*SPRINT ENDS*/
 
@@ -1360,10 +1398,9 @@ button#dropdownMenu1 {
 	float: none;
 	margin: 0 auto;
 }
-
 .single ul {
 	padding-left: 40px !important;
-	margin-bottom:10px !important;
+	margin-bottom: 10px !important;
 	display: block;
 	list-style-type: disc;
 	-webkit-margin-before: 1em;
@@ -1371,12 +1408,13 @@ button#dropdownMenu1 {
 	-webkit-margin-start: 0px;
 	-webkit-margin-end: 0px;
 	-webkit-padding-start: 40px;
-	
 }
 .single ul li {
 	list-style-type: disc;
 }
-.single li{margin-bottom:5px;}
-
-
-.single ul.sIcons li {list-style-type:none}
+.single li {
+	margin-bottom: 5px;
+}
+.single ul.sIcons li {
+	list-style-type: none
+}

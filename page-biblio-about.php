@@ -7,8 +7,8 @@ get_header();
 get_template_part('inc/sub-header');
 get_template_part('inc/bib-header'); 
 ?>
-<div class="clearfix biblioAbout">
-<div class="container">
+<div class="clearfix">
+<div class="container subscribe">
 <div class="row"> 
  <div class="col-md-12"> 
  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>

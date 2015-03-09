@@ -42,11 +42,11 @@
 					echo strip_tags(content(20));
 					
 			}elseif(($newsTitle <= 89) && (content())) {
-   					
-					echo  strip_tags(content(40));
+   					//echo "HELLO";
+					echo  strip_tags(content(30));
 					
 			}elseif(($newsTitle <= 89) && (excerpt())) {
-   					
+   					//echo "HELLO";
 					echo strip_tags(excerpt(40));
 			}
          

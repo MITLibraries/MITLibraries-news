@@ -10,16 +10,26 @@ $j(function() {
 </script>
 
 <?php
+
 $date = DateTime::createFromFormat('Ymd', get_field('event_date'));
 
 ?>
 <?php
     /*
-        Template Name: Additional Posts
+        Template Name: Additional Posts Cats
     */
+   
+
+global $post;
+$categoryId = $_GET['categoryID'];
+
+ 
+
+
+   
     $offset = htmlspecialchars(trim($_GET['offset']));
     if ($offset == '') {
-        $offset = 9;
+        $offset = 21;
     }
 	
 	 $limit = htmlspecialchars(trim($_GET['limit']));
@@ -28,23 +38,22 @@ $date = DateTime::createFromFormat('Ymd', get_field('event_date'));
     }
 	
 	
+	
 	$args = array(
 	'posts_per_page'      => $limit,
-	'post_type' => array('Spotlights','bibliotech', 'post'),
-	'offset'  			  => 9,
-	'post__not_in'            => get_option( 'sticky_posts' ),
+	'post_type' 			  => 'post',
+	'cat'				  => $categoryId ,
+	'offset'  			  => 21,
+	'post__not_in'        => get_option( 'sticky_posts' ),
 	'ignore_sticky_posts' => 1,
-	'orderby'   	=> 'date',
-	'order'     	=> 'DESC',
+	'orderby'             => 'date',
+	'order'               => 'DESC',
 	'suppress_filters' => false
 
 );
 
 $the_query = new WP_Query($args); 
 
-
-?>
-<?php
 //removes button start
 $ajaxLength = $the_query->post_count;
 ?>
@@ -53,10 +62,9 @@ $ajaxLength = $the_query->post_count;
 $j("#another").hide();
 </script>
 <?php } 
-//removes button end ?>
-
-
-
+//removes button end
+?>
+	
 <?php if( $the_query->have_posts() ):  ?>
 
 
@@ -70,6 +78,8 @@ while ( $the_query->have_posts() ) : $the_query->the_post();
 
  <div id="theBox" class="<?php if ($o % 3 == 0){ echo "third "; } ?> col-xs-12  col-xs-B-6 col-sm-4 col-md-4 no-padding-left-mobile">
       <div class="flex-item blueTop  eventsBox <?php if (get_field("listImg")) { echo "has-image";} else { echo "no-image"; } ?>" onClick='location.href="<?php if((get_field("external_link") != "") && $post->post_type == 'spotlights'){ the_field("external_link");}else{ echo get_post_permalink();}  ?>"'> 
+     
+
         <?php get_template_part('inc/spotlights'); ?>
        
         <?php
@@ -132,7 +142,6 @@ while ( $the_query->have_posts() ) : $the_query->the_post();
 else : ?>
 
 <script>
-alert("NONE");
 	$j(".moreBtn").html("no more posts to load");
 	
 	

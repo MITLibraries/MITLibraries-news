@@ -82,10 +82,11 @@ wp_nav_menu( $defaults );
 		$args = array(
 			'show_option_none' => __( 'Category' ),
 			'show_count'       => 0,
-			'orderby'          => 'name',
+			'orderby'            => 'ID', 
+			'order'              => 'ASC',
 			'echo'             => 0,
-			'exclude'		   => '53, 54, 55, 57, 58, 59, 45, 61,44, 46, 47, 48, 49, 50',
-			'exclude_tree'     =>  '73'
+			'exclude'		   => '44',
+			'exclude_tree'     =>  '44'
 		);
 		?>
 
