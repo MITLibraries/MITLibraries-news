@@ -111,20 +111,19 @@ get_header(); ?>
   <!-- #main --> 
   
 </div>
-<script>
-var $j = jQuery.noConflict(); 
-$j(function(){
+<script type="text/javascript">
+$(document).ready(function() {
     var offset = 9;
 	var limit = 9;
-    $j("#postContainer").load("/news/search-results/");
-    $j("#another").click(function(){
+    $("#postContainer").load("/news/search-results/");
+    $("#another").click(function(){
 		limit = limit+9;
         offset = offset+9;
-        $j("#postContainer")
+        $("#postContainer")
             //.slideUp()
             .load("/news/search-results/?offset="+offset+"&limit="+limit, function() {
 			 //.load("/news/test/?offset="+offset, function() {
-			   $j(this).slideDown();
+			   $(this).slideDown();
 			 	
 			   
     	});
@@ -133,9 +132,6 @@ $j(function(){
     });
 
 });
-
-
-
 </script>
 
 <!-- #primary -->

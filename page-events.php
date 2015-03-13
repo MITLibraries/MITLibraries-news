@@ -27,9 +27,14 @@ $events = array (
 		),
 	),
 );
+?>
+
+
+<?php
 
 // The Query
 $the_query = new WP_Query($events);
+$theLength = $the_query->post_count;	
 ?>
     <?php //echo $GLOBALS['wp_query']->request; ?>
 
@@ -119,29 +124,30 @@ $time = strtotime("{$d}-{$m}-{$y}");
   <!-- #primary --> 
 </div>
 <!--close container-->
- <?php get_template_part('inc/more-posts'); ?>
+<?php if($theLength > 8){ 
+ get_template_part('inc/more-posts'); 
+} ?>
  
  
  
  
-<script>
-var $j = jQuery.noConflict(); 
-$j(function(){
+<script type="text/javascript">
+$(document).ready(function() {
     var offset = 11;
 	var limit = 9;
     //$j("#postContainer").load("/news/add-posts-events/");
-    $j("#another").click(function(){
+    $("#another").click(function(){
 		limit = limit+9;
         offset = offset+11;
-        $j("#postContainer")
+        $("#postContainer")
             //.slideUp()
 					
             .load("/news/add-posts-events/?offset=1&limit="+limit, function() {
 			 //.load("/news/test/?offset="+offset, function() {
-			   $j(this).slideDown();
+			   $(this).slideDown();
 			   //$j("#another").remove();
 			    //$j(".moreBtn").html(' No More Posts') // if there are none left 
-			   $j('.moreBtn').length;
+			   $('.moreBtn').length;
 					   
 			   
 			

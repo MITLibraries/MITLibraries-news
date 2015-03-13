@@ -123,12 +123,20 @@ $args = array(
 	
 );
 $the_query = new WP_Query( $args );	
-$theLength = $the_query->post_count;	
+
+
+
+
 ?>
-   <?php if( $the_query->have_posts() ):  ?>
-    <?php   	
+   <?php if( $the_query->have_posts() ):  
+   
+   $theLength = $count_posts->publish;
+   ?>
+    
+	
+	<?php   	
 	$i = -1;		
-	while ( $the_query->have_posts() ) : $the_query->the_post();  
+	while ( $the_query->have_posts() ) : $the_query->the_post();  echo $i;
 	$i++; 
 	
      ?>
@@ -199,9 +207,9 @@ $theLength = $the_query->post_count;
   <!--closes ROW-->
   </div>
 
-<? if($theLength > 8){ ?>
-<?php get_template_part('inc/more-posts'); ?>
-<? } ?>
+<?php  if($i > 6){ 
+ get_template_part('inc/more-posts'); 
+ } ?>
 
 
   
@@ -209,19 +217,20 @@ $theLength = $the_query->post_count;
   
 
 <script>
-var $j = jQuery.noConflict(); 
-$j(function(){
+$(document).ready(function() {
+
+
     var offset = 9;
 	var limit = 9;
-    $j("#postContainer").load("/news/test/");
-    $j("#another").click(function(){
+    $("#postContainer").load("/news/test/");
+    $("#another").click(function(){
 		limit = limit+9;
         offset = offset+9;
-        $j("#postContainer")
+        $("#postContainer")
             //.slideUp()
             .load("/news/test/?offset="+offset+"&limit="+limit, function() {
 			 //.load("/news/test/?offset="+offset, function() {
-			   $j(this).slideDown();
+			   $(this).slideDown();
 			 	
 			   
     	});

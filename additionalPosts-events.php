@@ -1,3 +1,12 @@
+<script type="text/javascript">
+$(document).ready(function() {
+  $("img.img-responsive").lazyload({ 
+    effect : "fadeIn", 
+    effectspeed: 450 ,
+	failure_limit: 999999
+  }); 
+});	
+</script>
 <?php
     /*
         Template Name: Additional Posts Events
@@ -37,7 +46,7 @@ $ajaxLength = $the_query->post_count;
 ?>
 <?php if ($ajaxLength < $limit){ ?>
 <script>
-$j("#another").hide();
+$("#another").hide();
 </script>
 <?php } 
 //removes button end ?>

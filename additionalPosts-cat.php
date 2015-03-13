@@ -1,12 +1,11 @@
-<script>
-$j(function() {
-  $j("img.img-responsive").lazyload({ 
+<script type="text/javascript">
+$(document).ready(function() {
+  $("img.img-responsive").lazyload({ 
     effect : "fadeIn", 
     effectspeed: 450 ,
 	failure_limit: 999999
   }); 
 });	
-
 </script>
 
 <?php
@@ -136,18 +135,7 @@ while ( $the_query->have_posts() ) : $the_query->the_post();
     
 
 <?php
-
- endwhile; 
-
-else : ?>
-
-<script>
-	$j(".moreBtn").html("no more posts to load");
-	
-	
-</script>
-<?php	
+endwhile; 
+else : 
 endif;
-?>
-
-<?php wp_reset_query();  // Restore global post data stomped by the_post(). ?>
+wp_reset_query();  // Restore global post data stomped by the_post(). ?>

@@ -7,6 +7,12 @@
 li#menu-item-17753 {
 	display: none
 }
+li#menu-item-15221{display: block;}	
+button#dropdownMenu1 {
+  padding: 8px 43px;
+  line-height:19px;
+}
+
 .nav > li > a {
 	padding: 9px 0px;
 }
@@ -14,12 +20,18 @@ li#menu-item-17753 {
 color: rgb(88,137,193);
 }
 
+.page h2{text-align:center}	
+.page .entry-content h2{text-align:left}
+.mc-field-group select#mce-MMERGE3, .mc-field-group select#mce-MMERGE4, .mc-field-group select#mce-MMERGE5{
+	max-width:190px;width: 190px;
 	
+	}
+
 }
 
 /*col-sm*/
 @media (min-width: 768px) {
-	.newsNav ul li#menu-item-17754{display: none}	
+.newsNav ul li#menu-item-17754{display: none}	
 ul#menu-mainnav{
 margin-top: -10px !important;
 border: 0 !important;
@@ -99,10 +111,17 @@ body.tax-bibliotech_issues .newsNav ul li#menu-item-17024 a, body.page-bibliotec
 #singleBox:first-child {
 	padding-left: 0px !important;
 }
+/*on dev*/
+li#menu-item-15221{display: none}
+/*on dev*/	
+
 /*col-sm ends*/	}
 
 /*col-md*/
 @media (min-width: 992px) {
+/*on dev*/
+li#menu-item-15221{display: none}
+/*on dev*/	
 ul#menu-mainnav{
 margin-top: -10px !important;
 border: 0 !important;
@@ -188,6 +207,10 @@ body.tax-bibliotech_issues .newsNav ul li#menu-item-17024 a, body.page-bibliotec
 /*col-lg*/
 @media (min-width: 1200px) {
 li#menu-item-17754{display: none}	
+
+/*on dev*/
+li#menu-item-15221{display: none}
+/*on dev*/	
 ul#menu-mainnav{
 margin-top: -10px !important;
 border: 0 !important;
@@ -326,6 +349,13 @@ text-align:center;
 /*mobile site */
 /* Extra Small Devices, Phones */ 
 @media only screen and (max-width : 480px) {
+	
+.mc-field-group select#mce-MMERGE3, .mc-field-group select#mce-MMERGE4, .mc-field-group select#mce-MMERGE5{
+	max-width:190px;width: 190px;
+	
+	}
+	
+	
 li#menu-item-17509 {
 display:block
 }
@@ -365,9 +395,23 @@ display:block;
 li#menu-item-17753 {
 display:none
 }
+.mc-field-group select#mce-MMERGE3, .mc-field-group select#mce-MMERGE4, .mc-field-group select#mce-MMERGE5{
+	max-width:190px;width: 190px;
+	
+	}
+
+
 }
 /* Custom, iPhone Retina potrate*/ 
 @media only screen and (max-width : 320px) {
+	
+	
+button#dropdownMenu1 {
+  padding: 8px 43px;
+  
+}
+	
+	
 /*body{background-color:pink;}*/
 li#menu-item-17753 {
 display:none

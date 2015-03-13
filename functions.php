@@ -56,7 +56,7 @@ function mitlibnews_register_news_posts() {
 		'menu_name' => 'Spotlights',
 		'name_admin_bar' => 'Spotlight',
 		'add_new' => 'Add New',
-		'add_new_item' => 'Add New Spotlight',
+		'add_new_item' => 'Add New Spotlight - should be about 61 characters',
 		'new_item' => 'New Spotlight',
 		'edit_item' => 'Edit Spotlight',
 		'view_item' => 'View Spotlight',
@@ -269,7 +269,7 @@ function biblio_taxonomy() {
 	$labels = array(
 		'name'                       => _x( 'bibliotechs', 'Taxonomy General Name', 'text_domain' ),
 		'singular_name'              => _x( 'bibliotech', 'Taxonomy Singular Name', 'text_domain' ),
-		'menu_name'                  => __( 'Select issue', 'text_domain' ),
+		'menu_name'                  => __( 'Create issue', 'text_domain' ),
 		'all_items'                  => __( 'All Items', 'text_domain' ),
 		'parent_item'                => __( 'Parent Item', 'text_domain' ),
 		'parent_item_colon'          => __( 'Parent Item:', 'text_domain' ),
@@ -303,32 +303,6 @@ add_action( 'init', 'biblio_taxonomy', 0 );
 
 
 }
-
-
-//new admin ui page for whats in the news?
-//add_action( 'admin_menu', 'register_my_custom_menu_page' );
-//
-//function register_my_custom_menu_page(){
-//	add_menu_page( 
-//		'custom menu title', 
-//		'Home Page News', 
-//		'manage_options', 
-//		'custompage', 
-//		'my_custom_menu_page', 
-//		'dashicons-flag', 
-//		
-//		6 ); 
-//}
-//
-//function my_custom_menu_page(){
-//	
-//echo "hello";
-//	
-//}
-
-
-//new widget for subscribe page
-
 
 function news_sidebar_widget() {
 
