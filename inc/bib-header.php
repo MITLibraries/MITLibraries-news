@@ -21,7 +21,7 @@ $menu = wp_get_nav_menu_object($menu_name);
 $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) ); 
 //print_r($menuitems);
 ?>
-<select name="bibMenu" id="bibMenu" onchange="window.location=this.value"><option value="">Please select</option>
+<select name="bibMenu" id="bibMenu" onchange="window.location=this.value"><option value="">Select issue</option>
 <?php
 foreach($menuitems as $m){  ?>
 <option
