@@ -107,22 +107,21 @@ if (is_category( )) {
   $categoryID2 = $category2->cat_ID;
  }
 ?>
-var $j = jQuery.noConflict(); 
-$j(function(){
+$(document).ready(function() {
     var offset = 21;
 	var limit = 9;
-    $j("#postContainer").load("/news/add-posts-category/");
-    $j("#another").click(function(){
+    //$("#postContainer").load("/news/add-posts-category/");
+    $("#another").click(function(){
 		limit = limit+9;
         offset = offset+21;
-        $j("#postContainer")
+        $("#postContainer")
             //.slideUp()
-            .load("/news/add-posts-category/?offset="+offset+"&limit="+limit+"&categoryID="+<? echo $categoryID2 ?>+"", function() {
+            .load("/news/add-posts-category/?offset="+offset+"&limit="+limit+"&categoryID="+<?php echo $categoryID2; ?>+"", function() {
 			 //.load("/news/test/?offset="+offset, function() {
-			   $j(this).slideDown();
+			   $(this).slideDown();
 			   
 			
-			   $j('#another').click(function() {
+			   $('#another').click(function() {
 			  // alert($j(this).load());
        });
 			   

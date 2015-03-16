@@ -26,11 +26,11 @@ $date = DateTime::createFromFormat('Ymd', get_field('event_date'));
 	
 	
 
-echo $_GET['s'];
+
 // WP_Query arguments
 $args = array (
 	'post_type'              => array('post', 'bilbiotech', 'spotlight'),
-	's'                      => $_GET['s'],
+	's'                  => $_GET['search'],
 	'posts_per_page'         => $limit,
 	'offset'                 => 9,
 	'order'                  => 'DESC',
@@ -51,7 +51,7 @@ $ajaxLength = $the_query->post_count;
 ?>
 <?php if ($ajaxLength < $limit){ ?>
 <script>
-$j("#another").hide();
+$("#another").hide();
 </script>
 <?php } 
 //removes button end ?>

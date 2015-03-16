@@ -60,9 +60,8 @@ $("#another").hide();
 
 <?php 
 $o = -1;	
-
 while ( $the_query->have_posts() ) : $the_query->the_post(); 
- $o++;
+$o++;
 ?>
 
 
@@ -124,13 +123,7 @@ while ( $the_query->have_posts() ) : $the_query->the_post();
     
 
 <?php
-
- endwhile; 
-
-else : ?>
-
-<?php	
+endwhile; 
+else : 
 endif;
-?>
-
-<?php wp_reset_query();  // Restore global post data stomped by the_post(). ?>
+wp_reset_query();  // Restore global post data stomped by the_post(). ?>

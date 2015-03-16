@@ -1,5 +1,4 @@
 <?php  
-include('wejnswpwhitespacefix.php');
 $pageRoot = getRoot($post);$section = get_post($pageRoot);$isRoot = $section->ID == $post->ID; get_header(); get_template_part('inc/sub-header');
 $sticky = get_option( 'sticky_posts' );
 $args = array(
@@ -136,7 +135,7 @@ $the_query = new WP_Query( $args );
 	
 	<?php   	
 	$i = -1;		
-	while ( $the_query->have_posts() ) : $the_query->the_post();  echo $i;
+	while ( $the_query->have_posts() ) : $the_query->the_post();  
 	$i++; 
 	
      ?>
