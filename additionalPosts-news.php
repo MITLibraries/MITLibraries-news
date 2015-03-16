@@ -12,14 +12,15 @@
         $limit = 9;
     }	
 ?>
-<script type="text/javascript">
-$(document).ready(function() {
-  $("img.img-responsive").lazyload({ 
+<script>
+$j(function() {
+  $j("img.img-responsive").lazyload({ 
     effect : "fadeIn", 
     effectspeed: 450 ,
 	failure_limit: 999999
   }); 
 });	
+
 </script>
 
 <?php

@@ -628,10 +628,6 @@ h1 {
 	background-position: 0px 4px;
 	background-repeat: no-repeat;
 	padding-left: 30px;
-	font-size: 15px;
-}
-button#dropdownMenu1 {
-  font-size: 13px;
 }
 #subBtn {
 	padding: 5px 6px;
@@ -1208,7 +1204,6 @@ nav a {
 	margin: 6px 0px;
 	padding: 0px 0px;
 }
-
 .single li#menu-item-14139 {
 	margin-top: -2px;
 	margin-right: 7px;
@@ -1270,7 +1265,9 @@ h2.search {
 p.search {
 	padding: 1px 0px 43px 22px;
 }
-
+button#dropdownMenu1 {
+	padding: 7px 43px;
+}
 .bgWhite .event {
 	color: #F58733;
 	padding-left: 20px;
@@ -1421,33 +1418,3 @@ p.search {
 .single ul.sIcons li {
 	list-style-type: none
 }
-.btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default{
-	border-color:white;
-	
-	}
-	
-.btn-default {
-  color: #333;
-  background-color: #fff;
-  border-color: #fff;
-}
-
-.btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default{
-	
-	  background-color: white;
-  border-color:white;
-	}.btn:active, .btn.active {
-  background-image: none;
-  outline: 0;
-  -webkit-box-shadow: none;
-  box-shadow:none;
-}
-
-.menu-toggle:hover, button:hover, input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover, article.post-password-required input[type=submit]:hover{
-	background-image:none;
-	}
-	
-	.btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn.active.focus{
-		  outline:none;
-		}
-	

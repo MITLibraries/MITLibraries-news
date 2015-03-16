@@ -31,7 +31,9 @@ get_header(); ?>
 	 
 	  $L = -1;
 	  $count_posts = wp_count_posts();
-	  
+	  echo "<pre>";
+	  print_r($count_posts);
+	    echo "</pre>";
 		$published_posts = $count_posts->publish;
 	  while (have_posts()) : the_post(); 
 	
@@ -101,28 +103,28 @@ get_header(); ?>
       <?php endwhile;?>
     </div> <!--closeFLexContainer--> 
     </div><!--closes row-->
-<?php if($published_posts > 8){ ?>
+<? if($published_posts > 8){ ?>
 <?php get_template_part('inc/more-posts'); ?>
-<?php } ?>
+<? } ?>
     
   </main>
   <!-- #main --> 
   
 </div>
-<script type="text/javascript">
-$(document).ready(function() {
+<script>
+var $j = jQuery.noConflict(); 
+$j(function(){
     var offset = 9;
 	var limit = 9;
-	var car = "<?php echo $_GET[s]; ?>";
-   // $("#postContainer").load("/news/search-results/");
-    $("#another").click(function(){
+    $j("#postContainer").load("/news/search-results/");
+    $j("#another").click(function(){
 		limit = limit+9;
         offset = offset+9;
-        $("#postContainer")
+        $j("#postContainer")
             //.slideUp()
-            .load("/news/search-results/?offset="+offset+"&limit="+limit+"&search="+car, function() {
+            .load("/news/search-results/?offset="+offset+"&limit="+limit, function() {
 			 //.load("/news/test/?offset="+offset, function() {
-			   $(this).slideDown();
+			   $j(this).slideDown();
 			 	
 			   
     	});
@@ -131,6 +133,9 @@ $(document).ready(function() {
     });
 
 });
+
+
+
 </script>
 
 <!-- #primary -->

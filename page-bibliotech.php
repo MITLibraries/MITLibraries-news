@@ -150,28 +150,28 @@ $my_query->the_post();
     <?php } ?>
   </div>
   <!--closeMITContainer-->
-  <?php if($theLength > 8){ 
- get_template_part('inc/more-posts');   
- } ?> 
+  <? if($theLength > 8){ ?>
+ <?php get_template_part('inc/more-posts'); ?> 
+ <? } ?> 
 </div>
 <!-- wrap --> 
 <script>
-$(document).ready(function() {
-
+var $j = jQuery.noConflict(); 
+$j(function(){
     var offset = 11;
 	var limit = 9;
-    $("#postContainer").load("/news/add-bibliotech-posts/");
-    $("#another").click(function(){
+    $j("#postContainer").load("/news/add-bibliotech-posts/");
+    $j("#another").click(function(){
 		limit = limit+9;
         offset = offset+11;
-        $("#postContainer")
+        $j("#postContainer")
             //.slideUp()
             .load("/news/add-bibliotech-posts/?offset="+offset+"&limit="+limit, function() {
 			 //.load("/news/test/?offset="+offset, function() {
-			   $(this).slideDown();
+			   $j(this).slideDown();
 			   
 			
-			   $('#another').click(function() {
+			   $j('#another').click(function() {
 			   
        });
 			   

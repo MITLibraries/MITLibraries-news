@@ -1,12 +1,14 @@
-<script type="text/javascript">
-$(document).ready(function() {
-  $("img.img-responsive").lazyload({ 
+<script>
+$j(function() {
+  $j("img.img-responsive").lazyload({ 
     effect : "fadeIn", 
     effectspeed: 450 ,
 	failure_limit: 999999
   }); 
 });	
+
 </script>
+
 <?php
 $date = DateTime::createFromFormat('Ymd', get_field('event_date'));
 
@@ -48,7 +50,7 @@ $ajaxLength = $the_query->post_count;
 ?>
 <?php if ($ajaxLength < $limit){ ?>
 <script>
-$("#another").hide();
+$j("#another").hide();
 </script>
 <?php } 
 //removes button end ?>
@@ -60,8 +62,9 @@ $("#another").hide();
 
 <?php 
 $o = -1;	
+
 while ( $the_query->have_posts() ) : $the_query->the_post(); 
-$o++;
+ $o++;
 ?>
 
 
@@ -123,7 +126,19 @@ $o++;
     
 
 <?php
-endwhile; 
-else : 
+
+ endwhile; 
+
+else : ?>
+
+<script>
+alert("NONE");
+	$j(".moreBtn").html("no more posts to load");
+	
+	
+</script>
+<?php	
 endif;
-wp_reset_query();  // Restore global post data stomped by the_post(). ?>
+?>
+
+<?php wp_reset_query();  // Restore global post data stomped by the_post(). ?>

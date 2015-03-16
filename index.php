@@ -1,4 +1,5 @@
 <?php  
+include('wejnswpwhitespacefix.php');
 $pageRoot = getRoot($post);$section = get_post($pageRoot);$isRoot = $section->ID == $post->ID; get_header(); get_template_part('inc/sub-header');
 $sticky = get_option( 'sticky_posts' );
 $args = array(
@@ -122,18 +123,10 @@ $args = array(
 	
 );
 $the_query = new WP_Query( $args );	
-
-
-
-
+$theLength = $the_query->post_count;	
 ?>
-   <?php if( $the_query->have_posts() ):  
-   
-   $theLength = $count_posts->publish;
-   ?>
-    
-	
-	<?php   	
+   <?php if( $the_query->have_posts() ):  ?>
+    <?php   	
 	$i = -1;		
 	while ( $the_query->have_posts() ) : $the_query->the_post();  
 	$i++; 
@@ -206,9 +199,9 @@ $the_query = new WP_Query( $args );
   <!--closes ROW-->
   </div>
 
-<?php  if($i > 6){ 
- get_template_part('inc/more-posts'); 
- } ?>
+<? if($theLength > 8){ ?>
+<?php get_template_part('inc/more-posts'); ?>
+<? } ?>
 
 
   
@@ -216,20 +209,19 @@ $the_query = new WP_Query( $args );
   
 
 <script>
-$(document).ready(function() {
-
-
+var $j = jQuery.noConflict(); 
+$j(function(){
     var offset = 9;
 	var limit = 9;
-    $("#postContainer").load("/news/test/");
-    $("#another").click(function(){
+    $j("#postContainer").load("/news/test/");
+    $j("#another").click(function(){
 		limit = limit+9;
         offset = offset+9;
-        $("#postContainer")
+        $j("#postContainer")
             //.slideUp()
             .load("/news/test/?offset="+offset+"&limit="+limit, function() {
 			 //.load("/news/test/?offset="+offset, function() {
-			   $(this).slideDown();
+			   $j(this).slideDown();
 			 	
 			   
     	});

@@ -215,19 +215,20 @@ $thumb_url = $thumb_url_array[0];?>
 </div>
 </div>
 
-<script type="text/javascript">
-$(document).ready(function() {
+<script>
+var $j = jQuery.noConflict(); 
+$j(function(){
     var offset = 10;
 	var limit = 0;
-    $("#postContainer").load("/news/more-news-stories/");
-    $("#another").click(function(){
+    $j("#postContainer").load("/news/more-news-stories/");
+    $j("#another").click(function(){
 		limit = limit+9;
         offset = offset+10;
-        $("#postContainer")
+        $j("#postContainer")
             //.slideUp()
             .load("/news/more-news-stories/?offset="+offset+"&limit="+limit, function() {
 			 //.load("/news/test/?offset="+offset, function() {
-			   $(this).slideDown();
+			   $j(this).slideDown();
 			   //$j("#another").remove();
 			   
     	});
