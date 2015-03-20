@@ -3,15 +3,14 @@
         Template Name: Additional Posts Bibliotech
     */
 ?>
-<script>
-$j(function() {
-  $j("img.img-responsive").lazyload({ 
+<script type="text/javascript">
+$(document).ready(function() {
+  $("img.img-responsive").lazyload({ 
     effect : "fadeIn", 
     effectspeed: 450 ,
 	failure_limit: 999999
   }); 
 });	
-
 </script>
 
 <?php
@@ -35,8 +34,8 @@ $j(function() {
 	 	'ignore_sticky_posts' => 1,
 		'offset'    => 10,
 		'posts_per_page'  => $limit,
-		'orderby'   	=> 'date',
-		'order'     	=> 'DESC',
+		'order'                  => 'DESC',
+	'orderby'                => 'date',
 		'suppress_filters' => false
 				
 		
@@ -84,18 +83,9 @@ $i++;
         		$category = get_the_category();     
 				$rCat = count($category);
 				$r = rand(0, $rCat -1);
-				//echo $r;
-				//echo "-";
-				//echo $rCat; 
-                
-				//if($category[0]){
-					
-				echo '<a title="'.$category[$r]->cat_name.'"  title="'.$category[$r]->cat_name.'" href="'.get_category_link($category[$r]->term_id ).'">'.$category[$r]->cat_name.'</a>';
-				
-				//}
-				
 	
-            ?>
+				echo '<a title="'.$category[$r]->cat_name.'"  title="'.$category[$r]->cat_name.'" href="'.get_category_link($category[$r]->term_id ).'">'.$category[$r]->cat_name.'</a>';
+		 ?>
           <span class="mitDate">
           <time class="updated"  datetime="<?php echo get_the_date(); ?>">&nbsp;&nbsp;<?php echo get_the_date(); ?></time>
           </span> </div>

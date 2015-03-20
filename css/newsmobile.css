@@ -4,32 +4,46 @@
 
 /*xs small */
 @media(max-width:767px) {
+
 li#menu-item-17753 {
 	display: none
+}
+button#dropdownMenu1 {
+	padding:7px 3px;
+	line-height: 19px;
+	color:#338BC5;
 }
 .nav > li > a {
 	padding: 9px 0px;
 }
 .newsNav ul li.current-menu-item a {
-color: rgb(88,137,193);
+	color: rgb(88,137,193);
 }
-
-	
+.page h2 {
+}
+.page .entry-content h2 {
+	text-align: left
+}
+.mc-field-group select#mce-MMERGE3, .mc-field-group select#mce-MMERGE4, .mc-field-group select#mce-MMERGE5 {
+	max-width: 190px;
+	width: 190px;
+}
 }
 
 /*col-sm*/
 @media (min-width: 768px) {
-	.newsNav ul li#menu-item-17754{display: none}	
-ul#menu-mainnav{
-margin-top: -10px !important;
-border: 0 !important;
-box-shadow: 0px 0 !important;
+.newsNav ul li#menu-item-17754 {
+	display: none
+}
+ul#menu-mainnav {
+	margin-top: -10px !important;
+	border: 0 !important;
+	box-shadow: 0px 0 !important;
 }
 .newsNav ul li.current-menu-item a {
-color: rgb(88,137,193);
+	color: rgb(88,137,193);
 }
-
-li#menu-item-17755, li#menu-item-17832  {
+li#menu-item-17755, li#menu-item-17832 {
 	display: none
 }
 .nav > li > a {
@@ -103,13 +117,12 @@ body.tax-bibliotech_issues .newsNav ul li#menu-item-17024 a, body.page-bibliotec
 
 /*col-md*/
 @media (min-width: 992px) {
-ul#menu-mainnav{
-margin-top: -10px !important;
-border: 0 !important;
-box-shadow: 0px 0 !important;
+ul#menu-mainnav {
+	margin-top: -10px !important;
+	border: 0 !important;
+	box-shadow: 0px 0 !important;
 }
-	
-li#menu-item-17755, li#menu-item-17832  {
+li#menu-item-17755, li#menu-item-17832 {
 	display: none
 }
 .third {
@@ -118,7 +131,6 @@ li#menu-item-17755, li#menu-item-17832  {
 .nav > li > a {
 	padding: 9px 10px;
 }
-
 /*NAV BEGINS*/
 
 .newsNav {
@@ -187,16 +199,15 @@ body.tax-bibliotech_issues .newsNav ul li#menu-item-17024 a, body.page-bibliotec
 
 /*col-lg*/
 @media (min-width: 1200px) {
-li#menu-item-17754{display: none}	
-ul#menu-mainnav{
-margin-top: -10px !important;
-border: 0 !important;
-box-shadow: 0px 0 !important;
+ul#menu-mainnav {
+	margin-top: -10px !important;
+	border: 0 !important;
+	box-shadow: 0px 0 !important;
 }
 .nav > li > a {
 	padding: 9px 10px;
 }
-li#menu-item-17755, li#menu-item-17832  {
+li#menu-item-17755, li#menu-item-17832 {
 	display: none
 }
 .socialNav {
@@ -266,7 +277,7 @@ body.tax-bibliotech_issues .newsNav ul li#menu-item-17024 a, body.page-bibliotec
 	
 .sticky {
 	padding-left: 0px !important;
-	margin-bottom:5px;
+	margin-bottom: 5px;
 }
 .sticky img {
 	width: 100%;
@@ -277,7 +288,6 @@ body.tax-bibliotech_issues .newsNav ul li#menu-item-17024 a, body.page-bibliotec
 #singleBox:first-child .socialNav {
 	padding-left: 2px !important;
 }
-
 #singleBox:first-child {
 	padding-left: 0px !important;
 }
@@ -289,11 +299,12 @@ body.tax-bibliotech_issues .newsNav ul li#menu-item-17024 a, body.page-bibliotec
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px) {
-.newsNav ul li#menu-item-17754{display: none}	
-
+.newsNav ul li#menu-item-17754 {
+	display: none
+}
 .sticky {
 	padding-left: 0px !important;
-	margin-bottom:5px;
+	margin-bottom: 5px;
 }
 .sticky img {
 	width: 100%;
@@ -305,8 +316,7 @@ body.tax-bibliotech_issues .newsNav ul li#menu-item-17024 a, body.page-bibliotec
  @media only screen and (min-width : 700px) and (max-width : 1500px) {
 .sticky {
 	padding-left: 0px !important;
-	margin-bottom:5px;
-	
+	margin-bottom: 5px;
 }
 .sticky img {
 	width: 100%;
@@ -314,8 +324,7 @@ body.tax-bibliotech_issues .newsNav ul li#menu-item-17024 a, body.page-bibliotec
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
-
-.sub {
+ .sub {
  padding-left:23px;
 }
 h1.name-site {
@@ -326,7 +335,13 @@ text-align:center;
 /*mobile site */
 /* Extra Small Devices, Phones */ 
 @media only screen and (max-width : 480px) {
-li#menu-item-17509 {
+
+	
+ .mc-field-group select#mce-MMERGE3, .mc-field-group select#mce-MMERGE4, .mc-field-group select#mce-MMERGE5 {
+ max-width:190px;
+width: 190px;
+}
+ li#menu-item-17509 {
 display:block
 }
 container {
@@ -365,9 +380,18 @@ display:block;
 li#menu-item-17753 {
 display:none
 }
+.mc-field-group select#mce-MMERGE3, .mc-field-group select#mce-MMERGE4, .mc-field-group select#mce-MMERGE5 {
+ max-width:190px;
+width: 190px;
+}
 }
 /* Custom, iPhone Retina potrate*/ 
 @media only screen and (max-width : 320px) {
+ button#dropdownMenu1 {
+ padding: 8px 43px;
+}
+	
+	
 /*body{background-color:pink;}*/
 li#menu-item-17753 {
 display:none
@@ -420,8 +444,6 @@ container {
 
 /* iphone 6 */
 @media only screen and (min-device-width : 375px) and (max-device-width : 667px) {
-
-
 }
 
 /* iphone 6  landscape*/
@@ -448,7 +470,6 @@ container {
 
 /* iphone 6 PLUS PORT*/	
 @media only screen and (min-device-width : 540px) and (max-device-width : 960px) and (orientation : portrait) {
-	
 }
 
 /* iphone 5*/

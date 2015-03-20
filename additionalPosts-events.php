@@ -1,3 +1,12 @@
+<script type="text/javascript">
+$(document).ready(function() {
+  $("img.img-responsive").lazyload({ 
+    effect : "fadeIn", 
+    effectspeed: 450 ,
+	failure_limit: 999999
+  }); 
+});	
+</script>
 <?php
     /*
         Template Name: Additional Posts Events
@@ -14,21 +23,28 @@
     }	
 ?>
 <?php
+$date = DateTime::createFromFormat('Ymd', get_field('event_date'));
 $args = array(
-	'offset'  => 11,
-  	 'posts_per_page' => $limit,
-	'post__not_in' => get_option('sticky_posts'),
+	
+	'post_type'              => 'post',
+	'posts_per_page'         =>	$limit,
+	'offset'                 => '20',
+	'ignore_sticky_posts'    => true,
+	
 	'meta_query'             => array(
+	
 		array(
-			'key'       => 'is_event',
-			'value'     =>'1',
-			'orderby'    => 'meta_value_num',
-			'order'      => 'DESC',
-
-
-		),
+	'meta_key'                => 'event_date',
+	'orderby'                => 'meta_value_num',
+	'order'                  => 'DESC',
+		
+),
+		
+		
 	),
 );
+	
+
  $the_query = new WP_Query($args); 
 ?>
 <?php
@@ -37,7 +53,7 @@ $ajaxLength = $the_query->post_count;
 ?>
 <?php if ($ajaxLength < $limit){ ?>
 <script>
-$j("#another").hide();
+$("#another").hide();
 </script>
 <?php } 
 //removes button end ?>

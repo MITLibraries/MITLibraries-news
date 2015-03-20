@@ -82,7 +82,7 @@ wp_nav_menu( $defaults );
 		$args = array(
 			'show_option_none' => __( 'Category' ),
 			'show_count'       => 0,
-			'orderby'            => 'ID', 
+			'orderby'            => 'name', 
 			'order'              => 'ASC',
 			'echo'             => 0,
 			'exclude'		   => '44',

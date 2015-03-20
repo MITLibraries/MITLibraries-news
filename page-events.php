@@ -13,23 +13,49 @@ get_header(); ?>
 
   <div class="container">
  <?php
+
+$date = DateTime::createFromFormat('Ymd', get_field('event_date'));
+ 
 $events = array (
 
-	'posts_per_page'         => '9',
-	'post__not_in' => get_option('sticky_posts'),
+	'post_type'              => 'post',
+	'posts_per_page'         =>	-1,
+	'ignore_sticky_posts'    => true,
+	'meta_key'                => 'event_date',
+	'orderby'                => 'meta_value_num',
+	'order'                  => 'DESC',
 	'meta_query'             => array(
+	
 		array(
 			'key'       => 'is_event',
-			'value'     =>'1',
-			'orderby'    => 'meta_value_num',
-			'order'      => 'DESC',
-			
-		),
+			'value'     => true,
+			'compare' => '='
+),
+
+		array(
+			'key'       => 'is_event',
+			'value'     => true,
+			'compare' => '='
+),
+		
+		
 	),
 );
 
+
+$the_query = new WP_Query($events);
+	
+
+
+
+?>
+
+
+<?php
+
 // The Query
 $the_query = new WP_Query($events);
+$theLength = $the_query->post_count;	
 ?>
     <?php //echo $GLOBALS['wp_query']->request; ?>
 
@@ -119,29 +145,30 @@ $time = strtotime("{$d}-{$m}-{$y}");
   <!-- #primary --> 
 </div>
 <!--close container-->
- <?php get_template_part('inc/more-posts'); ?>
+<?php if($theLength > 8){ 
+ get_template_part('inc/more-posts'); 
+} ?>
  
  
  
  
-<script>
-var $j = jQuery.noConflict(); 
-$j(function(){
+<script type="text/javascript">
+$(document).ready(function() {
     var offset = 11;
 	var limit = 9;
     //$j("#postContainer").load("/news/add-posts-events/");
-    $j("#another").click(function(){
+    $("#another").click(function(){
 		limit = limit+9;
         offset = offset+11;
-        $j("#postContainer")
+        $("#postContainer")
             //.slideUp()
 					
             .load("/news/add-posts-events/?offset=1&limit="+limit, function() {
 			 //.load("/news/test/?offset="+offset, function() {
-			   $j(this).slideDown();
+			   $(this).slideDown();
 			   //$j("#another").remove();
 			    //$j(".moreBtn").html(' No More Posts') // if there are none left 
-			   $j('.moreBtn').length;
+			   $('.moreBtn').length;
 					   
 			   
 			

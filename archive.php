@@ -1,7 +1,7 @@
-
 <?php
 /**
  * The template for displaying Archive pages.
+ * also bibliotech cat pages
  *
  * Used to display archive-type pages if nothing more specific matches a query.
  * For example, puts together date-based pages if no date.php file exists.
@@ -16,8 +16,9 @@
  * @package WordPress
  * @subpackage Twenty_Twelve
  * @since Twenty Twelve 1.0
+ 
+
  */
-get_template_part('inc/wejnswpwhitespacefix');
 get_header(); 
 $date = DateTime::createFromFormat('Ymd', get_field('event_date'));
 
@@ -86,7 +87,9 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of(73, $c
 				echo '<a title="'.$category[0]->cat_name.'"  title="'.$category[0]->cat_name.'" href="'.get_category_link($category[0]->term_id ).'">'.$category[0]->cat_name.'</a>';
 				}
             ?>
-            
+         <span class="mitDate">
+          <time class="updated"  datetime="<?php echo get_the_date(); ?>">&nbsp;&nbsp;<?php echo get_the_date(); ?></time>
+          </span>    
          </div>
       </div>
      </div>

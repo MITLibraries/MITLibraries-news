@@ -15,8 +15,8 @@ $args = array(
 	'post__in'            => $sticky,
 	'ignore_sticky_posts' => 1,
 	'post_type' => 'bibliotech',
-	'orderby'   	=> 'menu_order',
-	'order'     	=> 'DESC',
+	'order'                  => 'DESC',
+	'orderby'                => 'date',
 	'suppress_filters' => false
 );
 $query2 = new WP_Query( $args );
@@ -110,8 +110,8 @@ $args = array(
 			'post__not_in'        => get_option( 'sticky_posts' ),
 			'ignore_sticky_posts' => 1,
 			'post_type'       	  => 'bibliotech',
-			'orderby'        	  => 'menu_order',
-			'order'          	  => 'ASC',
+			'orderby'        	  => 'date',
+			'order'          	  => 'DESC',
 			'suppress_filters'    => false
 			);
 $my_query = new WP_Query($args);
@@ -150,28 +150,28 @@ $my_query->the_post();
     <?php } ?>
   </div>
   <!--closeMITContainer-->
-  <? if($theLength > 8){ ?>
- <?php get_template_part('inc/more-posts'); ?> 
- <? } ?> 
+  <?php if($m > 8){ 
+ get_template_part('inc/more-posts');   
+ } ?> 
 </div>
 <!-- wrap --> 
 <script>
-var $j = jQuery.noConflict(); 
-$j(function(){
+$(document).ready(function() {
+
     var offset = 11;
 	var limit = 9;
-    $j("#postContainer").load("/news/add-bibliotech-posts/");
-    $j("#another").click(function(){
+    $("#postContainer").load("/news/add-bibliotech-posts/");
+    $("#another").click(function(){
 		limit = limit+9;
         offset = offset+11;
-        $j("#postContainer")
+        $("#postContainer")
             //.slideUp()
             .load("/news/add-bibliotech-posts/?offset="+offset+"&limit="+limit, function() {
 			 //.load("/news/test/?offset="+offset, function() {
-			   $j(this).slideDown();
+			   $(this).slideDown();
 			   
 			
-			   $j('#another').click(function() {
+			   $('#another').click(function() {
 			   
        });
 			   

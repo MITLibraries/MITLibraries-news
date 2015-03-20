@@ -12,8 +12,7 @@ $category = get_the_category();
 ?>
 
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4eaa9b83318e4d02" async="async"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=mitlib" async="async"></script>
 <?php get_template_part('inc/sub-headerSingle'); ?>
 <?php
 if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of(73, $cat) or is_category(73))){  ?>
@@ -27,9 +26,17 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of(73, $c
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> data-category="<?php echo $category[0]->slug; ?>">
   <div class="title-page  mySingle">     
       <?php the_title( '<h1 class="entry-title single">', '</h1>' ); ?>
+      <?php if (get_field("subtitle")){ ?>
       <h2 class="subtitle"><?php the_field("subtitle"); ?></h2>
+      <?php } ?>
       <div class="entry-meta"> <span class="author"> By
-        <?php the_author_posts_link(); ?>
+        <?php 
+		if (get_field("bauthor")){
+			the_field("bauthor");
+		}else{
+			the_author_posts_link();
+			}
+		 ?>
         </span> <span class="date-post"> <?php echo ' on '; the_date(); ?> </span>
         
         <?php if(has_category()): ?>
@@ -44,8 +51,8 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of(73, $c
         </span>
         <?php endif; ?>
       </div> 
-      <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<div class="addthis_sharing_toolbox"></div> 
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_sharing_toolbox"></div>
     <div class="clearfix"></div>
     <!-- .entry-meta --> 
   </div>
@@ -220,12 +227,3 @@ wp_reset_postdata();?>
  <div style="background-color:rgb(233, 233, 233);padding-bottom:28px;">
 <div class="container">
 <?php get_footer(); ?>
-
-<script>
-//select = document.getElementById("#bibMenu");
-//select.onload= function(){
-//	alert(this.options[this.selectedIndex].text);
-//	
-//};
-//
-</script>

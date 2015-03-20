@@ -1,17 +1,14 @@
-<script>
-$j(function() {
-  $j("img.img-responsive").lazyload({ 
+<script type="text/javascript">
+$(document).ready(function() {
+  $("img.img-responsive").lazyload({ 
     effect : "fadeIn", 
     effectspeed: 450 ,
 	failure_limit: 999999
   }); 
 });	
-
 </script>
-
 <?php
 $date = DateTime::createFromFormat('Ymd', get_field('event_date'));
-
 ?>
 <?php
     /*
@@ -29,11 +26,11 @@ $date = DateTime::createFromFormat('Ymd', get_field('event_date'));
 	
 	
 
-echo $_GET['s'];
+
 // WP_Query arguments
 $args = array (
 	'post_type'              => array('post', 'bilbiotech', 'spotlight'),
-	's'                      => $_GET['s'],
+	's'                  => $_GET['search'],
 	'posts_per_page'         => $limit,
 	'offset'                 => 9,
 	'order'                  => 'DESC',
@@ -54,7 +51,7 @@ $ajaxLength = $the_query->post_count;
 ?>
 <?php if ($ajaxLength < $limit){ ?>
 <script>
-$j("#another").hide();
+$("#another").hide();
 </script>
 <?php } 
 //removes button end ?>
@@ -105,10 +102,7 @@ while ( $the_query->have_posts() ) : $the_query->the_post();
 	    <span class="mitDate">
           <time class="updated"  datetime="<?php echo get_the_date(); ?>">&nbsp;&nbsp;<?php echo get_the_date(); ?></time>
           </span> </div> 
-	   
-	   
-	   
-	   </div>
+	  </div>
 	<?php 	  }else{
 				$category = get_the_category();     
 				$rCat = count($category);
@@ -127,17 +121,8 @@ while ( $the_query->have_posts() ) : $the_query->the_post();
     </div>
     <!--close div that opens in bilbio if statement-->
     <?php } ?>
-    
-
 <?php
-
- endwhile; 
-
-else : ?>
-
-
-<?php	
+endwhile; 
+else : 
 endif;
-?>
-
-<?php wp_reset_query();  // Restore global post data stomped by the_post(). ?>
+wp_reset_query();  // Restore global post data stomped by the_post(). ?>

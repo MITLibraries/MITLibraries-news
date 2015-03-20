@@ -1,6 +1,6 @@
 <script>
-$j(function() {
-  $j("img.img-responsive").lazyload({ 
+$(function() {
+  $("img.img-responsive").lazyload({ 
     effect : "fadeIn", 
     effectspeed: 450 ,
 	failure_limit: 999999
@@ -59,7 +59,7 @@ $ajaxLength = $the_query->post_count;
 ?>
 <?php if ($ajaxLength < $limit){ ?>
 <script>
-$j("#another").hide();
+$("#another").hide();
 </script>
 <?php } 
 //removes button end
@@ -136,18 +136,7 @@ while ( $the_query->have_posts() ) : $the_query->the_post();
     
 
 <?php
-
- endwhile; 
-
-else : ?>
-
-<script>
-	$j(".moreBtn").html("no more posts to load");
-	
-	
-</script>
-<?php	
+endwhile; 
+else : 
 endif;
-?>
-
-<?php wp_reset_query();  // Restore global post data stomped by the_post(). ?>
+wp_reset_query();  // Restore global post data stomped by the_post(). ?>

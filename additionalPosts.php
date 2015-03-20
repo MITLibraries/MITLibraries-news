@@ -1,14 +1,12 @@
-<script>
-$j(function() {
-  $j("img.img-responsive").lazyload({ 
+<script type="text/javascript">
+$(document).ready(function() {
+  $("img.img-responsive").lazyload({ 
     effect : "fadeIn", 
     effectspeed: 450 ,
 	failure_limit: 999999
   }); 
 });	
-
 </script>
-
 <?php
 $date = DateTime::createFromFormat('Ymd', get_field('event_date'));
 
@@ -50,7 +48,7 @@ $ajaxLength = $the_query->post_count;
 ?>
 <?php if ($ajaxLength < $limit){ ?>
 <script>
-$j("#another").hide();
+$("#another").hide();
 </script>
 <?php } 
 //removes button end ?>
@@ -62,9 +60,8 @@ $j("#another").hide();
 
 <?php 
 $o = -1;	
-
 while ( $the_query->have_posts() ) : $the_query->the_post(); 
- $o++;
+$o++;
 ?>
 
 
@@ -77,10 +74,15 @@ while ( $the_query->have_posts() ) : $the_query->the_post();
         <img data-original="<?php the_field("listImg") ?>" width="100%" height="111" class="img-responsive"  alt="<?php the_title(); ?>"/>
         <?php } ?>
         
-        
-        <h2 class="entry-title title-post  <?php if($post->post_type == 'spotlights'){ echo "spotlights"; } ?>">
+        <?php if($post->post_type == 'spotlights'){ ?>
+			 <h2 class="entry-title title-post spotlights">
+         		 <a href="<?php the_field("external_link"); ?>"><?php the_title();?></a>
+       		 </h2> 
+		<?php }else{ ?>
+        <h2 class="entry-title title-post">
           <a href="<?php the_permalink(); ?>"><?php the_title();?></a>
         </h2>
+        <?php 	} ?>
         
         
     	 <?php get_template_part('inc/events'); ?>
@@ -126,19 +128,7 @@ while ( $the_query->have_posts() ) : $the_query->the_post();
     
 
 <?php
-
- endwhile; 
-
-else : ?>
-
-<script>
-alert("NONE");
-	$j(".moreBtn").html("no more posts to load");
-	
-	
-</script>
-<?php	
+endwhile; 
+else : 
 endif;
-?>
-
-<?php wp_reset_query();  // Restore global post data stomped by the_post(). ?>
+wp_reset_query();  // Restore global post data stomped by the_post(). ?>
