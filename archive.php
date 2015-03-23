@@ -16,8 +16,6 @@
  * @package WordPress
  * @subpackage Twenty_Twelve
  * @since Twenty Twelve 1.0
- 
-
  */
 get_header(); 
 $date = DateTime::createFromFormat('Ymd', get_field('event_date'));
@@ -106,4 +104,5 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of(73, $c
 </section>
 <!-- #primary -->
 <div class="container">
+
 <?php get_footer(); ?>

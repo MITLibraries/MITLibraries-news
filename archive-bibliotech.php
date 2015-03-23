@@ -106,5 +106,6 @@ echo '<a href="'.get_category_link($category[0]->term_id ).'">'.$category[0]->ca
 </section>
 <!-- #primary -->
 
+
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
