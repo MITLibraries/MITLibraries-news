@@ -12,19 +12,19 @@
 			if(($field['choices'][ $value ]) == "Update"){
 			$featImg ='<div class="update"></div>';
 				}
-			if(($field['choices'][ $value ]) == "Featured Resource"){
+			if(($field['choices'][ $value ]) == "Featured resource"){
 					$featImg ='<div class="or_star-25"></div>';
 				}
-			if(($field['choices'][ $value ]) == "Featured Collection"){
+			if(($field['choices'][ $value ]) == "Featured collection"){
 				$featImg ='<div class="or_star-25"></div>';
 				}
-			if(($field['choices'][ $value ]) == "Featured Location"){
+			if(($field['choices'][ $value ]) == "Featured location"){
 					$featImg ='<div class="or_star-25"></div>';
 				}
-			if(($field['choices'][ $value ]) == "Featured Service"){
+			if(($field['choices'][ $value ]) == "Featured service"){
 					$featImg ='<div class="or_star-25"></div>';
 				}
-			if(($field['choices'][ $value ]) == "Featured Exhibit"){
+			if(($field['choices'][ $value ]) == "Featured exhibit"){
 				$featImg ='<div class="or_star-25"></div>';
 				}
 		  ?>
