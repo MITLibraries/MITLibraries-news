@@ -100,6 +100,7 @@ ul#menu-subscribe {
 .singleMargin {
 	background-color: rgb(233, 233, 233);
 }
+.sticky img:hover{cursor:pointer}
 .newsBackGround {
 	background-color: rgb(233, 233, 233);
 	width: 100%;
