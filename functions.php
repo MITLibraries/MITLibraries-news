@@ -319,5 +319,14 @@ function news_sidebar_widget() {
 add_action( 'widgets_init', 'news_sidebar_widget' );
 
 
+//lets only search posts
+function SearchFilter($query) {
+if ($query->is_search) {
+$query->set('post_type', 'post');
+}
+return $query;
+}
+
+add_filter('pre_get_posts','SearchFilter');
 
 ?>
