@@ -322,7 +322,7 @@ add_action( 'widgets_init', 'news_sidebar_widget' );
 //lets only search posts
 function SearchFilter($query) {
 if ($query->is_search) {
-$query->set('post_type', 'post');
+$query->set('post_type', array('post', 'Bibliotech', 'Spotlights'));
 }
 return $query;
 }
