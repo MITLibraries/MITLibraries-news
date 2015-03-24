@@ -101,6 +101,7 @@ ul#menu-subscribe {
 	background-color: rgb(233, 233, 233);
 }
 .sticky img:hover{cursor:pointer}
+
 .newsBackGround {
 	background-color: rgb(233, 233, 233);
 	width: 100%;
@@ -493,6 +494,7 @@ h1.single {
 	padding: 9px 10px;
 	right: 0px;
 }
+.stickyCat{width:33.3%}
 .bilbioImg {
 	float: left;
 	width: 30px;
