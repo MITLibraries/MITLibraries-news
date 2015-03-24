@@ -37,7 +37,7 @@ echo '<?xml version="1.0"?>';
 <rss version="2.0">
 <channel>
   <title>MIT Libraries Events</title>
-  <link>http://libraries-dev.mit.edu/news/events/</link>
+  <link>http://libraries.mit.edu/news/events/</link>
   <description>The latest events from the MIT Libraries</description>
   <language>en-us</language>
   <pubDate><?php yoast_rss_date( strtotime($ps[$lastpost]->post_date_gmt) ); ?></pubDate>
