@@ -19,7 +19,7 @@ $date = DateTime::createFromFormat('Ymd', get_field('event_date'));
 $events = array (
 
 	'post_type'              => 'post',
-	'posts_per_page'         =>	-1,
+	'posts_per_page'         =>	9,
 	'ignore_sticky_posts'    => true,
 	'meta_key'                => 'event_date',
 	'orderby'                => 'meta_value_num',
@@ -32,11 +32,11 @@ $events = array (
 			'compare' => '='
 ),
 
-		array(
-			'key'       => 'is_event',
-			'value'     => true,
-			'compare' => '='
-),
+		//array(
+//			'key'       => 'is_event',
+//			'value'     => true,
+//			'compare' => '='
+//),
 		
 		
 	),

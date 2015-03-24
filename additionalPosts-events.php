@@ -26,24 +26,29 @@ $(document).ready(function() {
 $date = DateTime::createFromFormat('Ymd', get_field('event_date'));
 $args = array(
 	
+	
 	'post_type'              => 'post',
 	'posts_per_page'         =>	$limit,
-	'offset'                 => '20',
+	'offset'                 => 21,
 	'ignore_sticky_posts'    => true,
-	
+	'meta_key'       => 'is_event',
 	'meta_query'             => array(
 	
 		array(
-	'meta_key'                => 'event_date',
-	'orderby'                => 'meta_value_num',
-	'order'                  => 'DESC',
-		
+			'meta_key'       => 'is_event',
+			'meta_value'     => '1',
+			'compare'        => '='
+),
+
+		array(
+		 'meta_key'  =>'event_date',
+		 'orderby'   =>'meta_value_num',
+	     'order'     => 'DESC',
 ),
 		
 		
 	),
 );
-	
 
  $the_query = new WP_Query($args); 
 ?>
