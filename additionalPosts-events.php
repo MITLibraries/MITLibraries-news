@@ -19,7 +19,7 @@ $(document).ready(function() {
 	 $limit = htmlspecialchars(trim($_GET['limit']));
     
 	if ($limit == '') {
-        $limit = 9;
+        $limit = 18;
     }	
 ?>
 <?php
@@ -42,7 +42,7 @@ $args = array(
 
 		array(
 		 'meta_key'  =>'event_date',
-		 'orderby'   =>'meta_value_num',
+		 'orderby'   =>'meta_value_num date',
 	     'order'     => 'DESC',
 ),
 		

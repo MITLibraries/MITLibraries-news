@@ -22,7 +22,7 @@ $events = array (
 	'posts_per_page'         =>	9,
 	'ignore_sticky_posts'    => true,
 	'meta_key'                => 'event_date',
-	'orderby'                => 'meta_value_num',
+	'orderby'                => 'meta_value_num date',
 	'order'                  => 'DESC',
 	'meta_query'             => array(
 	
