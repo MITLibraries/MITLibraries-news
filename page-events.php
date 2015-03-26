@@ -17,29 +17,21 @@ get_header(); ?>
 $date = DateTime::createFromFormat('Ymd', get_field('event_date'));
  
 $events = array (
-
-	'post_type'              => 'post',
-	'posts_per_page'         =>	9,
-	'ignore_sticky_posts'    => true,
-	'meta_key'                => 'event_date',
-	'orderby'                => 'meta_value_num date',
-	'order'                  => 'DESC',
-	'meta_query'             => array(
-	
-		array(
-			'key'       => 'is_event',
-			'value'     => true,
-			'compare' => '='
-),
-
-		//array(
-//			'key'       => 'is_event',
-//			'value'     => true,
-//			'compare' => '='
-//),
-		
-		
-	),
+  'post_type'           => 'post',
+  'posts_per_page'      =>  9,
+  'ignore_sticky_posts'   => true,
+  'meta_key'          => 'event_date',
+ 'orderby'       => array(
+    'meta_value_num' => 'DESC',
+    'date' => 'DESC',
+  ),
+  'meta_query'            => array(
+    array(
+      'key'     => 'is_event',
+      'value'   => '1',
+      'compare' => '=',
+    ),
+  ),
 );
 
 
