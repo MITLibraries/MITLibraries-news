@@ -42,9 +42,14 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of(73, $c
         <?php if(has_category()): ?>
         <span class="category-post-single"> in
         <?php 
-				$category = get_the_category();     
+				$category = get_the_category();  
+				?>
+               
+                 <?php   
 				$rCat = count($category);
+				
 				$r = rand(0, $rCat -1);
+			
 				echo '<a title="'.$category[$r]->cat_name.'"  title="'.$category[$r]->cat_name.'" href="'.get_category_link($category[$r]->term_id ).'">'.$category[$r]->cat_name.'</a>';
             ?>
         <?php //echo ' in ' . array_slice($category, 0, 2); ?>
@@ -148,28 +153,19 @@ $custom_fields = get_post_custom($post_id);
   <?php //get_template_part('inc/related'); ?>
   <?php
 $catName = $category[$r]->cat_name;
-$category = get_the_category(); 
-$category[0]->cat_name; ?>
+$currentPost = get_the_ID();
 
-<?php 
-$myCatId = $category[0]->cat_ID;
-//echo $myCatId;
+
+$myCatId = $category[$r]->cat_ID;
+
 $args = array(
-	'posts_per_page'   => 3,
-	'offset'           => 4,
-	'category'         => '$myCatId',
-	'category_name'    => '',
-	'orderby'          => 'post_date',
-	'order'            => 'DESC',
-	'include'          => '',
-	'exclude'          => '',
-	'meta_key'         => '',
-	'meta_value'       => '',
 	'post_type' => array( 'post', 'bibliotech', 'spotlights'),
-	'post_mime_type'   => '',
-	'post_parent'      => '',
-	'post_status'      => 'publish',
-	'suppress_filters' => true ); 
+	'cat'          => $myCatId,
+	'posts_per_page'         => '3',
+	'order'                  => 'DESC',
+	'orderby'                => 'date',
+	'post__not_in'       => array($currentPost),
+);
 	?>
     
 
