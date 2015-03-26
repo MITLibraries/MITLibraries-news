@@ -2,7 +2,7 @@
     	<div class="row">
       <div class="biblioBox col-sm-6 col-md-4">
       <a href="/news/bibliotech-index/"> 
-      <img src="http://libraries-dev.mit.edu/news/files/2014/11/biblioHeader.png" alt="Bibliotech Header" width="331" height="75" />
+      <img src="<?php echo get_theme_root_uri(); ?>/mit-libraries-news/images/biblioHeader.png" alt="Bibliotech Header" width="331" height="75" />
       </a> </div>
       <div class="biblioBox col-sm-6 col-md-4">
         <p>A biannual newsletter published by the MIT Libraries</p>
