@@ -20,24 +20,27 @@ get_header(); ?>
     
     <h2 class="search">Search results for <strong><?php echo $_GET['s'] ?></strong></h2>
    		
-        <?php
-
-    if($post == ""){
-		echo "<p class='search'>". "Sorry, we didn't find anything matching your search. Please try a different search term." . "</p>" ;}?>
+     <?php  if($post == ""){ ?>
+		
+		
+		
+	 <?php	echo "<p class='search'>". "Sorry, we didn't find anything matching your search. Please try a different search term." . "</p>" ; ?>
+		
+		
+	
+	
+	<?php	} ?>
         
  
         
       <?php 
 	 
-	  $L = -1;
-	   $theLength = $count_posts->publish;
+	  	$L = -1;
+	   	//$theLength = $count_posts->publish;
 	  
 		
-	  while (have_posts()) : the_post(); 
-	
-	
-	  $L++;
-	  ?>
+	 	 while (have_posts()) : the_post(); $L++;
+	  	?>
       <!--//////////// -->
       <div id="theBox" class="<?php if ($L % 3 == 0){ echo "third "; } ?>col-xs-12 col-xs-B-6 col-sm-4 col-md-4 col-lg-4 no-padding-left-mobile">
       <div class="hentry flex-item blueTop  eventsBox <?php if (get_field("listImg")) { echo "has-image";} else { echo "no-image"; } ?>" onClick='location.href="<?php if((get_field("external_link") != "") && $post->post_type == 'spotlights'){ the_field("external_link");}else{ echo get_post_permalink();}  ?>"'>
@@ -103,13 +106,11 @@ get_header(); ?>
     </div><!--closes row-->
 
 <?php 
-print_r($published_posts);
-if($post == ""){
-	//do not show 'show more button'	
-	}elseif($L > 1){
-	get_template_part('inc/more-posts'); 
- } ?>
+ if($L > 7){ 
+  
+ 		get_template_part('inc/more-posts');   
 		
+ 	} ?> 
 
 
     
