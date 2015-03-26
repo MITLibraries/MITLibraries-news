@@ -8,6 +8,9 @@ $isRoot = $section->ID == $post->ID;
 get_header(); ?>
 <?php get_template_part('inc/sub-header'); ?>
 <?php get_template_part('inc/bib-header'); ?>
+
+<div class="container">
+<div class="row">
 <?php 
 $sticky = get_option( 'sticky_posts' );
 $args = array(
@@ -23,8 +26,7 @@ $query2 = new WP_Query( $args );
 if( $query2->have_posts() ):  
 while ( $query2->have_posts() ) : $query2->the_post(); ?>
 <?php if ( isset($sticky[0]) ) { ?>
-<div class="container">
-<div class="row">
+
 <!-- ////////////////////////ONLY VISIBLE ON MOBILE\\\\\\\\\\\\\\\\\\\\ -->
 <div class="visible-xs visible-sm hidden-md hidden-lg col-xs-B-6 col-sm-4 col-md-4 col-lg-4 no-padding-left-mobile">
   <div class="flex-item blueTop eventsBox <?php if (get_field("listImg")) { echo "has-image";} else { echo "no-image"; } ?>" onClick='location.href="<?php if((get_field("external_link") != "") && $post->post_type == 'spotlights'){ the_field("external_link");}else{ echo get_post_permalink();}  ?>"'>
@@ -37,6 +39,7 @@ while ( $query2->have_posts() ) : $query2->the_post(); ?>
         </h2>
     	 <?php get_template_part('inc/events'); ?>
         <?php get_template_part('inc/entry'); ?>
+        
         <div class="category-post">
           <?php	
         		$category = get_the_category();     
@@ -46,7 +49,11 @@ while ( $query2->have_posts() ) : $query2->the_post(); ?>
             ?>
           <span class="mitDate">
           <time class="updated"  datetime="<?php echo get_the_date(); ?>">&nbsp;&nbsp;<?php echo get_the_date(); ?></time>
-          </span> </div>
+          </span> 
+          
+          </div>
+          
+          
       </div>
 </div>
 <!-- ////////////////////////END ONLY VISIBLE ON MOBILE\\\\\\\\\\\\\\\\\\\\ -->
@@ -72,10 +79,10 @@ while ( $query2->have_posts() ) : $query2->the_post(); ?>
     <!--EVENT --> 
     <!--/EVENT  DATE-->
     <?php if(get_field("subtitle")){ ?>
-    <?php  the_field("subtitle"); ?>
+    <p><?php the_field("subtitle"); ?></p>
     <?php  }else{ ?>
     <div class="excerpt-post">
-      <p>
+     
         <?php if (excerpt()) {
    				 echo excerpt(20);
 					} elseif (content()){
@@ -83,9 +90,9 @@ while ( $query2->have_posts() ) : $query2->the_post(); ?>
 					}
 			?>
         <?php } ?>
-      </p>
+ 
     </div>
-    <div class="category-post">
+    <div class="category-post stickyCat">
       <?php 
 $category = get_the_category(); 
 if($category[0]){
@@ -96,14 +103,13 @@ echo '<a title="'.$category[0]->cat_name.'" href="'.get_category_link($category[
       <!--echo all the cat --> 
     </div>
   </div>
-</div>
+
 <?php wp_reset_postdata(); ?>
 <?php wp_reset_query(); ?>
 <?php  } ?>
 <?php endwhile; ?>
 <?php endif; ?>
-<div class="news-site container">
-  <div class="row">
+
     <?php	 
 $args = array(
 			'posts_per_page'      => 9,
@@ -150,17 +156,22 @@ $my_query->the_post();
     <?php } ?>
   </div>
   <!--closeMITContainer-->
-  <?php if($m > 8){ 
- get_template_part('inc/more-posts');   
- } ?> 
+  <?php
+
+  
+   if($theLength > 8){ 
+  
+ 		get_template_part('inc/more-posts');   
+		
+ 	} ?> 
 </div>
 <!-- wrap --> 
 <script>
 $(document).ready(function() {
-
+	var theLength = "<?php echo $theLength; ?>";
     var offset = 11;
 	var limit = 9;
-    $("#postContainer").load("/news/add-bibliotech-posts/");
+    //$("#postContainer").load("/news/add-bibliotech-posts/");
     $("#another").click(function(){
 		limit = limit+9;
         offset = offset+11;
@@ -170,10 +181,8 @@ $(document).ready(function() {
 			 //.load("/news/test/?offset="+offset, function() {
 			   $(this).slideDown();
 			   
-			
-			   $('#another').click(function() {
-			   
-       });
+				
+				
 			   
     	});
     	
