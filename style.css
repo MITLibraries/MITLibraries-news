@@ -161,15 +161,18 @@ table.hrList tr:nth-child(even) {
 	font-size: 14px !important;
 	line-height: 25px;
 	color: #5B5B5B;
- font-family:font-family: 'Open Sans', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
 }
 .single .entry-content p:last-of-type {
-	margin-bottom: 83px!important;
+	margin-bottom: 83px;
 }
 .single p {
-	padding-bottom: 10px!important;
-	margin-bottom: 0px !important;
+	padding-bottom: 10px;
+	margin-bottom: 0px;
+}
+.single .entry-content p.wp-caption-text {
+	margin-bottom: 0px;
 }
 h1.single {
 	font-size: 27pt !important;
@@ -294,7 +297,7 @@ h1.single {
 }
 .subscribe {
 	background-color: white;
-	
+
 }
 .col-md-9 {
 	width: 69% !important;
@@ -488,13 +491,15 @@ h1.single {
 .category-post {
 	background-color: rgb(244,244,244);
 	position: absolute;
-	bottom: 0px;
+	bottom: -2px;
 	width: 100%;
 	font-size: 10px;
 	padding: 9px 10px;
 	right: 0px;
 }
+.page-bibliotech-index .sticky  .category-post{bottom: 5px;}
 .stickyCat{width:33.3%}
+.sticky .bgWhite{  min-height: 257px;}
 .bilbioImg {
 	float: left;
 	width: 30px;
@@ -698,9 +703,6 @@ select#bibMenu {
 	position: relative;
 	float: right;
 	margin-left: 5px;
-}
-.mitCaption {
-	text-align: center;
 }
 .mySinglePicMobile {
 	margin: 0 auto;
@@ -1427,9 +1429,9 @@ p.search {
 }
 .btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default{
 	border-color:white;
-	
+
 	}
-	
+
 .btn-default {
   color: #333;
   background-color: #fff;
@@ -1437,7 +1439,7 @@ p.search {
 }
 
 .btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default{
-	
+
 	  background-color: white;
   border-color:white;
 	}.btn:active, .btn.active {
@@ -1446,12 +1448,10 @@ p.search {
   -webkit-box-shadow: none;
   box-shadow:none;
 }
-
 .menu-toggle:hover, button:hover, input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover, article.post-password-required input[type=submit]:hover{
 	background-image:none;
 	}
-	
+
 	.btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn.active.focus{
 		  outline:none;
 		}
-	
