@@ -24,6 +24,7 @@ function mitlibnews_remove_dashboard_menu_items() {
 	if (!current_user_can('add_users')) {
 		remove_menu_page('edit-comments.php');
 		remove_menu_page('tools.php');
+		remove_menu_page('edit.php?post_type=html_snippet');
 	}
 }
 
