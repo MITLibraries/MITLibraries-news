@@ -19,7 +19,7 @@ get_header(); ?>
     <div class="row">
     
     <h2 class="search">Search results for <strong><?php echo $_GET['s'] ?></strong></h2>
-   		
+
      <?php  if($post == ""){ ?>
 		
 		
@@ -120,25 +120,18 @@ get_header(); ?>
 </div>
 <script type="text/javascript">
 $(document).ready(function() {
-    var offset = 9;
-	var limit = 9;
-	var car = "<?php echo $_GET[s]; ?>";
-   // $("#postContainer").load("/news/search-results/");
-    $("#another").click(function(){
-		limit = limit+9;
-        offset = offset+9;
-        $("#postContainer")
-            //.slideUp()
-            .load("/news/search-results/?offset="+offset+"&limit="+limit+"&search="+car, function() {
-			 //.load("/news/test/?offset="+offset, function() {
-			   $(this).slideDown();
-			 	
-			   
-    	});
-            
-        return false;
-    });
-
+  var offset = 9;
+  var limit = 0;
+  var car = "<?php echo $_GET[s]; ?>";
+  var car = encodeURIComponent(car);
+  $("#another").click(function(){
+    limit = limit + 18;
+    $("#postContainer")
+      .load("/news/search-results/?offset="+offset+"&limit="+limit+"&search="+car, function() {
+        $(this).slideDown();
+      });
+    return false;
+  });
 });
 </script>
 

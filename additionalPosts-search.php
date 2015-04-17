@@ -1,3 +1,9 @@
+<?php
+function set_search( $q ) {
+    $q->set( 'is_search', true );
+}
+
+?>
 <script type="text/javascript">
 $(document).ready(function() {
   $("img.img-responsive").lazyload({ 
@@ -24,28 +30,24 @@ $date = DateTime::createFromFormat('Ymd', get_field('event_date'));
         $limit = 9;
     }
 	
-	
+// Build $search_args based on passed parameters
+// Based on https://codex.wordpress.org/Creating_a_Search_Page
+$query_args = explode("&", $_SERVER["QUERY_STRING"]);
+$search_args = array('posts_per_page' => $limit);
+
+foreach($query_args as $key => $string) {
+  $query_split = explode("=", $string);
+  $search_args[$query_split[0]] = urldecode($query_split[1]);
+  if($query_split[0] == "search") {
+    $search_args["s"] = urldecode($query_split[1]);
+  }
+} // foreach
+
+$the_query = new WP_Query($search_args);
+// set_search() defined above
+set_search($the_query);
 
 
-// WP_Query arguments
-$args = array (
-	'post_type'              => array('post', 'bilbiotech', 'spotlight'),
-	's'                  => $_GET['search'],
-	'posts_per_page'         => $limit,
-	'offset'                 => 9,
-	'order'                  => 'DESC',
-	'orderby'                => 'date',
-);
-
-// The Query
-$the_query = new WP_Query( $args );
-
-
-
-
-
-?>
-<?php
 //removes button start
 $ajaxLength = $the_query->post_count;
 ?>
