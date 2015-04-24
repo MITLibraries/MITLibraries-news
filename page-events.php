@@ -107,6 +107,10 @@ $archive_posts = (array) $the_archive->posts;
           $i++;
           renderEventCard($i, $post);
         } 
+      } else {
+        ?>
+        There are no upcoming events at this time, but check back often.
+        <?php
       }
       ?>
     </div> <!-- close row for upcoming events-->
