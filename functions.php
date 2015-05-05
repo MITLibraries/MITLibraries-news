@@ -1,14 +1,19 @@
 <?php
+function not_admin() {
+	wp_enqueue_style( 'bootstrapCSS', get_stylesheet_directory_uri() . '/css/bootstrap.css', 'false', '', false);
+	wp_enqueue_style( 'newsmobile', get_stylesheet_directory_uri() . '/css/newsmobile.css', 'false', '', false);
+	wp_enqueue_script( 'bootstrap','https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js', array( 'jquery' ), '3.3.1', true);
+}
 if ( ! is_admin() ) {
-wp_enqueue_style( 'bootstrapCSS', get_stylesheet_directory_uri() . '/css/bootstrap.css', 'false', '', false);
-wp_enqueue_style( 'newsmobile', get_stylesheet_directory_uri() . '/css/newsmobile.css', 'false', '', false);
-wp_enqueue_script( 'bootstrap','https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js', array( 'jquery' ), '3.3.1', true);
-
+	add_action( 'wp_enqueue_scripts', 'not_admin' );
 } 
 
 //keep these here
-wp_enqueue_script( 'lazyload', get_stylesheet_directory_uri() . '/js/lazyload.js', array( 'jquery' ), '', true);
-wp_enqueue_script( 'myScripts', get_stylesheet_directory_uri() . '/js/myScripts.js', array( 'lazyload' ), '', true );
+function add_scripts() {
+	wp_enqueue_script( 'lazyload', get_stylesheet_directory_uri() . '/js/lazyload.js', array( 'jquery' ), '', true);
+	wp_enqueue_script( 'myScripts', get_stylesheet_directory_uri() . '/js/myScripts.js', array( 'lazyload' ), '', true );
+}
+add_action( 'wp_enqueue_scripts', 'add_scripts' ); 
 
 function remove_scripts(){
 	wp_deregister_script('tabletop' );
