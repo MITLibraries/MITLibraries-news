@@ -31,11 +31,14 @@ foreach($menuitems as $m){  ?>
       </div><!--bibliobox-->
     </div><!--flexcontainer-->
  	</div>  
-   <?php //$select  = wp_dropdown_categories($args); ?>
-		<?php $replace = "<select$1 onchange='return this.form.submit()'>"; ?>
-		<?php $select  = preg_replace( '#<select([^>]*)>#', $replace, $select ); ?>
-
-		<?php echo $select; ?>
+    <?php 
+      /*
+      $select  = wp_dropdown_categories($args);
+		  $replace = "<select$1 onchange='return this.form.submit()'>";
+		  $select  = preg_replace( '#<select([^>]*)>#', $replace, $select );
+		  echo $select; 
+      */
+    ?>
 
 		<noscript>
 			<input type="submit" value="View" />
