@@ -26,12 +26,11 @@ function add_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'add_scripts' ); 
 
-// This de-registers scripts from the parent theme, but they don't seem to actually be used?
 function remove_scripts(){
-	// wp_deregister_script('tabletop' );
+	wp_deregister_script('tabletop' );
 	// wp_deregister_script('productionJS');
-	// wp_deregister_script('underscore');
-	// wp_deregister_script('lib-hours');
+	wp_deregister_script('underscore');
+	wp_deregister_script('lib-hours');
 }
 add_action( 'wp_enqueue_scripts', 'remove_scripts', 100 ); 
 
