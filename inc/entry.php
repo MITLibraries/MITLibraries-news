@@ -10,12 +10,9 @@
  
  			$mitSubtitle = get_field("subtitle");
 			$mitlistImg = get_field("listImg");
-
-			$postType = get_post_type();
-
-			if($postType === "spotlights") {
-				// do nothing - spotlights have no entry text
-			}elseif($mitSubtitle) {
+ 	
+ 			if($mitSubtitle) {
+				
 				echo $mitSubtitle;
 			
 			}elseif(($mitlistImg) && ($newsTitle >= 90)) {
@@ -34,17 +31,17 @@
 				//echo "HELLO";
 				echo strip_tags(excerpt(20));
 			
-			}elseif(($newsTitle >= 90) && (excerpt(20))) {
+			}elseif(($newsTitle >= 90) && (excerpt())) {
 				echo strip_tags(excerpt(20));
 				 
-			}elseif(($newsTitle >= 90) && (content(20))) {
+			}elseif(($newsTitle >= 90) && (content())) {
 				echo strip_tags(content(20));
 					
-			}elseif(($newsTitle <= 89) && (content(30))) {
+			}elseif(($newsTitle <= 89) && (content())) {
 				//echo "HELLO";
 				echo strip_tags(content(30));
 					
-			}elseif(($newsTitle <= 89) && (excerpt(40))) {
+			}elseif(($newsTitle <= 89) && (excerpt())) {
 				//echo "HELLO";
 				echo strip_tags(excerpt(40));
 			}

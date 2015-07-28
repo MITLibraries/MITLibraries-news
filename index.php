@@ -80,9 +80,9 @@ if ( isset($sticky[0]) ) { ?>
      
       <div class="excerpt-post">
         <p>
-          <?php if (excerpt(20)) {
+          <?php if (excerpt()) {
    				 echo excerpt(20);
-					} elseif (content(20)){
+					} elseif (content()){
      				  echo content(20);
 					}
 			?>
@@ -129,7 +129,7 @@ $the_query = new WP_Query( $args );
 ?>
    <?php if( $the_query->have_posts() ):  
    
-   // $theLength = $count_posts->publish;
+   $theLength = $count_posts->publish;
    ?>
     
 	
