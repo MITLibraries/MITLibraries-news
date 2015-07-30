@@ -98,7 +98,7 @@ $the_archive = new WP_Query($archive);
 $archive_posts = (array) $the_archive->posts;
 
 ?>
-    <h2>Upcoming events</h2>
+    <h1 class="lib-header">Upcoming classes & events</h1>
     <div class="row">
       <?php
       if( count($future_posts) > 0 ) {
