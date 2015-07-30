@@ -1,20 +1,37 @@
 <?php
-if ( ! is_admin() ) {
-wp_enqueue_style( 'bootstrapCSS', get_stylesheet_directory_uri() . '/css/bootstrap.css', 'false', '', false);
-wp_enqueue_style( 'newsmobile', get_stylesheet_directory_uri() . '/css/newsmobile.css', 'false', '', false);
-wp_enqueue_script( 'bootstrap','https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js', array( 'jquery' ), '3.3.1', true);
+/*
+// Debugging mode
+error_reporting(E_ALL);
+ini_set('display_errors', TRUE);
+ini_set('display_startup_errors', TRUE);
+*/
 
+// Adds auto-loader for lib content
+$siteRoot = $_SERVER['DOCUMENT_ROOT'];
+foreach(glob($siteRoot."/wp-content/themes/mit-libraries-news/lib/*.php") as $file) require_once($file);
+
+function not_admin() {
+	wp_enqueue_style( 'bootstrapCSS', get_stylesheet_directory_uri() . '/css/bootstrap.css', 'false', '', false);
+	wp_enqueue_style( 'newsmobile', get_stylesheet_directory_uri() . '/css/newsmobile.css', 'false', '', false);
+	wp_enqueue_script( 'bootstrap','https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js', array( 'jquery' ), '3.3.1', true);
+}
+if ( ! is_admin() ) {
+	add_action( 'wp_enqueue_scripts', 'not_admin' );
 } 
 
 //keep these here
-wp_enqueue_script( 'lazyload', get_stylesheet_directory_uri() . '/js/lazyload.js', array( 'jquery' ), '', true);
-wp_enqueue_script( 'myScripts', get_stylesheet_directory_uri() . '/js/myScripts.js', array( 'lazyload' ), '', true );
+function add_scripts() {
+	wp_enqueue_script( 'lazyload', get_stylesheet_directory_uri() . '/js/lazyload.js', array( 'jquery' ), '', true);
+	wp_enqueue_script( 'myScripts', get_stylesheet_directory_uri() . '/js/myScripts.js', array( 'lazyload' ), '', true );
+}
+add_action( 'wp_enqueue_scripts', 'add_scripts' ); 
 
+// This de-registers scripts from the parent theme, but they don't seem to actually be used?
 function remove_scripts(){
-	wp_deregister_script('tabletop' );
+	// wp_deregister_script('tabletop' );
 	// wp_deregister_script('productionJS');
-	wp_deregister_script('underscore');
-	wp_deregister_script('lib-hours');
+	// wp_deregister_script('underscore');
+	// wp_deregister_script('lib-hours');
 }
 add_action( 'wp_enqueue_scripts', 'remove_scripts', 100 ); 
 
@@ -329,80 +346,5 @@ return $query;
 }
 
 add_filter('pre_get_posts','SearchFilter');
-
-// rendering event cards
-function renderEventCard($i, $post) {
-?>
-  <div class="<?php if ($i % 3 == 0){ echo "third "; } ?> col-xs-12  col-xs-B-6 col-sm-4 col-md-4 eventsPage no-padding-left-mobile">
-    <div itemscope itemtype="http://data-vocabulary.org/Event" class="flex-item blueTop eventsBox <?php if (get_field("listImg")) { echo "has-image";} else { echo "no-image"; } ?>" onClick='location.href="<?php if((get_field("external_link") != "") && $post->post_type == 'spotlights'){ the_field("external_link");}else{ echo get_post_permalink();}  ?>"'>
-<?php
-if (get_field("listImg") != "" ) { ?>
-      <img data-original="<?php the_field("listImg") ?>" width="100%" height="111"  alt="<?php the_title(); ?>" itemprop="photo" class="img-responsive"  />
-<?php } ?>
-      <h2 itemprop="summary" class="entry-title title-post">
-        <a itemprop="url" href="<?php the_permalink(); ?>">
-          <?php the_title(); ?>
-        </a> 
-      </h2>
-      <!--/EVENT  DATE-->
-<?php            
-$date = get_field('event_date');
-// $date = 19881123 (23/11/1988)
-
-// extract Y,M,D
-$y = substr($date, 0, 4);
-$m = substr($date, 4, 2);
-$d = substr($date, 6, 2);
-
-// create UNIX
-$time = strtotime("{$d}-{$m}-{$y}");
-// format date (23/11/1988)
-
-if(get_field('event_date')){  
-?>
-      <time itemprop="startDate" datetime="<?php  echo date('d/m/Y', $time);  ?>">
-        <?php   $date = DateTime::createFromFormat('Ymd', get_field('event_date'));?>
-      </time>
-              
-      <div class="events">
-        <div class="event"> </div>
-          <?php echo $date->format('F j, Y'); ?>&nbsp;&nbsp; &nbsp; 
-          <span class="time">
-            <?php if( get_field('event_start_time') ){  ?>
-            <?php echo the_field('event_start_time');  ?>
-            <?php  } ?>
-            <?php if(( get_field('event_start_time') ) && ( get_field('event_end_time') )){
-                   echo '-';
-            } ?>
-            <?php if( get_field('event_end_time') ){  ?>
-            <?php   echo the_field('event_end_time');  ?>
-            <?php   }  ?>
-          </span> 
-      </div>
-<?php   } ?>
-      <!--EVENT -->
-          
-      <div itemprop="description" class="excerpt-post">
-        <?php get_template_part('inc/entry'); ?>
-      </div>
-          
-      <div class="category-post">
-        <span  itemprop="eventType">
-<?php 
-$category = get_the_category();     
-$rCat = count($category);
-$r = rand(0, $rCat -1);
-echo '<a title="'.$category[$r]->cat_name.'"  title="'.$category[$r]->cat_name.'" href="'.get_category_link($category[$r]->term_id ).'">'.$category[$r]->cat_name.'</a>';
-?>
-        </span>
-
-        <span class="mitDate">
-          <time class="updated"  datetime="<?php echo get_the_date(); ?>">&nbsp;&nbsp;<?php echo get_the_date(); ?></time>
-        </span> 
-      </div>
-    </div> <!-- close itemscope -->
-  </div> <!-- close eventsPage -->
-<?php
-  };
 
 ?>
