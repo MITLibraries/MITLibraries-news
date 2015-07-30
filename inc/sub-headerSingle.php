@@ -3,7 +3,7 @@
 <div class="title-page no-padding-left col-xs-12  col-sm-12 col-md-5 col-lg-5">
 	
     <?php if( is_single($post)){ ?>
-    	<h2 class="name-site2"><a href="/news/">News &amp; events</a></h2>
+    	<h2 class="name-site"><a href="/news/">News &amp; events</a></h2>
       <?php }else{ ?>
     
     <h1 class="name-site"><a href="/news/">News &amp; events</a>
