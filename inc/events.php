@@ -7,7 +7,7 @@
           
           <div class="events">
 		  <div class="event"> </div>
-		  <?php echo $date->format('F j, Y'); ?>&nbsp;&nbsp; &nbsp; 
+		  <?php echo $date->format('F j, Y'); ?>
           <span class="time">
             <?php if( get_field('event_start_time') ){ 
 			  		echo the_field('event_start_time'); 
