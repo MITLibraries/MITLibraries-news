@@ -106,7 +106,7 @@ while ( $the_query->have_posts() ) : $the_query->the_post();
   if(get_post_type( get_the_ID() ) == 'bibliotech'){
 	   echo "<div class='bilbioImg bilbioTechIcon'>
 	   </div>";
-	   echo "<div class='biblioPadding'>&nbsp;<a href='/news/bibliotech/' title='Bibliotech'>Bibliotech</a>"; ?>
+	   echo "<div class='biblioPadding'>&nbsp;<a href='/news/bibliotech-index/' title='Bibliotech'>Bibliotech</a>"; ?>
 	   
 	    <span class="mitDate">
           <time class="updated"  datetime="<?php echo get_the_date(); ?>">&nbsp;&nbsp;<?php echo get_the_date(); ?></time>
