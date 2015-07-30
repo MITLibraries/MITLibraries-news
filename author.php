@@ -13,10 +13,15 @@
 
 get_header(); ?>
 
+<?php get_template_part('inc/sub-header'); ?>
+
+
 	<section id="primary" class="site-content">
 		<div id="content" role="main">
 
 		<?php if ( have_posts() ) : ?>
+		    <div class="container">
+      <div class="row">
 
 			<?php
 				/* Queue the first post, that way we know
@@ -133,9 +138,10 @@ get_header(); ?>
 		<?php else : ?>
 			<?php get_template_part( 'content', 'none' ); ?>
 		<?php endif; ?>
-
+		    </div>
+		    </div>
 		</div><!-- #content -->
 	</section><!-- #primary -->
 
-<?php get_sidebar(); ?>
+<div class="container">
 <?php get_footer(); ?>
