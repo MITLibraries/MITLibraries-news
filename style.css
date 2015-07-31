@@ -143,14 +143,13 @@ table.hrList tr:nth-child(even) {
 	font-style: italic;
 	color: rgb(153,153,153);
 }
-.author {
-	font-weight: 600;
-	color: rgb(153,153,153);
-}
 .facebookLink {
 	margin-top: 1px;
 	margin-right: 9px;
 }
+.no-padding-left {
+	padding-left: 0 !important;
+	}
 .single .entry-content p {
 	font-size: 14px !important;
 	line-height: 1.5;
@@ -177,9 +176,9 @@ h1.single {
 h1.lib-header,
 h1.search {
 	color: #111;
-	padding: 10px 0;
+	padding: 15px 16px 20px;
 }
-.title-page h1.name-site, h2.name-site a {
+.title-page h1.name-site, h2.name-site, h2.name-site a {
 	font-size: 40px;
 	font-weight: 300;
 	color: #5889C2;
@@ -257,16 +256,6 @@ h1.search {
 }
 .inner, #breadcrumb {
 	background-color: white !important;
-}
-.archive-header h2 {
-	margin-bottom: 0px;
-	padding-bottom: 10px;
-	padding-top: 0px;
-	margin-top: 0px;
-}
-.archive-header {
-	margin-bottom: 0px;
-	padding-bottom: 0px;
 }
 .bigItem {
 	/* This will be twice as big as the small item. */
@@ -575,10 +564,7 @@ li#menu-item-14139 {
 	margin-bottom: 0px !important;
 	padding: 0px !important;
 }
-.title-page h2 {
-	margin-top: 0 !important;
-	padding: 10px 0;
-	}
+
 .featuredColImg {
 	position: absolute;
 	left: 18px;
@@ -1223,10 +1209,7 @@ nav a {
 .single .socialNav {
 	color: #909090;
 }
-.single .socialNav a {
-	font-size: 13px;
-	font-weight: 600;
-}
+
 .moreIn {
 	font-size: 30px;
 	color: rgb(107, 107, 107);
@@ -1407,17 +1390,7 @@ p.search {
 	float: none;
 	margin: 0 auto;
 }
-.single ul {
-	padding-left: 40px !important;
-	margin-bottom: 10px !important;
-	display: block;
-	list-style-type: disc;
-	-webkit-margin-before: 1em;
-	-webkit-margin-after: 1em;
-	-webkit-margin-start: 0px;
-	-webkit-margin-end: 0px;
-	-webkit-padding-start: 40px;
-}
+
 .single ul li {
 	list-style-type: disc;
 }
