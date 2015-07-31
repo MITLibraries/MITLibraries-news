@@ -16,7 +16,6 @@ get_header(); ?>
 <?php get_template_part('inc/sub-header'); ?>
 
 
-	<section id="primary" class="site-content">
 		<div id="content" role="main">
 
 		<?php if ( have_posts() ) : ?>
@@ -33,8 +32,8 @@ get_header(); ?>
 				the_post();
 			?>
 
-			<header class="archive-header">
-				<h1 class="archive-title"><?php printf( __( 'Author Archives: %s', 'twentytwelve' ), '<span class="vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( "ID" ) ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me">' . get_the_author() . '</a></span>' ); ?></h1>
+			<header class="author-archive-header">
+				<h1 class="lib-header"><?php printf( __( 'Author Archives: %s', 'twentytwelve' ), '<span class="vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( "ID" ) ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me">' . get_the_author() . '</a></span>' ); ?></h1>
 			</header><!-- .archive-header -->
 
 			<?php
@@ -141,7 +140,6 @@ get_header(); ?>
 		    </div>
 		    </div>
 		</div><!-- #content -->
-	</section><!-- #primary -->
 
 <div class="container">
 <?php get_footer(); ?>
