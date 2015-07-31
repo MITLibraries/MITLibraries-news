@@ -6,15 +6,8 @@
 	global $post;
 	if (is_home()){ ?>
 		 <h1 class="name-site">News &amp; events</h1>
-	 <?php	}elseif ( is_single($post)){ ?>
-    	<h2 class="name-site2"><a href="/news/">News &amp; events</a></h2>
-      <?php }else{ ?>
-    <h1 class="name-site"><a href="/news/">News &amp; events</a>
-	<?php 
-	if(is_category()){
-	 printf('<span class="lowercase">'. ': ' . single_cat_title( '', false ) . '</span>' ); 
-	}  ?>        
-    </h1>
+	       <?php } else { ?>
+    <h2 class="name-site"><a href="/news/">News &amp; events</a></h2>
    <?php } ?>
   </div>
  <div class="socialNav col-xs-12 col-sm-12 col-md-7  col-lg-7 clearfix "> 
@@ -128,5 +121,7 @@ wp_nav_menu( $defaults );
 </div>
 </div><!--closes page wrap from header this is open on main page !important-->
 <div class="clearfix newsBackGround">
+	
+	
 
 
