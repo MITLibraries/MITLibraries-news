@@ -5,19 +5,19 @@
         </a>
         </li>
         <li class="tw soc">
-		<a title="twitter"  href="http://twitter.com/mitlibraries" class="twitterLink">
+		<a title="twitter"  href="//twitter.com/mitlibraries" class="twitterLink">
         <span class="si_twitter image_on"></span>
         <span class="si_twitterBlue image_off"></span>
 		</a>
         </li>
         <li class="fb soc">
-		<a title="facebook"  href="http://libraries.mit.edu/facebook" class="facebookLink">
+		<a title="facebook"  href="//libraries.mit.edu/facebook" class="facebookLink">
         <span class="si_facebook image_on"></span>
         <span class="si_facebookBlue image_off"></span>
          </a>
     	</li>
         <li class="ig soc">
-        <a title="Instagram"  href="http://instagram.com/mitlibraries/">
+        <a title="Instagram"  href="//instagram.com/mitlibraries/">
         <span class="si_instagram image_on"></span>
         <span class="si_instagramBlue image_off"></span>
         </a>
