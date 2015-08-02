@@ -174,10 +174,17 @@ h1.single {
 	margin-bottom: 20px;
 }
 h1.lib-header,
-h1.search {
+h1.search,
+h2.search {
 	color: #111;
 	padding: 15px 16px 20px;
 }
+.events-header {
+	padding: 15px 0 20px;
+	}
+.padding-header {
+	padding: 0 16px 15px;
+	}
 .title-page h1.name-site, h2.name-site, h2.name-site a {
 	font-size: 40px;
 	font-weight: 300;
@@ -447,7 +454,19 @@ h1.search {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
 	color: #111;
-	padding: 8px 0 !important;
+	padding: 10px 0 !important;
+}
+
+.bgWhite h2.bt-title {
+	font-size: 2em;
+	line-height: 1.3;
+	text-decoration: none;
+	margin: 0;
+	letter-spacing: 0px;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	color: #111;
+	padding: 10px 0 !important;
 }
 
 .mitDate {
@@ -1253,9 +1272,6 @@ img.singleImg {
 }
 input.searchForm {
 	width: 187px;
-}
-h2.search {
-	padding: 1px 0px 15px 16px
 }
 p.search {
 	padding: 1px 0px 43px 22px;
