@@ -31,7 +31,9 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of(73, $c
       <?php } ?>
       <div class="entry-meta"> <span class="author"> By
         <?php 
-		if (get_field("bauthor")){
+		if (get_field("pauthor")){
+			the_field("pauthor");
+		}if (get_field("bauthor")){
 			the_field("bauthor");
 		}else{
 			the_author_posts_link();
@@ -80,7 +82,7 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of(73, $c
         <span class="time"><?php echo  get_field('event_start_time'); ?></span>
      <?php } ?>
 	 <?php if(get_field('event_end_time') != ""){ ?>
-        <span class="time"> - <?php echo get_field('event_end_time'); ?></span>
+        <span class="time">-<?php echo get_field('event_end_time'); ?></span>
 	<?php } ?>
       </div>
 <?php } ?>

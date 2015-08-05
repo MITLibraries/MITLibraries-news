@@ -32,9 +32,7 @@ aside .widget {
 	border-bottom: 2px solid #c6b6a3;
 	padding: 20px;
 }
-.page h2 {
-	margin: 0px 0px 10px 0px !important;
-}
+
 .subscribe .sidebar {
 	padding-top: 55px;
 }
@@ -135,15 +133,6 @@ table.hrList tr:nth-child(even) {
 .twitterLink {
 	margin-top: 1px;
 }
-.eventsPage h2 a {
-	font-size: 16pt;
-	line-height: 18pt;
-	margin: 9px 0px 10px 0px;
-	letter-spacing: 0px;
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 400;
-	color: #111;
-}
 .category-post-single {
 	font-weight: 600;
 	font-style: italic;
@@ -154,28 +143,25 @@ table.hrList tr:nth-child(even) {
 	font-style: italic;
 	color: rgb(153,153,153);
 }
-.author {
-	font-weight: 600;
-	color: rgb(153,153,153);
-}
 .facebookLink {
 	margin-top: 1px;
 	margin-right: 9px;
 }
+.no-padding-left {
+	padding-left: 0 !important;
+	}
 .single .entry-content p {
 	font-size: 14px !important;
-	line-height: 25px;
+	line-height: 1.5;
 	color: #5B5B5B;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
+	margin-bottom: 10px;
 }
 .single .entry-content p:last-of-type {
 	margin-bottom: 83px;
 }
-.single p {
-	padding-bottom: 10px;
-	margin-bottom: 0px;
-}
+
 .single .entry-content p.wp-caption-text {
 	margin-bottom: 0px;
 }
@@ -185,14 +171,25 @@ h1.single {
 	color: rgb(89,89,89);
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
-	margin-top: 20px;
 	margin-bottom: 20px;
 }
-.title-page h1.name-site, h2.name-site2 {
-	font-size: 43px;
+h1.lib-header,
+h1.search,
+h2.search {
+	color: #111;
+	padding: 15px 16px 20px;
+}
+.events-header {
+	padding: 15px 0 20px;
+	}
+.padding-header {
+	padding: 0 16px 15px;
+	}
+.title-page h1.name-site, h2.name-site, h2.name-site a {
+	font-size: 40px;
 	font-weight: 300;
 	color: #5889C2;
-	line-height: 38px;
+	line-height: 1;
 	margin: 15px 0px;
 	padding: 0px 0px;
 }
@@ -202,8 +199,8 @@ h1.single {
 .nextBtn {
 	display: -webkit-flex;
 	display: flex;
- -webkit-flex-direction: row /* works with row or column */
- flex-direction: row;
+	-webkit-flex-direction: row /* works with row or column */
+	flex-direction: row;
 	-webkit-align-items: center;
 	align-items: center;
 	-webkit-justify-content: center;
@@ -248,8 +245,7 @@ h1.single {
 	padding-left: 5px;
 	font-weight: 100;
 }
-.biblioBox {
-}
+
 .biblioBox:first-child {
 	border-right: 1px solid #ccc;
 }
@@ -267,16 +263,6 @@ h1.single {
 }
 .inner, #breadcrumb {
 	background-color: white !important;
-}
-.archive-header h2 {
-	margin-bottom: 0px;
-	padding-bottom: 10px;
-	padding-top: 0px;
-	margin-top: 0px;
-}
-.archive-header {
-	margin-bottom: 0px;
-	padding-bottom: 0px;
 }
 .bigItem {
 	/* This will be twice as big as the small item. */
@@ -449,37 +435,40 @@ h1.single {
 	background-color: white;
 }
 .eventsBox h2.title-post {
-	font-size: 22px;
-	line-height: 27px;
+	font-size: 21px;
+	line-height: 1.3;
 	text-decoration: none;
-	margin: 6px 0px 5px 0px;
+	margin: 0px;
 	letter-spacing: 0px;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
 	color: #111;
-	padding: 0px 10px !important;
+	padding:  8px 10px !important;
 }
 .bgWhite h2.title-post {
 	font-size: 24px;
-	line-height: 30px;
+	line-height: 1.3;
 	text-decoration: none;
-	margin: 0px 0px 0px 0px;
+	margin: 0;
 	letter-spacing: 0px;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
 	color: #111;
+	padding: 10px 0 !important;
 }
-.eventsBox h2.title-postnoImg {
-	font-size: 24px;
-	line-height: 30px;
+
+.bgWhite h2.bt-title {
+	font-size: 2em;
+	line-height: 1.3;
 	text-decoration: none;
-	margin: 9px 0px 10px 0px;
+	margin: 0;
 	letter-spacing: 0px;
 	font-family: 'Open Sans', sans-serif;
-	font-weight: 300;
+	font-weight: 400;
 	color: #111;
-	padding: 0px 10px !important;
+	padding: 10px 0 !important;
 }
+
 .mitDate {
 	float: right;
 	font-family: 'Open Sans', sans-serif;
@@ -583,13 +572,7 @@ li#menu-item-14139 {
 .content-main {
 	background: rgb(233,233,233);
 }
-h1 {
-	font-size: 44pt;
-	color: #5889C2;
-	font-weight: 300;
-	line-height: 53pt;
-	font-family: 'Open Sans', sans-serif;
-}
+
 .bgImgLight {
 	background-image: url(images/light2.png);
 	background-repeat: no-repeat;
@@ -598,8 +581,9 @@ h1 {
 }
 .title-page {
 	margin-bottom: 0px !important;
-	padding: 15px 0px 0px 0px !important;
+	padding: 0px !important;
 }
+
 .featuredColImg {
 	position: absolute;
 	left: 18px;
@@ -695,9 +679,7 @@ select#bibMenu {
 	left: -16px;
 	width: 56px;
 }
-.no-padding-left {
-	padding-left: 0px;
-}
+
 .innerPadding {
 	padding-left: 16px;
 	padding-right: 16px;
@@ -735,10 +717,6 @@ select#bibMenu {
 .udClear {
 	display: block;
 }
-.title-page {
-	padding: 10px 0px 0px 0px;
-	margin-bottom: 0px;
-}
 .mySingle h2 {
 	font-size: 22pt;
 	line-height: 26pt;
@@ -761,11 +739,11 @@ h2.grid {
 	line-height: 28px;
 }
 .eventsBox .excerpt-post p, .excerpt-post p {
-	padding: 0px 10px;
+	padding: 0 10px 8px;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 12px;
 	color: #80808D;
-	line-height: 14pt;
+	line-height: 1.5;
 	font-weight: 400;
 }
 .bgWhite .excerpt-post p {
@@ -811,8 +789,13 @@ article {
 .not_on_phone {
 	display: none;
 }
+p.img {
+	text-align: center;
 }
-
+img.alignright {
+	float: none !important;
+}
+}
 
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
@@ -984,7 +967,7 @@ width: 292px;
 }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 768px) {
 .newsNav {
 	height: auto;
 }
@@ -1040,6 +1023,14 @@ width: 292px;
 }
 .biblioBox {
 	text-align: center;
+}
+}
+
+@media screen and (max-width: 768px) {
+img.centered {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 }
 
@@ -1111,6 +1102,10 @@ width: 292px;
 
 /*Styles for screen 515px and lower*/
 @media only screen and (max-width : 480px) {
+img.alignright {
+	float: none !important;
+	margin-left: 0 !important;
+}		
 .newsNav {
 	border-bottom: 0;
 }
@@ -1147,19 +1142,19 @@ ul#menu-subscribe {
 	margin-left: 0px;
 	text-align: center;
 }
+.col-sm-4, .col-md-4, .col-lg-4, .col-xs-12 {
+	padding-left: 10px !important;
+	padding-right: 10px !important;
+}
 }
 
 /*Smartphone*/
-@media only screen and (max-width : 400px) {
-.no-padding-left-mobile {
-	padding-left: 0px !important;
-}
+@media only screen and (max-width : 480px) {
+
 }
 
 @media only screen and (max-width : 320px) {
-.no-padding-left-mobile {
-	padding-left: 0px !important;
-}
+
 .newsNav li {
 	display: block;
 	float: none;
@@ -1233,10 +1228,7 @@ nav a {
 .single .socialNav {
 	color: #909090;
 }
-.single .socialNav a {
-	font-size: 13px;
-	font-weight: 600;
-}
+
 .moreIn {
 	font-size: 30px;
 	color: rgb(107, 107, 107);
@@ -1281,24 +1273,21 @@ img.singleImg {
 input.searchForm {
 	width: 187px;
 }
-h2.search {
-	padding: 1px 0px 15px 16px
-}
 p.search {
 	padding: 1px 0px 43px 22px;
 }
 .bgWhite .event {
 	color: #F58733;
 	padding-left: 20px;
-	font-size: 12pt;
+	font-size: 14px !important;
 }
 .bgWhite .events {
 	padding-left: 0px;
 }
 .events {
 	color: #F58733;
-	padding-left: 8px;
-	font-size: 12pt;
+	padding: 0 10px 8px;
+	font-size: 14px !important;
 }
 /*SRPITE*/
 .biblioHeader, .or_cog-25, .or_check-25, .bilbioTechIcon, .event, .or_check-25, .or_star-25, .or_eye-25, .or_life-25, .or_pin-25, .or_sun-25, .or_thumb-25, .si_facebook, .si_facebookBlue, .si_instagram, .si_instagramBlue, .si_twitter, .si_twitterBlue, .info, .update, .searchIcon {
@@ -1417,17 +1406,7 @@ p.search {
 	float: none;
 	margin: 0 auto;
 }
-.single ul {
-	padding-left: 40px !important;
-	margin-bottom: 10px !important;
-	display: block;
-	list-style-type: disc;
-	-webkit-margin-before: 1em;
-	-webkit-margin-after: 1em;
-	-webkit-margin-start: 0px;
-	-webkit-margin-end: 0px;
-	-webkit-padding-start: 40px;
-}
+
 .single ul li {
 	list-style-type: disc;
 }

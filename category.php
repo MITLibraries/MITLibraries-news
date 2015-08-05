@@ -19,11 +19,14 @@ $date = DateTime::createFromFormat('Ymd', get_field('event_date'));
 <?php get_template_part('inc/sub-header'); ?>
 
 
-<section id="" class="">
   <div id="content" role="main">
     <?php if ( have_posts() ) : ?>
     <div class="container">
       <div class="row">
+	      <?php 
+	if(is_category()){
+	 printf('<h1 class="lib-header">'. 'Category: ' . '<strong>' . single_cat_title( '', false ) . '</strong>'  . '</h1>' ); 
+	}  ?> 
         <?php
 			/* Start the Loop */
 			$i = -1;
@@ -60,7 +63,7 @@ $date = DateTime::createFromFormat('Ymd', get_field('event_date'));
   if(get_post_type( get_the_ID() ) == 'bibliotech'){
 	   echo "<div class='bilbioImg bilbioTechIcon'>
 	   </div>";
-	   echo "<div class='biblioPadding'>&nbsp;<a href='/news/bibliotech/' title='Bibliotech'>Bibliotech</a>"; ?>
+	   echo "<div class='biblioPadding'>&nbsp;<a href='/news/bibliotech-index/' title='Bibliotech'>Bibliotech</a>"; ?>
 	   
 	    <span class="mitDate">
           <time class="updated"  datetime="<?php echo get_the_date(); ?>">&nbsp;&nbsp;<?php echo get_the_date(); ?></time>
@@ -96,7 +99,6 @@ $date = DateTime::createFromFormat('Ymd', get_field('event_date'));
      <?php get_template_part('inc/more-posts'); ?>
   </div>
   <!-- #content --> 
-</section>
 <!-- #primary -->
 <script>
 <?php

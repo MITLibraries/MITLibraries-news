@@ -19,3 +19,14 @@ npm-debug.log
 node_modules/
 css/build/**
 js/build/**
+index.php
+
+header.php
+
+inc/card-image.php
+
+functions - Copy.php
+
+fonts/glyphicons-halflings-regular.eot
+
+inc/card-title.php

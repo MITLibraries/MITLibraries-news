@@ -98,8 +98,8 @@ $the_archive = new WP_Query($archive);
 $archive_posts = (array) $the_archive->posts;
 
 ?>
-    <h2>Upcoming events</h2>
-    <div class="row">
+    <div class="row innerPadding">
+    <h1 class="events-header">Upcoming classes & events</h1>
       <?php
       if( count($future_posts) > 0 ) {
         $i = -1;
@@ -117,7 +117,7 @@ $archive_posts = (array) $the_archive->posts;
 
     <hr class="hidden-xs" />
 
-    <h2>Past events</h2>
+    <h2 class="padding-header">Past events</h2>
     <div class="row">
       <?php
       if( count($past_posts) > 0 ) {
