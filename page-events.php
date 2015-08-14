@@ -117,7 +117,7 @@ $archive_posts = (array) $the_archive->posts;
 
     <hr class="hidden-xs" />
 
-    <h2 class="padding-header">Past events</h2>
+    <h2 class="padding-header">Past classes & events</h2>
     <div class="row">
       <?php
       if( count($past_posts) > 0 ) {
