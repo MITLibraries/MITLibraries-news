@@ -1107,10 +1107,7 @@ img.centered {
 
 /*Styles for screen 515px and lower*/
 @media only screen and (max-width : 480px) {
-img.alignright {
-	float: none !important;
-	margin-left: 0 !important;
-}		
+		
 .newsNav {
 	border-bottom: 0;
 }
@@ -1154,16 +1151,18 @@ ul#menu-subscribe {
 }
 
 /*Smartphone*/
-@media only screen and (max-width : 480px) {
+@media only screen and (max-width : 420px) {
+	.wp-caption.alignright,
+	img.alignright
+ {
+	float: none !important;
+	margin: 1em 0 !important;
+	width: 100%;
+}
 
 }
 
 @media only screen and (max-width : 320px) {
-	
-	.wp-caption.alignright,
-	img.alignright {
-	float: none !important;
-}
 
 .newsNav li {
 	display: block;
