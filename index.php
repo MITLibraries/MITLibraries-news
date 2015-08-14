@@ -161,7 +161,7 @@ $the_query = new WP_Query( $args );
         </h2>
         <?php 	} ?>
         
-    	 <?php get_template_part('inc/events'); ?>
+    	<?php get_template_part('inc/events'); ?>
         
         <?php get_template_part('inc/entry'); ?>
 
