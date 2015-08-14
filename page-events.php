@@ -109,7 +109,7 @@ $archive_posts = (array) $the_archive->posts;
         } 
       } else {
         ?>
-        There are no upcoming events at this time, but check back often.
+			There are no upcoming classes or events at this time, but check back often.
         <?php
       }
       ?>
