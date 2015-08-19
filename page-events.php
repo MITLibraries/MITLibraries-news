@@ -109,7 +109,7 @@ $archive_posts = (array) $the_archive->posts;
         } 
       } else {
         ?>
-        There are no upcoming events at this time, but check back often.
+			There are no upcoming classes or events at this time, but check back often.
         <?php
       }
       ?>
@@ -117,7 +117,7 @@ $archive_posts = (array) $the_archive->posts;
 
     <hr class="hidden-xs" />
 
-    <h2 class="padding-header">Past events</h2>
+    <h2 class="padding-header">Past classes & events</h2>
     <div class="row">
       <?php
       if( count($past_posts) > 0 ) {
