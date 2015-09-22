@@ -180,11 +180,14 @@ h2.search {
 	padding: 15px 16px 20px;
 }
 .events-header {
-	padding: 15px 0 20px;
+	padding: 15px 16px 20px;
+}
+.left-padder {
+	padding-left: 16px;
 	}
 .padding-header {
 	padding: 0 16px 15px;
-	}
+}
 .title-page h1.name-site, h2.name-site, h2.name-site a {
 	font-size: 40px;
 	font-weight: 300;

@@ -59,6 +59,20 @@ function mitlibnews_remove_dashboard_widgets() {
 
 add_action('do_meta_boxes', 'mitlibnews_remove_dashboard_widgets' );
 
+function hide_addthis() {
+	global $user_level;
+	if ($user_level != '10' ) {
+	   echo '<style type="text/css">
+		   #at_widget,
+		   .metabox-prefs label:nth-child(13) {
+			   display: none;
+			   }
+		 </style>';
+   }
+}
+
+add_action('admin_head', 'hide_addthis');
+
 // Register the custom post types
 function mitlibnews_register_news_posts() {
 	$supports_default = array(

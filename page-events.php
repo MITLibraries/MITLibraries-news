@@ -98,7 +98,7 @@ $the_archive = new WP_Query($archive);
 $archive_posts = (array) $the_archive->posts;
 
 ?>
-    <div class="row innerPadding">
+    <div class="row">
     <h1 class="events-header">Upcoming classes & events</h1>
       <?php
       if( count($future_posts) > 0 ) {
@@ -109,7 +109,7 @@ $archive_posts = (array) $the_archive->posts;
         } 
       } else {
         ?>
-			There are no upcoming classes or events at this time, but check back often.
+			<p class="left-padder">There are no upcoming classes or events at this time, but check back often.</p>
         <?php
       }
       ?>
