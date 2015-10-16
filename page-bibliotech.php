@@ -84,9 +84,9 @@ while ( $query2->have_posts() ) : $query2->the_post(); ?>
     <div class="excerpt-post">
      
         <?php if (excerpt()) {
-   				 echo excerpt(20);
+   				 echo excerpt(25);
 					} elseif (content()){
-     				  echo content(20);
+     				  echo content(25);
 					}
 			?>
         <?php } ?>
