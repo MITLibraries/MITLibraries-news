@@ -98,9 +98,9 @@ if (get_field("listImg") != "" ) { ?>
         <div class="excerpt-post">
           <p>
             <?php if (excerpt()) {
-   				 echo excerpt(15);
+   				 echo excerpt(25);
 					} elseif (content()){
-     				  echo content(15);
+     				  echo content(25);
 					}
 			?>
           </p>
