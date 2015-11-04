@@ -28,7 +28,7 @@ $date = DateTime::createFromFormat('Ymd', get_field('event_date'));
 	
 	$args = array(
 	'posts_per_page'      => $limit,
-	'post_type' => array('Spotlights','bibliotech', 'post'),
+	'post_type' => array('spotlights','bibliotech', 'post'),
 	'offset'  			  => 9,
 	'post__not_in'            => get_option( 'sticky_posts' ),
 	'ignore_sticky_posts' => 1,
