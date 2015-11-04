@@ -139,16 +139,6 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of(73, $c
   <div class="text-center moreIn"> More in <span class="lowercase"> <?php echo '<a title="'.$category[$r]->cat_name.'"  title="'.$category[$r]->cat_name.'" href="'.get_category_link($category[$r]->term_id ).'">'.$category[$r]->cat_name.'</a>'; ?></span>
   </div>
 </div>
-  <?php   //print_r(get_post_custom($post_id)); 
-$custom_fields = get_post_custom($post_id);
-  $my_custom_field = $custom_fields['feature_type'];
-  foreach ( $my_custom_field as $key => $value ) {
-	 //echo $key . " => " . $value . "<br />";
-	}
-	if($key == 'true'){
-		//echo $key;
-	}
-?>
 <?php wp_reset_postdata(); ?>
 <?php wp_reset_query(); ?>
   <?php endwhile; // end of the loop. ?>
