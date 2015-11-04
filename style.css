@@ -322,6 +322,14 @@ h2.search {
 .heroItems {
 	padding: 0px 1em;
 }
+.interiorCardContainer {
+    height: 235px;
+    overflow: hidden;
+}
+.even-stephen {
+    padding-left: 6px;
+    padding-right: 6px;
+}
 .mit-container {
 	padding: 0px 1em;
 	display: -webkit-box;
@@ -521,7 +529,7 @@ h2.search {
 .stickyCat {
 	width: 33.3%
 }
-.sticky .bgWhite{  min-height: 257px;}
+.sticky .bgWhite{ min-height: 257px; width: 336px; }
 .bilbioImg {
 	float: left;
 	width: 30px;
@@ -624,6 +632,15 @@ li#menu-item-14139 {
 }
 #searchform label {
 	font-size: 11px;
+}
+
+#theBox {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+#theBox:hover {
+    opacity: .8;
 }
 .flexcontainer {
 	display: -webkit-flex;
@@ -793,7 +810,9 @@ article {
 	padding-left: 20px;
 	padding-right: 20px
 }
-
+.classCheck:nth-child(n+4) {
+    display: none;
+}
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
 
@@ -826,8 +845,8 @@ width: 1006px;
 .eventsBox {
  background-color: white;
  margin: 4px 0px 0px 0px;
- min-height: 260px;
- max-height: 260px;
+ min-height: 271px;
+ max-height: 271px;
  cursor: pointer;
  position: relative;
  -webkit-box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
@@ -909,8 +928,8 @@ width: 1006px;
 .eventsBox {
  background-color: white;
  margin: 4px 0px 0px 0px;
- min-height: 260px;
- max-height: 260px;
+ min-height: 271px;
+ max-height: 271px;
  cursor: pointer;
  position: relative;
  -webkit-box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
@@ -950,8 +969,8 @@ width: 1006px;
 .eventsBox {
  background-color: white;
  margin: 4px 0px 0px 0px;
- min-height: 260px;
- max-height: 260px;
+ min-height: 271px;
+ max-height: 271px;
  cursor: pointer;
  position: relative;
  -webkit-box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
@@ -1059,10 +1078,14 @@ img.centered {
 
 /*Styles for screen 600px and lower*/
 @media screen and (min-width: 480px) and (max-width: 600px) {
-.eventsBox {
- 	min-height: 310px;
- 	max-height: 310px;	
+    .eventsBox {
+        min-height: 310px;
+        max-height: 310px;	
 }
+    .interiorCardContainer {
+        height: 275px;
+        overflow: hidden;
+    }
 }
 @media screen and (max-width: 600px) {
 
