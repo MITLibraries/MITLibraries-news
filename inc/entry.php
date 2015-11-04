@@ -1,5 +1,5 @@
 
-		<div class="excerpt-post">
+		<div class="excerpt-post classCheck">
           <p class="entry-summary">
 	                    
  			<?php	
