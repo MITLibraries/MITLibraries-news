@@ -175,32 +175,42 @@ add_image_size( 'news-listing', 323, 111, true ); // Hard Crop Mode
 add_image_size( 'news-feature', 657, 256, true ); /// Hard Crop Mode
 add_image_size( 'news-single', 451,'651', true ); /// Hard Crop Mode
 
-
-function excerpt($limit) {
-  $excerpt = explode(' ', get_the_excerpt(), $limit);
-  if (count($excerpt)>=$limit) {
-    array_pop($excerpt);
-    $excerpt = implode(" ",$excerpt).'...';
-  } else {
-    $excerpt = implode(" ",$excerpt);
-  }	
-  $excerpt = preg_replace('`\[[^\]]*\]`','',$excerpt);
-  return $excerpt;
+// This function trims a WP excerpt at a word limit defined by $limit. If no
+// limit (or a negative number) is received, the entire excerpt is returned.
+function excerpt($limit = 0) {
+    $excerpt = get_the_excerpt();
+    if ($limit > 0) {
+        $excerpt = explode(' ', get_the_excerpt(), $limit);
+        if (count($excerpt)>=$limit) {
+            array_pop($excerpt);
+            $excerpt = implode(" ",$excerpt).'...';
+        } else {
+            $excerpt = implode(" ",$excerpt);
+        }
+    }
+    $excerpt = preg_replace('`\[[^\]]*\]`','',$excerpt);
+    return $excerpt;
 }
 
-function content($limit) {
-  $content = explode(' ', get_the_content(), $limit);
-  if (count($content)>=$limit) {
-    array_pop($content);
-    $content = implode(" ",$content).'...';
-  } else {
-    $content = implode(" ",$content);
-  }	
-  $content = preg_replace('/\[.+\]/','', $content);
-  $content = apply_filters('the_content', $content); 
-  $content = str_replace(']]>', ']]&gt;', $content);
-  return $content;
+// This function trims a WP post content at a word limit defined by $limit. If
+// no limit (or a negaive number) is received, the entire content is returned.
+function content($limit = 0) {
+    $content = get_the_content();
+    if ($limit > 0) {
+        $content = explode(' ', get_the_content(), $limit);
+        if (count($content)>=$limit) {
+            array_pop($content);
+            $content = implode(" ",$content).'...';
+        } else {
+            $content = implode(" ",$content);
+        }
+    }
+    $content = preg_replace('/\[.+\]/','', $content);
+    $content = apply_filters('the_content', $content);
+    $content = str_replace(']]>', ']]&gt;', $content);
+    return $content;
 }
+
 //allows contributor to upload images
 if ( current_user_can('contributor') && !current_user_can('upload_files') )
 	add_action('admin_init', 'allow_contributor_uploads');
