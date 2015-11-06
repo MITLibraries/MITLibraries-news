@@ -21,7 +21,7 @@
         ?>
 
         <!-- OPEN CONTAINER FOR MOBILE/STICKY CARD LAYOUT -->
-                <div class="container">
+                <div class="container container-fluid">
             
             <!-- OPEN ROW FOR MOBILE/STICKY CARD LAYOUT -->
                 <div class="row">
@@ -46,7 +46,7 @@
         <!-- CLOSES CALLS/QUERIES FOR MOBILE/STICKY CARDS -->
     
         <!-- OPEN CONTAINER FOR REGULAR CARD LAYOUT -->
-                <div class="news-site container">
+                <div class="news-site container container-fluid">
             
             <!-- OPEN ROW FOR REGULAR CARD LAYOUT -->
                 <div class="row"> 
@@ -82,22 +82,15 @@
         ?>
     
     
-            <?php
-                if ( get_post_type( get_the_ID() ) == 'bibliotech' ) {
-        ?>
-            </div><!--this div closes the open div in biblio padding-->
-            <?php
-                } //get_post_type( get_the_ID() ) == 'bibliotech'
-        ?>
-              <?php
-                wp_reset_query(); // Restore global post data stomped by the_post(). 
-        ?>
-            <?php
-            endwhile;
-        ?>
-            <?php
-        endif;
-        ?>
+            <?php if ( get_post_type( get_the_ID() ) == 'bibliotech' ) { ?>
+           
+            <?php } //get_post_type( get_the_ID() ) == 'bibliotech' ?>
+              
+                    <?php  wp_reset_query(); // Restore global post data stomped by the_post(). ?>
+           
+                    <?php endwhile; ?>
+            
+                    <?php endif; ?>
   
               </div>
               <!--closes ROW-->
@@ -137,7 +130,7 @@
         });
         </script>
 
-        <div class="container">
+        <div class="container container-fluid">
         <?php
         get_footer();
         ?>
