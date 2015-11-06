@@ -130,7 +130,7 @@ function rendermobileCard($i, $post) {
 }
 function renderRegularCard($i, $post) {
 ?>
-<div id="theBox" class="no-padding-left-mobile col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4 even-stephen">
+<div id="theBox" class="no-padding-left-mobile col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4">
 <div class="flex-item blueTop eventsBox <?php if (get_field("listImg")) { echo "has-image";} else { echo "no-image"; } ?>" 
   onClick='location.href="<?php if((get_field("external_link") != "") && $post->post_type == 'spotlights'){ the_field("external_link");}else{ echo get_post_permalink();}  ?>"'
   >
@@ -184,7 +184,7 @@ function renderRegularCard($i, $post) {
 }
 function renderEventCard($i, $post) {
 ?>
-  <div class="<?php if ($i % 3 == 0){ echo "third "; } ?> col-xs-12 col-xs-B-6 col-sm-4 col-md-4 eventsPage padding-right-mobile">
+  <div class="col-xs-12 col-xs-B-6 col-sm-4 col-md-4 eventsPage padding-right-mobile">
     <div itemscope itemtype="http://data-vocabulary.org/Event" class="flex-item blueTop eventsBox <?php if (get_field("listImg")) { echo "has-image";} else { echo "no-image"; } ?>" onClick='location.href="<?php if((get_field("external_link") != "") && $post->post_type == 'spotlights'){ the_field("external_link");}else{ echo get_post_permalink();}  ?>"'>
     <?php
     if (get_field("listImg") != "" ) { 
