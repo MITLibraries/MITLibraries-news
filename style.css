@@ -21,6 +21,22 @@ a:focus {
 a:active {
 	text-decoration: none
 }
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 7px;
+  padding-right: 7px;
+}
+.row {
+  margin-left: -7px !important;
+  margin-right: -7px !important;
+}
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 7px;
+  padding-right: 7px;
+}
 h2 a {
 	color: #111;
 }
@@ -91,10 +107,6 @@ ul#menu-subscribe {
 	float: left;
 	padding-right: 14px;
 	padding-top: 4px;
-}
-.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
-	padding-right: 2px;
-	padding-left: 12px;
 }
 .mobileDay, .mobileToday {
 	display: none;
@@ -330,6 +342,13 @@ h2.search {
     padding-left: 6px;
     padding-right: 6px;
 }
+
+.cardCounterLeft {
+    padding: 0 0;
+}
+
+
+
 .mit-container {
 	padding: 0px 1em;
 	display: -webkit-box;
@@ -529,7 +548,8 @@ h2.search {
 .stickyCat {
 	width: 33.3%
 }
-.sticky .bgWhite{ min-height: 257px; width: 336px; }
+.sticky .bgWhite{ min-height: 257px; padding-left: 14px !important; }
+
 .bilbioImg {
 	float: left;
 	width: 30px;
