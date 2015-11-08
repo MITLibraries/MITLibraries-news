@@ -46,7 +46,7 @@
         <!-- CLOSES CALLS/QUERIES FOR MOBILE/STICKY CARDS -->
     
         <!-- OPEN CONTAINER FOR REGULAR CARD LAYOUT -->
-                <div class="news-site container container-fluid">
+                <div class="container container-fluid">
             
             <!-- OPEN ROW FOR REGULAR CARD LAYOUT -->
                 <div class="row"> 
@@ -81,7 +81,8 @@
                 renderRegularCard( $i, $post ); // --- CALLS REGULAR CARDS --- //
         ?>
     
-    
+                   
+                    
             <?php if ( get_post_type( get_the_ID() ) == 'bibliotech' ) { ?>
            
             <?php } //get_post_type( get_the_ID() ) == 'bibliotech' ?>
