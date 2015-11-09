@@ -1110,6 +1110,12 @@ img.centered {
 }
 }
 
+@media screen and (max-width: 479px) {
+	.row {
+		padding: 0 5px;
+		}	
+}
+
 @media screen and (min-width: 480px) and (max-width: 780px) {
 	.row {
 		padding: 0 10px;
@@ -1127,6 +1133,11 @@ img.centered {
         overflow: hidden;
     }
 }
+@media screen and (max-width: 850px) {
+	.name-site,
+	.name-site a {
+		font-size: 36px !important;	
+	}
 @media screen and (max-width: 600px) {
 
 .newsNav {
