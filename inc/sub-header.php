@@ -1,7 +1,7 @@
 <div class="newsSubHeader">
 <div class="innerPadding">
 <div class="title-page row">
- <div class="no-padding-left col-xs-12  col-sm-12 col-md-5 col-lg-5">
+ <div class="no-padding-left col-xs-12 col-sm-4 col-md-5 col-lg-5">
 	<?php 
 	global $post;
 	if (is_home()){ ?>
@@ -10,7 +10,7 @@
     <h2 class="name-site"><a href="/news/">News &amp; events</a></h2>
    <?php } ?>
   </div>
- <div class="socialNav col-xs-12 col-sm-12 col-md-7  col-lg-7 clearfix "> 
+ <div class="socialNav col-xs-12 col-sm-8 col-md-7  col-lg-7 clearfix "> 
 	
  <?php get_template_part('inc/social'); ?>
 
