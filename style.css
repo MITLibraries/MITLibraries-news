@@ -866,6 +866,8 @@ p.img {
 .container {
 width: 1006px;
 }
+
+
 .eventsBox {
  background-color: white;
  margin: 4px 0px 0px 0px;
@@ -1029,6 +1031,14 @@ width: 292px;
 }
 
 @media screen and (max-width: 768px) {
+.nav-pills > li + li {
+	margin-left: 0 !important;
+}
+
+.nav-pills > li > a {
+	border-radius: 0 !important;
+}
+
 .newsNav {
 	height: auto;
 }
@@ -1098,6 +1108,12 @@ img.centered {
 	margin-left: auto;
 	margin-right: auto;
 }
+}
+
+@media screen and (min-width: 480px) and (max-width: 780px) {
+	.row {
+		padding: 0 10px;
+		}	
 }
 
 /*Styles for screen 600px and lower*/
@@ -1217,8 +1233,8 @@ ul#menu-subscribe {
 	text-align: center;
 }
 .col-sm-4, .col-md-4, .col-lg-4, .col-xs-12 {
-	padding-left: 10px !important;
-	padding-right: 10px !important;
+	padding-left: 15px !important;
+	padding-right: 15px !important;
 }
 }
 
