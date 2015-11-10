@@ -70,6 +70,11 @@ h3 {
     margin-left: -10px !important;
 }
 
+.col-centered {
+	float: none;
+	margin: 0 auto;
+}
+
 .hrList td.loc {
 	width: 200px;
 }
@@ -1138,6 +1143,7 @@ img.centered {
 	.name-site a {
 		font-size: 36px !important;	
 	}
+	}
 @media screen and (max-width: 600px) {
 
 .newsNav {
@@ -1516,10 +1522,7 @@ p.search {
 /*SPRINT ENDS*/
 
 
-.col-centered {
-	float: none;
-	margin: 0 auto;
-}
+
 
 .single ul li {
 	list-style-type: disc;
