@@ -1148,8 +1148,8 @@ img.centered {
     }
 }
 @media screen and (max-width: 850px) {
-	.name-site,
-	.name-site a {
+	h2.name-site,
+	h2.name-site a {
 		font-size: 36px !important;	
 	}
 	}
