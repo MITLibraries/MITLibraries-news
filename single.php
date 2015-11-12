@@ -68,24 +68,46 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of(73, $c
 	
 	
 	
-<?php 
-		$date = DateTime::createFromFormat('Ymd', get_field('event_date'));
-   if (($type_post == 'post') && get_field('is_event') == 1) { ?>
-    <div class="events">
-    <?php if(get_field("event_date")){ ?>
-		  <div class="event"> </div>
-      <?php }  ?>
-     <?php if(get_field("event_date")){ ?>
-    	<span class="time">Event date </span> <?php echo $date->format('F j, Y'); ?>
-     <?php } ?>
-     <?php if(get_field("event_start_time")){ ?>
-        <span class="time"><?php echo  get_field('event_start_time'); ?></span>
-     <?php } ?>
-	 <?php if(get_field('event_end_time') != ""){ ?>
-        <span class="time">-<?php echo get_field('event_end_time'); ?></span>
-	<?php } ?>
-      </div>
-<?php } ?>
+ <?php if(get_field('event_date')){ 
+				$date = DateTime::createFromFormat('Ymd', get_field('event_date'));
+				
+			?>
+          <!--EVENT --> 
+          <div class="single-page events">
+	      <span class="bg-image"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15px" height="15px" x="0px" y="0px"
+	 viewBox="-299 390 13 13" style="enable-background:new -299 390 13 13;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#F58632;}
+</style>
+<g>
+	<g id="XMLID_9_">
+		<path id="XMLID_35_" class="st0" d="M-286.9,393.7v-0.8c0-0.4-0.4-0.8-0.8-0.8h-0.8v-0.8c0-0.4-0.4-0.8-0.8-0.8
+			c-0.4,0-0.8,0.4-0.8,0.8v0.8h-4.8v-0.8c0-0.4-0.4-0.8-0.8-0.8c-0.4,0-0.8,0.4-0.8,0.8v0.8h-0.8c-0.4,0-0.8,0.4-0.8,0.8v0.8
+			C-298.1,393.7-286.9,393.7-286.9,393.7z"/>
+	</g>
+	<g>
+		<path id="XMLID_76_" class="st0" d="M-298.1,394.5v7.2c0,0.4,0.4,0.8,0.8,0.8h9.6c0.4,0,0.8-0.4,0.8-0.8v-7.2H-298.1z
+			 M-294.9,400.9h-1.6v-1.6h1.6V400.9z M-294.9,397.7h-1.6v-1.6h1.6V397.7z M-291.7,400.9h-1.6v-1.6h1.6
+			C-291.7,399.3-291.7,400.9-291.7,400.9z M-291.7,397.7h-1.6v-1.6h1.6C-291.7,396.1-291.7,397.7-291.7,397.7z M-288.5,400.9h-1.6
+			v-1.6h1.6V400.9z M-288.5,397.7h-1.6v-1.6h1.6V397.7z"/>
+	</g>
+</g>
+</svg></span>    
+		  <span class="event"><?php echo $date->format('F j, Y'); ?></span> 
+          <span class="time">
+            <?php if( get_field('event_start_time') ){ 
+			  		echo the_field('event_start_time'); 
+					} ?>
+            <?php if(( get_field('event_start_time') ) && ( get_field('event_end_time') )){
+				  				 echo '-';
+					} ?>
+            <?php if( get_field('event_end_time') ){ 
+			  		echo the_field('event_end_time'); 
+			}  ?>
+            </span> 
+          
+           </div>
+          <?php 	}	?>
 
  <!--=================image=================== -->       
     <?php if (get_field('image')){ ?>
@@ -139,16 +161,6 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of(73, $c
   <div class="text-center moreIn"> More in <span class="lowercase"> <?php echo '<a title="'.$category[$r]->cat_name.'"  title="'.$category[$r]->cat_name.'" href="'.get_category_link($category[$r]->term_id ).'">'.$category[$r]->cat_name.'</a>'; ?></span>
   </div>
 </div>
-  <?php   //print_r(get_post_custom($post_id)); 
-$custom_fields = get_post_custom($post_id);
-  $my_custom_field = $custom_fields['feature_type'];
-  foreach ( $my_custom_field as $key => $value ) {
-	 //echo $key . " => " . $value . "<br />";
-	}
-	if($key == 'true'){
-		//echo $key;
-	}
-?>
 <?php wp_reset_postdata(); ?>
 <?php wp_reset_query(); ?>
   <?php endwhile; // end of the loop. ?>
@@ -177,7 +189,7 @@ $myposts = get_posts($args);
 $y = 1 ;
 foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
 <?php //echo $GLOBALS['wp_query']->request; ?>
-    <div id="singleBox"  class="no-padding-left-mobile col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4 <?php //if($y == 2){ echo "hidden-sm hidden-xs-b";} ?>">
+    <div class="no-padding-left-mobile col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4 <?php //if($y == 2){ echo "hidden-sm hidden-xs-b";} ?>">
       <div class="flex-item blueTop eventsBox <?php if (get_field("listImg")) { echo "has-image";} else { echo "no-image"; } ?>" onClick='location.href="<?php if((get_field("external_link") != "") && $post->post_type == 'spotlights'){ the_field("external_link");}else{ echo get_post_permalink();}  ?>"'>
 	  
 		  <?php get_template_part('inc/spotlights'); ?>
@@ -222,6 +234,6 @@ wp_reset_postdata();?>
 <!-- #primary -->
 
 </div><!--greybackground 100% width-->
- <div style="background-color:rgb(233, 233, 233);padding-bottom:28px;">
+ <div style="background-color:rgb(233, 233, 233);">
 <div class="container">
 <?php get_footer(); ?>
