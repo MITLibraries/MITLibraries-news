@@ -1380,6 +1380,7 @@ img.singleImg {
 .single article {
 	padding-left: 16px;
 	padding-right: 16px;
+	padding-bottom: 35px;
 }
 .biblioAbout h1 {
 	padding-top: 16px;
@@ -1406,6 +1407,9 @@ p.search {
 .bgWhite .events {
 	padding-left: 0px;
 }
+.single-page.events {
+	padding-left: 0;
+	}
 .events {
 	color: #F58733;
 	padding: 0 10px 10px;
@@ -1417,8 +1421,11 @@ p.search {
 .events .event {
 	padding: 0 6px 0 4px;
 }
-
-.bg-image img {
+.single-page .bg-image svg {
+	margin-top: 3px;
+	margin-right: 2px;
+	}
+.bg-image svg {
 	float:left;
 	margin-top: 1px;
 	}
