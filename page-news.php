@@ -18,6 +18,8 @@ get_header(); ?>
             
             <!-- OPEN ROW FOR REGULAR CARD LAYOUT -->
                 <div class="row"> 
+	                
+	                <h1 class="events-header">News</h1>
  
         <?php
 	
