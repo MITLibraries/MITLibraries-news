@@ -175,13 +175,22 @@ table.hrList tr:nth-child(even) {
 	font-style: italic;
 	color: rgb(153,153,153);
 }
+
 .facebookLink {
 	margin-top: 1px;
 	margin-right: 9px;
 }
+
 .no-padding-left {
 	padding-left: 0 !important;
-	}
+}
+	
+.entry-content blockquote,
+.comment-content blockquote {
+    margin: 1rem 0 1.25rem;
+    padding: 0 1.71429rem;
+}
+
 .single .entry-content p {
 	font-size: 14px !important;
 	line-height: 1.5;
