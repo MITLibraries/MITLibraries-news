@@ -183,45 +183,14 @@ $args = array(
 	?>
     
 
-<div class="row singleMargin">
+<div class="row">
 <?php      
 $myposts = get_posts($args);
 $y = 1 ;
 foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
 <?php //echo $GLOBALS['wp_query']->request; ?>
-    <div class="no-padding-left-mobile col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4 <?php //if($y == 2){ echo "hidden-sm hidden-xs-b";} ?>">
-      <div class="flex-item blueTop eventsBox <?php if (get_field("listImg")) { echo "has-image";} else { echo "no-image"; } ?>" onClick='location.href="<?php if((get_field("external_link") != "") && $post->post_type == 'spotlights'){ the_field("external_link");}else{ echo get_post_permalink();}  ?>"'>
-	  
-		  <?php get_template_part('inc/spotlights'); ?>
-       
-        <?php
-		if (get_field("listImg") != "" ) { ?>
-        <img src="<?php the_field("listImg") ?>" width="100%" height="111" class="img-responsive"  alt="<?php the_title(); ?>"/>
-        <?php } ?>
-         <?php if($post->post_type == 'spotlights'){ ?>
-			 <h2 class="entry-title title-post spotlights">
-          <a href="<?php the_field("external_link"); ?>"><?php the_title();?></a>
-        </h2> 
-		<?php }else{ ?>
-        <h2 class="entry-title title-post">
-          <a href="<?php the_permalink(); ?>"><?php the_title();?></a>
-        </h2>
-        <?php 	} ?>
-    	<?php get_template_part('inc/events'); ?>
-        <?php get_template_part('inc/entry'); ?>
-        <!--final **** else-->
-        <?php {  ?>
-        <!--EVENT -->
-        <?php } ?>
-        <div class="category-post">
-        <?php 	
-			echo '<a title="'.$category[$r]->cat_name.'"  title="'.$category[$r]->cat_name.'" href="'.get_category_link($category[$r]->term_id ).'">'.$category[$r]->cat_name.'</a>';
-		 ?>
-         <span class="mitDate">
-          <time class="updated"  datetime="<?php echo get_the_date(); ?>">&nbsp;&nbsp;<?php echo get_the_date(); ?></time>
-          </span></div>
-      </div>
-    </div>
+  
+              <?php renderRegularCard( $i, $post ); // --- CALLS REGULAR CARDS --- // ?>
    
     <?php 
 	$y = $y + 1;
