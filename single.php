@@ -74,7 +74,7 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of(73, $c
 			?>
           <!--EVENT --> 
           <div class="single-page events">
-	      <span class="bg-image"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15px" height="15px" x="0px" y="0px"
+	      <span class="gray">Event date</span><span class="bg-image"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15px" height="15px" x="0px" y="0px"
 	 viewBox="-299 390 13 13" style="enable-background:new -299 390 13 13;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#F58632;}
