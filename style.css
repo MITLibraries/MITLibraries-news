@@ -1422,13 +1422,21 @@ p.search {
 	padding: 0 6px 0 4px;
 }
 .single-page .bg-image svg {
-	margin-top: 3px;
-	margin-right: 2px;
+	margin: 0 2px;
+	float: none;
+	position: relative;
+	top: 2px;
+
 	}
 .bg-image svg {
 	float:left;
 	margin-top: 1px;
 	}
+.gray {
+	color: #ABABAB;
+	margin-right: 6px;
+	}	
+
 
 /*SRPITE*/
 .biblioHeader, .or_cog-25, .or_check-25, .bilbioTechIcon, .or_check-25, .or_star-25, .or_eye-25, .or_life-25, .or_pin-25, .or_sun-25, .or_thumb-25, .si_facebook, .si_facebookBlue, .si_instagram, .si_instagramBlue, .si_twitter, .si_twitterBlue, .info, .update, .searchIcon {
