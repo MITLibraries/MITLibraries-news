@@ -1,7 +1,12 @@
+
+
 .no-padding-right {
 	padding-right: 0px!important;
 }
 
+select#cat {
+	font-size: 14px !important;
+}
 /*xs small */
 @media(max-width:767px) {
 
@@ -32,6 +37,8 @@ button#dropdownMenu1 {
 
 /*col-sm*/
 @media (min-width: 768px) {
+
+
 .newsNav ul li#menu-item-17754 {
 	display: none
 }
@@ -60,7 +67,6 @@ li#menu-item-17755, li#menu-item-17832 {
 	padding-left: 0px;
 }
 .newsNav ul li.current-menu-item {
-	border-radius: 5px;
 	background-color: rgb(88,137,193);
 	display: inline;
 }
@@ -85,7 +91,7 @@ hr.news {
 }
 .newsNav ul li a {
 	color: rgb(88,137,193);
-	font-size: 12pt;
+	font-size: 12px;
 }
 body.tax-bibliotech_issues .newsNav ul li a {
 	color: rgb(88,137,193);
@@ -113,6 +119,10 @@ body.tax-bibliotech_issues .newsNav ul li#menu-item-17024 a, body.page-bibliotec
 #singleBox:first-child {
 	padding-left: 0px !important;
 }
+
+.dropdown-menu > li > a {
+	border-radius: 0 !important;
+}
 /*col-sm ends*/	}
 
 /*col-md*/
@@ -125,9 +135,7 @@ ul#menu-mainnav {
 li#menu-item-17755, li#menu-item-17832 {
 	display: none
 }
-.third {
-	padding-left: 0px !important;
-}
+
 .nav > li > a {
 	padding: 9px 10px;
 }
@@ -139,7 +147,6 @@ li#menu-item-17755, li#menu-item-17832 {
 	padding-left: 0px;
 }
 .newsNav ul li.current-menu-item {
-	border-radius: 5px;
 	background-color: rgb(88,137,193);
 	display: inline;
 }
@@ -282,9 +289,7 @@ body.tax-bibliotech_issues .newsNav ul li#menu-item-17024 a, body.page-bibliotec
 .sticky img {
 	width: 100%;
 }
-.third {
-	padding-left: 0px !important;
-}
+
 #singleBox:first-child .socialNav {
 	padding-left: 2px !important;
 }

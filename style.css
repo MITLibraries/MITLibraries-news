@@ -21,6 +21,22 @@ a:focus {
 a:active {
 	text-decoration: none
 }
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 7px;
+  padding-right: 7px;
+}
+.row {
+  margin-left: -7px !important;
+  margin-right: -7px !important;
+}
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 7px;
+  padding-right: 7px;
+}
 h2 a {
 	color: #111;
 }
@@ -37,8 +53,28 @@ aside .widget {
 	padding-top: 55px;
 }
 h3 {
-	font-weight: 400
+	font-weight: 400;
+    margin-left: 0;
 }
+
+.card-subtitle {
+    padding: 0 10px 7px;
+    font-size: 14px;
+    color: #6B6B70;
+    font-weight: 400 !important;
+    line-height: 1.3;
+    margin: 0 !important;
+}
+
+.bgWhite .card-subtitle {
+    margin-left: -10px !important;
+}
+
+.col-centered {
+	float: none;
+	margin: 0 auto;
+}
+
 .hrList td.loc {
 	width: 200px;
 }
@@ -81,10 +117,6 @@ ul#menu-subscribe {
 	float: left;
 	padding-right: 14px;
 	padding-top: 4px;
-}
-.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
-	padding-right: 2px;
-	padding-left: 12px;
 }
 .mobileDay, .mobileToday {
 	display: none;
@@ -143,13 +175,22 @@ table.hrList tr:nth-child(even) {
 	font-style: italic;
 	color: rgb(153,153,153);
 }
+
 .facebookLink {
 	margin-top: 1px;
 	margin-right: 9px;
 }
+
 .no-padding-left {
 	padding-left: 0 !important;
-	}
+}
+	
+.entry-content blockquote,
+.comment-content blockquote {
+    margin: 1rem 0 1.25rem;
+    padding: 0 1.71429rem;
+}
+
 .single .entry-content p {
 	font-size: 14px !important;
 	line-height: 1.5;
@@ -295,6 +336,7 @@ h2.search {
 	max-height: 261px;
 	cursor: pointer;
 	margin-top: 0px;
+    padding-right: 6px;
 }
 .subscribe {
 	background-color: white;
@@ -311,6 +353,21 @@ h2.search {
 .heroItems {
 	padding: 0px 1em;
 }
+.interiorCardContainer {
+    height: 240px;
+    overflow: hidden;
+}
+.even-stephen {
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.cardCounterLeft {
+    padding: 0 0;
+}
+
+
+
 .mit-container {
 	padding: 0px 1em;
 	display: -webkit-box;
@@ -506,11 +563,11 @@ h2.search {
 	padding: 9px 10px;
 	right: 0px;
 }
-.page-bibliotech-index .sticky  .category-post{bottom: 5px;}
 .stickyCat {
 	width: 33.3%
 }
-.sticky .bgWhite{  min-height: 257px;}
+.sticky .bgWhite{ min-height: 257px; padding-left: 14px !important; }
+
 .bilbioImg {
 	float: left;
 	width: 30px;
@@ -613,6 +670,15 @@ li#menu-item-14139 {
 }
 #searchform label {
 	font-size: 11px;
+}
+
+#theBox {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+#theBox:hover {
+    opacity: .8;
 }
 .flexcontainer {
 	display: -webkit-flex;
@@ -782,7 +848,9 @@ article {
 	padding-left: 20px;
 	padding-right: 20px
 }
-
+.classCheck:nth-child(n+4) {
+    display: none;
+}
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
 
@@ -812,11 +880,13 @@ p.img {
 .container {
 width: 1006px;
 }
+
+
 .eventsBox {
  background-color: white;
  margin: 4px 0px 0px 0px;
- min-height: 260px;
- max-height: 260px;
+ min-height: 271px;
+ max-height: 271px;
  cursor: pointer;
  position: relative;
  -webkit-box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
@@ -898,8 +968,8 @@ width: 1006px;
 .eventsBox {
  background-color: white;
  margin: 4px 0px 0px 0px;
- min-height: 260px;
- max-height: 260px;
+ min-height: 271px;
+ max-height: 271px;
  cursor: pointer;
  position: relative;
  -webkit-box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
@@ -939,8 +1009,8 @@ width: 1006px;
 .eventsBox {
  background-color: white;
  margin: 4px 0px 0px 0px;
- min-height: 260px;
- max-height: 260px;
+ min-height: 271px;
+ max-height: 271px;
  cursor: pointer;
  position: relative;
  -webkit-box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
@@ -975,6 +1045,14 @@ width: 292px;
 }
 
 @media screen and (max-width: 768px) {
+.nav-pills > li + li {
+	margin-left: 0 !important;
+}
+
+.nav-pills > li > a {
+	border-radius: 0 !important;
+}
+
 .newsNav {
 	height: auto;
 }
@@ -1046,13 +1124,35 @@ img.centered {
 }
 }
 
+@media screen and (max-width: 479px) {
+	.row {
+		padding: 0 5px;
+		}	
+}
+
+@media screen and (min-width: 480px) and (max-width: 780px) {
+	.row {
+		padding: 0 10px;
+		}	
+}
+
 /*Styles for screen 600px and lower*/
 @media screen and (min-width: 480px) and (max-width: 600px) {
-.eventsBox {
- 	min-height: 310px;
- 	max-height: 310px;	
+    .eventsBox {
+        min-height: 310px;
+        max-height: 310px;	
 }
+    .interiorCardContainer {
+        height: 275px;
+        overflow: hidden;
+    }
 }
+@media screen and (max-width: 850px) {
+	h2.name-site,
+	h2.name-site a {
+		font-size: 36px !important;	
+	}
+	}
 @media screen and (max-width: 600px) {
 
 .newsNav {
@@ -1159,8 +1259,8 @@ ul#menu-subscribe {
 	text-align: center;
 }
 .col-sm-4, .col-md-4, .col-lg-4, .col-xs-12 {
-	padding-left: 10px !important;
-	padding-right: 10px !important;
+	padding-left: 15px !important;
+	padding-right: 15px !important;
 }
 }
 
@@ -1280,6 +1380,7 @@ img.singleImg {
 .single article {
 	padding-left: 16px;
 	padding-right: 16px;
+	padding-bottom: 35px;
 }
 .biblioAbout h1 {
 	padding-top: 16px;
@@ -1306,6 +1407,9 @@ p.search {
 .bgWhite .events {
 	padding-left: 0px;
 }
+.single-page.events {
+	padding-left: 0;
+	}
 .events {
 	color: #F58733;
 	padding: 0 10px 10px;
@@ -1317,11 +1421,22 @@ p.search {
 .events .event {
 	padding: 0 6px 0 4px;
 }
+.single-page .bg-image svg {
+	margin: 0 2px;
+	float: none;
+	position: relative;
+	top: 2px;
 
-.bg-image img {
+	}
+.bg-image svg {
 	float:left;
 	margin-top: 1px;
 	}
+.gray {
+	color: #ABABAB;
+	margin-right: 6px;
+	}	
+
 
 /*SRPITE*/
 .biblioHeader, .or_cog-25, .or_check-25, .bilbioTechIcon, .or_check-25, .or_star-25, .or_eye-25, .or_life-25, .or_pin-25, .or_sun-25, .or_thumb-25, .si_facebook, .si_facebookBlue, .si_instagram, .si_instagramBlue, .si_twitter, .si_twitterBlue, .info, .update, .searchIcon {
@@ -1431,10 +1546,7 @@ p.search {
 /*SPRINT ENDS*/
 
 
-.col-centered {
-	float: none;
-	margin: 0 auto;
-}
+
 
 .single ul li {
 	list-style-type: disc;

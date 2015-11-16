@@ -1,5 +1,6 @@
 <?php
 /*
+//
 // Debugging mode
 error_reporting(E_ALL);
 ini_set('display_errors', TRUE);
@@ -25,6 +26,9 @@ function add_scripts() {
 	wp_enqueue_script( 'myScripts', get_stylesheet_directory_uri() . '/js/myScripts.js', array( 'lazyload' ), '', true );
 }
 add_action( 'wp_enqueue_scripts', 'add_scripts' ); 
+
+
+
 
 // This de-registers scripts from the parent theme, but they don't seem to actually be used?
 function remove_scripts(){
@@ -145,8 +149,15 @@ function theme_apto_object_taxonomies($object_taxonomies, $post_type)
 		'public' => true,
 		'menu_position' => 5,
 		'supports' => $supports_default,
-		'taxonomies' => array('category'),
-		'capabilities' => array(
+		'taxonomies' => array('category')
+	);
+	register_post_type('bibliotech', $argsFeatures);
+
+
+}	
+
+/*
+'capabilities' => array(
         'publish_posts' => 'Admin',
         'edit_posts' => 'Admin',
         'edit_others_posts' => 'Admin',
@@ -156,12 +167,8 @@ function theme_apto_object_taxonomies($object_taxonomies, $post_type)
         'edit_post' => 'Admin',
         'delete_post' => 'Admin',
         'read_post' => 'Admin'
-		)
-	);
-	register_post_type('bibliotech', $argsFeatures);
-
-
-}	
+)
+*/
 
 add_action('init', 'mitlibnews_register_news_posts');
 
@@ -175,32 +182,42 @@ add_image_size( 'news-listing', 323, 111, true ); // Hard Crop Mode
 add_image_size( 'news-feature', 657, 256, true ); /// Hard Crop Mode
 add_image_size( 'news-single', 451,'651', true ); /// Hard Crop Mode
 
-
-function excerpt($limit) {
-  $excerpt = explode(' ', get_the_excerpt(), $limit);
-  if (count($excerpt)>=$limit) {
-    array_pop($excerpt);
-    $excerpt = implode(" ",$excerpt).'...';
-  } else {
-    $excerpt = implode(" ",$excerpt);
-  }	
-  $excerpt = preg_replace('`\[[^\]]*\]`','',$excerpt);
-  return $excerpt;
+// This function trims a WP excerpt at a word limit defined by $limit. If no
+// limit (or a negative number) is received, the entire excerpt is returned.
+function excerpt($limit = 0) {
+    $excerpt = get_the_excerpt();
+    if ($limit > 0) {
+        $excerpt = explode(' ', get_the_excerpt(), $limit);
+        if (count($excerpt)>=$limit) {
+            array_pop($excerpt);
+            $excerpt = implode(" ",$excerpt).'...';
+        } else {
+            $excerpt = implode(" ",$excerpt);
+        }
+    }
+    $excerpt = preg_replace('`\[[^\]]*\]`','',$excerpt);
+    return $excerpt;
 }
 
-function content($limit) {
-  $content = explode(' ', get_the_content(), $limit);
-  if (count($content)>=$limit) {
-    array_pop($content);
-    $content = implode(" ",$content).'...';
-  } else {
-    $content = implode(" ",$content);
-  }	
-  $content = preg_replace('/\[.+\]/','', $content);
-  $content = apply_filters('the_content', $content); 
-  $content = str_replace(']]>', ']]&gt;', $content);
-  return $content;
+// This function trims a WP post content at a word limit defined by $limit. If
+// no limit (or a negaive number) is received, the entire content is returned.
+function content($limit = 0) {
+    $content = get_the_content();
+    if ($limit > 0) {
+        $content = explode(' ', get_the_content(), $limit);
+        if (count($content)>=$limit) {
+            array_pop($content);
+            $content = implode(" ",$content).'...';
+        } else {
+            $content = implode(" ",$content);
+        }
+    }
+    $content = preg_replace('/\[.+\]/','', $content);
+    $content = apply_filters('the_content', $content);
+    $content = str_replace(']]>', ']]&gt;', $content);
+    return $content;
 }
+
 //allows contributor to upload images
 if ( current_user_can('contributor') && !current_user_can('upload_files') )
 	add_action('admin_init', 'allow_contributor_uploads');
@@ -253,6 +270,8 @@ function eventRSSFunc(){
 //add_action('admin_menu', 'remove_menu_items');
 
 
+
+
 function customize_meta_boxes() {
   /* Removes meta boxes from Posts */
  // remove_meta_box('postcustom','post','normal');
@@ -261,7 +280,8 @@ function customize_meta_boxes() {
   remove_meta_box('commentsdiv','post','normal');
   //remove_meta_box('tagsdiv-post_tag','post','normal');
   remove_meta_box('postexcerpt','post','normal');
-   
+
+  
   /* Removes meta boxes from pages */
  // remove_meta_box('postcustom','page','normal');
   remove_meta_box('trackbacksdiv','page','normal');
@@ -270,7 +290,6 @@ function customize_meta_boxes() {
   
 }
 add_action('admin_init','customize_meta_boxes');
-
 
 function custom_favorite_actions($actions) {
   unset($actions['edit-comments.php']);
@@ -349,6 +368,7 @@ function news_sidebar_widget() {
 
 }
 add_action( 'widgets_init', 'news_sidebar_widget' );
+
 
 
 //lets only search posts
