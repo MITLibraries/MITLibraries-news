@@ -36,7 +36,7 @@ button#dropdownMenu1 {
 }
 
 /*col-sm*/
-@media (min-width: 768px) {
+@media (min-width: 767px) {
 
 
 .newsNav ul li#menu-item-17754 {
@@ -328,7 +328,7 @@ body.tax-bibliotech_issues .newsNav ul li#menu-item-17024 a, body.page-bibliotec
 }
 
 /* Small Devices, Tablets */
-@media only screen and (max-width : 768px) {
+@media only screen and (max-width : 767px) {
  .sub {
  padding-left:23px;
 }
