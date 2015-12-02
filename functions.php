@@ -303,8 +303,6 @@ function remove_thumbnail_box() {
 }
 add_action('do_meta_boxes', 'remove_thumbnail_box');
 
-//remove parent bibliotech menu
-add_action('admin_head', 'removeBiblioSelect');
 function registerCustomAdminCss(){
 $src = "/wp-content/themes/mit-libraries-news/custom-admin-css.css";
 $handle = "customAdminCss";
