@@ -1044,7 +1044,7 @@ width: 292px;
 }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
 .nav-pills > li + li {
 	margin-left: 0 !important;
 }
@@ -1116,7 +1116,7 @@ width: 292px;
 	}
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
 img.centered {
 	display: block;
 	margin-left: auto;
@@ -1130,7 +1130,7 @@ img.centered {
 		}	
 }
 
-@media screen and (min-width: 480px) and (max-width: 780px) {
+@media screen and (min-width: 480px) and (max-width: 767px) {
 	.row {
 		padding: 0 10px;
 		}	
