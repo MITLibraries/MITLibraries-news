@@ -1,16 +1,8 @@
-[MIT Libraries News](http://libraries.mit.edu/news/)
-====
+[MIT Libraries News](http://libraries.mit.edu/news/) Wordpress Theme
+========
 
-[![Build Status](https://travis-ci.org/MITLibraries/MITLibraries-news.svg)]
+[![Build Status](https://travis-ci.org/MITLibraries/MITLibraries-news.svg?branch=master)](https://travis-ci.org/MITLibraries/MITLibraries-news)
+[![Code Climate](https://codeclimate.com/github/MITLibraries/MITlibraries-news/badges/gpa.svg)](https://codeclimate.com/github/MITLibraries/MITLibraries-news)
+[![Stories in Ready](https://badge.waffle.io/mitlibraries/mitlibraries-news.svg?label=ready&title=Ready)](http://waffle.io/mitlibraries/mitlibraries-news)
 
-The MIT Libraries News blog, running on Wordpress. It is a child theme of the main MIT Libraries theme, running on [libraries.mit.edu](http://libraries.mit.edu).
-
-__Note: This theme is in development, and not currently in use.__
-
-
-## TO DOs
-
-1. When importing ACF fields, current ACF fields must be deleted. Any posts that use those fields must then be updated, after the import, in order to ensure their data is displayed properly. This is particularly important for custom field content that appears on the homepage—the News posts WP API call will fail if those posts are not updated after the new ACF fields are imported.
-2. Build `bibliotech` post type.
-3. Build `bibliotech` RSS feed.
-4. Rename default post type as News/events(?)
+This theme is used to display the MIT Libraries' news and events website, and the home of its Bibliotech newsletter. It is a child theme of [MITLibraries-parent](https://github.com/MITLibraries/MITLibraries-parent).
