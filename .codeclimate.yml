@@ -1,0 +1,45 @@
+---
+engines:
+  csslint:
+    enabled: true
+  eslint:
+    enabled: true
+  fixme:
+    enabled: true
+  phpcodesniffer:
+    enabled: true
+    checks:
+      Generic WhiteSpace DisallowTabIndent TabsUsed:
+        enabled: false
+      PSR2 ControlStructures ControlStructureSpacing SpacingAfterOpenBrace:
+        enabled: false
+      PSR2 ControlStructures ControlStructureSpacing SpaceBeforeCloseBrace:
+        enabled: false
+      PSR2 Methods FunctionCallSignature SpaceAfterOpenBracket:
+        enabled: false
+      PSR2 Methods FunctionCallSignature SpaceBeforeCloseBracket:
+        enabled: false
+      Squiz ControlStructures ForLoopDeclaration SpacingAfterOpen:
+        enabled: false
+      Squiz ControlStructures ForLoopDeclaration SpacingBeforeClose:
+        enabled: false
+      Squiz ControlStructures ForEachLoopDeclaration SpaceAfterOpen:
+        enabled: false
+      Squiz ControlStructures ForEachLoopDeclaration SpaceBeforeClose:
+        enabled: false
+      Squiz Functions FunctionDeclarationArgumentSpacing SpacingAfterOpen:
+        enabled: false
+      Squiz Functions FunctionDeclarationArgumentSpacing SpacingBeforeClose:
+        enabled: false
+  phpmd:
+    enabled: true
+ratings:
+  paths:
+  - "**.css"
+  - "**.js"
+  - "**.jsx"
+  - "**.php"
+  - "**.module"
+  - "**.inc"
+exclude_paths:
+- js/**/*
