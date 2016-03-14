@@ -2,6 +2,14 @@
 engines:
   csslint:
     enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - ruby
+      - javascript
+      - python
+      - php
   eslint:
     enabled: true
   fixme:
@@ -33,6 +41,11 @@ engines:
         enabled: false
   phpmd:
     enabled: true
+    checks:
+      Controversial/CamelCaseClassName:
+        enabled: false
+      Controversial/CamelCaseVariableName:
+        enabled: false
 ratings:
   paths:
   - "**.css"
