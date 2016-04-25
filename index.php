@@ -6,7 +6,7 @@
     get_template_part( 'inc/sub-header' );
         $sticky = get_option( 'sticky_posts' );
         $args   = array(
-             'posts_per_page' => 1,
+            'posts_per_page' => 1,
             'post__in' => $sticky,
             'ignore_sticky_posts' => 1,
             'orderby' => 'menu_order',
@@ -20,12 +20,14 @@
                 if ( isset( $sticky[0] ) ) {
         ?>
 
+<div class="wrap-sticky">
         <!-- OPEN CONTAINER FOR MOBILE/STICKY CARD LAYOUT -->
                 <div class="container container-fluid">
             
             <!-- OPEN ROW FOR MOBILE/STICKY CARD LAYOUT -->
                 <div class="row">
-                    
+                    <h3 class="header-section sticky">Featured news</h3>
+
                 <!-- CALLS MOBILE CARDS -->
         <?php renderMobileCard( $i, $post ); ?>
 
@@ -44,7 +46,11 @@
                     <?php endif; ?> 
                     
         <!-- CLOSES CALLS/QUERIES FOR MOBILE/STICKY CARDS -->
-    
+            </div>
+            </div>
+</div>
+<div class="wrap-regular">
+
         <!-- OPEN CONTAINER FOR REGULAR CARD LAYOUT -->
                 <div class="container container-fluid">
             
@@ -107,7 +113,7 @@
 
   
   </div>
-  
+</div>
 
         <script>
         $(document).ready(function() {

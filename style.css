@@ -153,6 +153,20 @@ ul#menu-subscribe {
 	border-top: none;
 	padding-top: 0px;
 }
+.wrap-sticky {
+	margin-top: -10px;
+	margin-bottom: 5px;
+	border-top: 4px solid #bbb;
+	padding-top: 10px;
+	background-color: #ccc;
+}
+.wrap-sticky .header-section {
+	margin-left: 6px;
+	margin-bottom: 10px;
+	font-size: 13px;
+	font-weight: 400;
+	color: #555;
+}
 table.hrList tr:nth-child(even) {
 	background: #eceaea;
 }
