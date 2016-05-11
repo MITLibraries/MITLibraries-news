@@ -25,7 +25,9 @@
 		
 				<?php  if (is_category()) {
 					
-					printf('<span>'. ': ' . single_cat_title( '', false ) . '</span>' ); } ?>        
+					printf('<span>'. ': ' . single_cat_title( '', false ) . '</span>' ); 
+					
+					} ?>        
 				
 					</h1>
 		
