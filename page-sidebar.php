@@ -13,15 +13,31 @@
  */
 
 get_header(); ?>
-<?php get_template_part( 'inc/sub-headerException' ); ?>
 
-	<div id="stage" class="inner" role="main">
+<?php get_template_part( 'inc/subheader-exception' ); ?>
 
+<div id="primary" class="content-area">
+<main id="main" role="main">
+<div class="row">
 		<?php while ( have_posts() ) : the_post(); ?>
 
 			<div id="content" class="content has-sidebar">
 
-				<?php get_template_part( 'content', 'page' ); ?>
+				<div class="main-content">
+					
+					<div class="entry-content">
+						
+						<div class="entry-page-title">
+							
+							<h1><?php the_title(); ?></h1>
+						
+						</div>
+						
+						<?php the_content(); ?>
+					
+					</div>
+				
+				</div>
 
 				<?php get_sidebar(); ?>
 
@@ -29,6 +45,8 @@ get_header(); ?>
 
 		<?php endwhile; // End of the loop. ?>
 
-	</div><!-- end div#stage -->
+	</div><!-- end .row -->
 
+</main><!-- end #main -->
+</div><!-- end #primary -->
 <?php get_footer(); ?>
