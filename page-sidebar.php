@@ -26,7 +26,7 @@ get_header(); ?>
 
 			<div id="content" class="content has-sidebar">
 
-				<?php get_template_part( 'inc/content', 'page' ); ?>
+				<?php get_template_part( 'content', 'page' ); ?>
 
 				<?php get_sidebar(); ?>
 
