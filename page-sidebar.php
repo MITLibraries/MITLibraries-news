@@ -13,7 +13,7 @@
  */
 
 get_header(); ?>
-<?php get_template_part('inc/sub-headerException'); ?>
+<?php get_template_part( 'inc/sub-headerException' ); ?>
 
 	<div id="stage" class="inner" role="main">
 
@@ -27,7 +27,7 @@ get_header(); ?>
 
 			</div>
 
-		<?php endwhile; // end of the loop. ?>
+		<?php endwhile; // End of the loop. ?>
 
 	</div><!-- end div#stage -->
 
