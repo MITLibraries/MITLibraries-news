@@ -1595,3 +1595,58 @@ p.search {
 .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn.active.focus {
 	outline: none;
 }
+
+/* ---- Main Content Area for page-sidebar.php styling (to be removed when later)---- */
+.has-sidebar .main-content {
+	float: left;
+	padding-right: 2em;
+	width: 700px;
+	width: 76.05%;
+}
+
+.ie8 .has-sidebar .main-content {
+	width: 76%;
+}
+
+.main-content {
+	width: 100%;
+	padding-left: 27.5px;
+	margin-bottom: 50px;
+}
+
+.main-content h3 {
+	line-height: 1.5;
+}
+
+.entry-header,
+.entry-description {
+	line-height: 1.5;
+}
+.entry-title {
+	font-size: 24px;
+}
+
+/* ---- Sidebar for page-sidebar.php styling (to be removed when later)---- */
+.sidebar {
+	float: left;
+	width: 220px;
+	width: 23.91%;
+}
+
+.ie8 .sidebar {
+	width: 23%;
+}
+
+
+@media screen and (max-width:720px) {
+	.childTheme .main-content,	
+	.childTheme .has-sidebar .main-content,
+	.childTheme .has-sidebar .sidebar {
+		width: 100%;
+		padding: 0 5%;
+	}
+	
+	.childTheme .sidebar .widget {
+		padding: 20px 0;
+	}
+}
