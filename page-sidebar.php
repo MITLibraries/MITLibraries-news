@@ -19,12 +19,12 @@ $isRoot = $section->ID == $post->ID;
 
 get_header(); ?>
 <?php get_template_part('inc/sub-headerException'); ?>
-		
-		<div id="stage" class="inner" role="main">
 
-			<?php while ( have_posts() ) : the_post(); ?>
+	<div id="stage" class="inner" role="main">
 
-				<div id="content" class="content has-sidebar">
+		<?php while ( have_posts() ) : the_post(); ?>
+
+			<div id="content" class="content has-sidebar">
 
 				<?php get_template_part( 'inc/content', 'page' ); ?>
 
@@ -32,8 +32,8 @@ get_header(); ?>
 
 			</div>
 
-		</div><!-- end div#stage -->
+		<?php endwhile; // end of the loop. ?>
 
-	<?php endwhile; // end of the loop. ?>
+	</div><!-- end div#stage -->
 
 <?php get_footer(); ?>
