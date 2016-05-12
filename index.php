@@ -40,12 +40,12 @@ $args   = array(
 	'order' => 'DESC',
 	'suppress_filters' => false,
 );
-$query2 = new WP_Query( $args );
+$sticky_query = new WP_Query( $args );
 
-if ( $query2->have_posts() ) :
+if ( $sticky_query->have_posts() ) :
 	$i = 1; // $i is a counter variable.
-	while ( $query2->have_posts() ) :
-		$query2->the_post();
+	while ( $sticky_query->have_posts() ) :
+		$sticky_query->the_post();
 
 		if ( 1 == $i ) {
 			// The first card is rendered as a feature.
@@ -88,13 +88,13 @@ $args = array(
 	'suppress_filters' => false,
 );
 
-$the_query = new WP_Query( $args );
+$standard_query = new WP_Query( $args );
 
-if ( $the_query->have_posts() ) :
+if ( $standard_query->have_posts() ) :
 	// $theLength = $count_posts->publish;
 	$i = -1;
-	while ( $the_query->have_posts() ) :
-		$the_query->the_post();
+	while ( $standard_query->have_posts() ) :
+		$standard_query->the_post();
 		$i++;
 		renderRegularCard( $i, $post ); // --- CALLS REGULAR CARDS --- //
 
