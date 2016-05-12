@@ -81,21 +81,21 @@ $args = array(
 	'post_type' => array(
 		'spotlights',
 		'bibliotech',
-		'post'
+		'post',
 	),
 	'post__not_in' => get_option( 'sticky_posts' ),
 	'ignore_sticky_posts' => 1,
 	'orderby' => 'post_date',
 	'order' => 'DESC',
-	'suppress_filters' => false
+	'suppress_filters' => false,
 );
 
 $the_query = new WP_Query( $args );
 
-if ( $the_query->have_posts() ):
+if ( $the_query->have_posts() ) :
 	// $theLength = $count_posts->publish;
 	$i = -1;
-	while ( $the_query->have_posts() ):
+	while ( $the_query->have_posts() ) :
 		$the_query->the_post();
 		$i++;
 		renderRegularCard( $i, $post ); // --- CALLS REGULAR CARDS --- //
