@@ -98,9 +98,9 @@ if ( $standard_query->have_posts() ) :
 		$i++;
 		renderRegularCard( $i, $post ); // --- CALLS REGULAR CARDS --- //
 
-		wp_reset_query(); // Restore global post data stomped by the_post().
-
 	endwhile;
+
+	wp_reset_query(); // Restore global post data stomped by the_post().
 
 endif;
 ?>
