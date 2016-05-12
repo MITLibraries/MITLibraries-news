@@ -33,10 +33,10 @@ get_template_part( 'inc/sub-header' );
 // This builds the query for the upper region.
 $sticky = get_option( 'sticky_posts' );
 $args   = array(
-	'posts_per_page' => 4,
+	'posts_per_page' => 7,
 	'post__in' => $sticky,
 	'ignore_sticky_posts' => 1,
-	'orderby' => 'menu_order',
+	'orderby' => 'post_date',
 	'order' => 'DESC',
 	'suppress_filters' => false,
 );
@@ -81,12 +81,7 @@ endif;
 <?php
 $args = array(
 	'posts_per_page' => 9,
-	'post_type' => array(
-		'spotlights',
-		'bibliotech',
-		'post',
-	),
-	'post__not_in' => get_option( 'sticky_posts' ),
+	'post__not_in' => $sticky,
 	'ignore_sticky_posts' => 1,
 	'orderby' => 'post_date',
 	'order' => 'DESC',
