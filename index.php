@@ -1,4 +1,13 @@
 <?php
+/**
+ * This is the main index of news posts, divided into two sections. The
+ * first is for sticky posts, followed by everything else. The two sections
+ * are separated into two adjacent div elements.
+ *
+ * @package WordPress
+ * @subpackage MITLibraries-news
+ * @since v1.3.0
+ */
 
 $pageRoot = getRoot( $post );
 $section  = get_post( $pageRoot );
