@@ -1,7 +1,7 @@
 <ul class="sIcons hidden-xs anotherMenu clearfix pull-right">
   <li class="sub soc">
 		<a title="subscribe" href="/news/subscribe/" >
-        Subscribe
+        Subscribe to news
         </a>
         </li>
         <li class="tw soc">
