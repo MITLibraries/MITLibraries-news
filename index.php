@@ -13,6 +13,14 @@ $pageRoot = getRoot( $post );
 $section  = get_post( $pageRoot );
 $isRoot   = $section->ID == $post->ID;
 
+/**
+ * The $post_count variable is used to record how many stories were loaded
+ * on the initial page load (since the number of sticky stories is variable).
+ * This is then passed to the pagination routine to ensure smooth progression
+ * from the first to second pages.
+ */
+$post_count = 0;
+
 get_header();
 
 get_template_part( 'inc/sub-header' );
@@ -57,6 +65,7 @@ if ( $sticky_query->have_posts() ) :
 		}
 
 		$i++;
+		$post_count++;
 
 	endwhile;
 
@@ -98,6 +107,8 @@ if ( $standard_query->have_posts() ) :
 		$i++;
 		renderRegularCard( $i, $post ); // --- CALLS REGULAR CARDS --- //
 
+		$post_count++;
+
 	endwhile;
 
 	wp_reset_query(); // Restore global post data stomped by the_post().
@@ -121,7 +132,7 @@ if ( $i > 6 ) {
 
 <script>
 $(document).ready(function() {
-	var offset = 9;
+	var offset = <?php echo esc_js( $post_count ); ?>;
 	var limit = 9;
 	$("#postContainer").load("/news/test/");
 	$("#another").click(function(){
