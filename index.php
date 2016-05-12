@@ -145,5 +145,5 @@ $(document).ready(function() {
 });
 </script>
 
-        <div class="container container-fluid">
+<div class="container container-fluid">
 <?php get_footer(); ?>
