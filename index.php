@@ -43,20 +43,26 @@ $args   = array(
 $query2 = new WP_Query( $args );
 
 if ( $query2->have_posts() ) :
+	$i = 1; // $i is a counter variable.
 	while ( $query2->have_posts() ) :
 		$query2->the_post();
-		if ( isset( $sticky[0] ) ) {
 
+		if ( 1 == $i ) {
+			// The first card is rendered as a feature.
 			renderMobileCard( $i, $post );
 			renderFeatureCard( $i, $post );
+		} else {
+			// All other cards are rendered normally.
+			renderRegularCard( $i, $post );
+		}
 
-			// This resets the query.
-			wp_reset_postdata();
-			wp_reset_query();
-
-		} //isset( $sticky[0] )
+		$i++;
 
 	endwhile;
+
+	// This resets the query.
+	wp_reset_postdata();
+	wp_reset_query();
 
 endif;
 ?>
