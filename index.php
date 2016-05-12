@@ -17,24 +17,8 @@ get_header();
 
 get_template_part( 'inc/sub-header' );
 
-$sticky = get_option( 'sticky_posts' );
-
-$args   = array(
-	'posts_per_page' => 1,
-	'post__in' => $sticky,
-	'ignore_sticky_posts' => 1,
-	'orderby' => 'menu_order',
-	'order' => 'DESC',
-	'suppress_filters' => false
-);
-$query2 = new WP_Query( $args );
-
-if ( $query2->have_posts() ):
-	while ( $query2->have_posts() ):
-		$query2->the_post();
-		if ( isset( $sticky[0] ) ) {
+// This sets up the upper region of the list, for "Featured" posts.
 ?>
-
 <div class="wrap-sticky">
 
 	<!-- OPEN CONTAINER FOR MOBILE/STICKY CARD LAYOUT -->
@@ -44,28 +28,41 @@ if ( $query2->have_posts() ):
 		<div class="row">
 
 			<h3 class="header-section sticky">Featured news</h3>
+<?php
 
-			<!-- CALLS MOBILE CARDS -->
-			<?php renderMobileCard( $i, $post ); ?>
+// This builds the query for the upper region.
+$sticky = get_option( 'sticky_posts' );
+$args   = array(
+	'posts_per_page' => 4,
+	'post__in' => $sticky,
+	'ignore_sticky_posts' => 1,
+	'orderby' => 'menu_order',
+	'order' => 'DESC',
+	'suppress_filters' => false,
+);
+$query2 = new WP_Query( $args );
 
-			<!-- CALLS STICKY CARDS -->
-			<?php renderFeatureCard( $i, $post ); ?>
+if ( $query2->have_posts() ) :
+	while ( $query2->have_posts() ) :
+		$query2->the_post();
+		if ( isset( $sticky[0] ) ) {
 
-			<!-- RESETS QUERY -->
-			<?php wp_reset_postdata(); ?>
-            
-			<?php wp_reset_query(); ?>
+			renderMobileCard( $i, $post );
+			renderFeatureCard( $i, $post );
 
-		<?php } //isset( $sticky[0] ) ?>
+			// This resets the query.
+			wp_reset_postdata();
+			wp_reset_query();
 
-	<?php endwhile; ?>
+		} //isset( $sticky[0] )
 
-<?php endif; ?>
+	endwhile;
 
-		<!-- CLOSES CALLS/QUERIES FOR MOBILE/STICKY CARDS -->
-		</div>
-	</div>
-</div>
+endif;
+?>
+		</div> <!-- Closes row. -->
+	</div> <!-- Closes container. -->
+</div> <!-- Closes wrap-sticky. -->
 
 <div class="wrap-regular">
 
