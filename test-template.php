@@ -15,6 +15,30 @@ get_header();
 
 get_template_part( 'inc/sub-header' );
 
+/**
+ * This function renders a post's event date and time, if they have been
+ * specified.
+ */
+function render_datetime() {
+	$mit_date = '';
+	$mit_time = '';
+
+	if ( get_field( 'event_date' ) ) {
+		$mit_date = date( 'l t Y', strtotime( get_field( 'event_date' ) ) );
+
+		if ( get_field( 'event_start_time' ) ) {
+			$mit_time = the_field( 'event_start_time' );
+			if ( get_field( 'event_end_time' ) ) {
+				$mit_time .= ' - ' . the_field( 'event_end_time' );
+			}
+		}
+?>
+<div class="event"><?php echo esc_html( $mit_date ); ?>
+	<span class="time"><?php echo esc_html( $mit_time ); ?></span>
+</div>
+<?php
+	}
+}
 ?>
 
 <div class="news-site container">
@@ -54,29 +78,7 @@ if ( $query2->have_posts() ) {
 			<div class="bgWhite col-xs-12 col-sm-4 col-md-4"
 			     onClick='location.href="<?php echo get_post_permalink(); ?>"'>
 				<h2><?php the_title();?> </h2>
-<?php
-			if ( get_field( 'event_date' ) ) {
-				$mitDate = get_field( 'event_date' );
-				$mitDate = date( 'l t Y', strtotime( $mitDate ) );
-?>
-				<div class="event"><?php echo $mitDate; ?>&nbsp;&nbsp;&nbsp;
-					<span class="time">
-<?php
-				if ( get_field( 'event_start_time' ) ) {
-					echo the_field( 'event_start_time' );
-				}
-				if ( ( get_field( 'event_start_time' ) ) && ( get_field( 'event_end_time' ) ) ) {
-					echo '-';
-				}
-				if ( get_field( 'event_end_time' ) ) {
-					echo the_field( 'event_end_time' );
-				}
-?>
-					</span>
-				</div>
-<?php
-			}
-?>
+				<?php render_datetime(); ?>
 				<div class="excerpt-post">
 					<p>
 <?php
