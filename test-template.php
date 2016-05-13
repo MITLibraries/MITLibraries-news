@@ -38,18 +38,22 @@ $args = array(
 
 // Part B then reads out the contents of that loop.
 $query2 = new WP_Query( $args );
-if ( $query2->have_posts() ) :
-	while ( $query2->have_posts() ) : $query2->the_post();
+if ( $query2->have_posts() ) {
+	while ( $query2->have_posts() ) {
+		$query2->the_post();
 		if ( isset( $sticky[0] ) ) {
 ?>
 		<div class="row">
-			<div class="col-md-8" onClick='location.href="<?php echo get_post_permalink(); ?>"' style="padding-right:0px;" >
+			<div class="col-md-8"
+			     onClick='location.href="<?php echo get_post_permalink(); ?>"'
+			     style="padding-right:0px;" >
 				<?php echo get_currentuserinfo(); ?>
-				<img src="<?php the_field( 'featuredListImg' ); ?> "width="679" height="256" alt="<?php the_title(); ?>" />
+				<img src="<?php the_field( 'featuredListImg' ); ?>"
+				     width="679" height="256" alt="<?php the_title(); ?>" />
 			</div>
-			<div class="bgWhite col-xs-12 col-sm-4 col-md-4" onClick='location.href="<?php echo get_post_permalink(); ?>"'>
+			<div class="bgWhite col-xs-12 col-sm-4 col-md-4"
+			     onClick='location.href="<?php echo get_post_permalink(); ?>"'>
 				<h2><?php the_title();?> </h2>
-
 <?php
 			if ( get_field( 'event_date' ) ) {
 				$mitDate = get_field( 'event_date' );
@@ -71,7 +75,7 @@ if ( $query2->have_posts() ) :
 					</span>
 				</div>
 <?php
-			} // End isset($sticky[0]).
+			}
 ?>
 				<div class="excerpt-post">
 					<p>
@@ -100,9 +104,9 @@ if ( $query2->have_posts() ) :
 <?php
 			wp_reset_postdata();
 			wp_reset_query();
-		}
-	endwhile;
-endif;
+		} // End isset($sticky[0]).
+	}
+}
 ?>
 		<div>
 
