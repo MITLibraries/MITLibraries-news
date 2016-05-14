@@ -1,9 +1,16 @@
 <?php
-/*
-Template Name:News
+/**
+* Template Name: News
+*
+* This is the template that displays the News page.
+*
+* @package WordPress
+* @subpackage MITLibraries-news
+* @since v1.3.0
 */
+?>
 
-
+<?php
 $pageRoot = getRoot($post);
 $section = get_post($pageRoot);
 $isRoot = $section->ID == $post->ID;

@@ -1,3 +1,13 @@
+<?php
+/**
+ * This template loads additional posts to the index template if any exist.
+ *
+ * @package WordPress
+ * @subpackage MITLibraries-news
+ * @since v1.3.0
+ */
+?>
+
 <script type="text/javascript">
 $(document).ready(function() {
   $("img.img-responsive").lazyload({ 
@@ -7,14 +17,13 @@ $(document).ready(function() {
   }); 
 });	
 </script>
+
 <?php
 $date = DateTime::createFromFormat('Ymd', get_field('event_date'));
 
 ?>
 <?php
-    /*
-        Template Name: Additional Posts
-    */
+
     $offset = htmlspecialchars(trim($_GET['offset']));
     if ($offset == '') {
         $offset = 9;

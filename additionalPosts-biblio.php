@@ -1,21 +1,25 @@
 <?php
-    /*
-        Template Name: Additional Posts Bibliotech
-    */
+/**
+ * This template loads additional Bibliotech posts to the Bibliotech page if any exist.
+ *
+ * @package WordPress
+ * @subpackage MITLibraries-news
+ * @since v1.3.0
+ */
 ?>
+
 <script type="text/javascript">
-$(document).ready(function() {
-  $("img.img-responsive").lazyload({ 
-    effect : "fadeIn", 
-    effectspeed: 450 ,
-	failure_limit: 999999
-  }); 
-});	
+	$(document).ready(function() {
+	$("img.img-responsive").lazyload({ 
+	    effect : "fadeIn", 
+	    effectspeed: 450 ,
+		failure_limit: 999999
+	  }); 
+	});	
 </script>
 
 <?php
 	 
-	
     $offset = htmlspecialchars(trim($_GET['offset']));
     if ($offset == '') {
         $offset = 10;
@@ -27,47 +31,44 @@ $(document).ready(function() {
     }
     
     
-	
 	$args = array(
-	 	'post_type' => array('bibliotech' ),
-	 	'post__not_in'   => array( 'sticky_posts'),
-	 	'ignore_sticky_posts' => 1,
+		'post_type' => array('bibliotech' ),
+		'post__not_in'   => array( 'sticky_posts'),
+		'ignore_sticky_posts' => 1,
 		'offset'          => 10,
 		'posts_per_page'  => $limit,
 		'order'                  => 'DESC',
 		'orderby'                => 'date',
 		'suppress_filters' => false
 				
+		);			
 		
-);			
- $the_query = new WP_Query($args); 	
-
-
+		$the_query = new WP_Query($args); 	
 ?>
   
-  
- <?php
-//removes button start
-$ajaxLength = $the_query->post_count;
+<?php	
+	//removes button start
+	$ajaxLength = $the_query->post_count;
 ?>
-<?php if ($ajaxLength < $limit){ ?>
-<script>
-$("#another").hide();
+
+<?php if ($ajaxLength < $limit) { ?>
+
+<script> 
+	$("#another").hide();
 </script>
 
-
-<?php } //removes button end ?>
+<?php }
+	//removes button end ?>
  
   
-  
-<?php if( $the_query->have_posts() ):  ?>
+	<?php if( $the_query->have_posts() ):  ?>
 
-<?php 
-$i = -1;		
-while ( $the_query->have_posts() ) : $the_query->the_post(); 
-$theLength = $my_query->post_count;	
-$i++; 
-?>
+	<?php 
+		$i = -1;		
+		while ( $the_query->have_posts() ) : $the_query->the_post(); 
+		$theLength = $my_query->post_count;	
+		$i++; 
+	?>
 
     <?php renderBiblioCard( $i, $post ); ?>
   

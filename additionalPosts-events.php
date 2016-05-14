@@ -1,3 +1,13 @@
+<?php
+/**
+ * This template loads additional Event posts to the Events page if they exist .
+ *
+ * @package WordPress
+ * @subpackage MITLibraries-news
+ * @since v1.3.0
+ */
+?>
+
 <script type="text/javascript">
 $(document).ready(function() {
   $("img.img-responsive").lazyload({ 
@@ -7,10 +17,8 @@ $(document).ready(function() {
   }); 
 });	
 </script>
+
 <?php
-    /*
-        Template Name: Additional Posts Events
-    */
     $offset = htmlspecialchars(trim($_GET['offset']));
     if ($offset == '') {
         $offset = 11;

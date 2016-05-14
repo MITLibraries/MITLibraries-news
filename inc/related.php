@@ -1,12 +1,17 @@
+<?php
+/**
+* Template part that calls for related posts.
+*
+* @package WordPress
+* @subpackage MITLibraries-news
+* @since v1.3.0
+*/
+?>
 <?php $category = get_the_category(); ?>
 <div class="posts--related">
 	<button>More in <?php echo $category[0]->cat_name; ?></button>
 	<div class="flex-container space-between"></div>
 </div>
-
-
-
-
 
 
 <script>

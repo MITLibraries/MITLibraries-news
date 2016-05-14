@@ -1,3 +1,13 @@
+<?php
+/**
+* Template part for displaying social icons for all 3 subheader templates.
+*
+* @package WordPress
+* @subpackage MITLibraries-news
+* @since v1.3.0
+*/
+?>
+
 <ul class="sIcons hidden-xs anotherMenu clearfix pull-right">
   <li class="sub soc">
 		<a title="subscribe" href="/news/subscribe/" >
