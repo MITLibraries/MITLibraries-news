@@ -43,6 +43,11 @@ $sticky = get_option( 'sticky_posts' );
 $args   = array(
 	'posts_per_page' => 7,
 	'post__in' => $sticky,
+	'post_type' => array(
+		'spotlights',
+		'bibliotech',
+		'post',
+	),
 	'ignore_sticky_posts' => 1,
 	'orderby' => 'post_date',
 	'order' => 'DESC',
@@ -91,6 +96,11 @@ endif;
 $args = array(
 	'posts_per_page' => 9,
 	'post__not_in' => $sticky,
+	'post_type' => array(
+		'spotlights',
+		'bibliotech',
+		'post',
+	),
 	'ignore_sticky_posts' => 1,
 	'orderby' => 'post_date',
 	'order' => 'DESC',
