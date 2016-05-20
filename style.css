@@ -166,6 +166,7 @@ ul#menu-subscribe {
 	font-size: 13px;
 	font-weight: 400;
 	color: #555;
+	text-transform: uppercase;
 }
 table.hrList tr:nth-child(even) {
 	background: #eceaea;
