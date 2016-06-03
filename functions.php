@@ -252,6 +252,13 @@ function init_category( $request ) {
 }
 add_filter( 'pre_get_posts', 'init_category' );
 
+//adds custom field to RSS field
+function subtitle_rssContent($content) {
+	$content = '<h3>'. the_field('subtitle') . '</h3>' . $content;
+	return $content;
+}
+add_filter('the_excerpt_rss', 'subtitle_rssContent');
+add_filter('the_content_rss', 'subtitle_rssContent');
 
 /**
  * Event RSS feed
