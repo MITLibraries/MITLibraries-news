@@ -252,13 +252,22 @@ function init_category( $request ) {
 }
 add_filter( 'pre_get_posts', 'init_category' );
 
-//adds custom field to RSS field
+//adds custom field 'subtitle' to RSS feed
 function subtitle_rssContent($content) {
 	$content = '<h3>'. the_field('subtitle') . '</h3>' . $content;
 	return $content;
 }
 add_filter('the_excerpt_rss', 'subtitle_rssContent');
 add_filter('the_content_rss', 'subtitle_rssContent');
+
+//adds custom fields for events to RSS feed
+function event_rssContent($content) {
+	$date = get_post_meta($post->ID, 'event_date', true); if($date != ''){echo date("F j, Y", strtotime($date));}
+	$content = '<div>'. $date . ' ' . the_field('event_start_time') . ' - ' . the_field('event_end_time') . '</div>' . $content;
+	return $content;
+}
+add_filter('the_excerpt_rss', 'event_rssContent');
+add_filter('the_content_rss', 'event_rssContent');
 
 /**
  * Event RSS feed
