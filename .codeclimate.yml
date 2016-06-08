@@ -17,6 +17,8 @@ engines:
   phpcodesniffer:
     enabled: true
     checks:
+      Generic WhiteSpace DisallowTabIndent NonIndentTabsUsed:
+        enabled: false
       Generic WhiteSpace DisallowTabIndent TabsUsed:
         enabled: false
       PSR2 ControlStructures ControlStructureSpacing SpacingAfterOpenBrace:
@@ -38,6 +40,8 @@ engines:
       Squiz Functions FunctionDeclarationArgumentSpacing SpacingAfterOpen:
         enabled: false
       Squiz Functions FunctionDeclarationArgumentSpacing SpacingBeforeClose:
+        enabled: false
+      Squiz Functions MultiLineFunctionDeclaration BraceOnSameLine:
         enabled: false
   phpmd:
     enabled: true
