@@ -264,11 +264,11 @@ add_filter('the_content_feed', 'subtitle_rssContent');
 
 //adds custom fields for events to RSS feed
 function event_rssContent($content) {
-	$date = get_post_meta($post->ID, 'event_date', true) ; {
-		echo date("F j, Y", strtotime($date)) ;
-		}
-	if (the_field('event_date')) :
-		$content = '<div>'. $date . ' ' . the_field('event_start_time') . ' - ' . the_field('event_end_time') . '</div>' . $content;
+	$date = get_field('event_date', false, false);
+	$date = new DateTime($date);
+	$new_date = $date->format('F j, Y');
+	if (get_field('event_date')) :	
+		$content = '<div>' . 'Event date: ' . $new_date . ' ' . ' | ' . get_field('event_start_time') . ' - ' . get_field('event_end_time') . '</div>' . '<br>' . $content;
 	endif;
 	return $content;
 }
