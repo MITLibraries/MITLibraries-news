@@ -43,6 +43,8 @@ engines:
         enabled: false
       Squiz Functions MultiLineFunctionDeclaration BraceOnSameLine:
         enabled: false
+    config:
+      standard: "Wordpress"
   phpmd:
     enabled: true
     checks:
