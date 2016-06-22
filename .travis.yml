@@ -1,8 +1,8 @@
 # Travis CI (MIT License) configuration file for the Underscores WordPress theme.
 # @link https://travis-ci.org/
 
-# For use with the MIT Libraries' parent theme.
-# @link https://github.com/MITLibraries/MITlibraries-parent
+# For use with the MIT Libraries' news theme.
+# @link https://github.com/MITLibraries/MITLibraries-news
 
 # Declare project language.
 # @link http://about.travis-ci.org/docs/user/languages/php/
@@ -11,9 +11,9 @@ language: php
 # Declare versions of PHP to use. Use one decimal max.
 php:
   # aliased to a recent 5.5.x version
-  - "5.5"
+  # "5.5"
   # aliased to a recent 5.4.x version
-  # "5.4"
+  - "5.4"
   # aliased to a recent 5.3.x version
   - "5.3"
   # Current $required_php_version for WordPress: 5.2.4
@@ -25,7 +25,7 @@ env:
   # Trunk
   # @link https://github.com/WordPress/WordPress
   # WP_VERSION=master WP_MULTISITE=0
-  - WP_VERSION=master WP_MULTISITE=1
+  # WP_VERSION=master WP_MULTISITE=1
   # WordPress 4.5
   # @link https://github.com/WordPress/WordPress/tree/4.5-branch
   # WP_VERSION=4.5 WP_MULTISITE=0
@@ -35,15 +35,13 @@ env:
   # WP_VERSION=4.4 WP_MULTISITE=0
   - WP_VERSION=4.4 WP_MULTISITE=1
 
-# Declare 5.6 beta in test matrix.
+# Declare "future" releases to be acceptable failures.
 # @link https://buddypress.trac.wordpress.org/ticket/5620
 # @link http://docs.travis-ci.com/user/build-configuration/
 matrix:
-  include:
-    - php: 5.3
-      env: WP_VERSION=4.4
   allow_failures:
-    - php: 5.5
+    - php: "5.4"
+    - env: WP_VERSION=4.5 WP_MULTISITE=1
   fast_finish: true
 
 # Use this to prepare the system to install prerequisites or dependencies.
