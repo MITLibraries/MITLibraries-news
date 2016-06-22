@@ -16,10 +16,12 @@ engines:
     enabled: true
   phpcodesniffer:
     enabled: true
+    config:
+      standard: "Wordpress"
     checks:
-      Generic WhiteSpace DisallowTabIndent NonIndentTabsUsed:
-        enabled: false
       Generic WhiteSpace DisallowTabIndent TabsUsed:
+        enabled: false
+      Generic WhiteSpace DisallowTabIndent NonIndentTabsUsed:
         enabled: false
       PSR2 ControlStructures ControlStructureSpacing SpacingAfterOpenBrace:
         enabled: false
@@ -43,12 +45,12 @@ engines:
         enabled: false
       Squiz Functions MultiLineFunctionDeclaration BraceOnSameLine:
         enabled: false
-    config:
-      standard: "Wordpress"
   phpmd:
     enabled: true
     checks:
       Controversial/CamelCaseClassName:
+        enabled: false
+      Controversial/CamelCaseParameterName:
         enabled: false
       Controversial/CamelCaseVariableName:
         enabled: false
