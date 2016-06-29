@@ -1,8 +1,13 @@
 <?php
-    /*
-        Template Name: Additional Posts Archives
-    */
+/**
+ * This template loads additional posts to the archives template if any exist.
+ *
+ * @package WordPress
+ * @subpackage MITLibraries-news
+ * @since v1.3.0
+ */
 ?>
+
 <script type="text/javascript">
 $(document).ready(function() {
   $("img.img-responsive").lazyload({ 
@@ -15,7 +20,6 @@ $(document).ready(function() {
 
 <?php
 	 
-	
     $offset = htmlspecialchars(trim($_GET['offset']));
     if ($offset == '') {
         $offset = 10;
@@ -72,7 +76,7 @@ $i++;
 ?>
 
 
-  <div class="<?php if ($i % 3 == 0){ echo "third "; } ?> col-xs-12  col-xs-B-6 col-sm-4 col-md-4 no-padding-left-mobile">
+  <div class="<?php if($i % 3 == 0) { echo "third "; } ?> col-xs-12  col-xs-B-6 col-sm-4 col-md-4 no-padding-left-mobile">
         <div class="flex-item blueTop eventsBox <?php if (get_field("listImg")) { echo "has-image";} else { echo "no-image"; } ?>" onClick='location.href="<?php if((get_field("external_link") != "") && $post->post_type == 'spotlights'){ the_field("external_link");}else{ echo get_post_permalink();}  ?>"'>
         <?php
 		if (get_field("listImg") != "" ) { ?>
@@ -80,12 +84,16 @@ $i++;
         <?php } ?>
         
         
-        <h2 class="entry-title title-post  <?php if($post->post_type == 'spotlights'){ echo "spotlights"; } ?>">
-          <?php  the_title(); ?>
+        <h2 class="entry-title title-post <?php
+	        if($post->post_type == 'spotlights')
+		        { echo "spotlights"; 
+			        } 
+				        ?>">
+						<?php the_title(); ?>
         </h2>
         
         
-    	 <?php get_template_part('inc/events'); ?>
+    	<?php get_template_part('inc/events'); ?>
         
         <?php get_template_part('inc/entry'); ?>
 

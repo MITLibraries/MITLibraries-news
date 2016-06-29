@@ -1,3 +1,13 @@
+<?php
+/**
+* Template part for displaying Spotlight on cards.
+*
+* @package WordPress
+* @subpackage MITLibraries-news
+* @since v1.3.0
+*/
+?>
+
 <!--spotlight -->
 <?php $field = get_field_object('feature_type');
 			$value = get_field('feature_type');

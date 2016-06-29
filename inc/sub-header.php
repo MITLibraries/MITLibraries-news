@@ -1,3 +1,12 @@
+<?php
+/**
+* Template part for displaying subheader.
+*
+* @package WordPress
+* @subpackage MITLibraries-news
+* @since v1.3.0
+*/
+?>
 <div class="newsSubHeader">
 <div class="innerPadding">
 <div class="title-page row">

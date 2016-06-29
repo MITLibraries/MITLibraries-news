@@ -5,8 +5,8 @@
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
  * @package WordPress
- * @subpackage Twenty_Twelve
- * @since Twenty Twelve 1.0
+ * @subpackage MITLibraries-news
+ * @since v1.3.0
  */
 
 ?>

@@ -2,8 +2,11 @@
 /**
  * Template part for displaying FOOTER on featured/sticky + Bibliotech cards.
  *
- *
- */
+*
+* @package WordPress
+* @subpackage MITLibraries-news
+* @since v1.3.0
+*/
 ?>
 
 <div class="category-post">

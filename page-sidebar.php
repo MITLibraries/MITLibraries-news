@@ -1,16 +1,13 @@
 <?php
 /**
- * Template Name: Page Content with Sidebar
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site will use a
- * different template.
- *
- * @package WordPress
- * @subpackage Twenty_Twelve
- * @since Twenty Twelve 1.0
- */
+* Template Name: Page Content with Sidebar
+*
+* This template provides page with use of a sidebar.
+*
+* @package WordPress
+* @subpackage MITLibraries-news
+* @since v1.3.0
+*/
 
 get_header(); ?>
 
