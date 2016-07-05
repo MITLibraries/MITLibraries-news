@@ -1,0 +1,31 @@
+{
+  "name": "mitlibraries-news",
+  "version": "1.3.0",
+  "description": "A Wordpress child theme that descends from mitlibraries-parent",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MITLibraries/MITLibraries-news.git"
+  },
+  "keywords": [
+    "wordpress"
+  ],
+  "author": "MIT Libraries",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/MITLibraries/MITLibraries-news/issues"
+  },
+  "homepage": "https://github.com/MITLibraries/MITLibraries-news#readme",
+  "devDependencies": {
+    "glob": "^7.0.5",
+    "grunt": "^1.0.1",
+    "grunt-gitinfo": "^0.1.8",
+    "grunt-replace": "^1.0.1"
+  },
+  "dependencies": {
+    "load-grunt-tasks": "^3.5.0"
+  }
+}
