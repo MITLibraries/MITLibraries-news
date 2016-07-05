@@ -1,0 +1,1653 @@
+/*
+	Theme Name: MIT Libraries News
+	Theme URI: https://github.com/MITLibraries/MITLibraries-news
+	Description: A Wordpress child theme that descends from mitlibraries-parent
+	Author: Design by Moth Design, development by MIT Libraries
+	Template: libraries
+	Version: 1.4.0-@@branch-@@commit;
+*/
+
+@import url("../libraries/style.css");
+a:link {
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+}
+a:focus {
+	text-decoration: none
+}
+a:active {
+	text-decoration: none
+}
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 7px;
+  padding-right: 7px;
+}
+.row {
+  margin-left: -7px !important;
+  margin-right: -7px !important;
+}
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 7px;
+  padding-right: 7px;
+}
+h2 a {
+	color: #111;
+}
+.single h2 a {
+	color: #338bc5
+}
+aside .widget {
+	background: #ede8e2;
+	border-bottom: 2px solid #c6b6a3;
+	padding: 20px;
+}
+
+.subscribe .sidebar {
+	padding-top: 55px;
+}
+h3 {
+	font-weight: 400;
+    margin-left: 0;
+}
+
+.card-subtitle {
+    padding: 0 10px 7px;
+    font-size: 14px;
+    color: #6B6B70;
+    font-weight: 400 !important;
+    line-height: 1.3;
+    margin: 0 !important;
+}
+
+.bgWhite .card-subtitle {
+    margin-left: -10px !important;
+}
+
+.col-centered {
+	float: none;
+	margin: 0 auto;
+}
+
+.hrList td.loc {
+	width: 200px;
+}
+.socialNavSearch {
+	padding: 19px !important;
+}
+.socialNavMiddle {
+	padding: 19px !important;
+}
+ul.anotherMenu li {
+	float: left;
+}
+li.sub {
+	margin-right: 13px;
+	padding-top: 0px;
+}
+li.fb {
+	margin-left: 5px;
+	margin-top: 1px;
+	margin-right: 5px;
+}
+li.tw {
+	margin-top: 0px;
+	margin-right: 8px;
+}
+li.ig {
+	margin-right: 14px;
+	margin-top: 2px;
+}
+li.soc {
+	padding-top: 5px;
+}
+.image_off, .sIcons li:hover .image_on {
+	display: none
+}
+.image_on, .sIcons li:hover .image_off {
+	display: inline-block
+}
+ul#menu-subscribe {
+	float: left;
+	padding-right: 14px;
+	padding-top: 4px;
+}
+.mobileDay, .mobileToday {
+	display: none;
+}
+.mySingle h2.subtitle {
+	font-size: 20px;
+	line-height: 26px;
+}
+.single .mitContent h2 {
+	font-size: 24px;
+	line-height: 28px;
+	color: #222;
+	font-weight: 200;
+}
+.singleMargin {
+	background-color: rgb(233, 233, 233);
+}
+.sticky img:hover {
+	cursor: pointer
+}
+.newsBackGround {
+	background-color: rgb(233, 233, 233);
+	width: 100%;
+	border-top: 4px solid rgb(224,224,224);
+	padding-top: 5px;
+}
+.single .newsBackGround {
+	background-color: rgb(255, 255, 255);
+	width: 100%;
+	border-top: none;
+	padding-top: 0px;
+}
+.page-bibliotech-index .newsBackGround {
+	border-top: none;
+	padding-top: 0px;
+}
+.wrap-sticky {
+	margin-top: -10px;
+	margin-bottom: 5px;
+	border-top: 4px solid #bbb;
+	padding-top: 10px;
+	background-color: #ccc;
+}
+.wrap-sticky .header-section {
+	margin-left: 6px;
+	margin-bottom: 10px;
+	font-size: 13px;
+	font-weight: 400;
+	color: #555;
+	text-transform: uppercase;
+}
+table.hrList tr:nth-child(even) {
+	background: #eceaea;
+}
+.moreBtn {
+	margin: 30px;
+}
+.socialNav {
+	padding-top: 19px !important;
+}
+.twitterLink {
+	margin-top: 1px;
+}
+.category-post-single {
+	font-weight: 600;
+	font-style: italic;
+	color: rgb(153,153,153);
+}
+.date-post {
+	font-weight: 400;
+	font-style: italic;
+	color: rgb(153,153,153);
+}
+
+.facebookLink {
+	margin-top: 1px;
+	margin-right: 9px;
+}
+
+.no-padding-left {
+	padding-left: 0 !important;
+}
+	
+.entry-content blockquote,
+.comment-content blockquote {
+    margin: 1rem 0 1.25rem;
+    padding: 0 1.71429rem;
+}
+
+.single .entry-content p {
+	font-size: 14px !important;
+	line-height: 1.5;
+	color: #5B5B5B;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	margin-bottom: 10px;
+}
+.single .entry-content p:last-of-type {
+	margin-bottom: 83px;
+}
+
+.single .entry-content p.wp-caption-text {
+	margin-bottom: 0px;
+}
+.excerpt-post p {
+	height: 70px !important;
+	overflow: hidden;
+}
+h1.single {
+	font-size: 27pt !important;
+	line-height: 27pt;
+	color: rgb(89,89,89);
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	padding: 15px 0 10px;
+}
+h1.lib-header,
+h1.search,
+h2.search {
+	color: #111;
+	padding: 15px 16px 20px;
+}
+.events-header {
+	padding: 15px 16px 20px;
+}
+.left-padder {
+	padding-left: 16px;
+	}
+.padding-header {
+	padding: 0 16px 15px;
+}
+.title-page h1.name-site, h2.name-site, h2.name-site a {
+	font-size: 40px;
+	font-weight: 300;
+	color: #5889C2;
+	line-height: 1;
+	margin: 15px 0px;
+	padding: 0px 0px;
+}
+.entry-meta .author, .entry-meta .date-post, .entry-meta .category-post-single {
+	font-size: 11px;
+}
+.nextBtn {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row /* works with row or column */
+	flex-direction: row;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+}
+.readMorePosts button {
+	background-color: rgb(255,136,39);
+	padding: 10px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	font-size: 16px;
+	font-weight: 500;
+	color: white;
+	border: 1px solid rgb(255, 125, 46);
+	width: 100%;
+	margin-bottom: 20px;
+	margin-top: 13px;
+}
+.readMorePosts button:hover {
+	background-color: #f7700a;
+	color: #fff0e5;
+	background-image: none;
+}
+.subNavH {
+	padding: 9px 0px 9px 0px!important;
+}
+.subNavH .dropdown-menu {
+	border-radius: 0 !important;
+	}
+.single .category-post {
+	position: absolute;
+}
+#mc_embed_signup form input, #mc_embed_signup form select {
+	color: #111
+}
+.biblio {
+	background-color: rgb(152, 150, 152);
+	color: white;
+	padding: 10px 0px;
+}
+.biblioBox p {
+	font-size: 18px;
+	padding-top: 17px;
+	padding-left: 5px;
+	font-weight: 100;
+}
+
+.biblioBox:first-child {
+	border-right: 1px solid #ccc;
+}
+.biblioBox img {
+	padding-left: 6px;
+}
+.biblioBox:last-child {
+	padding-top: 20px;
+	padding-right: 21px;
+	padding-bottom: 14px;
+}
+.moreBtn button:active, .moreBtn button:focus, .moreBtn button:hover {
+	background-color: rgb(255, 125, 46);
+	background-image: none;
+}
+.inner, #breadcrumb {
+	background-color: white !important;
+}
+.bigItem {
+	/* This will be twice as big as the small item. */
+	/*-webkit-flex: 2 0 0;
+	flex: 2 0 0;
+	max-width: 681px;*/
+	margin-right: 0px;
+	-webkit-box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
+	-moz-box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
+	box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
+	margin-bottom: 5px;
+}
+.bgWhite {
+	background-color: white;
+	position: relative;
+	-webkit-box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
+	-moz-box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
+	box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
+	min-height: 261px;
+	max-height: 261px;
+	cursor: pointer;
+	margin-top: 0px;
+    padding-right: 6px;
+}
+.subscribe {
+	background-color: white;
+}
+.col-md-9 {
+	width: 69% !important;
+}
+.smallItem h2.title-post {
+	padding: 25px 59px 0px 20px;
+}
+.smallItem .excerpt-post p {
+	padding: 0px 7px 0px 10px;
+}
+.heroItems {
+	padding: 0px 1em;
+}
+.interiorCardContainer {
+    height: 240px;
+    overflow: hidden;
+}
+.even-stephen {
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.cardCounterLeft {
+    padding: 0 0;
+}
+
+
+
+.mit-container {
+	padding: 0px 1em;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-direction: normal;
+	-moz-box-direction: normal;
+	-webkit-box-orient: horizontal;
+	-moz-box-orient: horizontal;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-box-pack: start;
+	-moz-box-pack: start;
+	-webkit-justify-content: flex-start;
+	-ms-flex-pack: start;
+	justify-content: flex-start;
+	-webkit-align-content: stretch;
+	-ms-flex-line-pack: stretch;
+	align-content: stretch;
+	-webkit-box-align: stretch;
+	-moz-box-align: stretch;
+	-webkit-align-items: stretch;
+	-ms-flex-align: stretch;
+	align-items: stretch;
+	position: relative;
+}
+/*.flex-item .child {
+	-webkit-box-ordinal-group: 1;
+	-moz-box-ordinal-group: 1;
+	-webkit-order: 0;
+	-ms-flex-order: 0;
+	order: 0;
+	-webkit-box-flex: 0;
+	-moz-box-flex: 0;
+	-webkit-flex: 0 1 auto;
+	-ms-flex: 0 1 auto;
+	flex: 0 1 auto;
+	-webkit-align-self: auto;
+	-ms-flex-item-align: auto;
+	align-self: auto;
+	-webkit-flex: 1 1 100px;
+	-ms-flex: 1 1 100px;
+	flex: 1 1 100px;
+	
+}*/
+.moreBtn {
+	display: -webkit-flex;
+	display: flex;
+ -webkit-flex-direction: row /* works with row or column */
+ flex-direction: row;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+}
+
+.entry-content ul li {
+  font-size: 14px;
+  color: rgb(91, 91, 91);
+  line-height: 22px;
+}
+
+@media screen and (max-width: 600px) {
+/*.eventsBox {
+	display: block;
+	flex: 100%;
+}*/
+
+
+
+
+}
+.mit-container {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-direction: normal;
+	-moz-box-direction: normal;
+	-webkit-box-orient: horizontal;
+	-moz-box-orient: horizontal;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-box-pack: start;
+	-moz-box-pack: start;
+	-webkit-justify-content: flex-start;
+	-ms-flex-pack: start;
+	justify-content: flex-start;
+	-webkit-align-content: stretch;
+	-ms-flex-line-pack: stretch;
+	align-content: stretch;
+	-webkit-box-align: stretch;
+	-moz-box-align: stretch;
+	-webkit-align-items: stretch;
+	-ms-flex-align: stretch;
+	align-items: stretch;
+}
+.eventsBox {
+	background-color: white;
+	margin: 4px 0px 0px 0px;
+	min-height: 271px;
+	max-height: 271px;
+	cursor: pointer;
+	position: relative;
+	-webkit-box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
+	-moz-box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
+	box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
+	margin-bottom: 10px;
+}
+.eventsBox:nth-child(3n+0), .eventsBox:last-of-type {
+	margin-right: 0px
+}
+.eventsBox:nth-child(3n+1) {
+	margin-left: 0px
+}
+.eventsBox:first-of-type {
+	margin-left: 0px
+}
+.blueTop.no-image {
+	border-top: 25px solid #338bc5;
+	background-color: white;
+}
+.eventsBox h2.title-post {
+	font-size: 19px;
+	line-height: 1.3;
+	text-decoration: none;
+	margin: 0px;
+	letter-spacing: 0px;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: bold;
+	color: #111;
+	padding:  8px 10px !important;
+}
+.bgWhite h2.title-post {
+	font-size: 19px;
+	line-height: 1.3;
+	text-decoration: none;
+	margin: 0;
+	letter-spacing: 0px;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	color: #111;
+	padding: 10px 0 !important;
+}
+
+.bgWhite h2.bt-title {
+	font-size: 2em;
+	line-height: 1.3;
+	text-decoration: none;
+	margin: 0;
+	letter-spacing: 0px;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	color: #111;
+	padding: 10px 0 !important;
+}
+
+.mitDate {
+	float: right;
+	font-family: 'Open Sans', sans-serif;
+	color: #6d6d6d;
+	font-size: 10px;
+}
+.featured {
+	-webkit-box-flex: 2;
+	-moz-box-flex: 2;
+	box-flex: 2;
+	-webkit-box-align: stretch;
+	-moz-box-align: stretch;
+	box-align: stretch;
+}
+/*.news-site .excerpt-post,.news-site  h2.title-post,.news-site  .category-post {
+	padding: 0px 10px 0px 10px;
+	z-index: 1000;
+}*/
+.category-post {
+	background-color: rgb(244,244,244);
+	position: absolute;
+	bottom: -2px;
+	width: 100%;
+	font-size: 10px;
+	padding: 9px 10px;
+	right: 0px;
+}
+.stickyCat {
+	width: 33.3%
+}
+.sticky .bgWhite{ min-height: 257px; padding-left: 14px !important; }
+
+.bilbioImg {
+	float: left;
+	width: 30px;
+}
+.biblioPadding {
+	padding: 11px 9px 0px 0px;
+}
+.biblioFloat {
+	float: left;
+}
+.category-post.Bibliotech {
+	padding: 0px 0px;
+}
+.single .row {
+	margin-right: -5px;
+	margin-left: -5px;
+}
+#primary {
+	overflow: hidden
+}
+.category-post.Bibliotech img {
+	margin-bottom: -3px;
+}
+.time {
+	color: #ABABAB;
+}
+.category-post a {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 10px;
+	font-weight: 600;
+}
+.newsBox p {
+	color: #7B7B7B;
+	line-height: 14pt !important;
+	font-size: 12pt !important;
+	font-weight: 200;
+}
+.box-row {
+	background-color: #fff;
+}
+li#menu-item-14139 {
+	margin-top: 5px;
+	margin-right: 7px;
+	margin-left: 10px;
+}
+.newsBox {
+	-webkit-box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
+	-moz-box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
+	box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
+	background-color: white;
+	background-color: white;
+	display: flex;
+	flex: 1;
+	cursor: pointer;
+	flex-direction: column;
+	position: relative;
+	justify-content: flex-start;
+	margin: 0px 3px;
+	min-height: 420px;
+	max-height: 450px;
+}
+.box-row .last {
+	-webkit-align-items: flex-end;
+	align-items: flex-end;
+}
+.newsBox:hover {
+	cursor: pointer;
+}
+.content-main {
+	background: rgb(233,233,233);
+}
+
+.bgImgLight {
+	background-image: url(images/light2.png);
+	background-repeat: no-repeat;
+	background-position: right top;
+	position: relative;
+}
+.title-page {
+	margin-bottom: 0px !important;
+	padding: 0px !important;
+}
+
+.featuredColImg {
+	position: absolute;
+	left: 18px;
+	top: 6px;
+}
+.featuredColImg img {
+	opacity: 1;
+	z-index: 1;
+}
+.featuredCol {
+	position: absolute;
+	top: 10px;
+	left: 48px;
+	color: #f58733;
+	font-size: 10pt;
+	font-family: 'Open Sans', sans-serif;
+}
+#searchform label {
+	font-size: 11px;
+}
+
+#theBox {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+#theBox:hover {
+    opacity: .8;
+}
+.flexcontainer {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	/* You can set flex-wrap and flex-direction individually */
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	/* Or do it all in one line with flex flow */
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+	/* tweak the where items line up on the row */
+   /* valid values are: flex-start, flex-end, space-between, space-around, stretch */
+	-webkit-align-content: stretch;
+	align-content: stretch;
+}
+.grey {
+	color: #111;
+}
+#search {
+	background-image: url(images/searchIcon.jpg);
+	background-position: 0px 4px;
+	background-repeat: no-repeat;
+	padding-left: 30px;
+	font-size: 15px;
+}
+button#dropdownMenu1 {
+	font-size: 16px;
+	font-weight: 600;
+}
+#subBtn {
+	padding: 5px 6px;
+}
+.content-main {
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	padding: 0px;
+}
+li#categories {
+	list-style-type: none;
+}
+select#cat, select#mitArchive, select#dynamic_select, select#bilbioMenu, select#bibMenu {
+	margin: 0px;
+	font-size: 17px;
+	color: #595959;
+	width: 284px;
+	max-width: 300px;
+	font-family: "open sans", sans-serif;
+	font-weight: 600;
+	line-height: 28pt;
+	border-bottom: 1px solid rgb(225, 225, 225);
+	background-color: rgb(244, 244, 244);
+	border-top: 1px solid rgb(242, 242, 242);
+	border-left: 1px solid rgb(242, 242, 242);
+	border-right: 1px solid rgb(229, 229, 229);
+	height: 38px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+select#bibMenu {
+	width: 160px;
+	max-width: 300px;
+}
+.newIcon {
+	position: absolute;
+	top: -22px;
+	left: -16px;
+	width: 56px;
+}
+
+.innerPadding {
+	padding-left: 16px;
+	padding-right: 16px;
+}
+.newsSubHeader {
+	/*-webkit-box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
+	-moz-box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
+	box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);*/
+	background-color: rgb(255,255,255);
+	width: 100%;
+	margin-bottom: 3px;
+}
+.mySinglePic {
+	width: 451px;
+	position: relative;
+	float: right;
+	margin-left: 5px;
+}
+.mySinglePicMobile {
+	margin: 0 auto;
+}
+.biblioAbout {
+	background-color: white;
+}
+.udClear:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+.udClear {
+	display: inline-block;
+}
+.udClear {
+	display: block;
+}
+.mySingle h2 {
+	font-size: 22pt;
+	line-height: 26pt;
+	color: #909090;
+	margin: 0px;
+	padding: 0px;
+}
+h2.grid {
+	font-size: 14pt;
+	line-height: 19pt;
+	color: #909090;
+	margin: 0px;
+	padding: 0px;
+	padding-left: 8px;
+}
+.mitContent h2, .mitContent h3, .mitContent h4 {
+	margin: 0px;
+	padding: 0px;
+	font-size: 24px;
+	line-height: 28px;
+}
+.eventsBox .excerpt-post p, .excerpt-post p {
+	padding: 0 10px 8px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12px;
+	color: #80808D;
+	line-height: 1.5;
+	font-weight: 400;
+}
+.bgWhite .excerpt-post p {
+	padding-left: 0px;
+}
+a, .comments-link a, .entry-meta a {
+	color: rgb(88,137,193);
+}
+.title-page.mySingle {
+	margin-bottom: 0px;
+	margin-left: 0px;
+	padding-left: 0px;
+	margin-bottom: 15px !important;
+}
+li#categories {
+	list-style-type: none;
+	display: inline;
+	float: right;
+}
+.mySingle.entry-meta {
+	font-size: 13pt;
+	line-height: 15pt;
+}
+article {
+	background-color: white;
+	padding-left: 20px;
+	padding-right: 20px
+}
+.classCheck:nth-child(n+4) {
+    display: none;
+}
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+.eventsBox, .bigItem, .smallItem, .leftNav {
+	min-width: 100%;
+	max-width: 100%;
+	display: block;
+}
+.eventsBox {
+	display: block;
+	width: 100%;
+}
+.not_on_phone {
+	display: none;
+}
+p.img {
+	text-align: center;
+}
+}
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) {
+.container {
+width: 1006px;
+}
+
+
+.eventsBox {
+ background-color: white;
+ margin: 4px 0px 0px 0px;
+ min-height: 271px;
+ max-height: 271px;
+ cursor: pointer;
+ position: relative;
+ -webkit-box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
+ -moz-box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
+ box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
+	/* NEW - Chrome */
+	/*display: flex;*/
+	/* IE 10 */
+	/*flex: 1;*/
+	/*-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;*/
+	/*-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;*/
+	/*max-width: 323px;
+	min-width: 323px;*/
+	width: 323px;
+}
+.bgWhite {
+width: 334px;
+}
+ .biblioPadding {
+width: 292px;
+}
+
+
+/*NAV BEGINS*/
+
+.newsNav {
+}
+.newsNav ul {
+ padding-left: 0px;
+}
+.newsNav ul li.current-menu-item {
+ border-radius: 5px;
+ background-color: rgb(88,137,193);
+ display: inline;
+}
+hr.news {
+ background-color: rgb(230, 230, 230);
+ border: 0;
+ height: 1px;
+ margin-top: 0px;
+ margin-bottom: 15px;
+ margin-left: 0px;
+ margin-right: 0px;
+}
+.newsNav ul li {
+ border-radius: 5px;
+ background-color: #fff;
+ display: inline;
+ border: 1px solid rgb(230,230,230);
+ margin-right:9px;
+}
+.newsNav ul li.current-menu-item a {
+ color: #fff;
+}
+.newsNav ul li a {
+ color: rgb(88,137,193);
+ font-size: 12pt;
+}
+.newsNav ul li a:hover {
+ text-decoration: none;
+}
+.newsNav {
+ margin-bottom: 13px;
+}
+/*NAV*/
+
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) {
+.container {
+width: 1006px;
+}
+.eventsBox {
+ background-color: white;
+ margin: 4px 0px 0px 0px;
+ min-height: 271px;
+ max-height: 271px;
+ cursor: pointer;
+ position: relative;
+ -webkit-box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
+ -moz-box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
+ box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
+	/* NEW - Chrome */
+	/*display: flex;*/
+	/* IE 10 */
+	/*flex: 1;*/
+	/*-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;*/
+	/*-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;*/
+	/*max-width: 323px;
+	min-width: 323px;*/
+	width: 323px;
+}
+ .bgWhite {
+width: 334px;
+}
+ .socialNavSearch {
+ padding: 19px !important;
+ margin-left: 69px;
+ width: 238px;
+}
+}
+.biblioPadding {
+}
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) {
+.container {
+width: 1006px;
+.eventsBox {
+ background-color: white;
+ margin: 4px 0px 0px 0px;
+ min-height: 271px;
+ max-height: 271px;
+ cursor: pointer;
+ position: relative;
+ -webkit-box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
+ -moz-box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
+ box-shadow: -5px 7px 7px -9px rgba(0,0,0,0.75);
+	/* NEW - Chrome */
+	/*display: flex;*/
+	/* IE 10 */
+	/*flex: 1;*/
+	/*-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;*/
+	/*-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;*/
+	/*max-width: 323px;
+	min-width: 323px;*/
+	width: 323px;
+}
+.bgWhite {
+width: 334px;
+}
+.socialNavSearch {
+ padding: 19px !important;
+ margin-left: 69px;
+ width: 238px;
+}
+}
+.biblioPadding {
+width: 292px;
+}
+}
+
+@media screen and (max-width: 767px) {
+.nav-pills > li + li {
+	margin-left: 0 !important;
+}
+
+.nav-pills > li > a {
+	border-radius: 0 !important;
+}
+
+.newsNav {
+	height: auto;
+}
+.newsNav ul {
+	width: 100%;
+	display: block;
+	height: auto;
+}
+.newsNav li {
+	width: 100%;
+	float: left;
+	position: relative;
+}
+.newsNav li a {
+}
+.newsNav a {
+	text-align: left;
+	width: 100%;
+	text-indent: 25px;
+}
+.newsNav {
+	border-bottom: 0;
+}
+.newsNav ul {
+	display: none;
+	height: auto;
+}
+.newsNav a#pull {
+	display: block;
+	background-color: rgb(244,244,244);
+	width: 186px;
+	position: relative;
+	padding: 8px;
+	border-bottom: 1px solid rgb(225, 225, 225);
+	background-color: rgb(244, 244, 244);
+	border-top: 1px solid rgb(242, 242, 242);
+	border-left: 1px solid rgb(242, 242, 242);
+	border-right: 1px solid rgb(229, 229, 229);
+	height: 38px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.newsNav a#pull:after {
+/*content: "";
+	background: url('/wp-content/themes/mit-libraries-news/images/nav-icon.png') no-repeat;
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	position: absolute;
+	right: 15px;
+	top: 10px;*/
+}
+.biblioBox {
+	text-align: center;
+}
+.padding-header {
+	margin-top: 15px;
+	padding-top: 10px;
+	border-top: 1px solid #ccc;
+	}
+}
+
+@media screen and (max-width: 767px) {
+img.centered {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+}
+
+@media screen and (max-width: 479px) {
+	.row {
+		padding: 0 5px;
+		}	
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+	.row {
+		padding: 0 10px;
+		}	
+}
+
+/*Styles for screen 600px and lower*/
+@media screen and (min-width: 480px) and (max-width: 600px) {
+    .eventsBox {
+        min-height: 310px;
+        max-height: 310px;	
+}
+    .interiorCardContainer {
+        height: 275px;
+        overflow: hidden;
+    }
+}
+@media screen and (max-width: 850px) {
+	h2.name-site,
+	h2.name-site a {
+		font-size: 36px !important;	
+	}
+	}
+@media screen and (max-width: 600px) {
+
+.newsNav {
+	height: auto;
+}
+.newsNav ul {
+	width: 100%;
+	display: block;
+	height: auto;
+}
+.newsNav li {
+	width: 80%;
+	float: left;
+	position: relative;
+}
+.newsNav li a {
+}
+.newsNav a {
+	text-align: left;
+	width: 100%;
+	text-indent: 25px;
+}
+.newsNav {
+	border-bottom: 0;
+}
+.newsNav ul {
+	display: none;
+	height: auto;
+}
+.newsNav a#pull {
+	display: block;
+	background-color: rgb(244,244,244);
+	width: 186px;
+	position: relative;
+	padding: 8px;
+	border-bottom: 1px solid rgb(225, 225, 225);
+	background-color: rgb(244, 244, 244);
+	border-top: 1px solid rgb(242, 242, 242);
+	border-left: 1px solid rgb(242, 242, 242);
+	border-right: 1px solid rgb(229, 229, 229);
+	height: 38px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.newsNav a#pull:after {
+/*	content: "";
+	background: url('/wp-content/themes/mit-libraries-news/images/nav-icon.png') no-repeat;
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	position: absolute;
+	right: 15px;
+	top: 10px;*/
+}
+.newsNav ul li.current-menu-item {
+	border-radius: 5px;
+	background-color: #fff;
+	display: inline;
+	color: rgb(88,137,193);
+}
+.newsNav ul li.current-menu-item a {
+	color: rgb(88,137,193);
+}
+}
+
+/*Styles for screen 515px and lower*/
+@media only screen and (max-width : 480px) {
+		
+.newsNav {
+	border-bottom: 0;
+}
+.newsNav ul {
+	display: none;
+	height: auto;
+}
+.newsNav a#pull {
+	display: block;
+	background-color: rgb(244,244,244);
+	width: 136px;
+}
+.newsNav a#pull:after {
+	content: "";
+ background: 
+ width: 30px;
+	height: 30px;
+	display: inline-block;
+	position: absolute;
+	right: 15px;
+	top: 10px;
+}
+.newsNav ul li.current-menu-item {
+	border-radius: 5px;
+	background-color: #fff;
+	display: inline;
+	color: rgb(88,137,193);
+}
+.newsNav ul li.current-menu-item a {
+	color: rgb(88,137,193);
+}
+ul#menu-subscribe {
+	float: left;
+	margin-left: 0px;
+	text-align: center;
+}
+.col-sm-4, .col-md-4, .col-lg-4, .col-xs-12 {
+	padding-left: 15px !important;
+	padding-right: 15px !important;
+}
+}
+
+/*Smartphone*/
+@media only screen and (max-width : 420px) {
+	.wp-caption.alignright,
+	img.alignright
+ {
+	float: none !important;
+	margin: 1em 0 !important;
+	width: 100%;
+}
+
+}
+
+@media only screen and (max-width : 320px) {
+
+.newsNav li {
+	display: block;
+	float: none;
+	width: 100%;
+}
+
+.inlineHeader h1, .inlineHeader h2, .inlineHeader h3, .inlineHeader h4 {
+	display: block;
+	text-align: center;
+}
+}
+.leftNav {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	-webkit-flex: 2 0 0;
+	flex: 2 0 0;
+}
+.rightNav {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	-webkit-justify-content: flex-end;
+	justify-content: flex-end;
+	-webkit-flex: 2 0 0;
+	flex: 2 0 0;
+}
+a#pull {
+	display: none;
+}
+
+@media screen and (max-width: 600px) {
+nav {
+	height: auto;
+}
+nav ul {
+	width: 100%;
+	display: block;
+	height: auto;
+}
+nav li {
+	width: 50%;
+	float: left;
+	position: relative;
+}
+.nav-pills > li + li {
+	margin-left: 0 !important
+	}
+nav a {
+	text-align: left;
+	width: 100%;
+	text-indent: 25px;
+}
+}
+.single h2.name-site2 {
+	padding-left: 20px;
+	font-size: 26px;
+	font-weight: 300;
+	color: #5889C2;
+	line-height: 38px;
+	margin: 6px 0px;
+	padding: 0px 0px;
+}
+.single li#menu-item-14139 {
+	margin-top: -2px;
+	margin-right: 7px;
+}
+.single .socialNav {
+	color: #909090;
+}
+
+.moreIn {
+	font-size: 30px;
+	color: rgb(107, 107, 107);
+	font-weight: 300;
+	margin: 39px 2px 33px 0px;
+	line-height: 30px;
+}
+.smallerTxt {
+	font-size: 17px;
+	font-weight: 500;
+}
+img.singleImg {
+	float: right;
+	margin-left: 10px;
+	margin-bottom: 0px;
+	margin-top: 10px;
+}
+.lowercase {
+	text-transform: lowercase;
+}
+.inlineHeader h1, .inlineHeader h2, .inlineHeader h3, .inlineHeader h4 {
+	display: inline;
+}
+.eventsBox h2.spotlights {
+	margin: 50px 10px 0px 11px;
+}
+.single article {
+	padding-left: 16px;
+	padding-right: 16px;
+	padding-bottom: 35px;
+}
+.biblioAbout h1 {
+	padding-top: 16px;
+	margin-bottom: 16px;
+}
+.container {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.title-page {
+	box-shadow: none !important;
+}
+input.searchForm {
+	width: 187px;
+}
+p.search {
+	padding: 1px 0px 43px 22px;
+}
+.bgWhite .event {
+	color: #F58733;
+	padding-left: 20px;
+	font-size: 14px !important;
+}
+.bgWhite .events {
+	padding-left: 0px;
+}
+.single-page.events {
+	padding-left: 0;
+	}
+.events {
+	color: #F58733;
+	padding: 0 10px 10px;
+	font-size: 14px !important;
+	width: 100% !important;
+	display: inline-block;
+	font-weight: 700;
+}
+.events .event {
+	padding: 0 6px 0 4px;
+}
+.single-page .bg-image svg {
+	margin: 0 2px;
+	float: none;
+	position: relative;
+	top: 2px;
+
+	}
+.bg-image svg {
+	float:left;
+	margin-top: 1px;
+	}
+.gray {
+	color: #ABABAB;
+	margin-right: 6px;
+	}	
+
+
+/*SRPITE*/
+.biblioHeader, .or_cog-25, .or_check-25, .bilbioTechIcon, .or_check-25, .or_star-25, .or_eye-25, .or_life-25, .or_pin-25, .or_sun-25, .or_thumb-25, .si_facebook, .si_facebookBlue, .si_instagram, .si_instagramBlue, .si_twitter, .si_twitterBlue, .info, .update, .searchIcon {
+	background: url(images/sprites.png) no-repeat;
+}
+.biblioHeader {
+	background-position: -11px -374px;
+	width: 331px;
+	height: 75px;
+}
+.bilbioTechIcon {
+	background-position: -60px -18px;
+	width: 27px;
+	height: 30px;
+}
+
+.or_check-25 {
+	background-position: -61px -177px;
+	width: 25px;
+	height: 25px;
+}
+.or_eye-25 {
+	background-position: -10px -176px;
+	width: 25px;
+	height: 25px;
+}
+.or_life-25 {
+	background-position: -8px -76px;
+	width: 25px;
+	height: 25px;
+}
+.or_pin-25 {
+	background-position: -63px -74px;
+	width: 25px;
+	height: 25px;
+}
+.or_sun-25 {
+	background-position: -9px -128px;
+	width: 25px;
+	height: 25px;
+}
+.or_thumb-25 {
+	background-position: -62px -127px;
+	width: 25px;
+	height: 25px;
+}
+.or_cog-25 {
+	background-position: -113px -175px;
+	width: 25px;
+	height: 25px;
+}
+.or_check-25 {
+	background-position: -61px -177px;
+	width: 25px;
+	height: 25px;
+}
+.si_facebook {
+	background-position: -161px -27px;
+	width: 26px;
+	height: 24px;
+}
+.si_facebookBlue {
+	background-position: -160px -79px;
+	width: 26px;
+	height: 24px;
+}
+.si_instagram {
+	background-position: -213px -28px;
+	width: 26px;
+	height: 24px;
+}
+.si_instagramBlue {
+	background-position: -214px -79px;
+	width: 26px;
+	height: 24px;
+}
+.si_twitter {
+	background-position: -111px -25px;
+	width: 26px;
+	height: 24px;
+}
+.si_twitterBlue {
+	background-position: -110px -76px;
+	width: 26px;
+	height: 24px;
+}
+.or_star-25 {
+	background-position: -112px -127px;
+	width: 25px;
+	height: 25px;
+}
+.info {
+	background-position: -161px -125px;
+	width: 24px;
+	height: 26px;
+}
+.update {
+	background-position: -161px -175px;
+	width: 27px;
+	height: 26px;
+}
+.searchIcon {
+	background-position: -211px -125px;
+	width: 26px;
+	height: 26px;
+}
+/*SPRINT ENDS*/
+
+
+
+
+.single ul li {
+	list-style-type: disc;
+}
+.single li {
+	margin-bottom: 5px;
+}
+.single ul.sIcons li {
+	list-style-type: none
+}
+.btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+	border-color: white;
+}
+.btn-default {
+	color: #333;
+	background-color: #fff;
+	border-color: #fff;
+}
+.btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+	background-color: white;
+	border-color: white;
+}
+.btn:active, .btn.active {
+	background-image: none;
+	outline: 0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+.menu-toggle:hover, button:hover, input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover, article.post-password-required input[type=submit]:hover {
+	background-image: none;
+}
+.btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn.active.focus {
+	outline: none;
+}
+
+/* ---- Main Content Area for page-sidebar.php styling (to be removed when later)---- */
+.has-sidebar .main-content {
+	float: left;
+	padding-right: 2em;
+	width: 700px;
+	width: 76.05%;
+}
+
+.ie8 .has-sidebar .main-content {
+	width: 76%;
+}
+
+.main-content {
+	width: 100%;
+	padding-left: 27.5px;
+	margin-bottom: 50px;
+}
+
+.main-content h3 {
+	line-height: 1.5;
+}
+
+.entry-header,
+.entry-description {
+	line-height: 1.5;
+}
+.entry-title {
+	font-size: 24px;
+}
+
+/* ---- Sidebar for page-sidebar.php styling (to be removed when later)---- */
+.sidebar {
+	float: left;
+	width: 220px;
+	width: 23.91%;
+}
+
+.ie8 .sidebar {
+	width: 23%;
+}
+
+
+@media screen and (max-width:720px) {
+	.childTheme .main-content,	
+	.childTheme .has-sidebar .main-content,
+	.childTheme .has-sidebar .sidebar {
+		width: 100%;
+		padding: 0 5%;
+	}
+	
+	.childTheme .sidebar .widget {
+		padding: 20px 0;
+	}
+}
