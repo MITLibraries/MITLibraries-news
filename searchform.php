@@ -1,3 +1,12 @@
+<?php
+/**
+ * Template-part for displaying the UI of the SEARCHBAR.
+ *
+ * @package MITLibraries-News
+ * @since 1.0
+ */
+
+?>
 
 <span class="hidden-xs">
 <form action="<?php echo site_url(); ?>" method="get">

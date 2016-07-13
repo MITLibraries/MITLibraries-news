@@ -1,8 +1,10 @@
 <?php
-
-/*
-Template Name: Subscribe
-*/
+/**
+ * Template Name: Subscribe
+ *
+ * @package MITLibraries-News
+ * @since 1.0.0
+ */
 
 $pageRoot = getRoot($post);
 $section = get_post($pageRoot);

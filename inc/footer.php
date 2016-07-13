@@ -1,3 +1,13 @@
+<?php
+/**
+ * Template-part for displaying FOOTER on CARDS.
+ *
+ * @package MITLibraries-News
+ * @since 1.1.11
+ */
+
+?>
+
   <div class="category-post <?php  if(get_post_type( get_the_ID() ) == 'bibliotech'){ echo "Bibliotech";} ?>">
     <?php 
     if (is_page('bibliotech-index') || (is_page_template('additionalPosts-biblio.php')) || (is_category('bibliotech_issues') || (is_tax() ) || is_page_template('additionalPosts-archives.php'))) {

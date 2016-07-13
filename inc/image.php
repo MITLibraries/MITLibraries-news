@@ -1,9 +1,11 @@
 <?php
 /**
- * Template part for displaying IMAGES on cards.
+ * Template-part for displaying IMAGES on CARDS.
  *
- *
+ * @package MITLibraries-News
+ * @since 1.0
  */
+
 ?>
 
     <?php

@@ -1,3 +1,13 @@
+<?php
+/**
+ * This template loads additional Posts if any exist by Category.
+ *
+ * @package MITLibraries-News
+ * @since 1.0
+ */
+ 
+?>
+
 <script>
 $(function() {
   $("img.img-responsive").lazyload({ 
@@ -15,10 +25,6 @@ $date = DateTime::createFromFormat('Ymd', get_field('event_date'));
 
 ?>
 <?php
-    /*
-        Template Name: Additional Posts Cats
-    */
-   
 
 global $post;
 $categoryId = $_GET['categoryID'];

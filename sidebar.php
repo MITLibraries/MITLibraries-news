@@ -4,10 +4,10 @@
  *
  * If no active widgets in sidebar, let's hide it completely.
  *
- * @package WordPress
- * @subpackage Twenty_Twelve
+ * @package MITLibraries-News
  * @since Twenty Twelve 1.0
  */
+
 ?>
 	
 	<div id="sidebarContent" class="sidebar span3">

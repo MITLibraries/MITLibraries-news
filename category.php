@@ -1,15 +1,11 @@
-<?php
+<?php	
 /**
- * The template for displaying Category pages.
+ * The template for displaying archive-type pages for posts in a category.
  *
- * Used to display archive-type pages for posts in a category.
- *
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
- *
- * @package WordPress
- * @subpackage Twenty_Twelve
+ * @package MITLibraries-News
  * @since Twenty Twelve 1.0
  */
+
 get_header(); 
 
 

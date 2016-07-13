@@ -1,8 +1,13 @@
 <?php
-    /*
-        Template Name: Additional Posts Archives
-    */
+/**
+ * This template loads additional Posts if any exist from the homepage.
+ *
+ * @package MITLibraries-News
+ * @since 1.0.0
+ */
+
 ?>
+
 <script type="text/javascript">
 $(document).ready(function() {
   $("img.img-responsive").lazyload({ 

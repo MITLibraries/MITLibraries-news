@@ -1,8 +1,13 @@
 <?php
-    /*
-        Template Name: Additional Posts Bibliotech
-    */
+/**
+ * This template loads additional Bibliotech posts if any exist.
+ *
+ * @package MITLibraries-News
+ * @since 1.0
+ */
+ 
 ?>
+
 <script type="text/javascript">
 $(document).ready(function() {
   $("img.img-responsive").lazyload({ 

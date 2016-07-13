@@ -7,11 +7,9 @@
  * and that other 'pages' on your WordPress site will use a
  * different template.
  *
- * @package WordPress
- * @subpackage Twenty_Twelve
+ * @package MITLibraries-News
  * @since Twenty Twelve 1.0
  */
-
 
 $pageRoot = getRoot($post);
 $section = get_post($pageRoot);

@@ -1,3 +1,13 @@
+<?php
+/**
+ * Template-part for displaying social media icons in subheader.
+ *
+ * @package MITLibraries-News
+ * @since 1.0
+ */
+
+?>
+
 <ul class="sIcons hidden-xs anotherMenu clearfix pull-right">
   <li class="sub soc">
 		<a title="subscribe" href="/news/subscribe/" >

@@ -1,3 +1,13 @@
+<?php
+/**
+ * Template-part for displaying SUBHEADER on POSTS.
+ *
+ * @package MITLibraries-News
+ * @since 1.0
+ */
+
+?>
+
 <div class="newsSubHeader clearfix">
 <div class="innerPadding clearfix">
 <div class="title-page no-padding-left col-xs-12  col-sm-4 col-md-5 col-lg-5">

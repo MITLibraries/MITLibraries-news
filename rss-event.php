@@ -1,7 +1,13 @@
 <?php
-/*
-Template Name: Events RSS
-*/
+/**
+ * Template Name: Event RSS
+ *
+ * This template is used to display
+ * RSS feed for Event posts.
+ *
+ * @package MITLibraries-News
+ * @since 1.0
+ */
 
 $numposts = 5;
 

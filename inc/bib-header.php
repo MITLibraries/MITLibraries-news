@@ -1,3 +1,13 @@
+<?php
+/**
+ * This template-part loads the additional subheader for *bibliotech* PAGES.
+ *
+ * @package MITLibraries-News
+ * @since 1.0
+ */
+
+?>
+
 <div class="container biblio">
     	<div class="row">
       <div class="biblioBox col-sm-6 col-md-4">

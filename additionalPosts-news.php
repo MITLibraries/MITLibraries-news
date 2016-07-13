@@ -1,7 +1,14 @@
+<?php
+/**
+ * This template loads additional News posts if any exist.
+ *
+ * @package MITLibraries-News
+ * @since 1.0
+ */
+
+?>
         <?php
-            /*
-                Template Name: Additional Posts News
-            */
+          
             $offset = htmlspecialchars(trim($_GET['offset']));
                 if ($offset == '') {
                     $offset = 9;
