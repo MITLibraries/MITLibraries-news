@@ -31,7 +31,7 @@ if ( ($field['choices'][ $value ] ) === 'Featured video' ) {
 if ( ($field['choices'][ $value ] ) === 'In the media' ) {
 	$featImg ='<div class="or_star-25"></div>';
 	}
-if( ($field['choices'][ $value ] ) === 'Check it out' ) {
+if ( ($field['choices'][ $value ] ) === 'Check it out' ) {
 	$featImg ='<div class="or_star-25"></div>';
 	}
 	?>
