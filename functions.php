@@ -10,6 +10,9 @@
 $siteRoot = $_SERVER['DOCUMENT_ROOT'];
 foreach(glob($siteRoot."/wp-content/themes/mit-libraries-news/lib/*.php") as $file) require_once($file);
 
+/**
+ * Add Bootstrap and mobile CSS for non-admin users
+ */
 function not_admin() {
 	wp_enqueue_style( 'bootstrapCSS', get_stylesheet_directory_uri() . '/css/bootstrap.css', 'false', '', false);
 	wp_enqueue_style( 'newsmobile', get_stylesheet_directory_uri() . '/css/newsmobile.css', 'false', '', false);
@@ -19,17 +22,18 @@ if ( ! is_admin() ) {
 	add_action( 'wp_enqueue_scripts', 'not_admin' );
 } 
 
-//keep these here
+/**
+ * Add LazyLoad and MyScripts for all users
+ */
 function add_scripts() {
 	wp_enqueue_script( 'lazyload', get_stylesheet_directory_uri() . '/js/lazyload.js', array( 'jquery' ), '', true);
 	wp_enqueue_script( 'myScripts', get_stylesheet_directory_uri() . '/js/myScripts.js', array( 'lazyload' ), '', true );
 }
 add_action( 'wp_enqueue_scripts', 'add_scripts' ); 
 
-
-
-
-// This de-registers scripts from the parent theme, but they don't seem to actually be used?
+/**
+ * This de-registers scripts from the parent theme, but they don't seem to actually be used?
+ */
 function remove_scripts(){
 	// wp_deregister_script('tabletop' );
 	// wp_deregister_script('productionJS');
@@ -38,8 +42,9 @@ function remove_scripts(){
 }
 add_action( 'wp_enqueue_scripts', 'remove_scripts', 100 ); 
 
-
-// Remove dashboard menu items
+/**
+ * Remove dashboard menu items
+ */
 function mitlibnews_remove_dashboard_menu_items() {
 	if (!current_user_can('add_users')) {
 		remove_menu_page('edit-comments.php');
@@ -47,10 +52,11 @@ function mitlibnews_remove_dashboard_menu_items() {
 		remove_menu_page('edit.php?post_type=html_snippet');
 	}
 }
-
 add_action('admin_menu', 'mitlibnews_remove_dashboard_menu_items');
 
-// Remove unneeded dashboard widgets
+/**
+ * Remove unneeded dashboard widgets
+ */
 function mitlibnews_remove_dashboard_widgets() {
 	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' ); // Quickpress widget
 	remove_meta_box( 'dashboard_primary', 'dashboard', 'side' ); // Wordpress news
@@ -59,9 +65,11 @@ function mitlibnews_remove_dashboard_widgets() {
 		remove_meta_box( 'dashboard_activity', 'dashboard', 'normal'); // Activity widget
 	}
 } 
-
 add_action('do_meta_boxes', 'mitlibnews_remove_dashboard_widgets' );
 
+/**
+ * Hide addthis widget from non-admins on dashboard
+ */
 function hide_addthis() {
 	global $user_level;
 	if ($user_level != '10' ) {
@@ -73,10 +81,11 @@ function hide_addthis() {
 		 </style>';
    }
 }
-
 add_action('admin_head', 'hide_addthis');
 
-// Register the custom post types
+/**
+ * Register the custom post types
+ */
 function mitlibnews_register_news_posts() {
 	$supports_default = array(
 		'title',
@@ -110,11 +119,14 @@ function mitlibnews_register_news_posts() {
 		
 	);
 	register_post_type('spotlights', $argsFeatures);
-	
-		
-add_filter('apto_object_taxonomies', 'theme_apto_object_taxonomies', 10, 2);
-function theme_apto_object_taxonomies($object_taxonomies, $post_type)
-    {
+
+	/**
+	 * Unknown function that does not seem to be used.
+	 *
+	 * @param object $object_taxonomies A set of taxonomies.
+	 * @param string $post_type The type of a given post.
+	 */
+	function theme_apto_object_taxonomies( $object_taxonomies, $post_type ) {
         if($post_type == 'spotlight')
             {
                 if (array_search('Events', $object_taxonomies) !== FALSE)
@@ -122,6 +134,7 @@ function theme_apto_object_taxonomies($object_taxonomies, $post_type)
             }
         return $object_taxonomies;
     }
+	add_filter('apto_object_taxonomies', 'theme_apto_object_taxonomies', 10, 2);
 	
 	// Bibliotech
 	$labelsFeatures = array(
@@ -181,8 +194,12 @@ add_image_size( 'news-listing', 323, 111, true ); // Hard Crop Mode
 add_image_size( 'news-feature', 657, 256, true ); /// Hard Crop Mode
 add_image_size( 'news-single', 451,'651', true ); /// Hard Crop Mode
 
-// This function trims a WP excerpt at a word limit defined by $limit. If no
-// limit (or a negative number) is received, the entire excerpt is returned.
+/**
+ * This function trims a WP excerpt at a word limit defined by $limit. If no
+ * limit (or a negative number) is received, the entire excerpt is returned.
+ *
+ * @param int $limit The number of words requested.
+ */
 function excerpt($limit = 0) {
     $excerpt = get_the_excerpt();
     if ($limit > 0) {
@@ -198,8 +215,12 @@ function excerpt($limit = 0) {
     return $excerpt;
 }
 
-// This function trims a WP post content at a word limit defined by $limit. If
-// no limit (or a negaive number) is received, the entire content is returned.
+/**
+ * This function trims a WP post content at a word limit defined by $limit. If
+ * no limit (or a negaive number) is received, the entire content is returned.
+ *
+ * @param int $limit The number of words requested.
+ */
 function content($limit = 0) {
     $content = get_the_content();
     if ($limit > 0) {
@@ -217,17 +238,21 @@ function content($limit = 0) {
     return $content;
 }
 
-//allows contributor to upload images
-if ( current_user_can('contributor') && !current_user_can('upload_files') )
-	add_action('admin_init', 'allow_contributor_uploads');
-
+/**
+ * Allows contributor to upload images
+ */
 function allow_contributor_uploads() {
 	$contributor = get_role('contributor');
 	$contributor->add_cap('upload_files');
 }
+if ( current_user_can('contributor') && !current_user_can('upload_files') )
+	add_action('admin_init', 'allow_contributor_uploads');
 
-
-
+/**
+ * Replaces category page # with category name
+ *
+ * @param object $request A request object.
+ */
 function init_category($request) {
 	$vars = $request->query_vars;
 	if (is_category() && !is_category('bibliotech') && !array_key_exists('post_type', $vars)) :
@@ -242,13 +267,17 @@ function init_category($request) {
 add_filter('pre_get_posts', 'init_category');
 
 
-//Event RSS feed
-
-add_action('init', 'eventRSS');
+/**
+ * Event RSS feed
+ */
 function eventRSS(){
         add_feed('event', 'eventRSSFunc');
 }
+add_action('init', 'eventRSS');
 
+/**
+ * Event RSS Function
+ */
 function eventRSSFunc(){
         get_template_part('rss', 'event');
 }
@@ -268,9 +297,9 @@ function eventRSSFunc(){
 //
 //add_action('admin_menu', 'remove_menu_items');
 
-
-
-
+/**
+ * Customize meta boxes on admin interface
+ */
 function customize_meta_boxes() {
   /* Removes meta boxes from Posts */
  // remove_meta_box('postcustom','post','normal');
@@ -290,18 +319,28 @@ function customize_meta_boxes() {
 }
 add_action('admin_init','customize_meta_boxes');
 
+/**
+ * Removes edit-comments.php file
+ *
+ * @param object $actions An object.
+ */
 function custom_favorite_actions($actions) {
   unset($actions['edit-comments.php']);
   return $actions;
 }
 add_filter('favorite_actions', 'custom_favorite_actions');
 
-
+/**
+ * Removes featured-image option for posts
+ */
 function remove_thumbnail_box() {
     remove_meta_box( 'postimagediv','post','side' );
 }
 add_action('do_meta_boxes', 'remove_thumbnail_box');
 
+/**
+ * Registers custom css file for admin dashboard
+ */
 function registerCustomAdminCss(){
 $src = "/wp-content/themes/mit-libraries-news/custom-admin-css.css";
 $handle = "customAdminCss";
@@ -311,47 +350,50 @@ wp_enqueue_style($handle, $src, array(), false, false);
     add_action('admin_head', 'registerCustomAdminCss');
 if ( ! function_exists( 'biblio_taxonomy' ) ) {
 
-// Register Custom Taxonomy
-function biblio_taxonomy() {
+	/**
+	 * Register Custom Taxonomy
+	 */
+	function biblio_taxonomy() {
 
-	$labels = array(
-		'name'                       => _x( 'bibliotechs', 'Taxonomy General Name', 'text_domain' ),
-		'singular_name'              => _x( 'bibliotech', 'Taxonomy Singular Name', 'text_domain' ),
-		'menu_name'                  => __( 'Create issue', 'text_domain' ),
-		'all_items'                  => __( 'All Items', 'text_domain' ),
-		'parent_item'                => __( 'Parent Item', 'text_domain' ),
-		'parent_item_colon'          => __( 'Parent Item:', 'text_domain' ),
-		'new_item_name'              => __( 'New Item Name', 'text_domain' ),
-		'add_new_item'               => __( 'Add New Item', 'text_domain' ),
-		'edit_item'                  => __( 'Edit Item', 'text_domain' ),
-		'update_item'                => __( 'Update Item', 'text_domain' ),
-		'separate_items_with_commas' => __( 'Separate items with commas', 'text_domain' ),
-		'search_items'               => __( 'Search Items', 'text_domain' ),
-		'add_or_remove_items'        => __( 'Add or remove items', 'text_domain' ),
-		'choose_from_most_used'      => __( 'Choose from the most used items', 'text_domain' ),
-		'not_found'                  => __( 'Not Found', 'text_domain' ),
-	);
-	
-	$args = array(
-		'labels'                     => $labels,
-		'hierarchical'               => true,
-		'public'                     => true,
-		'show_ui'                    => true,
-		'show_admin_column'          => true,
-		'show_in_nav_menus'          => true,
-		'show_tagcloud'              => true,
-		
-	);
-	register_taxonomy( 'bibliotech_issues', array( 'bibliotech' ), $args );
+		$labels = array(
+			'name'                       => _x( 'bibliotechs', 'Taxonomy General Name', 'text_domain' ),
+			'singular_name'              => _x( 'bibliotech', 'Taxonomy Singular Name', 'text_domain' ),
+			'menu_name'                  => __( 'Create issue', 'text_domain' ),
+			'all_items'                  => __( 'All Items', 'text_domain' ),
+			'parent_item'                => __( 'Parent Item', 'text_domain' ),
+			'parent_item_colon'          => __( 'Parent Item:', 'text_domain' ),
+			'new_item_name'              => __( 'New Item Name', 'text_domain' ),
+			'add_new_item'               => __( 'Add New Item', 'text_domain' ),
+			'edit_item'                  => __( 'Edit Item', 'text_domain' ),
+			'update_item'                => __( 'Update Item', 'text_domain' ),
+			'separate_items_with_commas' => __( 'Separate items with commas', 'text_domain' ),
+			'search_items'               => __( 'Search Items', 'text_domain' ),
+			'add_or_remove_items'        => __( 'Add or remove items', 'text_domain' ),
+			'choose_from_most_used'      => __( 'Choose from the most used items', 'text_domain' ),
+			'not_found'                  => __( 'Not Found', 'text_domain' ),
+		);
+
+		$args = array(
+			'labels'                     => $labels,
+			'hierarchical'               => true,
+			'public'                     => true,
+			'show_ui'                    => true,
+			'show_admin_column'          => true,
+			'show_in_nav_menus'          => true,
+			'show_tagcloud'              => true,
+		);
+		register_taxonomy( 'bibliotech_issues', array( 'bibliotech' ), $args );
+
+	}
+
+	// Hook into the 'init' action
+	add_action( 'init', 'biblio_taxonomy', 0 );
 
 }
 
-// Hook into the 'init' action
-add_action( 'init', 'biblio_taxonomy', 0 );
-
-
-}
-
+/**
+ * Registers news sidebar
+ */
 function news_sidebar_widget() {
 
 	register_sidebar( array(
@@ -367,15 +409,17 @@ function news_sidebar_widget() {
 add_action( 'widgets_init', 'news_sidebar_widget' );
 
 
-
-//lets only search posts
+/**
+ * Lets the user search relevant post types
+ *
+ * @param object $query A query object.
+ */
 function SearchFilter($query) {
 if ($query->is_search) {
 $query->set('post_type', array('post', 'Bibliotech', 'Spotlights'));
 }
 return $query;
 }
-
 add_filter('pre_get_posts','SearchFilter');
 
 ?>
