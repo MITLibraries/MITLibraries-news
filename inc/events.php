@@ -1,9 +1,11 @@
 <?php
 /**
- * Template part for displaying EVENTS on cards.
+ * This template-part displays EVENT date/times on CARDS.
  *
- *
+ * @package MITLibraries-News
+ * @since 1.0
  */
+
 ?>
 
           <?php if(get_field('event_date')){ 

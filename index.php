@@ -4,9 +4,8 @@
  * first is for sticky posts, followed by everything else. The two sections
  * are separated into two adjacent div elements.
  *
- * @package WordPress
- * @subpackage MITLibraries-news
- * @since v1.3.0
+ * @package MITLibraries-News
+ * @since Twenty Twelve 1.0
  */
 
 $pageRoot = getRoot( $post );

@@ -1,3 +1,13 @@
+<?php
+/**
+ * Template-part for displaying related posts to the category page.
+ *
+ * @package MITLibraries-News
+ * @since 1.0
+ */
+
+?>
+
 <?php $category = get_the_category(); ?>
 <div class="posts--related">
 	<button>More in <?php echo $category[0]->cat_name; ?></button>

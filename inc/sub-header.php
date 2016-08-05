@@ -1,3 +1,13 @@
+<?php
+/**
+ * Template-part for displaying SUBHEADER on PAGES.
+ *
+ * @package MITLibraries-News
+ * @since 1.0
+ */
+
+?>
+
 <div class="newsSubHeader">
 <div class="innerPadding">
 <div class="title-page row">

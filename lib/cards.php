@@ -1,4 +1,15 @@
-<?php 
+<?php
+/**
+ * Handles render function for all elements that constitute CARDS.
+ *
+ * @package MITLibraries-News
+ * @since 1.1.11
+ */
+
+/**
+ * Render function
+ *
+ */
 function render($post, $i, $type) {
   // default outer classes
   $outerClasses = "padding-right-mobile col-xs-12 col-xs-B-6 col-sm-4 col-md-4 col-lg-4";

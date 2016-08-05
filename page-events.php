@@ -1,7 +1,13 @@
 <?php
-/*
-Template Name:Events 
-*/
+/**
+ * Template Name: Events
+ *
+ * This template is used to display
+ * latest Events Posts
+ *
+ * @package MITLibraries-News
+ * @since 1.0
+ */
 
 $pageRoot = getRoot($post);
 $section = get_post($pageRoot);

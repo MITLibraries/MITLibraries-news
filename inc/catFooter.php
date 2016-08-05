@@ -1,9 +1,11 @@
 <?php
 /**
- * Template part for displaying FOOTER on featured/sticky + Bibliotech cards.
+ * Template-part for displaying FOOTER on featured/sticky + Bibliotech CARDS.
  *
- *
+ * @package MITLibraries-News
+ * @since 1.1.11
  */
+
 ?>
 
 <div class="category-post">

@@ -2,8 +2,10 @@
 /**
  * The template for displaying all single posts.
  *
- * @package MIT Libraries News
+ * @package MITLibraries-News
+ * @since Twenty Twelve 1.0
  */
+
 get_header(); 
 $category = get_the_category();
 	$type_post = get_post_type();

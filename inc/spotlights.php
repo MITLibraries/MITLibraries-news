@@ -1,3 +1,13 @@
+<?php
+/**
+ * Template-part for displaying icons on SPOTLIGHT CARDS.
+ *
+ * @package MITLibraries-News
+ * @since 1.0
+ */
+
+?>
+
 <!--spotlight -->
 <?php $field = get_field_object('feature_type');
 $value = get_field('feature_type');

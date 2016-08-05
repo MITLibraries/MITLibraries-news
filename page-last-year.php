@@ -1,7 +1,11 @@
 <?php
-/*
-Template Name: Last Year Archive
-*/
+/**
+ * Template Name: Last Year Archive
+ *
+ * @package MITLibraries-News
+ * @since 1.0
+ */
+
 $pageRoot = getRoot($post);
 $section = get_post($pageRoot);
 $isRoot = $section->ID == $post->ID;

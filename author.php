@@ -1,13 +1,8 @@
 <?php
 /**
- * The template for displaying Author Archive pages.
+ * The template for displaying archive-type pages for posts by an author.
  *
- * Used to display archive-type pages for posts by an author.
- *
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
- *
- * @package WordPress
- * @subpackage Twenty_Twelve
+ * @package MITLibraries-News
  * @since Twenty Twelve 1.0
  */
 

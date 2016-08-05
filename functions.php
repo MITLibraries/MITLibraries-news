@@ -1,11 +1,10 @@
-<?php
-/*
-//
-// Debugging mode
-error_reporting(E_ALL);
-ini_set('display_errors', TRUE);
-ini_set('display_startup_errors', TRUE);
-*/
+<?php 
+/** 
+ * News theme functions and definitions
+ *
+ * @package MITLibraries-News
+ * @since Twenty Twelve 1.0
+ */
 
 // Adds auto-loader for lib content
 $siteRoot = $_SERVER['DOCUMENT_ROOT'];

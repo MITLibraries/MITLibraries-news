@@ -1,6 +1,9 @@
 <?php
 /**
- * @package MIT Libraries News
+ * The template for displaying content of a single post.
+ *
+ * @package MITLibraries-News
+ * @since 1.0.0
  */
 	
 	$category = get_the_category();

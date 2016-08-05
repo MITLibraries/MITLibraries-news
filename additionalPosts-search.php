@@ -1,4 +1,14 @@
 <?php
+/**
+ * This template loads additional Posts from search-results page if any exist.
+ *
+ * @package MITLibraries-News
+ * @since 1.0
+ */
+ 
+?>
+
+<?php
 function set_search( $q ) {
     $q->set( 'is_search', true );
 }
@@ -17,9 +27,7 @@ $(document).ready(function() {
 $date = DateTime::createFromFormat('Ymd', get_field('event_date'));
 ?>
 <?php
-    /*
-        Template Name: Additional Posts Search
-    */
+
     $offset = htmlspecialchars(trim($_GET['offset']));
     if ($offset == '') {
         $offset = 9;

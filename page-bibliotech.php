@@ -1,7 +1,14 @@
 <?php
-/*
-Template Name:Bibliotech 
-*/
+/**
+ * Template Name: Bibliotech
+ *
+ * This template is used to display
+ * latest Bibliotech Posts
+ *
+ * @package MITLibraries-News
+ * @since 1.0
+ */
+
 $pageRoot = getRoot($post);
 $section = get_post($pageRoot);
 $isRoot = $section->ID == $post->ID;

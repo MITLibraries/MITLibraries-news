@@ -1,5 +1,12 @@
 <?php 
-	get_header();
+/**
+ * Template Name: Test Template
+ *
+ * @package MITLibraries-News
+ * @since 1.0.0
+ */
+
+get_header();
 ?>
 
 <?php get_template_part('inc/sub-header'); ?>

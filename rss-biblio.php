@@ -1,7 +1,13 @@
 <?php
-/*
-Template Name: Bilbio RSS
-*/
+/**
+ * Template Name: Biblio RSS
+ *
+ * This template is used to display
+ * RSS feed for Biblio posts.
+ *
+ * @package MITLibraries-News
+ * @since 1.0
+ */
 
 $numposts = 5;
 

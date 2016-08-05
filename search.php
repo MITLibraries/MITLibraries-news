@@ -2,8 +2,7 @@
 /**
  * The template for displaying Search Results pages.
  *
- * @package WordPress
- * @subpackage Twenty_Twelve
+ * @package MITLibraries-News
  * @since Twenty Twelve 1.0
  */
 
