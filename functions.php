@@ -252,28 +252,36 @@ function init_category( $request ) {
 }
 add_filter( 'pre_get_posts', 'init_category' );
 
-//adds custom field 'subtitle' to RSS feed
-function subtitle_rssContent($content) {
-	if (the_field('subtitle')) :
-		$content = '<h3>'. the_field('subtitle') . '</h3>' . $content;
-	endif;
+/**
+ * Adds custom field 'subtitle' to RSS feed
+ *
+ * @param string $content Feed content to which the subtitle is added.
+ */
+function subtitle_rss_content( $content ) {
+	if ( the_field( 'subtitle' ) ) {
+		$content = '<h3>' . the_field( 'subtitle' ) . '</h3>' . $content;
+	}
 	return $content;
 }
-add_filter('the_excerpt_rss', 'subtitle_rssContent');
-add_filter('the_content_feed', 'subtitle_rssContent');
+add_filter( 'the_excerpt_rss', 'subtitle_rss_content' );
+add_filter( 'the_content_feed', 'subtitle_rss_content' );
 
-//adds custom fields for events to RSS feed
-function event_rssContent($content) {
-	$date = get_field('event_date', false, false);
-	$date = new DateTime($date);
-	$new_date = $date->format('F j, Y');
-	if (get_field('event_date')) :	
-		$content = '<div>' . 'Event date: ' . $new_date . ' ' . ' | ' . get_field('event_start_time') . ' - ' . get_field('event_end_time') . '</div>' . '<br>' . $content;
-	endif;
+/**
+ * Adds custom fields for events to RSS feed
+ *
+ * @param string $content Feed content to which the event date is added.
+ */
+function event_rss_content( $content ) {
+	$date = get_field( 'event_date', false, false );
+	$date = new DateTime( $date );
+	$new_date = $date->format( 'F j, Y' );
+	if ( get_field( 'event_date' ) ) {
+		$content = '<div>Event date: ' . $new_date . ' | ' . get_field( 'event_start_time' ) . ' - ' . get_field( 'event_end_time' ) . '</div><br>' . $content;
+	}
 	return $content;
 }
-add_filter('the_excerpt_rss', 'event_rssContent');
-add_filter('the_content_feed', 'event_rssContent');
+add_filter( 'the_excerpt_rss', 'event_rss_content' );
+add_filter( 'the_content_feed', 'event_rss_content' );
 
 /**
  * Event RSS feed
