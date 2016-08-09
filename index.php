@@ -136,8 +136,9 @@ if ( $i > 6 ) {
 } //$i > 6
 ?>
 
-	</div>
 </div>
+<!--closes WRAP-REGULAR-->
+
 
 <script>
 $(document).ready(function() {
