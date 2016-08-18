@@ -55,7 +55,7 @@ $defaults = array(
     <span class="caret"></span>
   </button> ',
 	'depth'           => 0,
-	'walker'          => ''
+	'walker'          => '',
 );
 
 wp_nav_menu( $defaults );
@@ -89,7 +89,7 @@ wp_nav_menu( $defaults );
 			'order'              => 'ASC',
 			'echo'             => 0,
 			'exclude'		   => '44',
-			'exclude_tree'     =>  '44'
+			'exclude_tree'     =>  '44',
 		);
 		?>
 

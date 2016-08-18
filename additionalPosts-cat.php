@@ -48,13 +48,13 @@ $categoryId = $_GET['categoryID'];
 	$args = array(
 	'posts_per_page'      => $limit,
 	'post_type' 			  => 'post',
-	'cat'				  => $categoryId ,
+	'cat'				  => $categoryId,
 	'offset'  			  => 21,
 	'post__not_in'        => get_option( 'sticky_posts' ),
 	'ignore_sticky_posts' => 1,
 	'orderby'             => 'date',
 	'order'               => 'DESC',
-	'suppress_filters' => false
+	'suppress_filters' => false,
 
 );
 

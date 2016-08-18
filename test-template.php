@@ -24,7 +24,7 @@ $args = array(
 	'ignore_sticky_posts' => 1,
 	'orderby'   	=> 'menu_order',
 	'order'     	=> 'ASC',
-	'suppress_filters' => false
+	'suppress_filters' => false,
 );
 $query2 = new WP_Query( $args );
 if ( $query2->have_posts() ) :
@@ -97,12 +97,12 @@ echo '<a title="' . $category[0]->cat_name . '" href="' . get_category_link( $ca
 	  <?php
 $args = array(
 	'posts_per_page'      => 9,
-	'post_type' => array('Spotlights','bibliotech', 'post'),
+	'post_type' => array( 'Spotlights','bibliotech', 'post' ),
 	'post__not_in'            => get_option( 'sticky_posts' ),
 	'ignore_sticky_posts' => 1,
 	'orderby'   	=> 'menu_order',
 	'order'     	=> 'ASC',
-	'suppress_filters' => false
+	'suppress_filters' => false,
 
 );
 $the_query = new WP_Query( $args );

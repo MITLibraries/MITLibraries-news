@@ -36,7 +36,7 @@
 		// args
 		$args2 = array(
 		'post_type'  				=> 'post',
-		'post__not_in' => array($sticky),
+		'post__not_in' => array( $sticky ),
 			'posts_per_page'        => $limit,
 			'offset'					 =>'10',
 			'ignore_sticky_posts'   => true,

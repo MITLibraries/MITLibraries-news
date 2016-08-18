@@ -176,12 +176,12 @@ $currentPost = get_the_ID();
 $myCatId = $category[ $r ]->cat_ID;
 
 $args = array(
-	'post_type' => array( 'post', 'bibliotech', 'spotlights'),
+	'post_type' => array( 'post', 'bibliotech', 'spotlights' ),
 	'cat'          => $myCatId,
 	'posts_per_page'         => '3',
 	'order'                  => 'DESC',
 	'orderby'                => 'date',
-	'post__not_in'       => array($currentPost),
+	'post__not_in'       => array( $currentPost ),
 );
 	?>
 	

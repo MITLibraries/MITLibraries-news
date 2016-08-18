@@ -34,14 +34,14 @@ $(document).ready(function() {
 
 
 	$args = array(
-	 	'post_type' => array('bibliotech' ),
-	 	'post__not_in'   => array( 'sticky_posts'),
+	 	'post_type' => array( 'bibliotech' ),
+	 	'post__not_in'   => array( 'sticky_posts' ),
 	 	'ignore_sticky_posts' => 1,
 		'offset'          => 10,
 		'posts_per_page'  => $limit,
 		'order'                  => 'DESC',
 		'orderby'                => 'date',
-		'suppress_filters' => false
+		'suppress_filters' => false,
 
 
 );

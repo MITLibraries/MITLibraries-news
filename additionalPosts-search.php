@@ -41,7 +41,7 @@ $date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 // Build $search_args based on passed parameters
 // Based on https://codex.wordpress.org/Creating_a_Search_Page
 $query_args = explode( '&', $_SERVER['QUERY_STRING'] );
-$search_args = array('posts_per_page' => $limit);
+$search_args = array( 'posts_per_page' => $limit );
 
 foreach ( $query_args as $key => $string ) {
 	$query_split = explode( '=', $string );

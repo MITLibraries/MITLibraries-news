@@ -32,7 +32,7 @@ $args = array(
 			'post_type'       	  => 'bibliotech',
 			'orderby'        	  => 'menu_order',
 			'order'          	  => 'ASC',
-			'suppress_filters'    => false
+			'suppress_filters'    => false,
 			);
 $the_query = new WP_Query( $args );
 $lastpost = $numposts - 1;

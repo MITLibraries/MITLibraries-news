@@ -91,7 +91,7 @@ function mitlibnews_register_news_posts() {
 		'title',
 		'editor',
 		'thumbnail',
-		'excerpt'
+		'excerpt',
 	);
 	// spotlight
 	$labelsFeatures = array(
@@ -108,14 +108,14 @@ function mitlibnews_register_news_posts() {
 		'search_items' => 'Search Spotlights',
 		'parent_item_colon' => 'Parent Spotlights:',
 		'not_found' => 'No Spotlights found.',
-		'not_found_in_trash' => 'No Spotlights found in Trash.'
+		'not_found_in_trash' => 'No Spotlights found in Trash.',
 	);
 	$argsFeatures = array(
 		'labels'  => $labelsFeatures,
 		'public' => true,
 		'menu_position' => 5,
-		'supports' => array('title'),
-		'taxonomies' => array('category')
+		'supports' => array( 'title' ),
+		'taxonomies' => array( 'category' ),
 
 	);
 	register_post_type( 'spotlights', $argsFeatures );
@@ -151,7 +151,7 @@ function mitlibnews_register_news_posts() {
 		'parent_item_colon' => 'Parent Bibliotech:',
 		'not_found' => 'No Bibliotech found.',
 		'not_found_in_trash' => 'No Bibliotech found in Trash.',
-		'taxonomies' => array('category')
+		'taxonomies' => array( 'category' ),
 
 	);
 	$argsFeatures = array(
@@ -159,7 +159,7 @@ function mitlibnews_register_news_posts() {
 		'public' => true,
 		'menu_position' => 5,
 		'supports' => $supports_default,
-		'taxonomies' => array('category')
+		'taxonomies' => array( 'category' ),
 	);
 	register_post_type( 'bibliotech', $argsFeatures );
 
@@ -255,7 +255,7 @@ function init_category( $request ) {
 	if ( is_category() && !is_category( 'bibliotech' ) && !array_key_exists( 'post_type', $vars ) ) :
 		$vars = array_merge(
 			$vars,
-			array('post_type' => 'any')
+			array( 'post_type' => 'any' )
 		);
 		$request->query_vars = $vars;
 	endif;
@@ -411,7 +411,7 @@ add_action( 'widgets_init', 'news_sidebar_widget' );
  */
 function SearchFilter( $query ) {
 if ( $query->is_search ) {
-$query->set( 'post_type', array('post', 'Bibliotech', 'Spotlights') );
+$query->set( 'post_type', array( 'post', 'Bibliotech', 'Spotlights' ) );
 }
 return $query;
 }

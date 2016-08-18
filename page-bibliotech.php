@@ -30,7 +30,7 @@ $args = array(
 	'post_type' => 'bibliotech',
 	'order'                  => 'DESC',
 	'orderby'                => 'date',
-	'suppress_filters' => false
+	'suppress_filters' => false,
 );
 $query2 = new WP_Query( $args );
 if ( $query2->have_posts() ) :
@@ -68,7 +68,7 @@ $args = array(
 			'post_type'       	  => 'bibliotech',
 			'orderby'        	  => 'date',
 			'order'          	  => 'DESC',
-			'suppress_filters'    => false
+			'suppress_filters'    => false,
 			);
 $my_query = new WP_Query( $args );
 $m = -1;
