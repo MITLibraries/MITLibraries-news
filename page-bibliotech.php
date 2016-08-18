@@ -21,7 +21,7 @@ get_header(); ?>
 			
 			<!-- OPEN ROW FOR MOBILE/STICKY CARD LAYOUT -->
 				<div class="row">
-<?php 
+<?php
 $sticky = get_option( 'sticky_posts' );
 $args = array(
 	'posts_per_page'      => 1,
@@ -33,7 +33,7 @@ $args = array(
 	'suppress_filters' => false
 );
 $query2 = new WP_Query( $args );
-if( $query2->have_posts() ):  
+if( $query2->have_posts() ):
 while ( $query2->have_posts() ) : $query2->the_post(); ?>
 <?php if ( isset( $sticky[0] ) ) { ?>
 
@@ -60,7 +60,7 @@ while ( $query2->have_posts() ) : $query2->the_post(); ?>
 			<!-- OPEN ROW FOR MOBILE/STICKY CARD LAYOUT -->
 				<div class="row">  
 	
-			<?php	 
+			<?php
 $args = array(
 			'posts_per_page'      => 9,
 			'post__not_in'        => get_option( 'sticky_posts' ),
@@ -71,11 +71,11 @@ $args = array(
 			'suppress_filters'    => false
 			);
 $my_query = new WP_Query( $args );
-$m = -1;	
+$m = -1;
 //GETTTING LENGTH
-$theLength = $my_query->post_count;	
+$theLength = $my_query->post_count;
 while ($my_query->have_posts()){
-$m++; 	
+$m++;
 $my_query->the_post();
 ?>
 	
@@ -86,11 +86,11 @@ $my_query->the_post();
 	<!--closeMITContainer-->
 	<?php
 
-	
-	if($theLength > 8){ 
-	
-			get_template_part( 'inc/more-posts' );   
-		
+
+	if($theLength > 8){
+
+			get_template_part( 'inc/more-posts' );
+
 		} ?> 
 </div>
 <script>

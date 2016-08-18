@@ -17,7 +17,7 @@
  * @since Twenty Twelve 1.0
  */
 
-get_header(); 
+get_header();
 $date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 
 
@@ -39,15 +39,15 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73, $
 	<div class="row">
 	
 	
-	  <?php 
-	  $i = -1;	
-	 
-	  
+	  <?php
+	  $i = -1;
+
+
 	  while ( have_posts() ) : the_post();
-	 
+
 	  $i++;
-	  
-	  
+
+
 	  ?>
 	  
 	  <div class="<?php if ($i % 3 == 0){ echo "third "; } ?> col-xs-12  col-xs-B-6 col-sm-4 col-md-4 no-padding-left-mobile">
@@ -88,7 +88,7 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73, $
 
 		
 		<div class="category-post">
-		  <?php 
+		  <?php
 				$category = get_the_category();     if($category[0]){
 				echo '<a title="'.$category[0]->cat_name.'"  title="'.$category[0]->cat_name.'" href="'.get_category_link( $category[0]->term_id ).'">'.$category[0]->cat_name.'</a>';
 				}
@@ -115,13 +115,13 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73, $
 
 
 	
-		<?php  
-	
-		if($i  > 7){ 
-	
-	get_template_part( 'inc/more-posts' );   
-		
-	}  
+		<?php
+
+		if($i  > 7){
+
+	get_template_part( 'inc/more-posts' );
+
+	}
 	?>   
 		
 

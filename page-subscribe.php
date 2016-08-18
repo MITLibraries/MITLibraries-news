@@ -11,7 +11,7 @@ $section = get_post( $pageRoot );
 $isRoot = $section->ID == $post->ID;
 
 
-	
+
 get_header(); ?>
 	<div class="newsSubHeader clearfix">
 <div class="innerPadding clearfix">
@@ -22,9 +22,9 @@ get_header(); ?>
 	  <?php }else{ ?>
 	
 	<h1 class="name-site"><a href="/news/">News &amp; events</a>
-	<?php 
+	<?php
 	if(is_category()){
-	 printf( '<span>'. ': ' . single_cat_title( '', false ) . '</span>' ); 
+	 printf( '<span>'. ': ' . single_cat_title( '', false ) . '</span>' );
 	}  ?>        
 	</h1>
 	

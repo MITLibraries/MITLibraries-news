@@ -5,7 +5,7 @@
  * @package MITLibraries-News
  * @since 1.0
  */
-	
+
 ?>
 
 <script type="text/javascript">
@@ -27,13 +27,13 @@ $date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 	if ($offset == '') {
 		$offset = 9;
 	}
-	
+
 	 $limit = htmlspecialchars( trim( $_GET['limit'] ) );
 	if ($limit == '') {
 		$limit = 9;
 	}
-	
-	
+
+
 	$args = array(
 	'posts_per_page'      => $limit,
 	'post_type' => array('spotlights','bibliotech', 'post'),
@@ -46,7 +46,7 @@ $date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 
 );
 
-$the_query = new WP_Query( $args ); 
+$the_query = new WP_Query( $args );
 
 
 ?>
@@ -58,7 +58,7 @@ $ajaxLength = $the_query->post_count;
 <script>
 $("#another").hide();
 </script>
-<?php } 
+<?php }
 //removes button end ?>
 
 
@@ -66,9 +66,9 @@ $("#another").hide();
 <?php if( $the_query->have_posts() ):  ?>
 
 
-<?php 
-$o = -1;	
-while ( $the_query->have_posts() ) : $the_query->the_post(); 
+<?php
+$o = -1;
+while ( $the_query->have_posts() ) : $the_query->the_post();
 renderRegularCard( $o, $post );
 $o++;
 ?>
@@ -81,7 +81,7 @@ $o++;
 	
 
 <?php
-endwhile; 
-else : 
+endwhile;
+else :
 endif;
 wp_reset_query();  // Restore global post data stomped by the_post(). ?>

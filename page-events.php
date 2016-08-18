@@ -111,7 +111,7 @@ $archive_posts = (array) $the_archive->posts;
 		foreach ($future_posts as $post) {
 		  $i++;
 		  renderEventCard( $i, $post );
-		} 
+		}
 	  } else {
 		?>
 			<p class="left-padder">There are no upcoming classes or events at this time, but check back often.</p>
@@ -130,12 +130,12 @@ $archive_posts = (array) $the_archive->posts;
 		foreach ($past_posts as $post) {
 		  $i++;
 		  renderEventCard( $i, $post );
-		} 
+		}
 	  }
 	  ?>
 	</div> <!-- close row for past events -->
-	<?php if(count( $past_posts ) > 8){ 
-	  get_template_part( 'inc/more-posts' ); 
+	<?php if(count( $past_posts ) > 8){
+	  get_template_part( 'inc/more-posts' );
 	} ?>
 
 <?php wp_reset_query();  // Restore global post data stomped by the_post(). ?>
@@ -177,6 +177,6 @@ $(document).ready(function() {
 });
 </script>
 <div class="container container-fluid">
-<?php 
+<?php
 	get_footer();
 

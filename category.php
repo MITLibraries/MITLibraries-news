@@ -1,4 +1,4 @@
-<?php	
+<?php
 /**
  * The template for displaying archive-type pages for posts in a category.
  *
@@ -6,7 +6,7 @@
  * @since Twenty Twelve 1.0
  */
 
-get_header(); 
+get_header();
 
 
 
@@ -19,15 +19,15 @@ $date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 	<?php if ( have_posts() ) : ?>
 	<div class="container container-fluid">
 	  <div class="row">
-	      <?php 
+	      <?php
 	if(is_category()){
-	 printf( '<h1 class="lib-header">'. 'Category: ' . '<strong>' . single_cat_title( '', false ) . '</strong>'  . '</h1>' ); 
+	 printf( '<h1 class="lib-header">'. 'Category: ' . '<strong>' . single_cat_title( '', false ) . '</strong>'  . '</h1>' );
 	}  ?> 
 		<?php
 			/* Start the Loop */
 			$i = -1;
 			while ( have_posts() ) : the_post();
-			$i++; 
+			$i++;
 				renderRegularCard( $i, $post ); // --- CALLS REGULAR CARDS --- //
 			?>
 	

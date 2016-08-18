@@ -16,7 +16,7 @@ $section = get_post( $pageRoot );
 $isRoot = $section->ID == $post->ID;
 
 
-	
+
 get_header(); ?>
 	<?php get_template_part( 'inc/sub-headerSingle' ); ?>
 

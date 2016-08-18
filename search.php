@@ -32,12 +32,12 @@ get_header(); ?>
 		
 	
 		
-	  <?php 
-	 
+	  <?php
+
 	  	$L = -1;
 	   	//$theLength = $count_posts->publish;
-	  
-		
+
+
 	 	 while (have_posts()) : the_post(); $L++;
 	  	?>
 	  <!--//////////// -->
@@ -73,7 +73,7 @@ get_header(); ?>
 		<!--EVENT -->
 		<?php } ?>
 	<div class="category-post <?php  if(get_post_type( get_the_ID() ) == 'bibliotech'){ echo "Bibliotech";} ?>">
-<?php 
+<?php
 	if(get_post_type( get_the_ID() ) == 'bibliotech'){
 	   echo "<div class='bilbioImg bilbioTechIcon'>
 	   </div>";
@@ -84,7 +84,7 @@ get_header(); ?>
 		  </span> </div> 
 	  
 	<?php 	  }else{
-				$category = get_the_category();     
+				$category = get_the_category();
 				$rCat = count( $category );
 				$r = rand( 0, $rCat -1 );
 				echo '<a title="'.$category[$r]->cat_name.'"  title="'.$category[$r]->cat_name.'" href="'.get_category_link( $category[$r]->term_id ).'">'.$category[$r]->cat_name.'</a>'; ?>
@@ -104,11 +104,11 @@ get_header(); ?>
 	</div> <!--closeFLexContainer--> 
 	</div><!--closes row-->
 
-<?php 
-	if($L > 7){ 
-	
-			get_template_part( 'inc/more-posts' );   
-		
+<?php
+	if($L > 7){
+
+			get_template_part( 'inc/more-posts' );
+
 		} ?> 
 
 

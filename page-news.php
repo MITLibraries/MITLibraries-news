@@ -27,7 +27,7 @@ get_header(); ?>
 	                <h1 class="events-header">News</h1>
 	
 		<?php
-	
+
 		$sticky = get_option( 'sticky_posts' );
 		// args
 		$args = array(
@@ -81,7 +81,7 @@ get_header(); ?>
 		<?php
 			if ( $i > 6 ) {
 				get_template_part( 'inc/more-posts' );
-			} 
+			}
 		?>
 
 					<?php wp_reset_query();  // Restore global post data stomped by the_post(). ?>
@@ -110,6 +110,6 @@ $(document).ready(function() {
 });
 </script>
 <div class="container container-fluid">
-<?php 
+<?php
 	get_footer();
 ?>

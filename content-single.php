@@ -5,7 +5,7 @@
  * @package MITLibraries-News
  * @since 1.0.0
  */
-	
+
 	$category = get_the_category();
 	$type_post = get_post_type();
 	$subtitle;
@@ -31,7 +31,7 @@
 			<span class="category-post">
 		   
 				<?php
-$category = get_the_category(); 
+$category = get_the_category();
 ?>
 				
 				
@@ -62,22 +62,22 @@ $category = get_the_category();
 			} ?>
 			
 			
-			<?php 
-			
+			<?php
+
 			$date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 			//echo $date->format('d-m-Y');
 
-			
-			
-			
-		
+
+
+
+
 			// Check for events
 			if ($type_post == 'post' && get_field( 'is_event' ) == 1) { ?>
 			
 			<div class="event"><span class="grey">Event date </span> <?php echo $date->format( 'F, j Y' ); ?><span class="grey"> starting at</span> <?php echo  get_field( 'event_start_time' ); ?> <span class="grey"><?php if(get_field( 'event_end_time' ) != ""){ ?> and ending at</span> <?php echo get_field( 'event_end_time' ); }?></div>
 				
 		
-			<?php 
+			<?php
 								}
 		?>
 			

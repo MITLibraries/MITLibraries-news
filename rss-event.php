@@ -16,11 +16,11 @@ function yoast_rss_date( $timestamp = null ) {
 	echo date( DATE_RSS, $timestamp );
 }
 
-function yoast_rss_text_limit($string, $length, $replacer = '...') { 
+function yoast_rss_text_limit($string, $length, $replacer = '...') {
 	$string = strip_tags( $string );
-	if(strlen( $string ) > $length) 
-	return (preg_match( '/^(.*)\W.*$/', substr( $string, 0, $length+1 ), $matches ) ? $matches[1] : substr( $string, 0, $length )) . $replacer;   
-	return $string; 
+	if(strlen( $string ) > $length)
+	return (preg_match( '/^(.*)\W.*$/', substr( $string, 0, $length+1 ), $matches ) ? $matches[1] : substr( $string, 0, $length )) . $replacer;
+	return $string;
 }
 
 
@@ -32,9 +32,9 @@ $args = array(
 	'order' => 'DESC',
 	'posts_per_page' => -1
 
-	
+
 );
-$the_query = new WP_Query( $args );	 
+$the_query = new WP_Query( $args );
 $lastpost = $numposts - 1;
 header( "Content-Type: application/rss+xml; charset=UTF-8" );
 echo '<?xml version="1.0"?>';

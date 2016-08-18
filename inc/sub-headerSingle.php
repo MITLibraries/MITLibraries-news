@@ -17,9 +17,9 @@
 	  <?php }else{ ?>
 	
 	<h1 class="name-site"><a href="/news/">News &amp; events</a>
-	<?php 
+	<?php
 	if(is_category()){
-	 printf( '<span>'. ': ' . single_cat_title( '', false ) . '</span>' ); 
+	 printf( '<span>'. ': ' . single_cat_title( '', false ) . '</span>' );
 	}  ?>        
 	</h1>
 	
@@ -39,7 +39,7 @@
 
 <?php /*?><a href="">Subscribe</a>
 <?php previous_post('%','Previous story', 'no'); ?>
-<span class="not_on_phone">|</span> 
+<span class="not_on_phone">|</span>
 <?php next_post('%','Next story ', 'no'); ?><?php */?>
 </div>
 
@@ -50,7 +50,7 @@
 <?php /*?><div class="flex-container subNavH">
   <div class="leftNav">
     <div class="box-row newsNav">
-	 
+
 	   <?php
 //main nav
 $defaults = array(
@@ -66,7 +66,7 @@ $defaults = array(
 	'before'          => '',
 	'after'           => '',
 	'link_before'     => '',
-	
+
 	'link_after'      => '',
 	'items_wrap'      => '<ul id="%1$s" class="%2$s udClear nav nav-pills" role="tablist">%3$s</ul><a href="#" id="pull">Menu</a>',
 	'depth'           => 0,
@@ -76,7 +76,7 @@ $defaults = array(
 wp_nav_menu( $defaults );
 
 
-?>	    
+?>
     </div>
   </div>
   <div class="rightNav">

@@ -5,7 +5,7 @@
  * @package MITLibraries-News
  * @since 1.0
  */
-	
+
 ?>
 
 <script type="text/javascript">
@@ -23,12 +23,12 @@ $(document).ready(function() {
 	if ($offset == '') {
 		$offset = 11;
 	}
-	
+
 	 $limit = htmlspecialchars( trim( $_GET['limit'] ) );
-	
+
 	if ($limit == '') {
 		$limit = 18;
-	}	
+	}
 ?>
 <?php
 $date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
@@ -60,29 +60,29 @@ $args = array(
 
 );
 
-	$the_query = new WP_Query( $args ); 
+	$the_query = new WP_Query( $args );
 
 //removes button start
 $ajaxLength = $the_query->post_count;
 
-if ($ajaxLength < $limit){ 
+if ($ajaxLength < $limit){
 ?>
 <script>
 $("#another").hide();
 </script>
-<?php 
+<?php
 }
-//removes button end 
+//removes button end
 
 
-if( $the_query->have_posts() ):  
-	$o = -1;	
-	while ( $the_query->have_posts() )   : $the_query->the_post(); 
+if( $the_query->have_posts() ):
+	$o = -1;
+	while ( $the_query->have_posts() )   : $the_query->the_post();
 	$o++;
 	renderEventCard( $o, $post );
-	endwhile; 
-endif;  
+	endwhile;
+endif;
 
-wp_reset_query();  // Restore global post data stomped by the_post(). 
+wp_reset_query();  // Restore global post data stomped by the_post().
 
 ?>

@@ -9,9 +9,9 @@
  * @since 1.0
  */
 
-get_header(); 
+get_header();
 get_template_part( 'inc/sub-header' );
-get_template_part( 'inc/bib-header' ); 
+get_template_part( 'inc/bib-header' );
 ?>
 <div class="clearfix">
 <div class="container subscribe">

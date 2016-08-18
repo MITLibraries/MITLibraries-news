@@ -5,7 +5,7 @@
  * @package MITLibraries-News
  * @since 1.0
  */
-	
+
 ?>
 
 <script>
@@ -29,22 +29,22 @@ $date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 global $post;
 $categoryId = $_GET['categoryID'];
 
-	
 
 
-	
+
+
 	$offset = htmlspecialchars( trim( $_GET['offset'] ) );
 	if ($offset == '') {
 		$offset = 21;
 	}
-	
+
 	 $limit = htmlspecialchars( trim( $_GET['limit'] ) );
 	if ($limit == '') {
 		$limit = 9;
 	}
-	
-	
-	
+
+
+
 	$args = array(
 	'posts_per_page'      => $limit,
 	'post_type' 			  => 'post',
@@ -58,7 +58,7 @@ $categoryId = $_GET['categoryID'];
 
 );
 
-$the_query = new WP_Query( $args ); 
+$the_query = new WP_Query( $args );
 
 //removes button start
 $ajaxLength = $the_query->post_count;
@@ -67,17 +67,17 @@ $ajaxLength = $the_query->post_count;
 <script>
 $("#another").hide();
 </script>
-<?php } 
+<?php }
 //removes button end
 ?>
 	
 <?php if( $the_query->have_posts() ):  ?>
 
 
-<?php 
-$o = -1;	
+<?php
+$o = -1;
 
-while ( $the_query->have_posts() ) : $the_query->the_post(); 
+while ( $the_query->have_posts() ) : $the_query->the_post();
 	$o++;
 				renderRegularCard( $o, $post ); // --- CALLS REGULAR CARDS --- //
 ?>
@@ -92,5 +92,3 @@ while ( $the_query->have_posts() ) : $the_query->the_post();
 					<?php endwhile; ?>
 			
 					<?php endif; ?>
-	
-

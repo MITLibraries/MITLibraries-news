@@ -5,7 +5,7 @@
  * @package MITLibraries-News
  * @since 1.0
  */
-	
+
 ?>
 
 <?php
@@ -32,12 +32,12 @@ $date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 	if ($offset == '') {
 		$offset = 9;
 	}
-	
+
 	 $limit = htmlspecialchars( trim( $_GET['limit'] ) );
 	if ($limit == '') {
 		$limit = 9;
 	}
-	
+
 // Build $search_args based on passed parameters
 // Based on https://codex.wordpress.org/Creating_a_Search_Page
 $query_args = explode( "&", $_SERVER["QUERY_STRING"] );
@@ -63,7 +63,7 @@ $ajaxLength = $the_query->post_count;
 <script>
 $("#another").hide();
 </script>
-<?php } 
+<?php }
 //removes button end ?>
 
 
@@ -71,10 +71,10 @@ $("#another").hide();
 <?php if( $the_query->have_posts() ):  ?>
 
 
-<?php 
-$o = -1;	
+<?php
+$o = -1;
 
-while ( $the_query->have_posts() ) : $the_query->the_post(); 
+while ( $the_query->have_posts() ) : $the_query->the_post();
 	$o++;
 ?>
 
@@ -103,7 +103,7 @@ while ( $the_query->have_posts() ) : $the_query->the_post();
 		<!--EVENT -->
 		<?php } ?>
 		<div class="category-post <?php  if(get_post_type( get_the_ID() ) == 'bibliotech'){ echo "Bibliotech";} ?>">
-<?php 
+<?php
 	if(get_post_type( get_the_ID() ) == 'bibliotech'){
 	   echo "<div class='bilbioImg bilbioTechIcon'>
 	   </div>";
@@ -114,7 +114,7 @@ while ( $the_query->have_posts() ) : $the_query->the_post();
 		  </span> </div> 
 	  </div>
 	<?php 	  }else{
-				$category = get_the_category();     
+				$category = get_the_category();
 				$rCat = count( $category );
 				$r = rand( 0, $rCat -1 );
 				echo '<a title="'.$category[$r]->cat_name.'"  title="'.$category[$r]->cat_name.'" href="'.get_category_link( $category[$r]->term_id ).'">'.$category[$r]->cat_name.'</a>'; ?>
@@ -132,7 +132,7 @@ while ( $the_query->have_posts() ) : $the_query->the_post();
 	<!--close div that opens in bilbio if statement-->
 	<?php } ?>
 <?php
-endwhile; 
-else : 
+endwhile;
+else :
 endif;
 wp_reset_query();  // Restore global post data stomped by the_post(). ?>

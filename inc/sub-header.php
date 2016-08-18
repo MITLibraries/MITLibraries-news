@@ -12,7 +12,7 @@
 <div class="innerPadding">
 <div class="title-page row">
 	<div class="no-padding-left col-xs-12 col-sm-4 col-md-5 col-lg-5">
-	<?php 
+	<?php
 	global $post;
 	if (is_home()){ ?>
 		 <h1 class="name-site">News &amp; events</h1>
@@ -85,7 +85,7 @@ wp_nav_menu( $defaults );
 		$args = array(
 			'show_option_none' => __( 'Category' ),
 			'show_count'       => 0,
-			'orderby'            => 'name', 
+			'orderby'            => 'name',
 			'order'              => 'ASC',
 			'echo'             => 0,
 			'exclude'		   => '44',

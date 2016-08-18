@@ -39,25 +39,25 @@ function render($post, $i, $type) {
 	$categoryMarkup = "";
 	$dateMarkup = "";
 	/*
-  Not sure this check is needed 
+  Not sure this check is needed
   if ($post->post_type == 'bibliotech') {
     $categoryClasses .= " Bibliotech";
   }
   */
 	if (is_page( 'bibliotech-index' ) || (is_page_template( 'additionalPosts-biblio.php' )) || (is_category( 'bibliotech_issues' ) || (is_tax() ) || is_page_template( 'additionalPosts-archives.php' ))) {
 	// Bibliotech articles without icon
-	$categoryMarkup = "<div class='biblioPad'>&nbsp;<a href='/news/bibliotech-index/' title='Bibliotech'>Bibliotech</a></div>"; 
+	$categoryMarkup = "<div class='biblioPad'>&nbsp;<a href='/news/bibliotech-index/' title='Bibliotech'>Bibliotech</a></div>";
 	} elseif ( ( $post->post_type == 'bibliotech') && (!is_page_template( 'additionalPosts-biblio.php' )) ) {
-	// Bibliotech articles with icon    
-	$categoryMarkup = "<div class='bilbioImg bilbioTechIcon'> </div>"; 
-	$categoryMarkup .= "<div class='biblioPad'>&nbsp;<a href='/news/bibliotech-index/' title='Bibliotech'>Bibliotech</a>"; 
+	// Bibliotech articles with icon
+	$categoryMarkup = "<div class='bilbioImg bilbioTechIcon'> </div>";
+	$categoryMarkup .= "<div class='biblioPad'>&nbsp;<a href='/news/bibliotech-index/' title='Bibliotech'>Bibliotech</a>";
 	$dateMarkup = "<span class='mitDate'>" .
 	"<time class='updated' datetime='" . get_the_date() . "'>" . get_the_date() . "</time>" .
 	"</span>" .
 	"</div>";
 	} else {
 	// Non-biliotech articles
-	$category = get_the_category();     
+	$category = get_the_category();
 	$rCat = count( $category );
 	$r = rand( 0, $rCat -1 );
 	$categoryMarkup = '<a title="'.$category[$r]->cat_name.'"  title="'.$category[$r]->cat_name.'" href="'.get_category_link( $category[$r]->term_id ).'">'.$category[$r]->cat_name.'</a>';
@@ -339,6 +339,6 @@ function renderFeatureCard($i, $post) {
 	
 	</div>
 </div>
-<?php 
-} 
+<?php
+}
 ?>

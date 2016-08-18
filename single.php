@@ -6,7 +6,7 @@
  * @since Twenty Twelve 1.0
  */
 
-get_header(); 
+get_header();
 $category = get_the_category();
 	$type_post = get_post_type();
 	$subtitle;
@@ -32,7 +32,7 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73, $
 	  <h2 class="subtitle"><?php the_field( "subtitle" ); ?></h2>
 	  <?php } ?>
 	  <div class="entry-meta"> <span class="author"> By
-		<?php 
+		<?php
 		if (get_field( "pauthor" )){
 			the_field( "pauthor" );
 		}elseif (get_field( "bauthor" )){
@@ -45,15 +45,15 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73, $
 		
 		<?php if(has_category()): ?>
 		<span class="category-post-single"> in
-		<?php 
-				$category = get_the_category();  
+		<?php
+				$category = get_the_category();
 				?>
 			   
-				 <?php   
+				 <?php
 				$rCat = count( $category );
-				
+
 				$r = rand( 0, $rCat -1 );
-			
+
 				echo '<a title="'.$category[$r]->cat_name.'"  title="'.$category[$r]->cat_name.'" href="'.get_category_link( $category[$r]->term_id ).'">'.$category[$r]->cat_name.'</a>';
 			?>
 		<?php //echo ' in ' . array_slice($category, 0, 2); ?>
@@ -70,9 +70,9 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73, $
 	
 	
 	
-	<?php if(get_field( 'event_date' )){ 
+	<?php if(get_field( 'event_date' )){
 				$date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
-				
+
 			?>
 		  <!--EVENT --> 
 		  <div class="single-page events">
@@ -97,14 +97,14 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73, $
 </svg></span>    
 		  <span class="event"><?php echo $date->format( 'F j, Y' ); ?></span> 
 		  <span class="time">
-			<?php if( get_field( 'event_start_time' ) ){ 
-			  		echo the_field( 'event_start_time' ); 
+			<?php if( get_field( 'event_start_time' ) ){
+			  		echo the_field( 'event_start_time' );
 					} ?>
 			<?php if(( get_field( 'event_start_time' ) ) && ( get_field( 'event_end_time' ) )){
 				  				 echo '-';
 					} ?>
-			<?php if( get_field( 'event_end_time' ) ){ 
-			  		echo the_field( 'event_end_time' ); 
+			<?php if( get_field( 'event_end_time' ) ){
+			  		echo the_field( 'event_end_time' );
 			}  ?>
 			</span> 
 		  
@@ -137,7 +137,7 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73, $
 	
 	
 	<?php
-			
+
 			// Echo type of Feature, if Feature
 			if ($type_post === 'features') {
 				$type = get_field( 'feature_type' );
@@ -186,7 +186,7 @@ $args = array(
 	
 
 <div class="row">
-<?php      
+<?php
 $myposts = get_posts( $args );
 $y = 1 ;
 foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
@@ -194,9 +194,9 @@ foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
 	
 			  <?php renderRegularCard( $i, $post ); // --- CALLS REGULAR CARDS --- // ?>
 	
-	<?php 
+	<?php
 	$y = $y + 1;
-	endforeach; 
+	endforeach;
 wp_reset_postdata();?>
 	</div>
 	</main>

@@ -5,7 +5,7 @@
  * @package MITLibraries-News
  * @since 1.0
  */
-	
+
 ?>
 
 <script type="text/javascript">
@@ -19,20 +19,20 @@ $(document).ready(function() {
 </script>
 
 <?php
-	 
-	
+
+
 	$offset = htmlspecialchars( trim( $_GET['offset'] ) );
 	if ($offset == '') {
 		$offset = 10;
 	}
-	
+
 	 $limit = htmlspecialchars( trim( $_GET['limit'] ) );
 	if ($limit == '') {
 		$limit = 9;
 	}
-	
-	
-	
+
+
+
 	$args = array(
 	 	'post_type' => array('bibliotech' ),
 	 	'post__not_in'   => array( 'sticky_posts'),
@@ -42,10 +42,10 @@ $(document).ready(function() {
 		'order'                  => 'DESC',
 		'orderby'                => 'date',
 		'suppress_filters' => false
-				
-		
-);			
-	$the_query = new WP_Query( $args ); 	
+
+
+);
+	$the_query = new WP_Query( $args );
 
 
 ?>
@@ -67,11 +67,11 @@ $("#another").hide();
 	
 <?php if( $the_query->have_posts() ):  ?>
 
-<?php 
-$i = -1;		
-while ( $the_query->have_posts() ) : $the_query->the_post(); 
-$theLength = $my_query->post_count;	
-$i++; 
+<?php
+$i = -1;
+while ( $the_query->have_posts() ) : $the_query->the_post();
+$theLength = $my_query->post_count;
+$i++;
 ?>
 
 	<?php renderBiblioCard( $i, $post ); ?>

@@ -44,21 +44,21 @@ function the_excerpt_max_charlength($charlength) {
 
 $args = array(
 	'date_query' => array(
-	
+
 		array(
-		
+
 			'column' => 'post_date_gmt',
 			'before' => '210 days ago',
-			
+
 		),
 		array(
-			
+
 			'column' => 'post_date_gmt',
 			'after'  => 'last year',
-			
+
 		),
 	),
-); 
+);
 
 $the_query = new WP_Query( $args );
 
@@ -71,11 +71,11 @@ $the_query = new WP_Query( $args );
 	  <div class="flex-item eventsBox <?php if (!has_post_thumbnail()) { echo "no-image"; } else { echo "has-image"; } ?>" onClick='location.href="<?php echo get_post_permalink(); ?>"'>
 		<?php if (get_field( 'mark_as_new' ) === true): ?>
 		<?php endif; ?>
-		<?php if ( has_post_thumbnail() ) {		
+		<?php if ( has_post_thumbnail() ) {
 $thumb_id = get_post_thumbnail_id();
 $thumb_url_array = wp_get_attachment_image_src( $thumb_id, 'thumbnail-size', true );
 $thumb_url = $thumb_url_array[0];
-			
+
 ?>
 		<img src="<?php echo $thumb_url; ?>" width="100%" height="200" />
 		<?php	} 	?>
@@ -86,22 +86,22 @@ $thumb_url = $thumb_url_array[0];
 		<div class="excerpt-post">
 		  <?php the_excerpt_max_charlength( 140 ); ?>
 		</div>
-		<?php	 
-	   		
+		<?php
+
 				$mitDate = get_field( 'event_date' );
 				//echo $mitDate;
 				$mitDate = date( "l t Y", strtotime( $mitDate ) );
-				
+
 			?>
 		<div class="event"><?php echo $mitDate; ?>&nbsp;&nbsp; &nbsp; <span class="time">
-		  <?php if( get_field( 'event_start_time' ) ){ 
-			  			echo the_field( 'event_start_time' ); 
+		  <?php if( get_field( 'event_start_time' ) ){
+			  			echo the_field( 'event_start_time' );
 					} ?>
 		  <?php if(( get_field( 'event_start_time' ) ) && ( get_field( 'event_end_time' ) )){
 				  				 echo '-';
 					} ?>
-		  <?php if( get_field( 'event_end_time' ) ){ 
-			  				echo the_field( 'event_end_time' ); 
+		  <?php if( get_field( 'event_end_time' ) ){
+			  				echo the_field( 'event_end_time' );
 			  }
 				?>
 		  </span> </div>
@@ -110,8 +110,8 @@ $thumb_url = $thumb_url_array[0];
 		<!--/EVENT  DATE-->
 		
 		<div class="category-post">
-		  <?php 
-			$category = get_the_category(); 
+		  <?php
+			$category = get_the_category();
 			if($category[0]){
 			echo '<a href="'.get_category_link( $category[0]->term_id ).'">'.$category[0]->cat_name.'</a>';
 			}

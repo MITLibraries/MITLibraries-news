@@ -1,5 +1,5 @@
-<?php 
-/** 
+<?php
+/**
  * News theme functions and definitions
  *
  * @package MITLibraries-News
@@ -20,7 +20,7 @@ function not_admin() {
 }
 if ( ! is_admin() ) {
 	add_action( 'wp_enqueue_scripts', 'not_admin' );
-} 
+}
 
 /**
  * Add LazyLoad and MyScripts for all users
@@ -29,7 +29,7 @@ function add_scripts() {
 	wp_enqueue_script( 'lazyload', get_stylesheet_directory_uri() . '/js/lazyload.js', array( 'jquery' ), '', true );
 	wp_enqueue_script( 'myScripts', get_stylesheet_directory_uri() . '/js/myScripts.js', array( 'lazyload' ), '', true );
 }
-add_action( 'wp_enqueue_scripts', 'add_scripts' ); 
+add_action( 'wp_enqueue_scripts', 'add_scripts' );
 
 /**
  * This de-registers scripts from the parent theme, but they don't seem to actually be used?
@@ -40,7 +40,7 @@ function remove_scripts(){
 	// wp_deregister_script('underscore');
 	// wp_deregister_script('lib-hours');
 }
-add_action( 'wp_enqueue_scripts', 'remove_scripts', 100 ); 
+add_action( 'wp_enqueue_scripts', 'remove_scripts', 100 );
 
 /**
  * Remove dashboard menu items
@@ -64,7 +64,7 @@ function mitlibnews_remove_dashboard_widgets() {
 		remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' ); // "At a glance" widget
 		remove_meta_box( 'dashboard_activity', 'dashboard', 'normal' ); // Activity widget
 	}
-} 
+}
 add_action( 'do_meta_boxes', 'mitlibnews_remove_dashboard_widgets' );
 
 /**
@@ -116,7 +116,7 @@ function mitlibnews_register_news_posts() {
 		'menu_position' => 5,
 		'supports' => array('title'),
 		'taxonomies' => array('category')
-		
+
 	);
 	register_post_type( 'spotlights', $argsFeatures );
 
@@ -135,7 +135,7 @@ function mitlibnews_register_news_posts() {
 		return $object_taxonomies;
 	}
 	add_filter( 'apto_object_taxonomies', 'theme_apto_object_taxonomies', 10, 2 );
-	
+
 	// Bibliotech
 	$labelsFeatures = array(
 		'name' => 'Bibliotech',
@@ -153,7 +153,6 @@ function mitlibnews_register_news_posts() {
 		'not_found' => 'No Bibliotech found.',
 		'not_found_in_trash' => 'No Bibliotech found in Trash.',
 		'taxonomies' => array('category')
-		
 
 	);
 	$argsFeatures = array(
@@ -165,8 +164,7 @@ function mitlibnews_register_news_posts() {
 	);
 	register_post_type( 'bibliotech', $argsFeatures );
 
-
-}	
+}
 
 /*
 'capabilities' => array(
@@ -309,13 +307,12 @@ function customize_meta_boxes() {
 	//remove_meta_box('tagsdiv-post_tag','post','normal');
 	remove_meta_box( 'postexcerpt','post','normal' );
 
-	
 	/* Removes meta boxes from pages */
 	// remove_meta_box('postcustom','page','normal');
 	remove_meta_box( 'trackbacksdiv','page','normal' );
 	remove_meta_box( 'commentstatusdiv','page','normal' );
-	remove_meta_box( 'commentsdiv','page','normal' );  
-	
+	remove_meta_box( 'commentsdiv','page','normal' );
+
 }
 add_action( 'admin_init','customize_meta_boxes' );
 

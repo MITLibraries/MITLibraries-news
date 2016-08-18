@@ -62,10 +62,10 @@ get_header(); ?>
 			
 			
 				
-			<?php 
-			$i = -1;		
-			while ( have_posts() ) : the_post(); 
-			$i ++;		
+			<?php
+			$i = -1;
+			while ( have_posts() ) : the_post();
+			$i ++;
 			?>
 				
 				   <div id="theBox" class="<?php if ($i % 3 == 0){ echo "third "; } ?>no-padding-left-mobile col-xs-12 col-xs-B-6 col-sm-4 col-md-4 col-lg-4">
@@ -100,13 +100,13 @@ get_header(); ?>
 		<!--EVENT -->
 		<?php } ?>
 		<div class="category-post <?php  if(get_post_type( get_the_ID() ) == 'bibliotech'){ echo "Bibliotech";} ?>">
-<?php 
+<?php
 	if(get_post_type( get_the_ID() ) == 'bibliotech'){
 	   echo "<div class='bilbioImg bilbioTechIcon'>
 	   </div>";
 	   echo "<div class='biblioPadding'>&nbsp;<a href='/news/bibliotech/' title='Bibliotech'>Bibliotech</a>";
 	 	  }else{
-				$category = get_the_category();     
+				$category = get_the_category();
 				$rCat = count( $category );
 				$r = rand( 0, $rCat -1 );
 				echo '<a title="'.$category[$r]->cat_name.'"  title="'.$category[$r]->cat_name.'" href="'.get_category_link( $category[$r]->term_id ).'">'.$category[$r]->cat_name.'</a>';
