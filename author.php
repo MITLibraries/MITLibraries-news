@@ -18,6 +18,7 @@ get_header(); ?>
 	  <div class="row">
 
 			<?php
+
 				/*
 				 Queue the first post, that way we know
 				 * what author we're dealing with (if that is the case).
@@ -33,6 +34,7 @@ get_header(); ?>
 			</header><!-- .archive-header -->
 
 			<?php
+
 				/*
 				 Since we called the_post() above, we need to
 				 * rewind the loop back to the beginning that way
@@ -44,8 +46,10 @@ get_header(); ?>
 			<?php twentytwelve_content_nav( 'nav-above' ); ?>
 
 			<?php
-			// If a user has filled out their description, show a bio on their entries.
-/*
+
+			/*
+				If a user has filled out their description, show a bio on their entries.
+
           if ( get_the_author_meta( 'description' ) ) : ?>
 			<div class="author-info">
 				<div class="author-avatar">
@@ -58,7 +62,9 @@ get_header(); ?>
 			</div><!-- .author-info -->
 			<?php endif; ?>
 
-			<?php /* Start the Loop */ ?>
+			<?php /* Start the Loop
+			*/
+			?>
 			<div class="row">
 
 			

@@ -37,6 +37,7 @@ function render( $post, $i, $type ) {
 	$categoryClasses = 'category-post';
 	$categoryMarkup = '';
 	$dateMarkup = '';
+
 	/*
   Not sure this check is needed
   if ($post->post_type == 'bibliotech') {

@@ -41,6 +41,7 @@ foreach ( $menuitems as $m ) {  ?>
 	</div><!--flexcontainer-->
 		</div>  
 	<?php
+
 	  /*
       $select  = wp_dropdown_categories($args);
 		  $replace = "<select$1 onchange='return this.form.submit()'>";

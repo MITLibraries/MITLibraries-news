@@ -38,6 +38,7 @@
 
 
 <?php
+
 /*
 ?><a href="">Subscribe</a>
 <?php previous_post('%','Previous story', 'no'); ?>
@@ -52,6 +53,7 @@
 
 
 <?php
+
 /*
 ?><div class="flex-container subNavH">
   <div class="leftNav">
