@@ -119,7 +119,7 @@ if ( (get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73,
 	
 		<?php
 
-		if ( $i  > 7 ) {
+		if ( $i > 7 ) {
 
 	get_template_part( 'inc/more-posts' );
 

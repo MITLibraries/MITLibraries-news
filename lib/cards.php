@@ -47,7 +47,7 @@ function render( $post, $i, $type ) {
 	if ( is_page( 'bibliotech-index' ) || (is_page_template( 'additionalPosts-biblio.php' )) || (is_category( 'bibliotech_issues' ) || (is_tax() ) || is_page_template( 'additionalPosts-archives.php' )) ) {
 	// Bibliotech articles without icon
 	$categoryMarkup = "<div class='biblioPad'>&nbsp;<a href='/news/bibliotech-index/' title='Bibliotech'>Bibliotech</a></div>";
-	} elseif ( ( $post->post_type == 'bibliotech') && (!is_page_template( 'additionalPosts-biblio.php' )) ) {
+	} elseif ( ( $post->post_type == 'bibliotech') && ( ! is_page_template( 'additionalPosts-biblio.php' )) ) {
 	// Bibliotech articles with icon
 	$categoryMarkup = "<div class='bilbioImg bilbioTechIcon'> </div>";
 	$categoryMarkup .= "<div class='biblioPad'>&nbsp;<a href='/news/bibliotech-index/' title='Bibliotech'>Bibliotech</a>";

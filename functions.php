@@ -46,7 +46,7 @@ add_action( 'wp_enqueue_scripts', 'remove_scripts', 100 );
  * Remove dashboard menu items
  */
 function mitlibnews_remove_dashboard_menu_items() {
-	if ( !current_user_can( 'add_users' ) ) {
+	if ( ! current_user_can( 'add_users' ) ) {
 		remove_menu_page( 'edit-comments.php' );
 		remove_menu_page( 'tools.php' );
 		remove_menu_page( 'edit.php?post_type=html_snippet' );
@@ -60,7 +60,7 @@ add_action( 'admin_menu', 'mitlibnews_remove_dashboard_menu_items' );
 function mitlibnews_remove_dashboard_widgets() {
 	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' ); // Quickpress widget
 	remove_meta_box( 'dashboard_primary', 'dashboard', 'side' ); // Wordpress news
-	if ( !current_user_can( 'add_users' ) ) {
+	if ( ! current_user_can( 'add_users' ) ) {
 		remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' ); // "At a glance" widget
 		remove_meta_box( 'dashboard_activity', 'dashboard', 'normal' ); // Activity widget
 	}
@@ -201,7 +201,7 @@ function excerpt( $limit = 0 ) {
 	$excerpt = get_the_excerpt();
 	if ( $limit > 0 ) {
 		$excerpt = explode( ' ', get_the_excerpt(), $limit );
-		if ( count( $excerpt )>=$limit ) {
+		if ( count( $excerpt ) >= $limit ) {
 			array_pop( $excerpt );
 			$excerpt = implode( ' ',$excerpt ) . '...';
 		} else {
@@ -222,7 +222,7 @@ function content( $limit = 0 ) {
 	$content = get_the_content();
 	if ( $limit > 0 ) {
 		$content = explode( ' ', get_the_content(), $limit );
-		if ( count( $content )>=$limit ) {
+		if ( count( $content ) >= $limit ) {
 			array_pop( $content );
 			$content = implode( ' ',$content ) . '...';
 		} else {
@@ -242,7 +242,7 @@ function allow_contributor_uploads() {
 	$contributor = get_role( 'contributor' );
 	$contributor->add_cap( 'upload_files' );
 }
-if ( current_user_can( 'contributor' ) && !current_user_can( 'upload_files' ) )
+if ( current_user_can( 'contributor' ) && ! current_user_can( 'upload_files' ) )
 	add_action( 'admin_init', 'allow_contributor_uploads' );
 
 /**
@@ -252,7 +252,7 @@ if ( current_user_can( 'contributor' ) && !current_user_can( 'upload_files' ) )
  */
 function init_category( $request ) {
 	$vars = $request->query_vars;
-	if ( is_category() && !is_category( 'bibliotech' ) && !array_key_exists( 'post_type', $vars ) ) :
+	if ( is_category() && ! is_category( 'bibliotech' ) && ! array_key_exists( 'post_type', $vars ) ) :
 		$vars = array_merge(
 			$vars,
 			array( 'post_type' => 'any' )

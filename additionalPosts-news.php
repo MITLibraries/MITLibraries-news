@@ -38,7 +38,7 @@
 		'post_type'  				=> 'post',
 		'post__not_in' => array( $sticky ),
 			'posts_per_page'        => $limit,
-			'offset'					 =>'10',
+			'offset'					 => '10',
 			'ignore_sticky_posts'   => true,
 			'order'                 => 'DESC',
 			'orderby'               => 'date',
