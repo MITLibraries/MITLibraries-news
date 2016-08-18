@@ -25,7 +25,8 @@
 				By <?php the_author_posts_link(); ?>
 			</span>
 			<span class="date-post">
-				<?php echo ' on '; the_date(); ?>
+				<?php echo ' on ';
+the_date(); ?>
 			</span>
 			<?php if ( has_category() ) : ?>
 			<span class="category-post">

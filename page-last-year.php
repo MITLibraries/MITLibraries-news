@@ -66,7 +66,8 @@ $the_query = new WP_Query( $args );
 	<div class="mit-container">
 	  <?php if ( $the_query->have_posts() ) :   ?>
 	  <?php while ( $the_query->have_posts() ) : $the_query->the_post();  ?>
-	  <div class="flex-item eventsBox <?php if ( !has_post_thumbnail() ) { echo 'no-image'; } else { echo 'has-image'; } ?>" onClick='location.href="<?php echo get_post_permalink(); ?>"'>
+	  <div class="flex-item eventsBox <?php if ( !has_post_thumbnail() ) { echo 'no-image';
+} else { echo 'has-image'; } ?>" onClick='location.href="<?php echo get_post_permalink(); ?>"'>
 		<?php if ( get_field( 'mark_as_new' ) === true ) : ?>
 		<?php endif; ?>
 		<?php if ( has_post_thumbnail() ) {

@@ -41,7 +41,8 @@ if ( (get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73,
 			the_author_posts_link();
 			}
 		 ?>
-		</span> <span class="date-post"> <?php echo ' on '; the_date(); ?> </span>
+		</span> <span class="date-post"> <?php echo ' on ';
+the_date(); ?> </span>
 		
 		<?php if ( has_category() ) : ?>
 		<span class="category-post-single"> in

@@ -62,7 +62,8 @@ function the_excerpt_max_charlength( $charlength ) {
 	<!-- .archive-header -->
 	<div class="mit-container">
 	  <?php while ( have_posts() ) : the_post(); ?>
-	  <div class="flex-item blueTop eventsBox <?php if ( !has_post_thumbnail() ) { echo 'no-image'; } else { echo 'has-image'; } ?>" onClick='location.href="<?php echo get_post_permalink(); ?>"'>
+	  <div class="flex-item blueTop eventsBox <?php if ( !has_post_thumbnail() ) { echo 'no-image';
+} else { echo 'has-image'; } ?>" onClick='location.href="<?php echo get_post_permalink(); ?>"'>
 		<?php if ( get_field( 'mark_as_new' ) === true ) : ?>
 		<?php endif; ?>
 		<?php if ( has_post_thumbnail() ) {
