@@ -8,7 +8,7 @@
 
 get_header(); ?>
 
-<?php get_template_part('inc/sub-header'); ?>
+<?php get_template_part( 'inc/sub-header' ); ?>
 
 
 		<div id="content" role="main">
@@ -28,7 +28,7 @@ get_header(); ?>
 			?>
 
 			<header class="author-archive-header">
-				<h1 class="lib-header"><?php printf('Author: ' . '<strong>' . get_the_author('', false) . '</strong>' ); ?></h1>
+				<h1 class="lib-header"><?php printf( 'Author: ' . '<strong>' . get_the_author( '', false ) . '</strong>' ); ?></h1>
 			</header><!-- .archive-header -->
 
 			<?php
@@ -69,20 +69,20 @@ get_header(); ?>
 			?>
 				
 				   <div id="theBox" class="<?php if ($i % 3 == 0){ echo "third "; } ?>no-padding-left-mobile col-xs-12 col-xs-B-6 col-sm-4 col-md-4 col-lg-4">
-	  <div class="flex-item blueTop  eventsBox <?php if (get_field("listImg")) { echo "has-image";} else { echo "no-image"; } ?>" onClick='location.href="<?php if((get_field("external_link") != "") && $post->post_type == 'spotlights'){ the_field("external_link");}else{ echo get_post_permalink();}  ?>"'>
+	  <div class="flex-item blueTop  eventsBox <?php if (get_field( "listImg" )) { echo "has-image";} else { echo "no-image"; } ?>" onClick='location.href="<?php if((get_field( "external_link" ) != "") && $post->post_type == 'spotlights'){ the_field( "external_link" );}else{ echo get_post_permalink();}  ?>"'>
 		  
 		  
-		  <?php get_template_part('inc/spotlights'); ?>
+		  <?php get_template_part( 'inc/spotlights' ); ?>
 	   
 		<?php
-		if (get_field("listImg") != "" ) { ?>
-		<img data-original="<?php the_field("listImg") ?>" width="100%" height="111" class="img-responsive"  alt="<?php the_title();?>"/>
+		if (get_field( "listImg" ) != "" ) { ?>
+		<img data-original="<?php the_field( "listImg" ) ?>" width="100%" height="111" class="img-responsive"  alt="<?php the_title();?>"/>
 		<?php } ?>
 		
 		
 	   <?php if($post->post_type == 'spotlights'){ ?>
 			 <h2 class="entry-title title-post spotlights">
-		  <a href="<?php the_field("external_link"); ?>"><?php the_title();?></a>
+		  <a href="<?php the_field( "external_link" ); ?>"><?php the_title();?></a>
 		</h2> 
 		<?php }else{ ?>
 		<h2 class="entry-title title-post">
@@ -91,9 +91,9 @@ get_header(); ?>
 		<?php 	} ?>
 		
 		
-		 <?php get_template_part('inc/events'); ?>
+		 <?php get_template_part( 'inc/events' ); ?>
 		
-		<?php get_template_part('inc/entry'); ?>
+		<?php get_template_part( 'inc/entry' ); ?>
 
 		<!--final **** else-->
 		<?php {  ?>
@@ -107,9 +107,9 @@ get_header(); ?>
 	   echo "<div class='biblioPadding'>&nbsp;<a href='/news/bibliotech/' title='Bibliotech'>Bibliotech</a>";
 	 	  }else{
 				$category = get_the_category();     
-				$rCat = count($category);
-				$r = rand(0, $rCat -1);
-				echo '<a title="'.$category[$r]->cat_name.'"  title="'.$category[$r]->cat_name.'" href="'.get_category_link($category[$r]->term_id ).'">'.$category[$r]->cat_name.'</a>';
+				$rCat = count( $category );
+				$r = rand( 0, $rCat -1 );
+				echo '<a title="'.$category[$r]->cat_name.'"  title="'.$category[$r]->cat_name.'" href="'.get_category_link( $category[$r]->term_id ).'">'.$category[$r]->cat_name.'</a>';
 	  } ?>
 		  <span class="mitDate">
 		  <time class="updated"  datetime="<?php echo get_the_date(); ?>">&nbsp;&nbsp;<?php echo get_the_date(); ?></time>

@@ -9,18 +9,18 @@
  * @since 1.0
  */
 
-$pageRoot = getRoot($post);
-$section = get_post($pageRoot);
+$pageRoot = getRoot( $post );
+$section = get_post( $pageRoot );
 $isRoot = $section->ID == $post->ID;
 get_header(); ?>
-<?php get_template_part('inc/sub-header'); ?>
+<?php get_template_part( 'inc/sub-header' ); ?>
 
 
 	<div class="container container-fluid">
 
 	<?php
 
-$date = DateTime::createFromFormat('Ymd', get_field('event_date'));
+$date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 
 /*
  * The event sort is two-fold:
@@ -42,7 +42,7 @@ $future = array(
 	),
 	array(
 	  'key' => 'event_date',
-	  'value' => date("Y-m-d"),
+	  'value' => date( "Y-m-d" ),
 	  'compare' => '>=',
 	  'type' => 'DATE'
 	),
@@ -54,7 +54,7 @@ $future = array(
 	),
 
 );
-$the_future = new WP_Query($future);
+$the_future = new WP_Query( $future );
 $future_posts = (array) $the_future->posts;
 
 $past = array(
@@ -71,7 +71,7 @@ $past = array(
 	),
 	array(
 	  'key' => 'event_date',
-	  'value' => date("Y-m-d"),
+	  'value' => date( "Y-m-d" ),
 	  'compare' => '<',
 	  'type' => 'DATE'
 	),
@@ -84,7 +84,7 @@ $past = array(
 
 );
 
-$the_past = new WP_Query($past);
+$the_past = new WP_Query( $past );
 $past_posts = (array) $the_past->posts;
 
 // Archived events tagged by "oldevents"
@@ -99,18 +99,18 @@ $archive = array(
 	'orderby' => 'post_date',
 
 );
-$the_archive = new WP_Query($archive);
+$the_archive = new WP_Query( $archive );
 $archive_posts = (array) $the_archive->posts;
 
 ?>
 	<div class="row">
 	<h1 class="events-header">Upcoming classes & events</h1>
 	  <?php
-	  if( count($future_posts) > 0 ) {
+	  if( count( $future_posts ) > 0 ) {
 		$i = -1;
 		foreach ($future_posts as $post) {
 		  $i++;
-		  renderEventCard($i, $post);
+		  renderEventCard( $i, $post );
 		} 
 	  } else {
 		?>
@@ -125,17 +125,17 @@ $archive_posts = (array) $the_archive->posts;
 	<h2 class="padding-header">Past classes & events</h2>
 	<div class="row">
 	  <?php
-	  if( count($past_posts) > 0 ) {
+	  if( count( $past_posts ) > 0 ) {
 		$i = -1;
 		foreach ($past_posts as $post) {
 		  $i++;
-		  renderEventCard($i, $post);
+		  renderEventCard( $i, $post );
 		} 
 	  }
 	  ?>
 	</div> <!-- close row for past events -->
-	<?php if(count($past_posts) > 8){ 
-	  get_template_part('inc/more-posts'); 
+	<?php if(count( $past_posts ) > 8){ 
+	  get_template_part( 'inc/more-posts' ); 
 	} ?>
 
 <?php wp_reset_query();  // Restore global post data stomped by the_post(). ?>

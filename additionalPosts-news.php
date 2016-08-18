@@ -9,12 +9,12 @@
 ?>
 		<?php
 		  
-			$offset = htmlspecialchars(trim($_GET['offset']));
+			$offset = htmlspecialchars( trim( $_GET['offset'] ) );
 				if ($offset == '') {
 					$offset = 9;
 				}
 
-			 $limit = htmlspecialchars(trim($_GET['limit']));
+			 $limit = htmlspecialchars( trim( $_GET['limit'] ) );
 				if ($limit == '') {
 					$limit = 9;
 				}	
@@ -53,7 +53,7 @@
 
 			);
 
-		 $the_query = new WP_Query($args2); 
+		 $the_query = new WP_Query( $args2 ); 
 		?>
 
 

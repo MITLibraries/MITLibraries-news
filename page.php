@@ -11,14 +11,14 @@
  * @since Twenty Twelve 1.0
  */
 
-$pageRoot = getRoot($post);
-$section = get_post($pageRoot);
+$pageRoot = getRoot( $post );
+$section = get_post( $pageRoot );
 $isRoot = $section->ID == $post->ID;
 
 
 	
 get_header(); ?>
-	<?php get_template_part('inc/sub-headerSingle'); ?>
+	<?php get_template_part( 'inc/sub-headerSingle' ); ?>
 
 	<?php while ( have_posts() ) : the_post(); ?>
 		<div class="container">
@@ -33,7 +33,7 @@ get_header(); ?>
 				<?php if ($isRoot): ?>
 				<h2><?php echo $section->post_title; ?></h2>
 				<?php else: ?>
-				<h2><a href="<?php echo get_permalink($section->ID) ?>"><?php echo $section->post_title; ?></a></h2>
+				<h2><a href="<?php echo get_permalink( $section->ID ) ?>"><?php echo $section->post_title; ?></a></h2>
 				<?php endif; ?>
 			</div>
 			
@@ -41,7 +41,7 @@ get_header(); ?>
 				<div class="col-1 content-page">
 		<?php if (has_post_thumbnail()): ?>
 		<div class="featuredImage">
-			<?php echo the_post_thumbnail(700, 300); ?>
+			<?php echo the_post_thumbnail( 700, 300 ); ?>
 		
 		</div>	
 		<?php endif; ?>

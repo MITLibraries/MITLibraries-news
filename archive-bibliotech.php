@@ -17,7 +17,7 @@
  */
 
 get_header(); 
-$date = DateTime::createFromFormat('Ymd', get_field('event_date'));
+$date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 function the_excerpt_max_charlength($charlength) {
 	$excerpt = get_the_excerpt();
 	$charlength++;
@@ -39,7 +39,7 @@ function the_excerpt_max_charlength($charlength) {
 
 
 ?>
-<?php get_template_part('inc/sub-header'); ?>
+<?php get_template_part( 'inc/sub-header' ); ?>
 
 <section id="primary" class="site-content">
 	<div id="content" role="main">
@@ -63,11 +63,11 @@ function the_excerpt_max_charlength($charlength) {
 	<div class="mit-container">
 	  <?php while ( have_posts() ) : the_post(); ?>
 	  <div class="flex-item blueTop eventsBox <?php if (!has_post_thumbnail()) { echo "no-image"; } else { echo "has-image"; } ?>" onClick='location.href="<?php echo get_post_permalink(); ?>"'>
-		<?php if (get_field('mark_as_new') === true): ?>
+		<?php if (get_field( 'mark_as_new' ) === true): ?>
 		<?php endif; ?>
 		<?php if ( has_post_thumbnail() ) {		
 $thumb_id = get_post_thumbnail_id();
-$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
+$thumb_url_array = wp_get_attachment_image_src( $thumb_id, 'thumbnail-size', true );
 $thumb_url = $thumb_url_array[0];
 			
 ?>
@@ -78,13 +78,13 @@ $thumb_url = $thumb_url_array[0];
 		</h2>
 		<br />
 		<div class="excerpt-post">
-		  <?php the_excerpt_max_charlength(140); ?>
+		  <?php the_excerpt_max_charlength( 140 ); ?>
 		</div>
 		<div class="category-post">
 		  <?php 
 $category = get_the_category(); 
 if($category[0]){
-echo '<a href="'.get_category_link($category[0]->term_id ).'">'.$category[0]->cat_name.'</a>';
+echo '<a href="'.get_category_link( $category[0]->term_id ).'">'.$category[0]->cat_name.'</a>';
 }
 ?>
 		  <span class="mitDate">&nbsp;&nbsp;<?php echo get_the_date(); ?></span> 

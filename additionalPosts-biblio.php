@@ -21,12 +21,12 @@ $(document).ready(function() {
 <?php
 	 
 	
-	$offset = htmlspecialchars(trim($_GET['offset']));
+	$offset = htmlspecialchars( trim( $_GET['offset'] ) );
 	if ($offset == '') {
 		$offset = 10;
 	}
 	
-	 $limit = htmlspecialchars(trim($_GET['limit']));
+	 $limit = htmlspecialchars( trim( $_GET['limit'] ) );
 	if ($limit == '') {
 		$limit = 9;
 	}
@@ -45,7 +45,7 @@ $(document).ready(function() {
 				
 		
 );			
-	$the_query = new WP_Query($args); 	
+	$the_query = new WP_Query( $args ); 	
 
 
 ?>

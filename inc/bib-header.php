@@ -27,7 +27,7 @@
 <?php
 $menu_name = 'BibliotechMenu';
 $locations = get_nav_menu_locations();
-$menu = wp_get_nav_menu_object($menu_name);
+$menu = wp_get_nav_menu_object( $menu_name );
 $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) ); 
 //print_r($menuitems);
 ?>

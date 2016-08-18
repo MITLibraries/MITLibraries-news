@@ -22,7 +22,7 @@
 	</div>
 	<div class="socialNav col-xs-12 col-sm-8 col-md-7  col-lg-7 clearfix "> 
 	
-	<?php get_template_part('inc/social'); ?>
+	<?php get_template_part( 'inc/social' ); ?>
 
 
 
@@ -67,7 +67,7 @@ wp_nav_menu( $defaults );
 
 								<!--only on mobile --> 
 								 <div class="col-xs-6 hidden-sm hidden-md hidden-lg">
-									<div class=" pull-right clearfix "><?php get_search_form('true'); ?></div>
+									<div class=" pull-right clearfix "><?php get_search_form( 'true' ); ?></div>
 								 </div>
 								<!--only on mobile ENDS -->  
 	
@@ -93,7 +93,7 @@ wp_nav_menu( $defaults );
 		);
 		?>
 
-		<?php $select  = wp_dropdown_categories($args); ?>
+		<?php $select  = wp_dropdown_categories( $args ); ?>
 		<?php $replace = "<select$1 onchange='return this.form.submit()'>"; ?>
 		<?php $select  = preg_replace( '#<select([^>]*)>#', $replace, $select ); ?>
 

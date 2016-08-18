@@ -10,9 +10,9 @@ get_header();
 
 
 
-$date = DateTime::createFromFormat('Ymd', get_field('event_date'));
+$date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 ?>
-<?php get_template_part('inc/sub-header'); ?>
+<?php get_template_part( 'inc/sub-header' ); ?>
 
 
 	<div id="content" role="main">
@@ -21,7 +21,7 @@ $date = DateTime::createFromFormat('Ymd', get_field('event_date'));
 	  <div class="row">
 	      <?php 
 	if(is_category()){
-	 printf('<h1 class="lib-header">'. 'Category: ' . '<strong>' . single_cat_title( '', false ) . '</strong>'  . '</h1>' ); 
+	 printf( '<h1 class="lib-header">'. 'Category: ' . '<strong>' . single_cat_title( '', false ) . '</strong>'  . '</h1>' ); 
 	}  ?> 
 		<?php
 			/* Start the Loop */
@@ -46,16 +46,16 @@ $date = DateTime::createFromFormat('Ymd', get_field('event_date'));
 			  </div>
 			  <!--closes NEWS-CONTAINER-->
 	
-	 <?php get_template_part('inc/more-posts'); ?>
+	 <?php get_template_part( 'inc/more-posts' ); ?>
 	</div>
 	<!-- #content --> 
 <!-- #primary -->
 <script>
 <?php
 if (is_category( )) {
-	$cat = get_query_var('cat');
-	$yourcat = get_category ($cat);
-	$category2 = get_category_by_slug( $yourcat->slug);
+	$cat = get_query_var( 'cat' );
+	$yourcat = get_category( $cat );
+	$category2 = get_category_by_slug( $yourcat->slug );
 	$categoryID2 = $category2->cat_ID;
 	}
 ?>

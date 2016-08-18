@@ -18,17 +18,17 @@ $(document).ready(function() {
 });	
 </script>
 <?php
-$date = DateTime::createFromFormat('Ymd', get_field('event_date'));
+$date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 
 ?>
 <?php
 
-	$offset = htmlspecialchars(trim($_GET['offset']));
+	$offset = htmlspecialchars( trim( $_GET['offset'] ) );
 	if ($offset == '') {
 		$offset = 9;
 	}
 	
-	 $limit = htmlspecialchars(trim($_GET['limit']));
+	 $limit = htmlspecialchars( trim( $_GET['limit'] ) );
 	if ($limit == '') {
 		$limit = 9;
 	}
@@ -46,7 +46,7 @@ $date = DateTime::createFromFormat('Ymd', get_field('event_date'));
 
 );
 
-$the_query = new WP_Query($args); 
+$the_query = new WP_Query( $args ); 
 
 
 ?>
@@ -69,7 +69,7 @@ $("#another").hide();
 <?php 
 $o = -1;	
 while ( $the_query->have_posts() ) : $the_query->the_post(); 
-renderRegularCard($o, $post);
+renderRegularCard( $o, $post );
 $o++;
 ?>
 

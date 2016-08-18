@@ -9,7 +9,7 @@
 get_header();
 ?>
 
-<?php get_template_part('inc/sub-header'); ?>
+<?php get_template_part( 'inc/sub-header' ); ?>
 
 
 
@@ -30,25 +30,25 @@ $query2 = new WP_Query( $args );
 if( $query2->have_posts() ):  
 	while ( $query2->have_posts() ) : $query2->the_post(); ?>
 
-<?php if ( isset($sticky[0]) ) { ?>
+<?php if ( isset( $sticky[0] ) ) { ?>
 	<div class="row">
 			  <div class="col-md-8" onClick='location.href="<?php echo get_post_permalink(); ?>"' style="padding-right:0px;" > <?php echo get_currentuserinfo(); ?>
 
-					<img src="<?php the_field("featuredListImg") ?> "width="679" height="256" alt="<?php the_title(); ?>" /> 
+					<img src="<?php the_field( "featuredListImg" ) ?> "width="679" height="256" alt="<?php the_title(); ?>" /> 
 			 </div>
 	  		<div class="bgWhite col-xs-12 col-sm-4 col-md-4" onClick='location.href="<?php echo get_post_permalink(); ?>"'>
 			 <h2><?php the_title();?> </h2>
 		
-		<?php if(get_field('event_date')){  $mitDate = get_field('event_date'); $mitDate = date("l t Y", strtotime($mitDate)); ?>
+		<?php if(get_field( 'event_date' )){  $mitDate = get_field( 'event_date' ); $mitDate = date( "l t Y", strtotime( $mitDate ) ); ?>
 		<div class="event"><?php echo $mitDate; ?>&nbsp;&nbsp; &nbsp; <span class="time">
-		  <?php if( get_field('event_start_time') ){ 
-			  			echo the_field('event_start_time'); 
+		  <?php if( get_field( 'event_start_time' ) ){ 
+			  			echo the_field( 'event_start_time' ); 
 					} ?>
-		  <?php if(( get_field('event_start_time') ) && ( get_field('event_end_time') )){
+		  <?php if(( get_field( 'event_start_time' ) ) && ( get_field( 'event_end_time' ) )){
 				  				 echo '-';
 					} ?>
-		  <?php if( get_field('event_end_time') ){ 
-			  				echo the_field('event_end_time'); 
+		  <?php if( get_field( 'event_end_time' ) ){ 
+			  				echo the_field( 'event_end_time' ); 
 			}  ?>
 		  </span> </div>
 		<?php 	}	?>
@@ -59,9 +59,9 @@ if( $query2->have_posts() ):
 		<div class="excerpt-post">
 		  <p>
 			<?php if (excerpt()) {
-					 echo excerpt(20);
+					 echo excerpt( 20 );
 					} elseif (content()){
-	 				  echo content(20);
+	 				  echo content( 20 );
 					}
 			?>
 		  </p>
@@ -70,7 +70,7 @@ if( $query2->have_posts() ):
 		  <?php 
 $category = get_the_category(); 
 if($category[0]){
-echo '<a title="'.$category[0]->cat_name.'" href="'.get_category_link($category[0]->term_id ).'">'.$category[0]->cat_name.'</a>';
+echo '<a title="'.$category[0]->cat_name.'" href="'.get_category_link( $category[0]->term_id ).'">'.$category[0]->cat_name.'</a>';
 }
 ?>
 		  <span class="mitDate">&nbsp;&nbsp;<?php echo get_the_date(); ?></span> 
@@ -126,34 +126,34 @@ $the_query = new WP_Query( $args );
 	 
 	  ?>
 	<div class="col-xs-12 col-sm-4 col-md-4">
-	  <div class="hentry flex-item blueTop eventsBox <?php if(has_post_thumbnail()){ echo "has-image"; }elseif (get_field("listImg")) { echo "has-image";} else { echo "no-image"; } ?>" onClick='location.href="<?php if((get_field("external_link") != "") && $post->post_type == 'spotlights'){ the_field("external_link");}else{ echo get_post_permalink();}  ?>"'>
+	  <div class="hentry flex-item blueTop eventsBox <?php if(has_post_thumbnail()){ echo "has-image"; }elseif (get_field( "listImg" )) { echo "has-image";} else { echo "no-image"; } ?>" onClick='location.href="<?php if((get_field( "external_link" ) != "") && $post->post_type == 'spotlights'){ the_field( "external_link" );}else{ echo get_post_permalink();}  ?>"'>
 	<?php if($post->post_type == 'spotlights'){ ?>
 		<div class="featuredCol">Featured collection</div>
 		<?php } ?>
 		<?php if($post->post_type == 'spotlights'){ ?>
 		<div class="featuredColImg"> <img src="/wp-content/themes/mit-libraries-news/images/info.png" alt="featured" width="31" height="27" /> </div>
 		<?php } ?>
-		<?php if (get_field('mark_as_new') === true): ?>
+		<?php if (get_field( 'mark_as_new' ) === true): ?>
 		<div class="newIcon"></div>
 		<?php endif; ?>
 		<?php
-if (get_field("listImg") != "" ) { ?>
-		<img src="<?php the_field("listImg") ?>" width="100%" height="111"  alt="<?php the_title(); ?>"/>
+if (get_field( "listImg" ) != "" ) { ?>
+		<img src="<?php the_field( "listImg" ) ?>" width="100%" height="111"  alt="<?php the_title(); ?>"/>
 		 <h2 class="entry-title title-post"><?php  the_title(); ?></h2>
 			<!--/EVENT  DATE-->
-		<?php if(get_field('event_date')){ 
-				$date = DateTime::createFromFormat('Ymd', get_field('event_date'));
+		<?php if(get_field( 'event_date' )){ 
+				$date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 				
 			?>
-		<div class="event"><?php echo $date->format('F, j Y'); ?>&nbsp;&nbsp; &nbsp; <span class="time">
-		  <?php if( get_field('event_start_time') ){ 
-			  		echo the_field('event_start_time'); 
+		<div class="event"><?php echo $date->format( 'F, j Y' ); ?>&nbsp;&nbsp; &nbsp; <span class="time">
+		  <?php if( get_field( 'event_start_time' ) ){ 
+			  		echo the_field( 'event_start_time' ); 
 					} ?>
-		  <?php if(( get_field('event_start_time') ) && ( get_field('event_end_time') )){
+		  <?php if(( get_field( 'event_start_time' ) ) && ( get_field( 'event_end_time' ) )){
 				  				 echo '-';
 					} ?>
-		  <?php if( get_field('event_end_time') ){ 
-			  		echo the_field('event_end_time'); 
+		  <?php if( get_field( 'event_end_time' ) ){ 
+			  		echo the_field( 'event_end_time' ); 
 			}  ?>
 		  </span> </div>
 		<?php 	}	?>
@@ -163,11 +163,11 @@ if (get_field("listImg") != "" ) { ?>
 		  <p class="entry-summary">
 	<?php     
 			$newsTitle = get_the_content();
-		$newsTitle = strlen($newsTitle); 
+		$newsTitle = strlen( $newsTitle ); 
 		
 		
-		if(($newsTitle >= 50) && has_excerpt($post->ID)) {
-						echo excerpt(30);
+		if(($newsTitle >= 50) && has_excerpt( $post->ID )) {
+						echo excerpt( 30 );
 					echo "excertp greater then";
 				 
 				 
@@ -185,24 +185,24 @@ if (get_field("listImg") != "" ) { ?>
 		
 		<?php } elseif ( has_post_thumbnail() ) { 
 $thumb_id = get_post_thumbnail_id();
-$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
+$thumb_url_array = wp_get_attachment_image_src( $thumb_id, 'thumbnail-size', true );
 $thumb_url = $thumb_url_array[0];?>
 		<img src="<?php echo $thumb_url; ?>" width="100%" height="200" />
 		 <h2><?php the_title();  ?> </h2>
 			<!--/EVENT  DATE-->
-		<?php if(get_field('event_date')){ 
-				$date = DateTime::createFromFormat('Ymd', get_field('event_date'));
+		<?php if(get_field( 'event_date' )){ 
+				$date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 				
 			?>
-		<div class="event"><?php echo $date->format('F, j Y'); ?>&nbsp;&nbsp; &nbsp; <span class="time">
-		  <?php if( get_field('event_start_time') ){ 
-			  		echo the_field('event_start_time'); 
+		<div class="event"><?php echo $date->format( 'F, j Y' ); ?>&nbsp;&nbsp; &nbsp; <span class="time">
+		  <?php if( get_field( 'event_start_time' ) ){ 
+			  		echo the_field( 'event_start_time' ); 
 					} ?>
-		  <?php if(( get_field('event_start_time') ) && ( get_field('event_end_time') )){
+		  <?php if(( get_field( 'event_start_time' ) ) && ( get_field( 'event_end_time' ) )){
 				  				 echo '-';
 					} ?>
-		  <?php if( get_field('event_end_time') ){ 
-			  		echo the_field('event_end_time'); 
+		  <?php if( get_field( 'event_end_time' ) ){ 
+			  		echo the_field( 'event_end_time' ); 
 			}  ?>
 		  </span> </div>
 		<?php 	}	?>
@@ -211,9 +211,9 @@ $thumb_url = $thumb_url_array[0];?>
 		<div class="excerpt-post">
 		  <p class="entry-summary">
 			<?php if (excerpt()) {
-					 echo excerpt(15);
+					 echo excerpt( 15 );
 					} elseif (content()){
-	 				  echo content(15);
+	 				  echo content( 15 );
 					}
 			?>
 		  </p>
@@ -227,21 +227,21 @@ $thumb_url = $thumb_url_array[0];?>
 	
 		
 		 <!--/EVENT  DATE-->
-		<?php if(get_field('event_date')){ 
-				$date = DateTime::createFromFormat('Ymd', get_field('event_date'));
+		<?php if(get_field( 'event_date' )){ 
+				$date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 				
 			?>
 		<div class="event">
 
-		<?php echo $date->format('F, j Y'); ?>&nbsp;&nbsp; &nbsp; <span class="time">
-		  <?php if( get_field('event_start_time') ){ 
-			  		echo the_field('event_start_time'); 
+		<?php echo $date->format( 'F, j Y' ); ?>&nbsp;&nbsp; &nbsp; <span class="time">
+		  <?php if( get_field( 'event_start_time' ) ){ 
+			  		echo the_field( 'event_start_time' ); 
 					} ?>
-		  <?php if(( get_field('event_start_time') ) && ( get_field('event_end_time') )){
+		  <?php if(( get_field( 'event_start_time' ) ) && ( get_field( 'event_end_time' ) )){
 				  				 echo '-';
 					} ?>
-		  <?php if( get_field('event_end_time') ){ 
-			  		echo the_field('event_end_time'); 
+		  <?php if( get_field( 'event_end_time' ) ){ 
+			  		echo the_field( 'event_end_time' ); 
 			}  ?>
 		  </span> </div>
 		<?php 	}	?>
@@ -253,9 +253,9 @@ $thumb_url = $thumb_url_array[0];?>
 		<div class="excerpt-post">
 		  <p class="entry-summary">
 			<?php if (excerpt()) {
-					 echo excerpt(30);
+					 echo excerpt( 30 );
 					} elseif (content()){
-	 				  echo content(30);
+	 				  echo content( 30 );
 					}
 			?>
 		  </p>
@@ -278,15 +278,15 @@ $thumb_url = $thumb_url_array[0];?>
 				$category = get_the_category();     
 				
 				
-				$rCat = count($category);
-				$r = rand(0, $rCat -1);
+				$rCat = count( $category );
+				$r = rand( 0, $rCat -1 );
 				//echo $r;
 				//echo "-";
 				//echo $rCat; 
 				
 				//if($category[0]){
 					
-				echo '<a title="'.$category[$r]->cat_name.'"  title="'.$category[$r]->cat_name.'" href="'.get_category_link($category[$r]->term_id ).'">'.$category[$r]->cat_name.'</a>';
+				echo '<a title="'.$category[$r]->cat_name.'"  title="'.$category[$r]->cat_name.'" href="'.get_category_link( $category[$r]->term_id ).'">'.$category[$r]->cat_name.'</a>';
 				
 				//}
 				

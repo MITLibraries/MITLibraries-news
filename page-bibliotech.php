@@ -9,12 +9,12 @@
  * @since 1.0
  */
 
-$pageRoot = getRoot($post);
-$section = get_post($pageRoot);
+$pageRoot = getRoot( $post );
+$section = get_post( $pageRoot );
 $isRoot = $section->ID == $post->ID;
 get_header(); ?>
-<?php get_template_part('inc/sub-header'); ?>
-<?php get_template_part('inc/bib-header'); ?>
+<?php get_template_part( 'inc/sub-header' ); ?>
+<?php get_template_part( 'inc/bib-header' ); ?>
 
 	<!-- OPEN CONTAINER FOR MOBILE/STICKY CARD LAYOUT -->
 				<div class="container container-fluid">
@@ -35,7 +35,7 @@ $args = array(
 $query2 = new WP_Query( $args );
 if( $query2->have_posts() ):  
 while ( $query2->have_posts() ) : $query2->the_post(); ?>
-<?php if ( isset($sticky[0]) ) { ?>
+<?php if ( isset( $sticky[0] ) ) { ?>
 
 
 					
@@ -70,7 +70,7 @@ $args = array(
 			'order'          	  => 'DESC',
 			'suppress_filters'    => false
 			);
-$my_query = new WP_Query($args);
+$my_query = new WP_Query( $args );
 $m = -1;	
 //GETTTING LENGTH
 $theLength = $my_query->post_count;	
@@ -89,7 +89,7 @@ $my_query->the_post();
 	
 	if($theLength > 8){ 
 	
-			get_template_part('inc/more-posts');   
+			get_template_part( 'inc/more-posts' );   
 		
 		} ?> 
 </div>

@@ -12,7 +12,7 @@
 	<p class="entry-summary">
 		
 		<?php	
-			echo strip_tags(excerpt(25));	
+			echo strip_tags( excerpt( 25 ) );	
 		?>
 		
 	</p>

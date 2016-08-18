@@ -33,6 +33,6 @@
 		</a>
 		</li>
 		 <li class="sf">
-		<?php get_search_form('true'); ?>
+		<?php get_search_form( 'true' ); ?>
 			</li>
 		</ul>

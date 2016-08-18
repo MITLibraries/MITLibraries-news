@@ -19,19 +19,19 @@ $(document).ready(function() {
 </script>
 <?php
 
-	$offset = htmlspecialchars(trim($_GET['offset']));
+	$offset = htmlspecialchars( trim( $_GET['offset'] ) );
 	if ($offset == '') {
 		$offset = 11;
 	}
 	
-	 $limit = htmlspecialchars(trim($_GET['limit']));
+	 $limit = htmlspecialchars( trim( $_GET['limit'] ) );
 	
 	if ($limit == '') {
 		$limit = 18;
 	}	
 ?>
 <?php
-$date = DateTime::createFromFormat('Ymd', get_field('event_date'));
+$date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 $args = array(
 
 	'posts_per_page' => $limit,
@@ -47,7 +47,7 @@ $args = array(
 	),
 	array(
 	  'key' => 'event_date',
-	  'value' => date("Y-m-d"),
+	  'value' => date( "Y-m-d" ),
 	  'compare' => '<',
 	  'type' => 'DATE'
 	),
@@ -60,7 +60,7 @@ $args = array(
 
 );
 
-	$the_query = new WP_Query($args); 
+	$the_query = new WP_Query( $args ); 
 
 //removes button start
 $ajaxLength = $the_query->post_count;
@@ -79,7 +79,7 @@ if( $the_query->have_posts() ):
 	$o = -1;	
 	while ( $the_query->have_posts() )   : $the_query->the_post(); 
 	$o++;
-	renderEventCard($o, $post);
+	renderEventCard( $o, $post );
 	endwhile; 
 endif;  
 

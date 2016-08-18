@@ -21,7 +21,7 @@ $(function() {
 
 <?php
 
-$date = DateTime::createFromFormat('Ymd', get_field('event_date'));
+$date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 
 ?>
 <?php
@@ -33,12 +33,12 @@ $categoryId = $_GET['categoryID'];
 
 
 	
-	$offset = htmlspecialchars(trim($_GET['offset']));
+	$offset = htmlspecialchars( trim( $_GET['offset'] ) );
 	if ($offset == '') {
 		$offset = 21;
 	}
 	
-	 $limit = htmlspecialchars(trim($_GET['limit']));
+	 $limit = htmlspecialchars( trim( $_GET['limit'] ) );
 	if ($limit == '') {
 		$limit = 9;
 	}
@@ -58,7 +58,7 @@ $categoryId = $_GET['categoryID'];
 
 );
 
-$the_query = new WP_Query($args); 
+$the_query = new WP_Query( $args ); 
 
 //removes button start
 $ajaxLength = $the_query->post_count;

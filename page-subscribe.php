@@ -6,8 +6,8 @@
  * @since 1.0.0
  */
 
-$pageRoot = getRoot($post);
-$section = get_post($pageRoot);
+$pageRoot = getRoot( $post );
+$section = get_post( $pageRoot );
 $isRoot = $section->ID == $post->ID;
 
 
@@ -17,14 +17,14 @@ get_header(); ?>
 <div class="innerPadding clearfix">
 <div class="title-page no-padding-left col-xs-12  col-sm-12 col-md-5 col-lg-5">
 	
-	<?php if( is_single($post)){ ?>
+	<?php if( is_single( $post )){ ?>
 		<h2 class="name-site2"><a href="/news/">News &amp; events</a></h2>
 	  <?php }else{ ?>
 	
 	<h1 class="name-site"><a href="/news/">News &amp; events</a>
 	<?php 
 	if(is_category()){
-	 printf('<span>'. ': ' . single_cat_title( '', false ) . '</span>' ); 
+	 printf( '<span>'. ': ' . single_cat_title( '', false ) . '</span>' ); 
 	}  ?>        
 	</h1>
 	
@@ -33,7 +33,7 @@ get_header(); ?>
 	</div>   
 <div class="socialNav singleSocialNav hidden-xs not_on_phone socialNav col-xs-12 col-sm-12 col-md-7  col-lg-7 clearfix ">
 
-	<?php get_template_part('inc/social'); ?>
+	<?php get_template_part( 'inc/social' ); ?>
 </div>
 
 
@@ -59,7 +59,7 @@ get_header(); ?>
 				<?php if ($isRoot): ?>
 				<h2><?php echo $section->post_title; ?></h2>
 				<?php else: ?>
-				<h2><a href="<?php echo get_permalink($section->ID) ?>"><?php echo $section->post_title; ?></a></h2>
+				<h2><a href="<?php echo get_permalink( $section->ID ) ?>"><?php echo $section->post_title; ?></a></h2>
 				<?php endif; ?>
 			</div>
 			
@@ -67,7 +67,7 @@ get_header(); ?>
 				
 		<?php if (has_post_thumbnail()): ?>
 		<div class="featuredImage">
-			<?php echo the_post_thumbnail(700, 300); ?>
+			<?php echo the_post_thumbnail( 700, 300 ); ?>
 		
 		</div>	
 		<?php endif; ?>

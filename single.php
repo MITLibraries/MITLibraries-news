@@ -15,10 +15,10 @@ $category = get_the_category();
 
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=mitlib" async="async"></script>
-<?php get_template_part('inc/sub-headerSingle'); ?>
+<?php get_template_part( 'inc/sub-headerSingle' ); ?>
 <?php
-if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of(73, $cat) or is_category(73))){  ?>
-<?php get_template_part('inc/bib-header'); ?>
+if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73, $cat ) or is_category( 73 ))){  ?>
+<?php get_template_part( 'inc/bib-header' ); ?>
 <?php  } ?>
 <div class="container">
 <div id="primary" class="content-area">
@@ -28,15 +28,15 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of(73, $c
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> data-category="<?php echo $category[0]->slug; ?>">
 	<div class="title-page  mySingle">     
 	  <?php the_title( '<h1 class="entry-title single">', '</h1>' ); ?>
-	  <?php if (get_field("subtitle")){ ?>
-	  <h2 class="subtitle"><?php the_field("subtitle"); ?></h2>
+	  <?php if (get_field( "subtitle" )){ ?>
+	  <h2 class="subtitle"><?php the_field( "subtitle" ); ?></h2>
 	  <?php } ?>
 	  <div class="entry-meta"> <span class="author"> By
 		<?php 
-		if (get_field("pauthor")){
-			the_field("pauthor");
-		}elseif (get_field("bauthor")){
-			the_field("bauthor");
+		if (get_field( "pauthor" )){
+			the_field( "pauthor" );
+		}elseif (get_field( "bauthor" )){
+			the_field( "bauthor" );
 		}else{
 			the_author_posts_link();
 			}
@@ -50,11 +50,11 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of(73, $c
 				?>
 			   
 				 <?php   
-				$rCat = count($category);
+				$rCat = count( $category );
 				
-				$r = rand(0, $rCat -1);
+				$r = rand( 0, $rCat -1 );
 			
-				echo '<a title="'.$category[$r]->cat_name.'"  title="'.$category[$r]->cat_name.'" href="'.get_category_link($category[$r]->term_id ).'">'.$category[$r]->cat_name.'</a>';
+				echo '<a title="'.$category[$r]->cat_name.'"  title="'.$category[$r]->cat_name.'" href="'.get_category_link( $category[$r]->term_id ).'">'.$category[$r]->cat_name.'</a>';
 			?>
 		<?php //echo ' in ' . array_slice($category, 0, 2); ?>
 		</span>
@@ -70,8 +70,8 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of(73, $c
 	
 	
 	
-	<?php if(get_field('event_date')){ 
-				$date = DateTime::createFromFormat('Ymd', get_field('event_date'));
+	<?php if(get_field( 'event_date' )){ 
+				$date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 				
 			?>
 		  <!--EVENT --> 
@@ -95,16 +95,16 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of(73, $c
 	</g>
 </g>
 </svg></span>    
-		  <span class="event"><?php echo $date->format('F j, Y'); ?></span> 
+		  <span class="event"><?php echo $date->format( 'F j, Y' ); ?></span> 
 		  <span class="time">
-			<?php if( get_field('event_start_time') ){ 
-			  		echo the_field('event_start_time'); 
+			<?php if( get_field( 'event_start_time' ) ){ 
+			  		echo the_field( 'event_start_time' ); 
 					} ?>
-			<?php if(( get_field('event_start_time') ) && ( get_field('event_end_time') )){
+			<?php if(( get_field( 'event_start_time' ) ) && ( get_field( 'event_end_time' ) )){
 				  				 echo '-';
 					} ?>
-			<?php if( get_field('event_end_time') ){ 
-			  		echo the_field('event_end_time'); 
+			<?php if( get_field( 'event_end_time' ) ){ 
+			  		echo the_field( 'event_end_time' ); 
 			}  ?>
 			</span> 
 		  
@@ -112,21 +112,21 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of(73, $c
 		  <?php 	}	?>
 
 	<!--=================image=================== -->       
-	<?php if (get_field('image')){ ?>
+	<?php if (get_field( 'image' )){ ?>
 	 <div class="mySinglePicMobile hidden-md hidden-lg col-xs-12">
-	   <img data-original="<?php echo  get_field('image');?> "width="100%" alt="<?php the_title(); ?>" class="thumbnail img-responsive"  /> 
-	   <?php if(get_field("caption")){ ?>
-	   <div class="mitCaption"><?php the_field("caption");  ?></div>
+	   <img data-original="<?php echo  get_field( 'image' );?> "width="100%" alt="<?php the_title(); ?>" class="thumbnail img-responsive"  /> 
+	   <?php if(get_field( "caption" )){ ?>
+	   <div class="mitCaption"><?php the_field( "caption" );  ?></div>
 	   <?php }  ?>
 	 </div>
 	 <?php } ?>
 	<!--=================image=================== --> 	
 	<!--=================image=================== -->  
-	<?php if (get_field('image')){ ?>         
+	<?php if (get_field( 'image' )){ ?>         
 	  <div class="mySinglePic hidden-sm hidden-xs">
-	   <img data-original="<?php echo  get_field('image');?> "width="679" alt="<?php the_title(); ?>" class="thumbnail img-responsive"  /> 
-		<?php if(get_field("caption")){ ?>
-	   <div class="mitCaption"><?php the_field("caption");  ?></div>
+	   <img data-original="<?php echo  get_field( 'image' );?> "width="679" alt="<?php the_title(); ?>" class="thumbnail img-responsive"  /> 
+		<?php if(get_field( "caption" )){ ?>
+	   <div class="mitCaption"><?php the_field( "caption" );  ?></div>
 	   <?php }  ?>
 	 </div>   
 	  <?php } ?>   
@@ -140,13 +140,13 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of(73, $c
 			
 			// Echo type of Feature, if Feature
 			if ($type_post === 'features') {
-				$type = get_field('feature_type');
+				$type = get_field( 'feature_type' );
 				echo 'The feature type is' . $type;
 			}
 			// Echo start/end dates, if they exist
 			if ($type_post === 'exhibits' || $type_post === 'updates') {
-				$date_start = get_field('date_start');
-				$date_end = get_field('date_end');
+				$date_start = get_field( 'date_start' );
+				$date_end = get_field( 'date_end' );
 				echo '<div>Start date is ' . $date_start . '</div>';
 				echo '<div>End date is ' . $date_end . '</div>';
 			} ?>
@@ -160,7 +160,7 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of(73, $c
 	<div class="container">
 
 <div class="row singleMargin">
-	<div class="text-center moreIn"> More in <span class="lowercase"> <?php echo '<a title="'.$category[$r]->cat_name.'"  title="'.$category[$r]->cat_name.'" href="'.get_category_link($category[$r]->term_id ).'">'.$category[$r]->cat_name.'</a>'; ?></span>
+	<div class="text-center moreIn"> More in <span class="lowercase"> <?php echo '<a title="'.$category[$r]->cat_name.'"  title="'.$category[$r]->cat_name.'" href="'.get_category_link( $category[$r]->term_id ).'">'.$category[$r]->cat_name.'</a>'; ?></span>
 	</div>
 </div>
 <?php wp_reset_postdata(); ?>
@@ -187,7 +187,7 @@ $args = array(
 
 <div class="row">
 <?php      
-$myposts = get_posts($args);
+$myposts = get_posts( $args );
 $y = 1 ;
 foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
 <?php //echo $GLOBALS['wp_query']->request; ?>
