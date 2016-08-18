@@ -82,7 +82,7 @@ while ( $the_query->have_posts() ) : $the_query->the_post();
 	<div id="theBox" class="<?php if ( $o % 3 == 0 ) { echo 'third '; } ?> col-xs-12  col-xs-B-6 col-sm-4 col-md-4 no-padding-left-mobile">
 	  <div class="flex-item blueTop  eventsBox <?php if ( get_field( 'listImg' ) ) { echo 'has-image';
 } else { echo 'no-image'; } ?>" onClick='location.href="<?php if ( (get_field( 'external_link' ) != '') && $post->post_type == 'spotlights' ) { the_field( 'external_link' );
-}else { echo get_post_permalink();}  ?>"'> 
+} else { echo get_post_permalink();}  ?>"'> 
 		<?php get_template_part( 'inc/spotlights' ); ?>
 	   
 		<?php
@@ -115,7 +115,7 @@ while ( $the_query->have_posts() ) : $the_query->the_post();
 		  <time class="updated"  datetime="<?php echo get_the_date(); ?>">&nbsp;&nbsp;<?php echo get_the_date(); ?></time>
 		  </span> </div> 
 	  </div>
-	<?php 	  }else {
+	<?php 	  } else {
 				$category = get_the_category();
 				$rCat = count( $category );
 				$r = rand( 0, $rCat -1 );

@@ -35,9 +35,9 @@ if ( (get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73,
 		<?php
 		if ( get_field( 'pauthor' ) ) {
 			the_field( 'pauthor' );
-		}elseif ( get_field( 'bauthor' ) ) {
+		} elseif ( get_field( 'bauthor' ) ) {
 			the_field( 'bauthor' );
-		}else {
+		} else {
 			the_author_posts_link();
 			}
 		 ?>

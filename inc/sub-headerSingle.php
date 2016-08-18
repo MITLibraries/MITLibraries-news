@@ -14,7 +14,7 @@
 	
 	<?php if ( is_single( $post ) ) { ?>
 		<h2 class="name-site"><a href="/news/">News &amp; events</a></h2>
-	  <?php }else { ?>
+	  <?php } else { ?>
 	
 	<h1 class="name-site"><a href="/news/">News &amp; events</a>
 	<?php
