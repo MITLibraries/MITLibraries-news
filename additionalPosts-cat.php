@@ -5,16 +5,16 @@
  * @package MITLibraries-News
  * @since 1.0
  */
- 
+	
 ?>
 
 <script>
 $(function() {
-  $("img.img-responsive").lazyload({ 
-    effect : "fadeIn", 
-    effectspeed: 450 ,
+	$("img.img-responsive").lazyload({ 
+	effect : "fadeIn", 
+	effectspeed: 450 ,
 	failure_limit: 999999
-  }); 
+	}); 
 });	
 
 </script>
@@ -29,19 +29,19 @@ $date = DateTime::createFromFormat('Ymd', get_field('event_date'));
 global $post;
 $categoryId = $_GET['categoryID'];
 
- 
+	
 
 
-   
-    $offset = htmlspecialchars(trim($_GET['offset']));
-    if ($offset == '') {
-        $offset = 21;
-    }
+	
+	$offset = htmlspecialchars(trim($_GET['offset']));
+	if ($offset == '') {
+		$offset = 21;
+	}
 	
 	 $limit = htmlspecialchars(trim($_GET['limit']));
-    if ($limit == '') {
-        $limit = 9;
-    }
+	if ($limit == '') {
+		$limit = 9;
+	}
 	
 	
 	
@@ -78,19 +78,19 @@ $("#another").hide();
 $o = -1;	
 
 while ( $the_query->have_posts() ) : $the_query->the_post(); 
- $o++;
-                renderRegularCard( $o, $post ); // --- CALLS REGULAR CARDS --- //
+	$o++;
+				renderRegularCard( $o, $post ); // --- CALLS REGULAR CARDS --- //
 ?>
 
 
 <?php if ( get_post_type( get_the_ID() ) == 'bibliotech' ) { ?>
-           
-            <?php } //get_post_type( get_the_ID() ) == 'bibliotech' ?>
-              
-                    <?php  wp_reset_query(); // Restore global post data stomped by the_post(). ?>
-           
-                    <?php endwhile; ?>
-            
-                    <?php endif; ?>
-  
+		   
+			<?php } //get_post_type( get_the_ID() ) == 'bibliotech' ?>
+			  
+					<?php  wp_reset_query(); // Restore global post data stomped by the_post(). ?>
+		   
+					<?php endwhile; ?>
+			
+					<?php endif; ?>
+	
 

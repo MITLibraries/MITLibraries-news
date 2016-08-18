@@ -5,33 +5,33 @@
  * @package MITLibraries-News
  * @since 1.0
  */
- 
+	
 ?>
 
 <script type="text/javascript">
 $(document).ready(function() {
-  $("img.img-responsive").lazyload({ 
-    effect : "fadeIn", 
-    effectspeed: 450 ,
+	$("img.img-responsive").lazyload({ 
+	effect : "fadeIn", 
+	effectspeed: 450 ,
 	failure_limit: 999999
-  }); 
+	}); 
 });	
 </script>
 
 <?php
 	 
 	
-    $offset = htmlspecialchars(trim($_GET['offset']));
-    if ($offset == '') {
-        $offset = 10;
-    }
+	$offset = htmlspecialchars(trim($_GET['offset']));
+	if ($offset == '') {
+		$offset = 10;
+	}
 	
 	 $limit = htmlspecialchars(trim($_GET['limit']));
-    if ($limit == '') {
-        $limit = 9;
-    }
-    
-    
+	if ($limit == '') {
+		$limit = 9;
+	}
+	
+	
 	
 	$args = array(
 	 	'post_type' => array('bibliotech' ),
@@ -45,13 +45,13 @@ $(document).ready(function() {
 				
 		
 );			
- $the_query = new WP_Query($args); 	
+	$the_query = new WP_Query($args); 	
 
 
 ?>
-  
-  
- <?php
+	
+	
+	<?php
 //removes button start
 $ajaxLength = $the_query->post_count;
 ?>
@@ -62,9 +62,9 @@ $("#another").hide();
 
 
 <?php } //removes button end ?>
- 
-  
-  
+	
+	
+	
 <?php if( $the_query->have_posts() ):  ?>
 
 <?php 
@@ -74,8 +74,8 @@ $theLength = $my_query->post_count;
 $i++; 
 ?>
 
-    <?php renderBiblioCard( $i, $post ); ?>
-  
+	<?php renderBiblioCard( $i, $post ); ?>
+	
 <?php endwhile; ?>
 <?php endif; ?>
 <?php wp_reset_query();  // Restore global post data stomped by the_post(). ?>

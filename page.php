@@ -16,13 +16,13 @@ $section = get_post($pageRoot);
 $isRoot = $section->ID == $post->ID;
 
 
- 
+	
 get_header(); ?>
 	<?php get_template_part('inc/sub-headerSingle'); ?>
 
 	<?php while ( have_posts() ) : the_post(); ?>
 		<div class="container">
-        <div class="row">
+		<div class="row">
 		<div id="stage" class="inner column3 tertiaryPage  subscribe clearfix" role="main">
 			
 
@@ -57,10 +57,10 @@ get_header(); ?>
 		
 </div>
 			</div>
-            </div>
- 
- 
- <div class="col-xs-12 col-xs-B-11 col-sm-3 col-md-3 col-lg-3">
+			</div>
+	
+	
+	<div class="col-xs-12 col-xs-B-11 col-sm-3 col-md-3 col-lg-3">
 <?php if ( ! dynamic_sidebar() ) : ?>
 	
 		<div id="sidebarContent" class="sidebar span3">
@@ -75,8 +75,8 @@ get_header(); ?>
 </div>
 
 		</div>
-        </div>
-        </div>
+		</div>
+		</div>
 		<?php endwhile; // end of the loop. ?>
 <div class="container">
 <?php get_footer(); ?>

@@ -79,7 +79,7 @@ function hide_addthis() {
 			   display: none;
 			   }
 		 </style>';
-   }
+	}
 }
 add_action('admin_head', 'hide_addthis');
 
@@ -127,13 +127,13 @@ function mitlibnews_register_news_posts() {
 	 * @param string $post_type The type of a given post.
 	 */
 	function theme_apto_object_taxonomies( $object_taxonomies, $post_type ) {
-        if($post_type == 'spotlight')
-            {
-                if (array_search('Events', $object_taxonomies) !== FALSE)
-                    unset($object_taxonomies[array_search('Events', $object_taxonomies)]);
-            }
-        return $object_taxonomies;
-    }
+		if($post_type == 'spotlight')
+			{
+				if (array_search('Events', $object_taxonomies) !== FALSE)
+					unset($object_taxonomies[array_search('Events', $object_taxonomies)]);
+			}
+		return $object_taxonomies;
+	}
 	add_filter('apto_object_taxonomies', 'theme_apto_object_taxonomies', 10, 2);
 	
 	// Bibliotech
@@ -201,18 +201,18 @@ add_image_size( 'news-single', 451,'651', true ); /// Hard Crop Mode
  * @param int $limit The number of words requested.
  */
 function excerpt($limit = 0) {
-    $excerpt = get_the_excerpt();
-    if ($limit > 0) {
-        $excerpt = explode(' ', get_the_excerpt(), $limit);
-        if (count($excerpt)>=$limit) {
-            array_pop($excerpt);
-            $excerpt = implode(" ",$excerpt).'...';
-        } else {
-            $excerpt = implode(" ",$excerpt);
-        }
-    }
-    $excerpt = preg_replace('`\[[^\]]*\]`','',$excerpt);
-    return $excerpt;
+	$excerpt = get_the_excerpt();
+	if ($limit > 0) {
+		$excerpt = explode(' ', get_the_excerpt(), $limit);
+		if (count($excerpt)>=$limit) {
+			array_pop($excerpt);
+			$excerpt = implode(" ",$excerpt).'...';
+		} else {
+			$excerpt = implode(" ",$excerpt);
+		}
+	}
+	$excerpt = preg_replace('`\[[^\]]*\]`','',$excerpt);
+	return $excerpt;
 }
 
 /**
@@ -222,20 +222,20 @@ function excerpt($limit = 0) {
  * @param int $limit The number of words requested.
  */
 function content($limit = 0) {
-    $content = get_the_content();
-    if ($limit > 0) {
-        $content = explode(' ', get_the_content(), $limit);
-        if (count($content)>=$limit) {
-            array_pop($content);
-            $content = implode(" ",$content).'...';
-        } else {
-            $content = implode(" ",$content);
-        }
-    }
-    $content = preg_replace('/\[.+\]/','', $content);
-    $content = apply_filters('the_content', $content);
-    $content = str_replace(']]>', ']]&gt;', $content);
-    return $content;
+	$content = get_the_content();
+	if ($limit > 0) {
+		$content = explode(' ', get_the_content(), $limit);
+		if (count($content)>=$limit) {
+			array_pop($content);
+			$content = implode(" ",$content).'...';
+		} else {
+			$content = implode(" ",$content);
+		}
+	}
+	$content = preg_replace('/\[.+\]/','', $content);
+	$content = apply_filters('the_content', $content);
+	$content = str_replace(']]>', ']]&gt;', $content);
+	return $content;
 }
 
 /**
@@ -271,7 +271,7 @@ add_filter('pre_get_posts', 'init_category');
  * Event RSS feed
  */
 function eventRSS(){
-        add_feed('event', 'eventRSSFunc');
+		add_feed('event', 'eventRSSFunc');
 }
 add_action('init', 'eventRSS');
 
@@ -279,7 +279,7 @@ add_action('init', 'eventRSS');
  * Event RSS Function
  */
 function eventRSSFunc(){
-        get_template_part('rss', 'event');
+		get_template_part('rss', 'event');
 }
 
 ////removes plugins tools users
@@ -301,21 +301,21 @@ function eventRSSFunc(){
  * Customize meta boxes on admin interface
  */
 function customize_meta_boxes() {
-  /* Removes meta boxes from Posts */
- // remove_meta_box('postcustom','post','normal');
-  remove_meta_box('trackbacksdiv','post','normal');
-  remove_meta_box('commentstatusdiv','post','normal');
-  remove_meta_box('commentsdiv','post','normal');
-  //remove_meta_box('tagsdiv-post_tag','post','normal');
-  remove_meta_box('postexcerpt','post','normal');
+	/* Removes meta boxes from Posts */
+	// remove_meta_box('postcustom','post','normal');
+	remove_meta_box('trackbacksdiv','post','normal');
+	remove_meta_box('commentstatusdiv','post','normal');
+	remove_meta_box('commentsdiv','post','normal');
+	//remove_meta_box('tagsdiv-post_tag','post','normal');
+	remove_meta_box('postexcerpt','post','normal');
 
-  
-  /* Removes meta boxes from pages */
- // remove_meta_box('postcustom','page','normal');
-  remove_meta_box('trackbacksdiv','page','normal');
-  remove_meta_box('commentstatusdiv','page','normal');
-  remove_meta_box('commentsdiv','page','normal');  
-  
+	
+	/* Removes meta boxes from pages */
+	// remove_meta_box('postcustom','page','normal');
+	remove_meta_box('trackbacksdiv','page','normal');
+	remove_meta_box('commentstatusdiv','page','normal');
+	remove_meta_box('commentsdiv','page','normal');  
+	
 }
 add_action('admin_init','customize_meta_boxes');
 
@@ -325,8 +325,8 @@ add_action('admin_init','customize_meta_boxes');
  * @param object $actions An object.
  */
 function custom_favorite_actions($actions) {
-  unset($actions['edit-comments.php']);
-  return $actions;
+	unset($actions['edit-comments.php']);
+	return $actions;
 }
 add_filter('favorite_actions', 'custom_favorite_actions');
 
@@ -334,7 +334,7 @@ add_filter('favorite_actions', 'custom_favorite_actions');
  * Removes featured-image option for posts
  */
 function remove_thumbnail_box() {
-    remove_meta_box( 'postimagediv','post','side' );
+	remove_meta_box( 'postimagediv','post','side' );
 }
 add_action('do_meta_boxes', 'remove_thumbnail_box');
 
@@ -346,8 +346,8 @@ $src = "/wp-content/themes/mit-libraries-news/custom-admin-css.css";
 $handle = "customAdminCss";
 wp_register_script($handle, $src);
 wp_enqueue_style($handle, $src, array(), false, false);
-    }
-    add_action('admin_head', 'registerCustomAdminCss');
+	}
+	add_action('admin_head', 'registerCustomAdminCss');
 if ( ! function_exists( 'biblio_taxonomy' ) ) {
 
 	/**

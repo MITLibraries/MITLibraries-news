@@ -13,7 +13,7 @@
 		
 		<?php	
 			echo strip_tags(excerpt(25));	
-        ?>
-        
+		?>
+		
 	</p>
 </div>

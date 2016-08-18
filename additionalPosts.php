@@ -5,16 +5,16 @@
  * @package MITLibraries-News
  * @since 1.0
  */
- 
+	
 ?>
 
 <script type="text/javascript">
 $(document).ready(function() {
-  $("img.img-responsive").lazyload({ 
-    effect : "fadeIn", 
-    effectspeed: 450 ,
+	$("img.img-responsive").lazyload({ 
+	effect : "fadeIn", 
+	effectspeed: 450 ,
 	failure_limit: 999999
-  }); 
+	}); 
 });	
 </script>
 <?php
@@ -23,15 +23,15 @@ $date = DateTime::createFromFormat('Ymd', get_field('event_date'));
 ?>
 <?php
 
-    $offset = htmlspecialchars(trim($_GET['offset']));
-    if ($offset == '') {
-        $offset = 9;
-    }
+	$offset = htmlspecialchars(trim($_GET['offset']));
+	if ($offset == '') {
+		$offset = 9;
+	}
 	
 	 $limit = htmlspecialchars(trim($_GET['limit']));
-    if ($limit == '') {
-        $limit = 9;
-    }
+	if ($limit == '') {
+		$limit = 9;
+	}
 	
 	
 	$args = array(
@@ -74,11 +74,11 @@ $o++;
 ?>
 
 
-      <?php  if(get_post_type( get_the_ID() ) == 'bibliotech'){ ?>
-    </div>
-    <!--close div that opens in bilbio if statement-->
-    <?php } ?>
-    
+	  <?php  if(get_post_type( get_the_ID() ) == 'bibliotech'){ ?>
+	</div>
+	<!--close div that opens in bilbio if statement-->
+	<?php } ?>
+	
 
 <?php
 endwhile; 

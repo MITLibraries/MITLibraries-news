@@ -16,9 +16,9 @@ get_header(); ?>
 <?php get_template_part('inc/sub-header'); ?>
 
 
-  <div class="container container-fluid">
+	<div class="container container-fluid">
 
- <?php
+	<?php
 
 $date = DateTime::createFromFormat('Ymd', get_field('event_date'));
 
@@ -30,28 +30,28 @@ $date = DateTime::createFromFormat('Ymd', get_field('event_date'));
 
 $future = array(
 
-  'posts_per_page' => -1,
-  'ignore_sticky_posts' => true,
+	'posts_per_page' => -1,
+	'ignore_sticky_posts' => true,
 
-  'post_type' => 'post',
-  'meta_query' => array(
-    array(
-      'key' => 'is_event',
-      'value' => '1',
-      'compare' => '=',
-    ),
-    array(
-      'key' => 'event_date',
-      'value' => date("Y-m-d"),
-      'compare' => '>=',
-      'type' => 'DATE'
-    ),
-  ),
+	'post_type' => 'post',
+	'meta_query' => array(
+	array(
+	  'key' => 'is_event',
+	  'value' => '1',
+	  'compare' => '=',
+	),
+	array(
+	  'key' => 'event_date',
+	  'value' => date("Y-m-d"),
+	  'compare' => '>=',
+	  'type' => 'DATE'
+	),
+	),
 
-  'meta_key' => 'event_date',
-  'orderby' => array(
-    'meta_value_num' => 'ASC',
-  ),
+	'meta_key' => 'event_date',
+	'orderby' => array(
+	'meta_value_num' => 'ASC',
+	),
 
 );
 $the_future = new WP_Query($future);
@@ -59,28 +59,28 @@ $future_posts = (array) $the_future->posts;
 
 $past = array(
 
-  'posts_per_page' => 9,
-  'ignore_sticky_posts' => true,
+	'posts_per_page' => 9,
+	'ignore_sticky_posts' => true,
 
-  'post_type' => 'post',
-  'meta_query' => array(
-    array(
-      'key' => 'is_event',
-      'value' => '1',
-      'compare' => '=',
-    ),
-    array(
-      'key' => 'event_date',
-      'value' => date("Y-m-d"),
-      'compare' => '<',
-      'type' => 'DATE'
-    ),
-  ),
+	'post_type' => 'post',
+	'meta_query' => array(
+	array(
+	  'key' => 'is_event',
+	  'value' => '1',
+	  'compare' => '=',
+	),
+	array(
+	  'key' => 'event_date',
+	  'value' => date("Y-m-d"),
+	  'compare' => '<',
+	  'type' => 'DATE'
+	),
+	),
 
-  'meta_key' => 'event_date',
-  'orderby' => array(
-    'meta_value_num' => 'DESC',
-  ),
+	'meta_key' => 'event_date',
+	'orderby' => array(
+	'meta_value_num' => 'DESC',
+	),
 
 );
 
@@ -90,75 +90,75 @@ $past_posts = (array) $the_past->posts;
 // Archived events tagged by "oldevents"
 $archive = array(
 
-  'posts_per_page' => 9,
-  'ignore_sticky_posts' => true,
+	'posts_per_page' => 9,
+	'ignore_sticky_posts' => true,
 
-  'post_type' => 'post',
-  'tag' => 'oldevents',
+	'post_type' => 'post',
+	'tag' => 'oldevents',
 
-  'orderby' => 'post_date',
+	'orderby' => 'post_date',
 
 );
 $the_archive = new WP_Query($archive);
 $archive_posts = (array) $the_archive->posts;
 
 ?>
-    <div class="row">
-    <h1 class="events-header">Upcoming classes & events</h1>
-      <?php
-      if( count($future_posts) > 0 ) {
-        $i = -1;
-        foreach ($future_posts as $post) {
-          $i++;
-          renderEventCard($i, $post);
-        } 
-      } else {
-        ?>
+	<div class="row">
+	<h1 class="events-header">Upcoming classes & events</h1>
+	  <?php
+	  if( count($future_posts) > 0 ) {
+		$i = -1;
+		foreach ($future_posts as $post) {
+		  $i++;
+		  renderEventCard($i, $post);
+		} 
+	  } else {
+		?>
 			<p class="left-padder">There are no upcoming classes or events at this time, but check back often.</p>
-        <?php
-      }
-      ?>
-    </div> <!-- close row for upcoming events-->
+		<?php
+	  }
+	  ?>
+	</div> <!-- close row for upcoming events-->
 
-    <hr class="hidden-xs" />
+	<hr class="hidden-xs" />
 
-    <h2 class="padding-header">Past classes & events</h2>
-    <div class="row">
-      <?php
-      if( count($past_posts) > 0 ) {
-        $i = -1;
-        foreach ($past_posts as $post) {
-          $i++;
-          renderEventCard($i, $post);
-        } 
-      }
-      ?>
-    </div> <!-- close row for past events -->
-    <?php if(count($past_posts) > 8){ 
-      get_template_part('inc/more-posts'); 
-    } ?>
+	<h2 class="padding-header">Past classes & events</h2>
+	<div class="row">
+	  <?php
+	  if( count($past_posts) > 0 ) {
+		$i = -1;
+		foreach ($past_posts as $post) {
+		  $i++;
+		  renderEventCard($i, $post);
+		} 
+	  }
+	  ?>
+	</div> <!-- close row for past events -->
+	<?php if(count($past_posts) > 8){ 
+	  get_template_part('inc/more-posts'); 
+	} ?>
 
 <?php wp_reset_query();  // Restore global post data stomped by the_post(). ?>
-    
-  </div>
-  <!-- #primary --> 
+	
+	</div>
+	<!-- #primary --> 
 
- 
- 
- 
- 
+	
+	
+	
+	
 <script type="text/javascript">
 $(document).ready(function() {
-    var offset = 11;
+	var offset = 11;
 	var limit = 9;
-    //$j("#postContainer").load("/news/add-posts-events/");
-    $("#another").click(function(){
+	//$j("#postContainer").load("/news/add-posts-events/");
+	$("#another").click(function(){
 		limit = limit+9;
-        offset = offset+11;
-        $("#postContainer")
-            //.slideUp()
+		offset = offset+11;
+		$("#postContainer")
+			//.slideUp()
 					
-            .load("/news/add-posts-events/?offset=1&limit="+limit, function() {
+			.load("/news/add-posts-events/?offset=1&limit="+limit, function() {
 			 //.load("/news/test/?offset="+offset, function() {
 			   $(this).slideDown();
 			   //$j("#another").remove();
@@ -167,12 +167,12 @@ $(document).ready(function() {
 					   
 			   
 			
-    	});
-        return false;
-    });
+		});
+		return false;
+	});
 
 
-   
+	
 
 });
 </script>

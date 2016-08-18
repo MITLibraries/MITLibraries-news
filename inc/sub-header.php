@@ -11,18 +11,18 @@
 <div class="newsSubHeader">
 <div class="innerPadding">
 <div class="title-page row">
- <div class="no-padding-left col-xs-12 col-sm-4 col-md-5 col-lg-5">
+	<div class="no-padding-left col-xs-12 col-sm-4 col-md-5 col-lg-5">
 	<?php 
 	global $post;
 	if (is_home()){ ?>
 		 <h1 class="name-site">News &amp; events</h1>
 	       <?php } else { ?>
-    <h2 class="name-site"><a href="/news/">News &amp; events</a></h2>
-   <?php } ?>
-  </div>
- <div class="socialNav col-xs-12 col-sm-8 col-md-7  col-lg-7 clearfix "> 
+	<h2 class="name-site"><a href="/news/">News &amp; events</a></h2>
+	<?php } ?>
+	</div>
+	<div class="socialNav col-xs-12 col-sm-8 col-md-7  col-lg-7 clearfix "> 
 	
- <?php get_template_part('inc/social'); ?>
+	<?php get_template_part('inc/social'); ?>
 
 
 
@@ -30,8 +30,8 @@
 </div><!--container ends-->
 <hr class="hidden-xs news">
 <div class="subNavH">
-  <div class="row">
-    <div class="no-padding-left  col-xs-6  col-sm-6  col-sm-6  col-md-6 col-lg-6  newsNav dropdown">
+	<div class="row">
+	<div class="no-padding-left  col-xs-6  col-sm-6  col-sm-6  col-md-6 col-lg-6  newsNav dropdown">
 <?php
 //main nav
 $defaults = array(
@@ -60,20 +60,20 @@ $defaults = array(
 
 wp_nav_menu( $defaults );
 ?>	    
-  
-    </div>
-    
-    
+	
+	</div>
+	
+	
 
-                                <!--only on mobile --> 
-                                 <div class="col-xs-6 hidden-sm hidden-md hidden-lg">
-                                    <div class=" pull-right clearfix "><?php get_search_form('true'); ?></div>
-                                 </div>
-                                <!--only on mobile ENDS -->  
- 
+								<!--only on mobile --> 
+								 <div class="col-xs-6 hidden-sm hidden-md hidden-lg">
+									<div class=" pull-right clearfix "><?php get_search_form('true'); ?></div>
+								 </div>
+								<!--only on mobile ENDS -->  
+	
 
- 
-    <div class="hidden-xs   col-sm-6  col-sm-6  col-md-6 col-lg-6 catNav">
+	
+	<div class="hidden-xs   col-sm-6  col-sm-6  col-md-6 col-lg-6 catNav">
 
 <ul>
 
@@ -109,21 +109,21 @@ wp_nav_menu( $defaults );
 </ul>
 
 <script>
-    jQuery(function(){
-      // bind change event to select
-      jQuery('#dynamic_select').bind('change', function () {
-          var url = $(this).val(); // get selected value
-          if (url) { // require a URL
-              window.location = url; // redirect
-          }
-          return false;
-      });
-    });
+	jQuery(function(){
+	  // bind change event to select
+	  jQuery('#dynamic_select').bind('change', function () {
+		  var url = $(this).val(); // get selected value
+		  if (url) { // require a URL
+			  window.location = url; // redirect
+		  }
+		  return false;
+	  });
+	});
 </script>
- </div>
- 
+	</div>
+	
 </div>
-  </div><!--row -->
+	</div><!--row -->
 	
 </div> <!--innerpaddingends-->
 
