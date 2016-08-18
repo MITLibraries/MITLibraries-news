@@ -18,7 +18,8 @@ get_header(); ?>
 	  <div class="row">
 
 			<?php
-				/* Queue the first post, that way we know
+				/*
+				 Queue the first post, that way we know
 				 * what author we're dealing with (if that is the case).
 				 *
 				 * We reset this later so we can run the loop
@@ -32,7 +33,8 @@ get_header(); ?>
 			</header><!-- .archive-header -->
 
 			<?php
-				/* Since we called the_post() above, we need to
+				/*
+				 Since we called the_post() above, we need to
 				 * rewind the loop back to the beginning that way
 				 * we can run the loop properly, in full.
 				 */
@@ -43,7 +45,8 @@ get_header(); ?>
 
 			<?php
 			// If a user has filled out their description, show a bio on their entries.
-/*			if ( get_the_author_meta( 'description' ) ) : ?>
+/*
+          if ( get_the_author_meta( 'description' ) ) : ?>
 			<div class="author-info">
 				<div class="author-avatar">
 					<?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'twentytwelve_author_bio_avatar_size', 60 ) ); ?>
