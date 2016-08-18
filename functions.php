@@ -34,7 +34,7 @@ add_action( 'wp_enqueue_scripts', 'add_scripts' );
 /**
  * This de-registers scripts from the parent theme, but they don't seem to actually be used?
  */
-function remove_scripts(){
+function remove_scripts() {
 	// wp_deregister_script('tabletop' );
 	// wp_deregister_script('productionJS');
 	// wp_deregister_script('underscore');
@@ -267,7 +267,7 @@ add_filter( 'pre_get_posts', 'init_category' );
 /**
  * Event RSS feed
  */
-function eventRSS(){
+function eventRSS() {
 		add_feed( 'event', 'eventRSSFunc' );
 }
 add_action( 'init', 'eventRSS' );
@@ -275,7 +275,7 @@ add_action( 'init', 'eventRSS' );
 /**
  * Event RSS Function
  */
-function eventRSSFunc(){
+function eventRSSFunc() {
 		get_template_part( 'rss', 'event' );
 }
 
@@ -338,7 +338,7 @@ add_action( 'do_meta_boxes', 'remove_thumbnail_box' );
 /**
  * Registers custom css file for admin dashboard
  */
-function registerCustomAdminCss(){
+function registerCustomAdminCss() {
 $src = '/wp-content/themes/mit-libraries-news/custom-admin-css.css';
 $handle = 'customAdminCss';
 wp_register_script( $handle, $src );
