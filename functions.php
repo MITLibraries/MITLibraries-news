@@ -8,7 +8,7 @@
 
 // Adds auto-loader for lib content
 $siteRoot = $_SERVER['DOCUMENT_ROOT'];
-foreach (glob( $siteRoot.'/wp-content/themes/mit-libraries-news/lib/*.php' ) as $file) require_once( $file );
+foreach (glob( $siteRoot . '/wp-content/themes/mit-libraries-news/lib/*.php' ) as $file) require_once( $file );
 
 /**
  * Add Bootstrap and mobile CSS for non-admin users
@@ -203,7 +203,7 @@ function excerpt( $limit = 0 ) {
 		$excerpt = explode( ' ', get_the_excerpt(), $limit );
 		if ( count( $excerpt )>=$limit ) {
 			array_pop( $excerpt );
-			$excerpt = implode( ' ',$excerpt ).'...';
+			$excerpt = implode( ' ',$excerpt ) . '...';
 		} else {
 			$excerpt = implode( ' ',$excerpt );
 		}
@@ -224,7 +224,7 @@ function content( $limit = 0 ) {
 		$content = explode( ' ', get_the_content(), $limit );
 		if ( count( $content )>=$limit ) {
 			array_pop( $content );
-			$content = implode( ' ',$content ).'...';
+			$content = implode( ' ',$content ) . '...';
 		} else {
 			$content = implode( ' ',$content );
 		}

@@ -21,7 +21,7 @@ $date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 	  <div class="row">
 	      <?php
 	if ( is_category() ) {
-	 printf( '<h1 class="lib-header">'. 'Category: ' . '<strong>' . single_cat_title( '', false ) . '</strong>'  . '</h1>' );
+	 printf( '<h1 class="lib-header">' . 'Category: ' . '<strong>' . single_cat_title( '', false ) . '</strong>' . '</h1>' );
 	}  ?> 
 		<?php
 			/* Start the Loop */

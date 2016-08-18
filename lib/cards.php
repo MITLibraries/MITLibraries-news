@@ -60,7 +60,7 @@ function render( $post, $i, $type ) {
 	$category = get_the_category();
 	$rCat = count( $category );
 	$r = rand( 0, $rCat -1 );
-	$categoryMarkup = '<a title="'.$category[$r]->cat_name.'"  title="'.$category[$r]->cat_name.'" href="'.get_category_link( $category[$r]->term_id ).'">'.$category[$r]->cat_name.'</a>';
+	$categoryMarkup = '<a title="' . $category[$r]->cat_name . '"  title="' . $category[$r]->cat_name . '" href="' . get_category_link( $category[$r]->term_id ) . '">' . $category[$r]->cat_name . '</a>';
 	$dateMarkup = "<span class='mitDate'>" .
 	"<time class='updated' datetime='" . get_the_date() . "'>&nbsp;&nbsp;" . get_the_date() . '</time>' .
 	'</span>';
