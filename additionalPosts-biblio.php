@@ -22,12 +22,12 @@ $(document).ready(function() {
 
 
 	$offset = htmlspecialchars( trim( $_GET['offset'] ) );
-	if ($offset == '') {
+	if ( $offset == '' ) {
 		$offset = 10;
 	}
 
 	 $limit = htmlspecialchars( trim( $_GET['limit'] ) );
-	if ($limit == '') {
+	if ( $limit == '' ) {
 		$limit = 9;
 	}
 
@@ -55,7 +55,7 @@ $(document).ready(function() {
 //removes button start
 $ajaxLength = $the_query->post_count;
 ?>
-<?php if ($ajaxLength < $limit){ ?>
+<?php if ( $ajaxLength < $limit ) { ?>
 <script>
 $("#another").hide();
 </script>
@@ -65,7 +65,7 @@ $("#another").hide();
 	
 	
 	
-<?php if( $the_query->have_posts() ):  ?>
+<?php if ( $the_query->have_posts() ) :  ?>
 
 <?php
 $i = -1;

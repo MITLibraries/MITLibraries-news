@@ -8,7 +8,7 @@
 
 // Adds auto-loader for lib content
 $siteRoot = $_SERVER['DOCUMENT_ROOT'];
-foreach(glob( $siteRoot."/wp-content/themes/mit-libraries-news/lib/*.php" ) as $file) require_once( $file );
+foreach (glob( $siteRoot."/wp-content/themes/mit-libraries-news/lib/*.php" ) as $file) require_once( $file );
 
 /**
  * Add Bootstrap and mobile CSS for non-admin users
@@ -46,7 +46,7 @@ add_action( 'wp_enqueue_scripts', 'remove_scripts', 100 );
  * Remove dashboard menu items
  */
 function mitlibnews_remove_dashboard_menu_items() {
-	if (!current_user_can( 'add_users' )) {
+	if ( !current_user_can( 'add_users' ) ) {
 		remove_menu_page( 'edit-comments.php' );
 		remove_menu_page( 'tools.php' );
 		remove_menu_page( 'edit.php?post_type=html_snippet' );
@@ -60,7 +60,7 @@ add_action( 'admin_menu', 'mitlibnews_remove_dashboard_menu_items' );
 function mitlibnews_remove_dashboard_widgets() {
 	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' ); // Quickpress widget
 	remove_meta_box( 'dashboard_primary', 'dashboard', 'side' ); // Wordpress news
-	if (!current_user_can( 'add_users' )) {
+	if ( !current_user_can( 'add_users' ) ) {
 		remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' ); // "At a glance" widget
 		remove_meta_box( 'dashboard_activity', 'dashboard', 'normal' ); // Activity widget
 	}
@@ -72,7 +72,7 @@ add_action( 'do_meta_boxes', 'mitlibnews_remove_dashboard_widgets' );
  */
 function hide_addthis() {
 	global $user_level;
-	if ($user_level != '10' ) {
+	if ( $user_level != '10' ) {
 	   echo '<style type="text/css">
 		   #at_widget,
 		   .metabox-prefs label:nth-child(13) {
@@ -127,8 +127,7 @@ function mitlibnews_register_news_posts() {
 	 * @param string $post_type The type of a given post.
 	 */
 	function theme_apto_object_taxonomies( $object_taxonomies, $post_type ) {
-		if($post_type == 'spotlight')
-			{
+		if ( $post_type == 'spotlight' ) {
 				if (array_search( 'Events', $object_taxonomies ) !== FALSE)
 					unset( $object_taxonomies[array_search( 'Events', $object_taxonomies )] );
 			}
@@ -198,11 +197,11 @@ add_image_size( 'news-single', 451,'651', true ); /// Hard Crop Mode
  *
  * @param int $limit The number of words requested.
  */
-function excerpt($limit = 0) {
+function excerpt( $limit = 0 ) {
 	$excerpt = get_the_excerpt();
-	if ($limit > 0) {
+	if ( $limit > 0 ) {
 		$excerpt = explode( ' ', get_the_excerpt(), $limit );
-		if (count( $excerpt )>=$limit) {
+		if ( count( $excerpt )>=$limit ) {
 			array_pop( $excerpt );
 			$excerpt = implode( " ",$excerpt ).'...';
 		} else {
@@ -219,11 +218,11 @@ function excerpt($limit = 0) {
  *
  * @param int $limit The number of words requested.
  */
-function content($limit = 0) {
+function content( $limit = 0 ) {
 	$content = get_the_content();
-	if ($limit > 0) {
+	if ( $limit > 0 ) {
 		$content = explode( ' ', get_the_content(), $limit );
-		if (count( $content )>=$limit) {
+		if ( count( $content )>=$limit ) {
 			array_pop( $content );
 			$content = implode( " ",$content ).'...';
 		} else {
@@ -251,9 +250,9 @@ if ( current_user_can( 'contributor' ) && !current_user_can( 'upload_files' ) )
  *
  * @param object $request A request object.
  */
-function init_category($request) {
+function init_category( $request ) {
 	$vars = $request->query_vars;
-	if (is_category() && !is_category( 'bibliotech' ) && !array_key_exists( 'post_type', $vars )) :
+	if ( is_category() && !is_category( 'bibliotech' ) && !array_key_exists( 'post_type', $vars ) ) :
 		$vars = array_merge(
 			$vars,
 			array('post_type' => 'any')
@@ -321,7 +320,7 @@ add_action( 'admin_init','customize_meta_boxes' );
  *
  * @param object $actions An object.
  */
-function custom_favorite_actions($actions) {
+function custom_favorite_actions( $actions ) {
 	unset( $actions['edit-comments.php'] );
 	return $actions;
 }
@@ -411,8 +410,8 @@ add_action( 'widgets_init', 'news_sidebar_widget' );
  *
  * @param object $query A query object.
  */
-function SearchFilter($query) {
-if ($query->is_search) {
+function SearchFilter( $query ) {
+if ( $query->is_search ) {
 $query->set( 'post_type', array('post', 'Bibliotech', 'Spotlights') );
 }
 return $query;

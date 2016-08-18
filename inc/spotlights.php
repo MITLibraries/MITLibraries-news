@@ -45,9 +45,9 @@ if ( ($field['choices'][ $value ] ) === 'Check it out' ) {
 	$featImg ='<div class="or_star-25"></div>';
 	}
 	?>
-<?php if ($post->post_type == 'spotlights') { ?>
+<?php if ( $post->post_type == 'spotlights' ) { ?>
 <div class="featuredCol"><?php echo $label; ?></div>
 <?php } ?>
-<?php if ($post->post_type == 'spotlights') { ?>
+<?php if ( $post->post_type == 'spotlights' ) { ?>
 <div class="featuredColImg"> <?php echo $featImg; ?> </div>
 <?php } ?><!--//spotlight --> 

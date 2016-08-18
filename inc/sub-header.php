@@ -14,7 +14,7 @@
 	<div class="no-padding-left col-xs-12 col-sm-4 col-md-5 col-lg-5">
 	<?php
 	global $post;
-	if (is_home()){ ?>
+	if ( is_home() ) { ?>
 		 <h1 class="name-site">News &amp; events</h1>
 	       <?php } else { ?>
 	<h2 class="name-site"><a href="/news/">News &amp; events</a></h2>

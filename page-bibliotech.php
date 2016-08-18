@@ -33,7 +33,7 @@ $args = array(
 	'suppress_filters' => false
 );
 $query2 = new WP_Query( $args );
-if( $query2->have_posts() ):
+if ( $query2->have_posts() ) :
 while ( $query2->have_posts() ) : $query2->the_post(); ?>
 <?php if ( isset( $sticky[0] ) ) { ?>
 
@@ -74,7 +74,7 @@ $my_query = new WP_Query( $args );
 $m = -1;
 //GETTTING LENGTH
 $theLength = $my_query->post_count;
-while ($my_query->have_posts()){
+while ( $my_query->have_posts() ) {
 $m++;
 $my_query->the_post();
 ?>
@@ -87,7 +87,7 @@ $my_query->the_post();
 	<?php
 
 
-	if($theLength > 8){
+	if ( $theLength > 8 ) {
 
 			get_template_part( 'inc/more-posts' );
 

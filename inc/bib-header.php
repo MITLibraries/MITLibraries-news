@@ -33,9 +33,9 @@ $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) )
 ?>
 <select name="bibMenu" id="bibMenu" onchange="window.location=this.value"><option value="">Select issue</option>
 <?php
-foreach($menuitems as $m){  ?>
+foreach ( $menuitems as $m ) {  ?>
 <option
-<?php if($_SERVER['SCRIPT_URI'] == $m->url ){ echo "selected";} ?> value="<?php  echo $m->url; ?>"><?php  echo $m->title; ?></option>
+<?php if ( $_SERVER['SCRIPT_URI'] == $m->url ) { echo "selected";} ?> value="<?php  echo $m->url; ?>"><?php  echo $m->title; ?></option>
 <?php	}    ?>
 </select>
 	  </div><!--bibliobox-->

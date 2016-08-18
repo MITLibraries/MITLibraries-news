@@ -20,7 +20,7 @@ $date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 	<div class="container container-fluid">
 	  <div class="row">
 	      <?php
-	if(is_category()){
+	if ( is_category() ) {
 	 printf( '<h1 class="lib-header">'. 'Category: ' . '<strong>' . single_cat_title( '', false ) . '</strong>'  . '</h1>' );
 	}  ?> 
 		<?php
@@ -52,7 +52,7 @@ $date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 <!-- #primary -->
 <script>
 <?php
-if (is_category( )) {
+if ( is_category( ) ) {
 	$cat = get_query_var( 'cat' );
 	$yourcat = get_category( $cat );
 	$category2 = get_category_by_slug( $yourcat->slug );

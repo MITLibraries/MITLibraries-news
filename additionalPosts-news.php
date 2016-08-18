@@ -10,12 +10,12 @@
 		<?php
 
 			$offset = htmlspecialchars( trim( $_GET['offset'] ) );
-				if ($offset == '') {
+				if ( $offset == '' ) {
 					$offset = 9;
 				}
 
 			 $limit = htmlspecialchars( trim( $_GET['limit'] ) );
-				if ($limit == '') {
+				if ( $limit == '' ) {
 					$limit = 9;
 				}
 		?>
@@ -57,7 +57,7 @@
 		?>
 
 
-		  <?php if( $the_query->have_posts() ):  ?>
+		  <?php if ( $the_query->have_posts() ) :  ?>
 		  <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
 			<?php renderRegularCard( $i, $post ); // --- CALLS REGULAR CARDS --- // ?>

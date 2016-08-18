@@ -34,12 +34,12 @@ $categoryId = $_GET['categoryID'];
 
 
 	$offset = htmlspecialchars( trim( $_GET['offset'] ) );
-	if ($offset == '') {
+	if ( $offset == '' ) {
 		$offset = 21;
 	}
 
 	 $limit = htmlspecialchars( trim( $_GET['limit'] ) );
-	if ($limit == '') {
+	if ( $limit == '' ) {
 		$limit = 9;
 	}
 
@@ -63,7 +63,7 @@ $the_query = new WP_Query( $args );
 //removes button start
 $ajaxLength = $the_query->post_count;
 ?>
-<?php if ($ajaxLength < $limit){ ?>
+<?php if ( $ajaxLength < $limit ) { ?>
 <script>
 $("#another").hide();
 </script>
@@ -71,7 +71,7 @@ $("#another").hide();
 //removes button end
 ?>
 	
-<?php if( $the_query->have_posts() ):  ?>
+<?php if ( $the_query->have_posts() ) :  ?>
 
 
 <?php

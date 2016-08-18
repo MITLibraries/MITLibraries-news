@@ -17,13 +17,13 @@ get_header(); ?>
 <div class="innerPadding clearfix">
 <div class="title-page no-padding-left col-xs-12  col-sm-12 col-md-5 col-lg-5">
 	
-	<?php if( is_single( $post )){ ?>
+	<?php if ( is_single( $post ) ) { ?>
 		<h2 class="name-site2"><a href="/news/">News &amp; events</a></h2>
-	  <?php }else{ ?>
+	  <?php }else { ?>
 	
 	<h1 class="name-site"><a href="/news/">News &amp; events</a>
 	<?php
-	if(is_category()){
+	if ( is_category() ) {
 	 printf( '<span>'. ': ' . single_cat_title( '', false ) . '</span>' );
 	}  ?>        
 	</h1>
@@ -56,16 +56,16 @@ get_header(); ?>
 <div class="col-xs-12 col-xs-B-12 col-xs-B-12 col-sm-9 col-lg-9">
 	
 			<div class="title-page">
-				<?php if ($isRoot): ?>
+				<?php if ( $isRoot ) : ?>
 				<h2><?php echo $section->post_title; ?></h2>
-				<?php else: ?>
+				<?php else : ?>
 				<h2><a href="<?php echo get_permalink( $section->ID ) ?>"><?php echo $section->post_title; ?></a></h2>
 				<?php endif; ?>
 			</div>
 			
 		
 				
-		<?php if (has_post_thumbnail()): ?>
+		<?php if ( has_post_thumbnail() ) : ?>
 		<div class="featuredImage">
 			<?php echo the_post_thumbnail( 700, 300 ); ?>
 		
@@ -74,7 +74,7 @@ get_header(); ?>
 		
 		
 		<div class="entry-content">
-			<?php if (!$isRoot): ?>
+			<?php if ( !$isRoot ) : ?>
 			<h2><?php the_title(); ?></h2>
 			<?php endif; ?>
 			<?php the_content(); ?>

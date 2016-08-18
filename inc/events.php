@@ -8,7 +8,7 @@
 
 ?>
 
-		  <?php if(get_field( 'event_date' )){
+		  <?php if ( get_field( 'event_date' ) ) {
 				$date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 
 			?>
@@ -36,13 +36,13 @@
 </span>    
 		  <span class="event"><?php echo $date->format( 'F j, Y' ); ?></span> 
 		  <span class="time">
-			<?php if( get_field( 'event_start_time' ) ){
+			<?php if ( get_field( 'event_start_time' ) ) {
 			  		echo the_field( 'event_start_time' );
 					} ?>
-			<?php if(( get_field( 'event_start_time' ) ) && ( get_field( 'event_end_time' ) )){
+			<?php if ( ( get_field( 'event_start_time' ) ) && ( get_field( 'event_end_time' ) ) ) {
 				  				 echo '-';
 					} ?>
-			<?php if( get_field( 'event_end_time' ) ){
+			<?php if ( get_field( 'event_end_time' ) ) {
 			  		echo the_field( 'event_end_time' );
 			}  ?>
 			</span> 

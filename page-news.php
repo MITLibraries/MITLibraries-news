@@ -50,14 +50,14 @@ get_header(); ?>
 			$the_query = new WP_Query( $args );
 			?>
 			   <?php
-			if ( $the_query->have_posts() ):
+			if ( $the_query->have_posts() ) :
 			// $theLength = $count_posts->publish;
 			?>
 	
 	
 			<?php
 			$i = -1;
-			while ( $the_query->have_posts() ):
+			while ( $the_query->have_posts() ) :
 				$the_query->the_post();
 				$i++;
 				renderRegularCard( $i, $post ); // --- CALLS REGULAR CARDS --- //

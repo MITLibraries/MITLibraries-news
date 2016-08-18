@@ -24,12 +24,12 @@ $date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 <?php
 
 	$offset = htmlspecialchars( trim( $_GET['offset'] ) );
-	if ($offset == '') {
+	if ( $offset == '' ) {
 		$offset = 9;
 	}
 
 	 $limit = htmlspecialchars( trim( $_GET['limit'] ) );
-	if ($limit == '') {
+	if ( $limit == '' ) {
 		$limit = 9;
 	}
 
@@ -54,7 +54,7 @@ $the_query = new WP_Query( $args );
 //removes button start
 $ajaxLength = $the_query->post_count;
 ?>
-<?php if ($ajaxLength < $limit){ ?>
+<?php if ( $ajaxLength < $limit ) { ?>
 <script>
 $("#another").hide();
 </script>
@@ -63,7 +63,7 @@ $("#another").hide();
 
 
 
-<?php if( $the_query->have_posts() ):  ?>
+<?php if ( $the_query->have_posts() ) :  ?>
 
 
 <?php
@@ -74,7 +74,7 @@ $o++;
 ?>
 
 
-	  <?php  if(get_post_type( get_the_ID() ) == 'bibliotech'){ ?>
+	  <?php  if ( get_post_type( get_the_ID() ) == 'bibliotech' ) { ?>
 	</div>
 	<!--close div that opens in bilbio if statement-->
 	<?php } ?>

@@ -20,13 +20,13 @@ $(document).ready(function() {
 <?php
 
 	$offset = htmlspecialchars( trim( $_GET['offset'] ) );
-	if ($offset == '') {
+	if ( $offset == '' ) {
 		$offset = 11;
 	}
 
 	 $limit = htmlspecialchars( trim( $_GET['limit'] ) );
 
-	if ($limit == '') {
+	if ( $limit == '' ) {
 		$limit = 18;
 	}
 ?>
@@ -65,7 +65,7 @@ $args = array(
 //removes button start
 $ajaxLength = $the_query->post_count;
 
-if ($ajaxLength < $limit){
+if ( $ajaxLength < $limit ) {
 ?>
 <script>
 $("#another").hide();
@@ -75,9 +75,9 @@ $("#another").hide();
 //removes button end
 
 
-if( $the_query->have_posts() ):
+if ( $the_query->have_posts() ) :
 	$o = -1;
-	while ( $the_query->have_posts() )   : $the_query->the_post();
+	while ( $the_query->have_posts() ) : $the_query->the_post();
 	$o++;
 	renderEventCard( $o, $post );
 	endwhile;

@@ -17,7 +17,7 @@ $category = get_the_category();
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=mitlib" async="async"></script>
 <?php get_template_part( 'inc/sub-headerSingle' ); ?>
 <?php
-if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73, $cat ) or is_category( 73 ))){  ?>
+if ( (get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73, $cat ) or is_category( 73 )) ) {  ?>
 <?php get_template_part( 'inc/bib-header' ); ?>
 <?php  } ?>
 <div class="container">
@@ -28,22 +28,22 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73, $
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> data-category="<?php echo $category[0]->slug; ?>">
 	<div class="title-page  mySingle">     
 	  <?php the_title( '<h1 class="entry-title single">', '</h1>' ); ?>
-	  <?php if (get_field( "subtitle" )){ ?>
+	  <?php if ( get_field( "subtitle" ) ) { ?>
 	  <h2 class="subtitle"><?php the_field( "subtitle" ); ?></h2>
 	  <?php } ?>
 	  <div class="entry-meta"> <span class="author"> By
 		<?php
-		if (get_field( "pauthor" )){
+		if ( get_field( "pauthor" ) ) {
 			the_field( "pauthor" );
-		}elseif (get_field( "bauthor" )){
+		}elseif ( get_field( "bauthor" ) ) {
 			the_field( "bauthor" );
-		}else{
+		}else {
 			the_author_posts_link();
 			}
 		 ?>
 		</span> <span class="date-post"> <?php echo ' on '; the_date(); ?> </span>
 		
-		<?php if(has_category()): ?>
+		<?php if ( has_category() ) : ?>
 		<span class="category-post-single"> in
 		<?php
 				$category = get_the_category();
@@ -70,7 +70,7 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73, $
 	
 	
 	
-	<?php if(get_field( 'event_date' )){
+	<?php if ( get_field( 'event_date' ) ) {
 				$date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 
 			?>
@@ -97,13 +97,13 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73, $
 </svg></span>    
 		  <span class="event"><?php echo $date->format( 'F j, Y' ); ?></span> 
 		  <span class="time">
-			<?php if( get_field( 'event_start_time' ) ){
+			<?php if ( get_field( 'event_start_time' ) ) {
 			  		echo the_field( 'event_start_time' );
 					} ?>
-			<?php if(( get_field( 'event_start_time' ) ) && ( get_field( 'event_end_time' ) )){
+			<?php if ( ( get_field( 'event_start_time' ) ) && ( get_field( 'event_end_time' ) ) ) {
 				  				 echo '-';
 					} ?>
-			<?php if( get_field( 'event_end_time' ) ){
+			<?php if ( get_field( 'event_end_time' ) ) {
 			  		echo the_field( 'event_end_time' );
 			}  ?>
 			</span> 
@@ -112,20 +112,20 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73, $
 		  <?php 	}	?>
 
 	<!--=================image=================== -->       
-	<?php if (get_field( 'image' )){ ?>
+	<?php if ( get_field( 'image' ) ) { ?>
 	 <div class="mySinglePicMobile hidden-md hidden-lg col-xs-12">
 	   <img data-original="<?php echo  get_field( 'image' );?> "width="100%" alt="<?php the_title(); ?>" class="thumbnail img-responsive"  /> 
-	   <?php if(get_field( "caption" )){ ?>
+	   <?php if ( get_field( "caption" ) ) { ?>
 	   <div class="mitCaption"><?php the_field( "caption" );  ?></div>
 	   <?php }  ?>
 	 </div>
 	 <?php } ?>
 	<!--=================image=================== --> 	
 	<!--=================image=================== -->  
-	<?php if (get_field( 'image' )){ ?>         
+	<?php if ( get_field( 'image' ) ) { ?>         
 	  <div class="mySinglePic hidden-sm hidden-xs">
 	   <img data-original="<?php echo  get_field( 'image' );?> "width="679" alt="<?php the_title(); ?>" class="thumbnail img-responsive"  /> 
-		<?php if(get_field( "caption" )){ ?>
+		<?php if ( get_field( "caption" ) ) { ?>
 	   <div class="mitCaption"><?php the_field( "caption" );  ?></div>
 	   <?php }  ?>
 	 </div>   
@@ -139,12 +139,12 @@ if((get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73, $
 	<?php
 
 			// Echo type of Feature, if Feature
-			if ($type_post === 'features') {
+			if ( $type_post === 'features' ) {
 				$type = get_field( 'feature_type' );
 				echo 'The feature type is' . $type;
 			}
 			// Echo start/end dates, if they exist
-			if ($type_post === 'exhibits' || $type_post === 'updates') {
+			if ( $type_post === 'exhibits' || $type_post === 'updates' ) {
 				$date_start = get_field( 'date_start' );
 				$date_end = get_field( 'date_end' );
 				echo '<div>Start date is ' . $date_start . '</div>';

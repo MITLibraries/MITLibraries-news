@@ -12,13 +12,13 @@
 <div class="innerPadding clearfix">
 <div class="title-page no-padding-left col-xs-12  col-sm-4 col-md-5 col-lg-5">
 	
-	<?php if( is_single( $post )){ ?>
+	<?php if ( is_single( $post ) ) { ?>
 		<h2 class="name-site"><a href="/news/">News &amp; events</a></h2>
-	  <?php }else{ ?>
+	  <?php }else { ?>
 	
 	<h1 class="name-site"><a href="/news/">News &amp; events</a>
 	<?php
-	if(is_category()){
+	if ( is_category() ) {
 	 printf( '<span>'. ': ' . single_cat_title( '', false ) . '</span>' );
 	}  ?>        
 	</h1>

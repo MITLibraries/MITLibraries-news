@@ -106,9 +106,9 @@ $archive_posts = (array) $the_archive->posts;
 	<div class="row">
 	<h1 class="events-header">Upcoming classes & events</h1>
 	  <?php
-	  if( count( $future_posts ) > 0 ) {
+	  if ( count( $future_posts ) > 0 ) {
 		$i = -1;
-		foreach ($future_posts as $post) {
+		foreach ( $future_posts as $post ) {
 		  $i++;
 		  renderEventCard( $i, $post );
 		}
@@ -125,16 +125,16 @@ $archive_posts = (array) $the_archive->posts;
 	<h2 class="padding-header">Past classes & events</h2>
 	<div class="row">
 	  <?php
-	  if( count( $past_posts ) > 0 ) {
+	  if ( count( $past_posts ) > 0 ) {
 		$i = -1;
-		foreach ($past_posts as $post) {
+		foreach ( $past_posts as $post ) {
 		  $i++;
 		  renderEventCard( $i, $post );
 		}
 	  }
 	  ?>
 	</div> <!-- close row for past events -->
-	<?php if(count( $past_posts ) > 8){
+	<?php if ( count( $past_posts ) > 8 ) {
 	  get_template_part( 'inc/more-posts' );
 	} ?>
 
