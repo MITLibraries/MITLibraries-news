@@ -19,8 +19,8 @@ get_template_part( 'inc/bib-header' );
 	<div class="col-md-12"> 
 	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 	<?php the_title( '<h1 class="entry-title single">', '</h1>' ); ?>
-	 <?php if ( get_field( "subtitle" ) ) { ?>
-	  <h2 class="subtitle"><?php the_field( "subtitle" ); ?></h2>
+	 <?php if ( get_field( 'subtitle' ) ) { ?>
+	  <h2 class="subtitle"><?php the_field( 'subtitle' ); ?></h2>
 	  <?php } ?>
 	</div>
 
@@ -35,10 +35,10 @@ get_template_part( 'inc/bib-header' );
 	<div class="col-xs-12 col-xs-B-6 col-sm-6 col-md-6">     
 	<?php if ( has_post_thumbnail() ) : ?>
 	
-	<a href="<?php the_field( "bibLink" ); ?>"><?php the_post_thumbnail(); ?></a>
+	<a href="<?php the_field( 'bibLink' ); ?>"><?php the_post_thumbnail(); ?></a>
 	
-	<?php if ( get_field( "bibLink" ) ) { ?>
-	<div class="caption"><?php the_field( "bibCaption" ); ?></div>
+	<?php if ( get_field( 'bibLink' ) ) { ?>
+	<div class="caption"><?php the_field( 'bibCaption' ); ?></div>
 	<?php } ?>
 <?php endif; ?>
 	</div>   

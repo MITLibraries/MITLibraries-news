@@ -47,7 +47,7 @@ $args = array(
 	),
 	array(
 	  'key' => 'event_date',
-	  'value' => date( "Y-m-d" ),
+	  'value' => date( 'Y-m-d' ),
 	  'compare' => '<',
 	  'type' => 'DATE'
 	),

@@ -74,7 +74,7 @@ $category = get_the_category();
 			// Check for events
 			if ( $type_post == 'post' && get_field( 'is_event' ) == 1 ) { ?>
 			
-			<div class="event"><span class="grey">Event date </span> <?php echo $date->format( 'F, j Y' ); ?><span class="grey"> starting at</span> <?php echo  get_field( 'event_start_time' ); ?> <span class="grey"><?php if ( get_field( 'event_end_time' ) != "" ) { ?> and ending at</span> <?php echo get_field( 'event_end_time' ); }?></div>
+			<div class="event"><span class="grey">Event date </span> <?php echo $date->format( 'F, j Y' ); ?><span class="grey"> starting at</span> <?php echo  get_field( 'event_start_time' ); ?> <span class="grey"><?php if ( get_field( 'event_end_time' ) != '' ) { ?> and ending at</span> <?php echo get_field( 'event_end_time' ); }?></div>
 				
 		
 			<?php

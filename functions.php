@@ -8,7 +8,7 @@
 
 // Adds auto-loader for lib content
 $siteRoot = $_SERVER['DOCUMENT_ROOT'];
-foreach (glob( $siteRoot."/wp-content/themes/mit-libraries-news/lib/*.php" ) as $file) require_once( $file );
+foreach (glob( $siteRoot.'/wp-content/themes/mit-libraries-news/lib/*.php' ) as $file) require_once( $file );
 
 /**
  * Add Bootstrap and mobile CSS for non-admin users
@@ -203,9 +203,9 @@ function excerpt( $limit = 0 ) {
 		$excerpt = explode( ' ', get_the_excerpt(), $limit );
 		if ( count( $excerpt )>=$limit ) {
 			array_pop( $excerpt );
-			$excerpt = implode( " ",$excerpt ).'...';
+			$excerpt = implode( ' ',$excerpt ).'...';
 		} else {
-			$excerpt = implode( " ",$excerpt );
+			$excerpt = implode( ' ',$excerpt );
 		}
 	}
 	$excerpt = preg_replace( '`\[[^\]]*\]`','',$excerpt );
@@ -224,9 +224,9 @@ function content( $limit = 0 ) {
 		$content = explode( ' ', get_the_content(), $limit );
 		if ( count( $content )>=$limit ) {
 			array_pop( $content );
-			$content = implode( " ",$content ).'...';
+			$content = implode( ' ',$content ).'...';
 		} else {
-			$content = implode( " ",$content );
+			$content = implode( ' ',$content );
 		}
 	}
 	$content = preg_replace( '/\[.+\]/','', $content );
@@ -338,8 +338,8 @@ add_action( 'do_meta_boxes', 'remove_thumbnail_box' );
  * Registers custom css file for admin dashboard
  */
 function registerCustomAdminCss(){
-$src = "/wp-content/themes/mit-libraries-news/custom-admin-css.css";
-$handle = "customAdminCss";
+$src = '/wp-content/themes/mit-libraries-news/custom-admin-css.css';
+$handle = 'customAdminCss';
 wp_register_script( $handle, $src );
 wp_enqueue_style( $handle, $src, array(), false, false );
 	}

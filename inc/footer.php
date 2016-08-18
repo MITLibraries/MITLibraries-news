@@ -8,7 +8,7 @@
 
 ?>
 
-	<div class="category-post <?php  if ( get_post_type( get_the_ID() ) == 'bibliotech' ) { echo "Bibliotech";} ?>">
+	<div class="category-post <?php  if ( get_post_type( get_the_ID() ) == 'bibliotech' ) { echo 'Bibliotech';} ?>">
 	<?php
 	if ( is_page( 'bibliotech-index' ) || (is_page_template( 'additionalPosts-biblio.php' )) || (is_category( 'bibliotech_issues' ) || (is_tax() ) || is_page_template( 'additionalPosts-archives.php' )) ) {
 	  echo "<div class='biblioPad'>&nbsp;<a href='/news/bibliotech-index/' title='Bibliotech'>Bibliotech</a></div>";

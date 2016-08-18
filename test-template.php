@@ -34,12 +34,12 @@ if ( $query2->have_posts() ) :
 	<div class="row">
 			  <div class="col-md-8" onClick='location.href="<?php echo get_post_permalink(); ?>"' style="padding-right:0px;" > <?php echo get_currentuserinfo(); ?>
 
-					<img src="<?php the_field( "featuredListImg" ) ?> "width="679" height="256" alt="<?php the_title(); ?>" /> 
+					<img src="<?php the_field( 'featuredListImg' ) ?> "width="679" height="256" alt="<?php the_title(); ?>" /> 
 			 </div>
 	  		<div class="bgWhite col-xs-12 col-sm-4 col-md-4" onClick='location.href="<?php echo get_post_permalink(); ?>"'>
 			 <h2><?php the_title();?> </h2>
 		
-		<?php if ( get_field( 'event_date' ) ) {  $mitDate = get_field( 'event_date' ); $mitDate = date( "l t Y", strtotime( $mitDate ) ); ?>
+		<?php if ( get_field( 'event_date' ) ) {  $mitDate = get_field( 'event_date' ); $mitDate = date( 'l t Y', strtotime( $mitDate ) ); ?>
 		<div class="event"><?php echo $mitDate; ?>&nbsp;&nbsp; &nbsp; <span class="time">
 		  <?php if ( get_field( 'event_start_time' ) ) {
 			  			echo the_field( 'event_start_time' );
@@ -126,7 +126,7 @@ $the_query = new WP_Query( $args );
 
 	  ?>
 	<div class="col-xs-12 col-sm-4 col-md-4">
-	  <div class="hentry flex-item blueTop eventsBox <?php if ( has_post_thumbnail() ) { echo "has-image"; }elseif ( get_field( "listImg" ) ) { echo "has-image";} else { echo "no-image"; } ?>" onClick='location.href="<?php if ( (get_field( "external_link" ) != "") && $post->post_type == 'spotlights' ) { the_field( "external_link" );}else { echo get_post_permalink();}  ?>"'>
+	  <div class="hentry flex-item blueTop eventsBox <?php if ( has_post_thumbnail() ) { echo 'has-image'; }elseif ( get_field( 'listImg' ) ) { echo 'has-image';} else { echo 'no-image'; } ?>" onClick='location.href="<?php if ( (get_field( 'external_link' ) != '') && $post->post_type == 'spotlights' ) { the_field( 'external_link' );}else { echo get_post_permalink();}  ?>"'>
 	<?php if ( $post->post_type == 'spotlights' ) { ?>
 		<div class="featuredCol">Featured collection</div>
 		<?php } ?>
@@ -137,8 +137,8 @@ $the_query = new WP_Query( $args );
 		<div class="newIcon"></div>
 		<?php endif; ?>
 		<?php
-if ( get_field( "listImg" ) != "" ) { ?>
-		<img src="<?php the_field( "listImg" ) ?>" width="100%" height="111"  alt="<?php the_title(); ?>"/>
+if ( get_field( 'listImg' ) != '' ) { ?>
+		<img src="<?php the_field( 'listImg' ) ?>" width="100%" height="111"  alt="<?php the_title(); ?>"/>
 		 <h2 class="entry-title title-post"><?php  the_title(); ?></h2>
 			<!--/EVENT  DATE-->
 		<?php if ( get_field( 'event_date' ) ) {
@@ -168,7 +168,7 @@ if ( get_field( "listImg" ) != "" ) { ?>
 
 		if ( ($newsTitle >= 50) && has_excerpt( $post->ID ) ) {
 						echo excerpt( 30 );
-					echo "excertp greater then";
+					echo 'excertp greater then';
 
 
 			}
@@ -263,7 +263,7 @@ $thumb_url = $thumb_url_array[0];?>
 		
 		<?php } ?>
 		
-		<div class="category-post <?php  if ( get_post_type( get_the_ID() ) == 'bibliotech' ) { echo "Bibliotech";} ?>">
+		<div class="category-post <?php  if ( get_post_type( get_the_ID() ) == 'bibliotech' ) { echo 'Bibliotech';} ?>">
 		
 		 <?php
 	if ( get_post_type( get_the_ID() ) == 'bibliotech' ) {

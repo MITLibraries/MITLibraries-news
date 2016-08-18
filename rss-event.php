@@ -36,7 +36,7 @@ $args = array(
 );
 $the_query = new WP_Query( $args );
 $lastpost = $numposts - 1;
-header( "Content-Type: application/rss+xml; charset=UTF-8" );
+header( 'Content-Type: application/rss+xml; charset=UTF-8' );
 echo '<?xml version="1.0"?>';
 ?>
 

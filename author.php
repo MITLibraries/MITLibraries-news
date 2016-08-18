@@ -68,21 +68,21 @@ get_header(); ?>
 			$i ++;
 			?>
 				
-				   <div id="theBox" class="<?php if ( $i % 3 == 0 ) { echo "third "; } ?>no-padding-left-mobile col-xs-12 col-xs-B-6 col-sm-4 col-md-4 col-lg-4">
-	  <div class="flex-item blueTop  eventsBox <?php if ( get_field( "listImg" ) ) { echo "has-image";} else { echo "no-image"; } ?>" onClick='location.href="<?php if ( (get_field( "external_link" ) != "") && $post->post_type == 'spotlights' ) { the_field( "external_link" );}else { echo get_post_permalink();}  ?>"'>
+				   <div id="theBox" class="<?php if ( $i % 3 == 0 ) { echo 'third '; } ?>no-padding-left-mobile col-xs-12 col-xs-B-6 col-sm-4 col-md-4 col-lg-4">
+	  <div class="flex-item blueTop  eventsBox <?php if ( get_field( 'listImg' ) ) { echo 'has-image';} else { echo 'no-image'; } ?>" onClick='location.href="<?php if ( (get_field( 'external_link' ) != '') && $post->post_type == 'spotlights' ) { the_field( 'external_link' );}else { echo get_post_permalink();}  ?>"'>
 		  
 		  
 		  <?php get_template_part( 'inc/spotlights' ); ?>
 	   
 		<?php
-		if ( get_field( "listImg" ) != "" ) { ?>
-		<img data-original="<?php the_field( "listImg" ) ?>" width="100%" height="111" class="img-responsive"  alt="<?php the_title();?>"/>
+		if ( get_field( 'listImg' ) != '' ) { ?>
+		<img data-original="<?php the_field( 'listImg' ) ?>" width="100%" height="111" class="img-responsive"  alt="<?php the_title();?>"/>
 		<?php } ?>
 		
 		
 	   <?php if ( $post->post_type == 'spotlights' ) { ?>
 			 <h2 class="entry-title title-post spotlights">
-		  <a href="<?php the_field( "external_link" ); ?>"><?php the_title();?></a>
+		  <a href="<?php the_field( 'external_link' ); ?>"><?php the_title();?></a>
 		</h2> 
 		<?php }else { ?>
 		<h2 class="entry-title title-post">
@@ -99,7 +99,7 @@ get_header(); ?>
 		<?php {  ?>
 		<!--EVENT -->
 		<?php } ?>
-		<div class="category-post <?php  if ( get_post_type( get_the_ID() ) == 'bibliotech' ) { echo "Bibliotech";} ?>">
+		<div class="category-post <?php  if ( get_post_type( get_the_ID() ) == 'bibliotech' ) { echo 'Bibliotech';} ?>">
 <?php
 	if ( get_post_type( get_the_ID() ) == 'bibliotech' ) {
 	   echo "<div class='bilbioImg bilbioTechIcon'>

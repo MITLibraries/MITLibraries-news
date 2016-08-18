@@ -28,15 +28,15 @@ if ( (get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73,
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> data-category="<?php echo $category[0]->slug; ?>">
 	<div class="title-page  mySingle">     
 	  <?php the_title( '<h1 class="entry-title single">', '</h1>' ); ?>
-	  <?php if ( get_field( "subtitle" ) ) { ?>
-	  <h2 class="subtitle"><?php the_field( "subtitle" ); ?></h2>
+	  <?php if ( get_field( 'subtitle' ) ) { ?>
+	  <h2 class="subtitle"><?php the_field( 'subtitle' ); ?></h2>
 	  <?php } ?>
 	  <div class="entry-meta"> <span class="author"> By
 		<?php
-		if ( get_field( "pauthor" ) ) {
-			the_field( "pauthor" );
-		}elseif ( get_field( "bauthor" ) ) {
-			the_field( "bauthor" );
+		if ( get_field( 'pauthor' ) ) {
+			the_field( 'pauthor' );
+		}elseif ( get_field( 'bauthor' ) ) {
+			the_field( 'bauthor' );
 		}else {
 			the_author_posts_link();
 			}
@@ -115,8 +115,8 @@ if ( (get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73,
 	<?php if ( get_field( 'image' ) ) { ?>
 	 <div class="mySinglePicMobile hidden-md hidden-lg col-xs-12">
 	   <img data-original="<?php echo  get_field( 'image' );?> "width="100%" alt="<?php the_title(); ?>" class="thumbnail img-responsive"  /> 
-	   <?php if ( get_field( "caption" ) ) { ?>
-	   <div class="mitCaption"><?php the_field( "caption" );  ?></div>
+	   <?php if ( get_field( 'caption' ) ) { ?>
+	   <div class="mitCaption"><?php the_field( 'caption' );  ?></div>
 	   <?php }  ?>
 	 </div>
 	 <?php } ?>
@@ -125,8 +125,8 @@ if ( (get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73,
 	<?php if ( get_field( 'image' ) ) { ?>         
 	  <div class="mySinglePic hidden-sm hidden-xs">
 	   <img data-original="<?php echo  get_field( 'image' );?> "width="679" alt="<?php the_title(); ?>" class="thumbnail img-responsive"  /> 
-		<?php if ( get_field( "caption" ) ) { ?>
-	   <div class="mitCaption"><?php the_field( "caption" );  ?></div>
+		<?php if ( get_field( 'caption' ) ) { ?>
+	   <div class="mitCaption"><?php the_field( 'caption' );  ?></div>
 	   <?php }  ?>
 	 </div>   
 	  <?php } ?>   
