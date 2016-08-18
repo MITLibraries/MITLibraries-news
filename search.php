@@ -87,7 +87,7 @@ get_header(); ?>
 				$category = get_the_category();
 				$rCat = count( $category );
 				$r = rand( 0, $rCat -1 );
-				echo '<a title="' . $category[$r]->cat_name . '"  title="' . $category[$r]->cat_name . '" href="' . get_category_link( $category[$r]->term_id ) . '">' . $category[$r]->cat_name . '</a>'; ?>
+				echo '<a title="' . $category[ $r ]->cat_name . '"  title="' . $category[ $r ]->cat_name . '" href="' . get_category_link( $category[ $r ]->term_id ) . '">' . $category[ $r ]->cat_name . '</a>'; ?>
 	 
 		  <span class="mitDate">
 		  <time class="updated"  datetime="<?php echo get_the_date(); ?>">&nbsp;&nbsp;<?php echo get_the_date(); ?></time>
@@ -121,7 +121,7 @@ get_header(); ?>
 $(document).ready(function() {
 	var offset = 9;
 	var limit = 0;
-	var car = "<?php echo $_GET[s]; ?>";
+	var car = "<?php echo $_GET[ s ]; ?>";
 	var car = encodeURIComponent(car);
 	$("#another").click(function(){
 	limit = limit + 18;

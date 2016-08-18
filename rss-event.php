@@ -46,8 +46,8 @@ echo '<?xml version="1.0"?>';
 	<link>//libraries.mit.edu/news/events/</link>
 	<description>The latest events from the MIT Libraries</description>
 	<language>en-us</language>
-	<pubDate><?php yoast_rss_date( strtotime( $ps[$lastpost]->post_date_gmt ) ); ?></pubDate>
-	<lastBuildDate><?php yoast_rss_date( strtotime( $ps[$lastpost]->post_date_gmt ) ); ?></lastBuildDate>
+	<pubDate><?php yoast_rss_date( strtotime( $ps[ $lastpost ]->post_date_gmt ) ); ?></pubDate>
+	<lastBuildDate><?php yoast_rss_date( strtotime( $ps[ $lastpost ]->post_date_gmt ) ); ?></lastBuildDate>
 	<managingEditor>hartman@mit.edu (Stephanie Hartman)</managingEditor>
 <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 

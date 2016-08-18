@@ -286,7 +286,7 @@ $thumb_url = $thumb_url_array[0];?>
 
 				//if($category[0]){
 
-				echo '<a title="' . $category[$r]->cat_name . '"  title="' . $category[$r]->cat_name . '" href="' . get_category_link( $category[$r]->term_id ) . '">' . $category[$r]->cat_name . '</a>';
+				echo '<a title="' . $category[ $r ]->cat_name . '"  title="' . $category[ $r ]->cat_name . '" href="' . get_category_link( $category[ $r ]->term_id ) . '">' . $category[ $r ]->cat_name . '</a>';
 
 				//}
 

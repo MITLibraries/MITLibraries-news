@@ -54,7 +54,7 @@ if ( (get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73,
 
 				$r = rand( 0, $rCat -1 );
 
-				echo '<a title="' . $category[$r]->cat_name . '"  title="' . $category[$r]->cat_name . '" href="' . get_category_link( $category[$r]->term_id ) . '">' . $category[$r]->cat_name . '</a>';
+				echo '<a title="' . $category[ $r ]->cat_name . '"  title="' . $category[ $r ]->cat_name . '" href="' . get_category_link( $category[ $r ]->term_id ) . '">' . $category[ $r ]->cat_name . '</a>';
 			?>
 		<?php //echo ' in ' . array_slice($category, 0, 2); ?>
 		</span>
@@ -160,7 +160,7 @@ if ( (get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73,
 	<div class="container">
 
 <div class="row singleMargin">
-	<div class="text-center moreIn"> More in <span class="lowercase"> <?php echo '<a title="' . $category[$r]->cat_name . '"  title="' . $category[$r]->cat_name . '" href="' . get_category_link( $category[$r]->term_id ) . '">' . $category[$r]->cat_name . '</a>'; ?></span>
+	<div class="text-center moreIn"> More in <span class="lowercase"> <?php echo '<a title="' . $category[ $r ]->cat_name . '"  title="' . $category[ $r ]->cat_name . '" href="' . get_category_link( $category[ $r ]->term_id ) . '">' . $category[ $r ]->cat_name . '</a>'; ?></span>
 	</div>
 </div>
 <?php wp_reset_postdata(); ?>
@@ -168,11 +168,11 @@ if ( (get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73,
 	<?php endwhile; // end of the loop. ?>
 	<?php //get_template_part('inc/related'); ?>
 	<?php
-$catName = $category[$r]->cat_name;
+$catName = $category[ $r ]->cat_name;
 $currentPost = get_the_ID();
 
 
-$myCatId = $category[$r]->cat_ID;
+$myCatId = $category[ $r ]->cat_ID;
 
 $args = array(
 	'post_type' => array( 'post', 'bibliotech', 'spotlights'),

@@ -45,7 +45,7 @@ $search_args = array('posts_per_page' => $limit);
 
 foreach ( $query_args as $key => $string ) {
 	$query_split = explode( '=', $string );
-	$search_args[$query_split[0]] = urldecode( $query_split[1] );
+	$search_args[ $query_split[0] ] = urldecode( $query_split[1] );
 	if ( $query_split[0] == 'search' ) {
 	$search_args['s'] = urldecode( $query_split[1] );
 	}
@@ -117,7 +117,7 @@ while ( $the_query->have_posts() ) : $the_query->the_post();
 				$category = get_the_category();
 				$rCat = count( $category );
 				$r = rand( 0, $rCat -1 );
-				echo '<a title="' . $category[$r]->cat_name . '"  title="' . $category[$r]->cat_name . '" href="' . get_category_link( $category[$r]->term_id ) . '">' . $category[$r]->cat_name . '</a>'; ?>
+				echo '<a title="' . $category[ $r ]->cat_name . '"  title="' . $category[ $r ]->cat_name . '" href="' . get_category_link( $category[ $r ]->term_id ) . '">' . $category[ $r ]->cat_name . '</a>'; ?>
 	 
 		  <span class="mitDate">
 		  <time class="updated"  datetime="<?php echo get_the_date(); ?>">&nbsp;&nbsp;<?php echo get_the_date(); ?></time>
