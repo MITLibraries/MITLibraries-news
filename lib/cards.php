@@ -8,7 +8,6 @@
 
 /**
  * Render function
- *
  */
 function render( $post, $i, $type ) {
 	// default outer classes
