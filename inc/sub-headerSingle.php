@@ -52,7 +52,7 @@
     <div class="box-row newsNav">
 
 	   <?php
-//main nav
+// main nav
 $defaults = array(
 	'theme_location'  => '',
 	'menu'            => 'mainNav',

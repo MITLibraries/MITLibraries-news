@@ -56,7 +56,7 @@ if ( (get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73,
 
 				echo '<a title="' . $category[ $r ]->cat_name . '"  title="' . $category[ $r ]->cat_name . '" href="' . get_category_link( $category[ $r ]->term_id ) . '">' . $category[ $r ]->cat_name . '</a>';
 			?>
-		<?php //echo ' in ' . array_slice($category, 0, 2); ?>
+		<?php // echo ' in ' . array_slice($category, 0, 2); ?>
 		</span>
 		<?php endif; ?>
 	  </div> 
@@ -166,7 +166,7 @@ if ( (get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73,
 <?php wp_reset_postdata(); ?>
 <?php wp_reset_query(); ?>
 	<?php endwhile; // end of the loop. ?>
-	<?php //get_template_part('inc/related'); ?>
+	<?php // get_template_part('inc/related'); ?>
 	<?php
 $catName = $category[ $r ]->cat_name;
 $currentPost = get_the_ID();
@@ -190,7 +190,7 @@ $args = array(
 $myposts = get_posts( $args );
 $y = 1 ;
 foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
-<?php //echo $GLOBALS['wp_query']->request; ?>
+<?php // echo $GLOBALS['wp_query']->request; ?>
 	
 			  <?php renderRegularCard( $i, $post ); // --- CALLS REGULAR CARDS --- // ?>
 	

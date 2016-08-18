@@ -60,7 +60,7 @@ $categoryId = $_GET['categoryID'];
 
 $the_query = new WP_Query( $args );
 
-//removes button start
+// removes button start
 $ajaxLength = $the_query->post_count;
 ?>
 <?php if ( $ajaxLength < $limit ) { ?>
@@ -68,7 +68,7 @@ $ajaxLength = $the_query->post_count;
 $("#another").hide();
 </script>
 <?php }
-//removes button end
+// removes button end
 ?>
 	
 <?php if ( $the_query->have_posts() ) :  ?>

@@ -184,12 +184,12 @@ add_action( 'init', 'mitlibnews_register_news_posts' );
 // Disable admin color scheme
 remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
 
-//custom images for the news
+// custom images for the news
 add_theme_support( 'post-thumbnails' );
 add_image_size( 'news-home', 111, 206, true ); // Hard Crop Mode
 add_image_size( 'news-listing', 323, 111, true ); // Hard Crop Mode
-add_image_size( 'news-feature', 657, 256, true ); /// Hard Crop Mode
-add_image_size( 'news-single', 451,'651', true ); /// Hard Crop Mode
+add_image_size( 'news-feature', 657, 256, true ); // Hard Crop Mode
+add_image_size( 'news-single', 451,'651', true ); // Hard Crop Mode
 
 /**
  * This function trims a WP excerpt at a word limit defined by $limit. If no
@@ -279,21 +279,20 @@ function eventRSSFunc(){
 		get_template_part( 'rss', 'event' );
 }
 
-////removes plugins tools users
-//function remove_menu_items() {
-//  global $menu;
-//  $restricted = array(__('Links'), __('Comments')/*, __('Media')*/,
-//  /*__('Plugins'), __('Tools'),*/ __('Users'));
-//  end ($menu);
-//  while (prev($menu)){
-//    $value = explode(' ',$menu[key($menu)][0]);
-//    if(in_array($value[0] != NULL?$value[0]:"" , $restricted)){
-//      unset($menu[key($menu)]);}
-//    }
-//  }
+// removes plugins tools users
+// function remove_menu_items() {
+// global $menu;
+// $restricted = array(__('Links'), __('Comments')/*, __('Media')*/,
+// *__('Plugins'), __('Tools'),*/ __('Users'));
+// end ($menu);
+// while (prev($menu)){
+// $value = explode(' ',$menu[key($menu)][0]);
+// if(in_array($value[0] != NULL?$value[0]:"" , $restricted)){
+// unset($menu[key($menu)]);}
+// }
+// }
 //
-//add_action('admin_menu', 'remove_menu_items');
-
+// add_action('admin_menu', 'remove_menu_items');
 /**
  * Customize meta boxes on admin interface
  */
@@ -303,7 +302,7 @@ function customize_meta_boxes() {
 	remove_meta_box( 'trackbacksdiv','post','normal' );
 	remove_meta_box( 'commentstatusdiv','post','normal' );
 	remove_meta_box( 'commentsdiv','post','normal' );
-	//remove_meta_box('tagsdiv-post_tag','post','normal');
+	// remove_meta_box('tagsdiv-post_tag','post','normal');
 	remove_meta_box( 'postexcerpt','post','normal' );
 
 	/* Removes meta boxes from pages */

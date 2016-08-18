@@ -38,10 +38,8 @@ function the_excerpt_max_charlength( $charlength ) {
 <div id="primary" class="content-area">
 	<main id="main" class="content-main" role="main">
 	<?php
-//query selects posts from the last 30-60 days
-
+// query selects posts from the last 30-60 days
 // aug - sept - oct
-
 $args = array(
 	'date_query' => array(
 
@@ -89,7 +87,7 @@ $thumb_url = $thumb_url_array[0];
 		<?php
 
 				$mitDate = get_field( 'event_date' );
-				//echo $mitDate;
+				// echo $mitDate;
 				$mitDate = date( 'l t Y', strtotime( $mitDate ) );
 
 			?>
@@ -118,7 +116,7 @@ $thumb_url = $thumb_url_array[0];
 			?>
 		  <span class="mitDate">&nbsp;&nbsp;<?php echo get_the_date(); ?></span> </div>
 	  </div>
-	  <?php  //if($i % 3 == 0) {echo '</div><div class="mit-container"> ';}  ?>
+	  <?php  // if($i % 3 == 0) {echo '</div><div class="mit-container"> ';}  ?>
 	  <?php endwhile; else : ?>
 	  
 	  <!-- The very first "if" tested to see if there were any Posts to --> 

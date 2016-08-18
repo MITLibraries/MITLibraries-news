@@ -13,7 +13,7 @@
 $value = get_field( 'feature_type' );
 $label = $field['choices'][ $value ];
 
-//print_r($label);
+// print_r($label);
 if ( ($field['choices'][ $value ] ) === 'Tip' ) {
 	$featImg = '<div class="info"></div>';
 	}

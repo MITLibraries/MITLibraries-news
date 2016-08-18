@@ -52,7 +52,7 @@ $(document).ready(function() {
 	
 	
 	<?php
-//removes button start
+// removes button start
 $ajaxLength = $the_query->post_count;
 ?>
 <?php if ( $ajaxLength < $limit ) { ?>

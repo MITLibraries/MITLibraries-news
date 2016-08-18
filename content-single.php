@@ -37,7 +37,7 @@ $category = get_the_category();
 				
 				
 			 
-				<?php //echo ' in ' . array_slice($category, 0, 2); ?>
+				<?php // echo ' in ' . array_slice($category, 0, 2); ?>
 			</span>
 			<?php endif; ?>
 		</div><!-- .entry-meta -->
@@ -65,12 +65,7 @@ $category = get_the_category();
 			<?php
 
 			$date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
-			//echo $date->format('d-m-Y');
-
-
-
-
-
+			// echo $date->format('d-m-Y');
 			// Check for events
 			if ( $type_post == 'post' && get_field( 'is_event' ) == 1 ) { ?>
 			

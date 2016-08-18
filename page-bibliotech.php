@@ -72,7 +72,7 @@ $args = array(
 			);
 $my_query = new WP_Query( $args );
 $m = -1;
-//GETTTING LENGTH
+// GETTTING LENGTH
 $theLength = $my_query->post_count;
 while ( $my_query->have_posts() ) {
 $m++;

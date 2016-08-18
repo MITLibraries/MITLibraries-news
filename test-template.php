@@ -108,7 +108,7 @@ $the_query = new WP_Query( $args );
 
 
 ?>
-	  <?php //print_r($the_query);
+	  <?php // print_r($the_query);
 
 
 	?>
@@ -280,16 +280,13 @@ $thumb_url = $thumb_url_array[0];?>
 
 				$rCat = count( $category );
 				$r = rand( 0, $rCat -1 );
-				//echo $r;
-				//echo "-";
-				//echo $rCat;
-
-				//if($category[0]){
-
+				// echo $r;
+				// echo "-";
+				// echo $rCat;
+				// if($category[0]){
 				echo '<a title="' . $category[ $r ]->cat_name . '"  title="' . $category[ $r ]->cat_name . '" href="' . get_category_link( $category[ $r ]->term_id ) . '">' . $category[ $r ]->cat_name . '</a>';
 
-				//}
-
+				// }
 	  }
 			?>
 			

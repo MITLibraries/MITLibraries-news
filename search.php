@@ -35,9 +35,7 @@ get_header(); ?>
 	  <?php
 
 	  	$L = -1;
-	   	//$theLength = $count_posts->publish;
-
-
+	   	// $theLength = $count_posts->publish;
 	 	 while ( have_posts() ) : the_post(); $L++;
 	  	?>
 	  <!--//////////// -->
