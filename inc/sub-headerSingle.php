@@ -37,18 +37,22 @@
 
 
 
-<?php /*
+<?php
+/*
 ?><a href="">Subscribe</a>
 <?php previous_post('%','Previous story', 'no'); ?>
 <span class="not_on_phone">|</span>
-<?php next_post('%','Next story ', 'no'); ?><?php */?>
+<?php next_post('%','Next story ', 'no'); ?><?php
+*/
+?>
 </div>
 
 
 <hr class="news hidden-xs col-sm-12 col-md-12 col-lg-12 clearfix">
 
 
-<?php /*
+<?php
+/*
 ?><div class="flex-container subNavH">
   <div class="leftNav">
     <div class="box-row newsNav">
@@ -130,7 +134,9 @@ wp_nav_menu( $defaults );
 </script>
  </div>
   </div>
-</div><?php */?>
+</div><?php
+*/
+?>
 </div><!--innerpadding-->
 </div><!--news-->
 </div>

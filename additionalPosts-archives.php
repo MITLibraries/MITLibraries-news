@@ -77,17 +77,17 @@ $i++;
 ?>
 
 
-	<div class="<?php if ( $i % 3 == 0 ) { echo 'third '; } ?> col-xs-12  col-xs-B-6 col-sm-4 col-md-4 no-padding-left-mobile">
+	<div class="<?php if ( 0 === $i % 3 ) { echo 'third '; } ?> col-xs-12  col-xs-B-6 col-sm-4 col-md-4 no-padding-left-mobile">
 		<div class="flex-item blueTop eventsBox <?php if ( get_field( 'listImg' ) ) { echo 'has-image';
-} else { echo 'no-image'; } ?>" onClick='location.href="<?php if ( (get_field( 'external_link' ) != '') && $post->post_type == 'spotlights' ) { the_field( 'external_link' );
+} else { echo 'no-image'; } ?>" onClick='location.href="<?php if ( ('' !== get_field( 'external_link' )) && 'spotlights' == $post->post_type ) { the_field( 'external_link' );
 } else { echo get_post_permalink();}  ?>"'>
 		<?php
-		if ( get_field( 'listImg' ) != '' ) { ?>
+		if ( '' !== get_field( 'listImg' ) ) { ?>
 		<img data-original="<?php the_field( 'listImg' ) ?>" width="100%" height="111" class="img-responsive"  alt="<?php the_title(); ?>"/>
 		<?php } ?>
 		
 		
-		<h2 class="entry-title title-post  <?php if ( $post->post_type == 'spotlights' ) { echo 'spotlights'; } ?>">
+		<h2 class="entry-title title-post  <?php if ( 'spotlights' === $post->post_type ) { echo 'spotlights'; } ?>">
 		  <?php  the_title(); ?>
 		</h2>
 		
