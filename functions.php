@@ -8,7 +8,7 @@
 
 // Adds auto-loader for lib content
 $siteRoot = $_SERVER['DOCUMENT_ROOT'];
-foreach (glob( $siteRoot . '/wp-content/themes/mit-libraries-news/lib/*.php' ) as $file) { require_once( $file ); }
+foreach ( glob( $siteRoot . '/wp-content/themes/mit-libraries-news/lib/*.php' ) as $file ) { require_once( $file ); }
 
 /**
  * Add Bootstrap and mobile CSS for non-admin users
@@ -128,7 +128,7 @@ function mitlibnews_register_news_posts() {
 	 */
 	function theme_apto_object_taxonomies( $object_taxonomies, $post_type ) {
 		if ( $post_type == 'spotlight' ) {
-				if (array_search( 'Events', $object_taxonomies ) !== FALSE) {
+				if ( array_search( 'Events', $object_taxonomies ) !== FALSE ) {
 					unset( $object_taxonomies[ array_search( 'Events', $object_taxonomies ) ] ); }
 			}
 		return $object_taxonomies;
