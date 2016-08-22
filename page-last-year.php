@@ -12,6 +12,12 @@ $isRoot = $section->ID == $post->ID;
 get_header(); ?>
 <?php
 the_excerpt_max_charlength( 140 );
+
+/**
+ * Trim a post excerpt at a provided length.
+ *
+ * @param int $charlength The length of desired excerpt.
+ */
 function the_excerpt_max_charlength( $charlength ) {
 	$excerpt = get_the_excerpt();
 	$charlength++;

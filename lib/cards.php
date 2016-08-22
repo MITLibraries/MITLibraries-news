@@ -8,6 +8,10 @@
 
 /**
  * Render function
+ *
+ * @param object $post A WP post object.
+ * @param int    $i The index of the post object in a list.
+ * @param string $type The type of post.
  */
 function render( $post, $i, $type ) {
 	// default outer classes
@@ -91,6 +95,12 @@ function render( $post, $i, $type ) {
 
 <?php
 }
+/**
+ * Render a card for display on mobile devices
+ *
+ * @param int    $i Unused - the index of the post object in a list.
+ * @param object $post A WP post object.
+ */
 function renderMobileCard( $i, $post ) {
 ?>
 <div  class="visible-xs visible-sm hidden-md hidden-lg no-padding-left-mobile no-padding-left-tablet col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4 ">
@@ -139,6 +149,12 @@ function renderMobileCard( $i, $post ) {
 
 <?php
 }
+/**
+ * Render a Bibliotech card for display on mobile devices
+ *
+ * @param int    $i Unused - the index of the post object in a list.
+ * @param object $post A WP post object.
+ */
 function renderMobileBiblioCard( $i, $post ) {
 ?>
 <div  class="visible-xs visible-sm hidden-md hidden-lg no-padding-left-mobile no-padding-left-tablet col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4 ">
@@ -177,6 +193,12 @@ function renderMobileBiblioCard( $i, $post ) {
 
 <?php
 }
+/**
+ * Render a Bibliotech card
+ *
+ * @param int    $m Unused.
+ * @param object $post A WP post object.
+ */
 function renderBiblioCard( $m, $post ) {
 ?>
 <div  class="no-padding-left-mobile col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4">
@@ -217,6 +239,12 @@ function renderBiblioCard( $m, $post ) {
 
 <?php
 }
+/**
+ * Render a card
+ *
+ * @param int    $i Unused - the index of the post object in a list.
+ * @param object $post A WP post object.
+ */
 function renderRegularCard( $i, $post ) {
 ?>
 <div id="theBox" class="no-padding-left-mobile col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4">
@@ -273,6 +301,12 @@ function renderRegularCard( $i, $post ) {
 <?php
 	}
 }
+/**
+ * Render an event card
+ *
+ * @param int    $i Unused - the index of the post object in a list.
+ * @param object $post A WP post object.
+ */
 function renderEventCard( $i, $post ) {
 ?>
 	<div id="theBox" class="col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4">
@@ -316,6 +350,12 @@ function renderEventCard( $i, $post ) {
 
 <?php
 }
+/**
+ * Render a featured card
+ *
+ * @param int    $i Unused - the index of the post object in a list.
+ * @param object $post A WP post object.
+ */
 function renderFeatureCard( $i, $post ) {
 ?>
 	<div class="sticky  hidden-xs hidden-sm col-md-12 clearfix">

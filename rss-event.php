@@ -7,15 +7,30 @@
  *
  * @package MITLibraries-News
  * @since 1.0
+ * @link https://yoast.com/custom-rss-feeds-wordpress/ Source
  */
 
 $numposts = 5;
 
+/**
+ * This outputs a formatted timestamp.
+ *
+ * @param string $timestamp A provided timestamp.
+ * @link https://yoast.com/custom-rss-feeds-wordpress/ Source
+ */
 function yoast_rss_date( $timestamp = null ) {
 	$timestamp = ($timestamp == null) ? time() : $timestamp;
 	echo date( DATE_RSS, $timestamp );
 }
 
+/**
+ * This outputs an excerpt of a source string with ellipsis on a word boundary.
+ *
+ * @param string $string The string to be trimmed.
+ * @param int    $length The desired length of excerpt.
+ * @param string $replacer The ellipsis or continuation string to indicate truncation.
+ * @link https://yoast.com/custom-rss-feeds-wordpress/ Source
+ */
 function yoast_rss_text_limit( $string, $length, $replacer = '...' ) {
 	$string = strip_tags( $string );
 	if ( strlen( $string ) > $length ) {

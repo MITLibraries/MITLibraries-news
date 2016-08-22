@@ -9,6 +9,11 @@
 ?>
 
 <?php
+/**
+ * This sets the is_search flag to true.
+ *
+ * @param object $q The query object.
+ */
 function set_search( $q ) {
 	$q->set( 'is_search', true );
 }
