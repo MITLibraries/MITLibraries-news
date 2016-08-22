@@ -50,9 +50,9 @@ if ( (get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73,
 
 	  ?>
 	  
-	  <div class="<?php if ( $i % 3 == 0 ) { echo 'third '; } ?> col-xs-12  col-xs-B-6 col-sm-4 col-md-4 no-padding-left-mobile">
+	  <div class="<?php if ( 0 == $i % 3 ) { echo 'third '; } ?> col-xs-12  col-xs-B-6 col-sm-4 col-md-4 no-padding-left-mobile">
 	  <div class="hentry flex-item blueTop eventsBox <?php if ( get_field( 'listImg' ) ) { echo 'has-image';
-} else { echo 'no-image'; } ?>" onClick='location.href="<?php if ( (get_field( 'external_link' ) != '') && $post->post_type == 'spotlights' ) { the_field( 'external_link' );
+} else { echo 'no-image'; } ?>" onClick='location.href="<?php if ( ( '' != get_field( 'external_link' ) ) && 'spotlights' == $post->post_type ) { the_field( 'external_link' );
 } else { echo get_post_permalink();}  ?>"'>
 
 
@@ -66,7 +66,7 @@ if ( (get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73,
 		<?php } ?>
 		
 		
-		<?php if ( $post->post_type == 'spotlights' ) { ?>
+		<?php if ( 'spotlights' == $post->post_type ) { ?>
 			 <h2 class="entry-title title-post spotlights">
 		  <a href="<?php the_field( 'external_link' ); ?>"><?php the_title();?></a>
 		</h2> 

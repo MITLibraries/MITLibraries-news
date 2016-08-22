@@ -18,7 +18,7 @@ $numposts = 5;
  * @link https://yoast.com/custom-rss-feeds-wordpress/ Source
  */
 function yoast_rss_date( $timestamp = null ) {
-	$timestamp = ($timestamp == null) ? time() : $timestamp;
+	$timestamp = ( null == $timestamp ) ? time() : $timestamp;
 	echo date( DATE_RSS, $timestamp );
 }
 

@@ -61,7 +61,7 @@ add_action( 'do_meta_boxes', 'mitlibnews_remove_dashboard_widgets' );
  */
 function hide_addthis() {
 	global $user_level;
-	if ( $user_level != '10' ) {
+	if ( '10' != $user_level ) {
 	   echo '<style type="text/css">
 		   #at_widget,
 		   .metabox-prefs label:nth-child(13) {
@@ -116,7 +116,7 @@ function mitlibnews_register_news_posts() {
 	 * @param string $post_type The type of a given post.
 	 */
 	function theme_apto_object_taxonomies( $object_taxonomies, $post_type ) {
-		if ( $post_type == 'spotlight' ) {
+		if ( 'spotlight' == $post_type ) {
 				if ( array_search( 'Events', $object_taxonomies ) !== false ) {
 					unset( $object_taxonomies[ array_search( 'Events', $object_taxonomies ) ] ); }
 			}

@@ -16,7 +16,7 @@
 function render( $post, $i, $type ) {
 	// Default outer classes.
 	$outerClasses = 'padding-right-mobile col-xs-12 col-xs-B-6 col-sm-4 col-md-4 col-lg-4';
-	if ( $i % 3 == 0 ) {
+	if ( 0 == $i % 3 ) {
 	$outerClasses .= ' third';
 	}
 	// Default inner classes.
@@ -28,7 +28,7 @@ function render( $post, $i, $type ) {
 	}
 	// Inner onClick.
 	$innerOnClick = '';
-	if ( get_field( 'external_link' ) != '' && $post->post_type == 'spotlights' ) {
+	if ( '' != get_field( 'external_link' ) && 'spotlights' == $post->post_type ) {
 	$innerOnClick = get_field( 'external_link' );
 	} else {
 	$innerOnClick = get_permalink();
@@ -51,7 +51,7 @@ function render( $post, $i, $type ) {
 	if ( is_page( 'bibliotech-index' ) || (is_page_template( 'additionalPosts-biblio.php' )) || (is_category( 'bibliotech_issues' ) || (is_tax() ) || is_page_template( 'additionalPosts-archives.php' )) ) {
 	// Bibliotech articles without icon.
 	$categoryMarkup = "<div class='biblioPad'>&nbsp;<a href='/news/bibliotech-index/' title='Bibliotech'>Bibliotech</a></div>";
-	} elseif ( ( $post->post_type == 'bibliotech') && ( ! is_page_template( 'additionalPosts-biblio.php' )) ) {
+	} elseif ( ( 'bibliotech' == $post->post_type ) && ( ! is_page_template( 'additionalPosts-biblio.php' ) ) ) {
 	// Bibliotech articles with icon.
 	$categoryMarkup = "<div class='bilbioImg bilbioTechIcon'> </div>";
 	$categoryMarkup .= "<div class='biblioPad'>&nbsp;<a href='/news/bibliotech-index/' title='Bibliotech'>Bibliotech</a>";
@@ -105,14 +105,14 @@ function renderMobileCard( $i, $post ) {
 ?>
 <div  class="visible-xs visible-sm hidden-md hidden-lg no-padding-left-mobile no-padding-left-tablet col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4 ">
 <div class="flex-item blueTop eventsBox <?php if ( get_field( 'listImg' ) ) { echo 'has-image';
-} else { echo 'no-image'; } ?>" onClick='location.href="<?php if ( (get_field( 'external_link' ) != '') && $post->post_type == 'spotlights' ) { the_field( 'external_link' );
+} else { echo 'no-image'; } ?>" onClick='location.href="<?php if ( ( '' != get_field( 'external_link' ) ) && 'spotlights' == $post->post_type ) { the_field( 'external_link' );
 } else { echo get_post_permalink();}  ?>"'>
 	
 	   		<!-- INTERNAL CONTAINER TO CONTROL FOR OVERFLOW -->   
 			 <div class="interiorCardContainer">
 				 
 				<!-- CHECKS FOR SPOTLIGHT -->   
-				<?php if ( $post->post_type == 'spotlights' ) { ?>
+				<?php if ( 'spotlights' == $post->post_type ) { ?>
 				<?php get_template_part( 'inc/spotlights' ); ?>
 		        <?php 	} ?><!-- SPOTLIGHT -->  
 				
@@ -159,7 +159,7 @@ function renderMobileBiblioCard( $i, $post ) {
 ?>
 <div  class="visible-xs visible-sm hidden-md hidden-lg no-padding-left-mobile no-padding-left-tablet col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4 ">
 <div class="flex-item blueTop eventsBox <?php if ( get_field( 'listImg' ) ) { echo 'has-image';
-} else { echo 'no-image'; } ?>" onClick='location.href="<?php if ( (get_field( 'external_link' ) != '') && $post->post_type == 'spotlights' ) { the_field( 'external_link' );
+} else { echo 'no-image'; } ?>" onClick='location.href="<?php if ( ( '' != get_field( 'external_link' ) ) && 'spotlights' == $post->post_type ) { the_field( 'external_link' );
 } else { echo get_post_permalink();}  ?>"'>
 	
 	   		<!-- INTERNAL CONTAINER TO CONTROL FOR OVERFLOW -->   
@@ -203,7 +203,7 @@ function renderBiblioCard( $m, $post ) {
 ?>
 <div  class="no-padding-left-mobile col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4">
 <div class="flex-item blueTop eventsBox <?php if ( get_field( 'listImg' ) ) { echo 'has-image';
-} else { echo 'no-image'; } ?>" onClick='location.href="<?php if ( (get_field( 'external_link' ) != '') && $post->post_type == 'spotlights' ) { the_field( 'external_link' );
+} else { echo 'no-image'; } ?>" onClick='location.href="<?php if ( ( '' != get_field( 'external_link' ) ) && 'spotlights' == $post->post_type ) { the_field( 'external_link' );
 } else { echo get_post_permalink();}  ?>"'>
 	
 	   		<!-- INTERNAL CONTAINER TO CONTROL FOR OVERFLOW -->   
@@ -250,14 +250,14 @@ function renderRegularCard( $i, $post ) {
 <div id="theBox" class="no-padding-left-mobile col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4">
 <div class="flex-item blueTop eventsBox <?php if ( get_field( 'listImg' ) ) { echo 'has-image';
 } else { echo 'no-image'; } ?>" 
-	onClick='location.href="<?php if ( (get_field( 'external_link' ) != '') && $post->post_type == 'spotlights' ) { the_field( 'external_link' );
+	onClick='location.href="<?php if ( ( '' != get_field( 'external_link' ) ) && 'spotlights' == $post->post_type ) { the_field( 'external_link' );
 } else { echo get_post_permalink();}  ?>"'
 	>
 	   		<!-- INTERNAL CONTAINER TO CONTROL FOR OVERFLOW -->   
 			 <div class="interiorCardContainer">
 				 
 				<!-- CHECKS FOR SPOTLIGHT -->   
-				<?php if ( $post->post_type == 'spotlights' ) { ?>
+				<?php if ( 'spotlights' == $post->post_type ) { ?>
 				<?php get_template_part( 'inc/spotlights' ); ?>
 		        <?php 	} ?><!-- SPOTLIGHT -->  
 				
@@ -311,7 +311,7 @@ function renderEventCard( $i, $post ) {
 ?>
 	<div id="theBox" class="col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4">
 	<div itemscope itemtype="http://data-vocabulary.org/Event" class="flex-item blueTop eventsBox <?php if ( get_field( 'listImg' ) ) { echo 'has-image';
-} else { echo 'no-image'; } ?>" onClick='location.href="<?php if ( (get_field( 'external_link' ) != '') && $post->post_type == 'spotlights' ) { the_field( 'external_link' );
+} else { echo 'no-image'; } ?>" onClick='location.href="<?php if ( ( '' != get_field( 'external_link' ) ) && 'spotlights' == $post->post_type ) { the_field( 'external_link' );
 } else { echo get_post_permalink();}  ?>"'>
 	<!-- INTERNAL CONTAINER TO CONTROL FOR OVERFLOW -->   
 			 <div class="interiorCardContainer">
@@ -360,11 +360,11 @@ function renderFeatureCard( $i, $post ) {
 ?>
 	<div class="sticky  hidden-xs hidden-sm col-md-12 clearfix">
 	<div class="no-padding-left-mobile sticky col-xs-3 col-xs-B-6 col-sm-8 col-lg-8 col-md-8" onClick='location.href="<?php echo get_post_permalink(); ?>"' style="padding-right:0px; padding-left:6px !important;" > <img src="<?php the_field( 'featuredListImg' ); ?>" class="img-responsive" width="679" height="260" alt="<?php the_title();?>" /> </div>
-	<div class=" hidden-xs bgWhite col-xs-12 col-xs-B-6 col-sm-4 col-md-4 col-lg-4" onClick='location.href="<?php if ( (get_field( 'external_link' ) != '') && $post->post_type == 'spotlights' ) { the_field( 'external_link' );
+	<div class=" hidden-xs bgWhite col-xs-12 col-xs-B-6 col-sm-4 col-md-4 col-lg-4" onClick='location.href="<?php if ( ( '' != get_field( 'external_link' ) ) && 'spotlights' == $post->post_type ) { the_field( 'external_link' );
 } else { echo get_post_permalink();}  ?>"'>
 		
 				<!-- CHECKS FOR SPOTLIGHT -->   
-				<?php if ( $post->post_type == 'spotlights' ) { ?>
+				<?php if ( 'spotlights' == $post->post_type ) { ?>
 				<?php get_template_part( 'inc/spotlights' ); ?>
 		        <?php 	} ?><!-- SPOTLIGHT -->  
 		         

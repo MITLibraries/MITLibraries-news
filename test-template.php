@@ -125,12 +125,12 @@ $the_query = new WP_Query( $args );
 	<div class="col-xs-12 col-sm-4 col-md-4">
 	  <div class="hentry flex-item blueTop eventsBox <?php if ( has_post_thumbnail() ) { echo 'has-image';
 } elseif ( get_field( 'listImg' ) ) { echo 'has-image';
-} else { echo 'no-image'; } ?>" onClick='location.href="<?php if ( (get_field( 'external_link' ) != '') && $post->post_type == 'spotlights' ) { the_field( 'external_link' );
+} else { echo 'no-image'; } ?>" onClick='location.href="<?php if ( ( '' != get_field( 'external_link' ) ) && 'spotlights' == $post->post_type ) { the_field( 'external_link' );
 } else { echo get_post_permalink();}  ?>"'>
-	<?php if ( $post->post_type == 'spotlights' ) { ?>
+	<?php if ( 'spotlights' == $post->post_type ) { ?>
 		<div class="featuredCol">Featured collection</div>
 		<?php } ?>
-		<?php if ( $post->post_type == 'spotlights' ) { ?>
+		<?php if ( 'spotlights' == $post->post_type ) { ?>
 		<div class="featuredColImg"> <img src="/wp-content/themes/mit-libraries-news/images/info.png" alt="featured" width="31" height="27" /> </div>
 		<?php } ?>
 		<?php if ( get_field( 'mark_as_new' ) === true ) : ?>

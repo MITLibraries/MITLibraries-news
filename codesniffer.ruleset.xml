@@ -20,7 +20,6 @@
 		<exclude name="Generic.Strings.UnnecessaryStringConcat.Found" />
 		<exclude name="WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid" />
 		<exclude name="WordPress.NamingConventions.ValidVariableName.NotSnakeCase" />
-		<exclude name="WordPress.PHP.YodaConditions.NotYoda" />
 		<exclude name="WordPress.VIP.PostsPerPage.posts_per_page" />
 		<exclude name="WordPress.VIP.RestrictedFunctions.get_category_by_slug" />
 		<exclude name="WordPress.VIP.RestrictedFunctions.get_term_link" />

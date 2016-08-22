@@ -24,12 +24,12 @@ $date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 <?php
 
 	$offset = htmlspecialchars( trim( $_GET['offset'] ) );
-	if ( $offset == '' ) {
+	if ( '' == $offset ) {
 		$offset = 9;
 	}
 
 	 $limit = htmlspecialchars( trim( $_GET['limit'] ) );
-	if ( $limit == '' ) {
+	if ( '' == $limit ) {
 		$limit = 9;
 	}
 

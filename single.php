@@ -139,12 +139,12 @@ the_date(); ?> </span>
 	<?php
 
 			// Echo type of Feature, if Feature.
-			if ( $type_post === 'features' ) {
+			if ( 'features' === $type_post ) {
 				$type = get_field( 'feature_type' );
 				echo 'The feature type is' . $type;
 			}
 			// Echo start/end dates, if they exist.
-			if ( $type_post === 'exhibits' || $type_post === 'updates' ) {
+			if ( 'exhibits' === $type_post || 'updates' === $type_post ) {
 				$date_start = get_field( 'date_start' );
 				$date_end = get_field( 'date_end' );
 				echo '<div>Start date is ' . $date_start . '</div>';

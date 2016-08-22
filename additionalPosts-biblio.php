@@ -22,12 +22,12 @@ $(document).ready(function() {
 
 
 	$offset = htmlspecialchars( trim( $_GET['offset'] ) );
-	if ( $offset == '' ) {
+	if ( '' == $offset ) {
 		$offset = 10;
 	}
 
 	 $limit = htmlspecialchars( trim( $_GET['limit'] ) );
-	if ( $limit == '' ) {
+	if ( '' == $limit ) {
 		$limit = 9;
 	}
 

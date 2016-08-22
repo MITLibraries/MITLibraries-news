@@ -10,12 +10,12 @@
 		<?php
 
 			$offset = htmlspecialchars( trim( $_GET['offset'] ) );
-				if ( $offset == '' ) {
+				if ( '' == $offset ) {
 					$offset = 9;
 				}
 
 			 $limit = htmlspecialchars( trim( $_GET['limit'] ) );
-				if ( $limit == '' ) {
+				if ( '' == $limit ) {
 					$limit = 9;
 				}
 		?>

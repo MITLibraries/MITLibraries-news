@@ -34,12 +34,12 @@ $categoryId = $_GET['categoryID'];
 
 
 	$offset = htmlspecialchars( trim( $_GET['offset'] ) );
-	if ( $offset == '' ) {
+	if ( '' == $offset ) {
 		$offset = 21;
 	}
 
 	 $limit = htmlspecialchars( trim( $_GET['limit'] ) );
-	if ( $limit == '' ) {
+	if ( '' == $limit ) {
 		$limit = 9;
 	}
 

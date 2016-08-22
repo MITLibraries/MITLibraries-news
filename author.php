@@ -77,9 +77,9 @@ get_header(); ?>
 			$i ++;
 			?>
 				
-				   <div id="theBox" class="<?php if ( $i % 3 == 0 ) { echo 'third '; } ?>no-padding-left-mobile col-xs-12 col-xs-B-6 col-sm-4 col-md-4 col-lg-4">
+				   <div id="theBox" class="<?php if ( 0 == $i % 3 ) { echo 'third '; } ?>no-padding-left-mobile col-xs-12 col-xs-B-6 col-sm-4 col-md-4 col-lg-4">
 	  <div class="flex-item blueTop  eventsBox <?php if ( get_field( 'listImg' ) ) { echo 'has-image';
-} else { echo 'no-image'; } ?>" onClick='location.href="<?php if ( (get_field( 'external_link' ) != '') && $post->post_type == 'spotlights' ) { the_field( 'external_link' );
+} else { echo 'no-image'; } ?>" onClick='location.href="<?php if ( ( '' != get_field( 'external_link' ) ) && 'spotlights' == $post->post_type ) { the_field( 'external_link' );
 } else { echo get_post_permalink();}  ?>"'>
 		  
 		  
@@ -91,7 +91,7 @@ get_header(); ?>
 		<?php } ?>
 		
 		
-	   <?php if ( $post->post_type == 'spotlights' ) { ?>
+	   <?php if ( 'spotlights' == $post->post_type ) { ?>
 			 <h2 class="entry-title title-post spotlights">
 		  <a href="<?php the_field( 'external_link' ); ?>"><?php the_title();?></a>
 		</h2> 
