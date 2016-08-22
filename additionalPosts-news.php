@@ -33,7 +33,7 @@
 		<?php
 
 		$sticky = get_option( 'sticky_posts' );
-		// args
+		// Arguments.
 		$args2 = array(
 		'post_type'  				=> 'post',
 		'post__not_in' => array( $sticky ),

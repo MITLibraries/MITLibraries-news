@@ -62,7 +62,7 @@ $args = array(
 
 	$the_query = new WP_Query( $args );
 
-// removes button start
+// Removes button start.
 $ajaxLength = $the_query->post_count;
 
 if ( $ajaxLength < $limit ) {
@@ -72,7 +72,7 @@ $("#another").hide();
 </script>
 <?php
 }
-// removes button end
+// Removes button end.
 if ( $the_query->have_posts() ) :
 	$o = -1;
 	while ( $the_query->have_posts() ) : $the_query->the_post();

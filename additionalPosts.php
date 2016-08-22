@@ -51,7 +51,7 @@ $the_query = new WP_Query( $args );
 
 ?>
 <?php
-// removes button start
+// Removes button start.
 $ajaxLength = $the_query->post_count;
 ?>
 <?php if ( $ajaxLength < $limit ) { ?>
@@ -59,7 +59,7 @@ $ajaxLength = $the_query->post_count;
 $("#another").hide();
 </script>
 <?php }
-// removes button end ?>
+// Removes button end. ?>
 
 
 

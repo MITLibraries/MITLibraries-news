@@ -33,7 +33,7 @@
 	<div class="row">
 	<div class="no-padding-left  col-xs-6  col-sm-6  col-sm-6  col-md-6 col-lg-6  newsNav dropdown">
 <?php
-// main nav
+// Main navigation.
 $defaults = array(
 	'theme_location'  => '',
 	'menu'            => 'mainNav',

@@ -6,7 +6,7 @@
  * @since Twenty Twelve 1.0
  */
 
-// Adds auto-loader for lib content
+// Adds auto-loader for lib content.
 $siteRoot = $_SERVER['DOCUMENT_ROOT'];
 foreach ( glob( $siteRoot . '/wp-content/themes/mit-libraries-news/lib/*.php' ) as $file ) { require_once( $file ); }
 
@@ -32,17 +32,6 @@ function add_scripts() {
 add_action( 'wp_enqueue_scripts', 'add_scripts' );
 
 /**
- * This de-registers scripts from the parent theme, but they don't seem to actually be used?
- */
-function remove_scripts() {
-	// wp_deregister_script('tabletop' );
-	// wp_deregister_script('productionJS');
-	// wp_deregister_script('underscore');
-	// wp_deregister_script('lib-hours');
-}
-add_action( 'wp_enqueue_scripts', 'remove_scripts', 100 );
-
-/**
  * Remove dashboard menu items
  */
 function mitlibnews_remove_dashboard_menu_items() {
@@ -58,11 +47,11 @@ add_action( 'admin_menu', 'mitlibnews_remove_dashboard_menu_items' );
  * Remove unneeded dashboard widgets
  */
 function mitlibnews_remove_dashboard_widgets() {
-	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' ); // Quickpress widget
-	remove_meta_box( 'dashboard_primary', 'dashboard', 'side' ); // Wordpress news
+	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' ); // Quickpress widget.
+	remove_meta_box( 'dashboard_primary', 'dashboard', 'side' ); // Wordpress news.
 	if ( ! current_user_can( 'add_users' ) ) {
-		remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' ); // "At a glance" widget
-		remove_meta_box( 'dashboard_activity', 'dashboard', 'normal' ); // Activity widget
+		remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' ); // "At a glance" widget.
+		remove_meta_box( 'dashboard_activity', 'dashboard', 'normal' ); // Activity widget.
 	}
 }
 add_action( 'do_meta_boxes', 'mitlibnews_remove_dashboard_widgets' );
@@ -93,7 +82,7 @@ function mitlibnews_register_news_posts() {
 		'thumbnail',
 		'excerpt',
 	);
-	// spotlight
+	// Define Spotlight posts.
 	$labelsFeatures = array(
 		'name' => 'Spotlights',
 		'singular_name' => 'Spotlight',
@@ -135,7 +124,7 @@ function mitlibnews_register_news_posts() {
 	}
 	add_filter( 'apto_object_taxonomies', 'theme_apto_object_taxonomies', 10, 2 );
 
-	// Bibliotech
+	// Define Bibliotech posts.
 	$labelsFeatures = array(
 		'name' => 'Bibliotech',
 		'singular_name' => 'Bibliotech',
@@ -181,15 +170,15 @@ function mitlibnews_register_news_posts() {
 
 add_action( 'init', 'mitlibnews_register_news_posts' );
 
-// Disable admin color scheme
+// Disable admin color scheme.
 remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
 
-// custom images for the news
+// Add custom images for the news.
 add_theme_support( 'post-thumbnails' );
-add_image_size( 'news-home', 111, 206, true ); // Hard Crop Mode
-add_image_size( 'news-listing', 323, 111, true ); // Hard Crop Mode
-add_image_size( 'news-feature', 657, 256, true ); // Hard Crop Mode
-add_image_size( 'news-single', 451,'651', true ); // Hard Crop Mode
+add_image_size( 'news-home', 111, 206, true ); // Hard Crop Mode.
+add_image_size( 'news-listing', 323, 111, true ); // Hard Crop Mode.
+add_image_size( 'news-feature', 657, 256, true ); // Hard Crop Mode.
+add_image_size( 'news-single', 451,'651', true ); // Hard Crop Mode.
 
 /**
  * This function trims a WP excerpt at a word limit defined by $limit. If no
@@ -279,34 +268,17 @@ function eventRSSFunc() {
 		get_template_part( 'rss', 'event' );
 }
 
-// removes plugins tools users
-// function remove_menu_items() {
-// global $menu;
-// $restricted = array(__('Links'), __('Comments')/*, __('Media')*/,
-// *__('Plugins'), __('Tools'),*/ __('Users'));
-// end ($menu);
-// while (prev($menu)){
-// $value = explode(' ',$menu[key($menu)][0]);
-// if(in_array($value[0] != NULL?$value[0]:"" , $restricted)){
-// unset($menu[key($menu)]);}
-// }
-// }
-//
-// add_action('admin_menu', 'remove_menu_items');
 /**
  * Customize meta boxes on admin interface
  */
 function customize_meta_boxes() {
 	// Removes meta boxes from Posts.
-	// remove_meta_box('postcustom','post','normal');
 	remove_meta_box( 'trackbacksdiv','post','normal' );
 	remove_meta_box( 'commentstatusdiv','post','normal' );
 	remove_meta_box( 'commentsdiv','post','normal' );
-	// remove_meta_box('tagsdiv-post_tag','post','normal');
 	remove_meta_box( 'postexcerpt','post','normal' );
 
 	// Removes meta boxes from pages.
-	// remove_meta_box('postcustom','page','normal');
 	remove_meta_box( 'trackbacksdiv','page','normal' );
 	remove_meta_box( 'commentstatusdiv','page','normal' );
 	remove_meta_box( 'commentsdiv','page','normal' );
@@ -381,7 +353,7 @@ if ( ! function_exists( 'biblio_taxonomy' ) ) {
 
 	}
 
-	// Hook into the 'init' action
+	// Hook into the 'init' action.
 	add_action( 'init', 'biblio_taxonomy', 0 );
 
 }

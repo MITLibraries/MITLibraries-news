@@ -29,7 +29,7 @@ get_header(); ?>
 		<?php
 
 		$sticky = get_option( 'sticky_posts' );
-		// args
+		// Arguments.
 		$args = array(
 		'post_type'  				=> 'post',
 		'post__not_in' => array( $sticky ),

@@ -87,7 +87,7 @@ $past = array(
 $the_past = new WP_Query( $past );
 $past_posts = (array) $the_past->posts;
 
-// Archived events tagged by "oldevents"
+// Archived events tagged by "oldevents".
 $archive = array(
 
 	'posts_per_page' => 9,

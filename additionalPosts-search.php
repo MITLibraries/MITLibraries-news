@@ -44,7 +44,7 @@ $date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 	}
 
 // Build $search_args based on passed parameters
-// Based on https://codex.wordpress.org/Creating_a_Search_Page
+// Based on https://codex.wordpress.org/Creating_a_Search_Page.
 $query_args = explode( '&', $_SERVER['QUERY_STRING'] );
 $search_args = array( 'posts_per_page' => $limit );
 
@@ -57,11 +57,11 @@ foreach ( $query_args as $key => $string ) {
 } // foreach
 
 $the_query = new WP_Query( $search_args );
-// set_search() defined above
+// The set_search() function is defined above.
 set_search( $the_query );
 
 
-// removes button start
+// Removes button start.
 $ajaxLength = $the_query->post_count;
 ?>
 <?php if ( $ajaxLength < $limit ) { ?>
@@ -69,7 +69,7 @@ $ajaxLength = $the_query->post_count;
 $("#another").hide();
 </script>
 <?php }
-// removes button end ?>
+// Removes button end. ?>
 
 
 

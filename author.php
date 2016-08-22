@@ -138,8 +138,6 @@ get_header(); ?>
 			<?php endwhile; ?>
 			</div>
 
-			<?php // twentytwelve_content_nav( 'nav-below' ); ?>
-
 		<?php else : ?>
 			<?php get_template_part( 'content', 'none' ); ?>
 		<?php endif; ?>

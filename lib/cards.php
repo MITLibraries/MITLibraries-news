@@ -14,30 +14,30 @@
  * @param string $type The type of post.
  */
 function render( $post, $i, $type ) {
-	// default outer classes
+	// Default outer classes.
 	$outerClasses = 'padding-right-mobile col-xs-12 col-xs-B-6 col-sm-4 col-md-4 col-lg-4';
 	if ( $i % 3 == 0 ) {
 	$outerClasses .= ' third';
 	}
-	// default inner classes
+	// Default inner classes.
 	$innerClasses = 'flex-item blueTop eventsBox render-confirm-' . $type;
 	if ( get_field( 'listImg' ) ) {
 	$innerClasses .= ' has-image';
 	} else {
 	$innerClasses .= ' no-image';
 	}
-	// inner onClick
+	// Inner onClick.
 	$innerOnClick = '';
 	if ( get_field( 'external_link' ) != '' && $post->post_type == 'spotlights' ) {
 	$innerOnClick = get_field( 'external_link' );
 	} else {
 	$innerOnClick = get_permalink();
 	}
-	// image handled by inc/card-image
-	// title handled by inc/card-title
-	// event handled by inc/events
-	// entry handled by inc/entry
-	// category
+	// Image handled by inc/card-image.
+	// Title handled by inc/card-title.
+	// Event handled by inc/events.
+	// Entry handled by inc/entry.
+	// Category.
 	$categoryClasses = 'category-post';
 	$categoryMarkup = '';
 	$dateMarkup = '';
@@ -49,10 +49,10 @@ function render( $post, $i, $type ) {
   }
   */
 	if ( is_page( 'bibliotech-index' ) || (is_page_template( 'additionalPosts-biblio.php' )) || (is_category( 'bibliotech_issues' ) || (is_tax() ) || is_page_template( 'additionalPosts-archives.php' )) ) {
-	// Bibliotech articles without icon
+	// Bibliotech articles without icon.
 	$categoryMarkup = "<div class='biblioPad'>&nbsp;<a href='/news/bibliotech-index/' title='Bibliotech'>Bibliotech</a></div>";
 	} elseif ( ( $post->post_type == 'bibliotech') && ( ! is_page_template( 'additionalPosts-biblio.php' )) ) {
-	// Bibliotech articles with icon
+	// Bibliotech articles with icon.
 	$categoryMarkup = "<div class='bilbioImg bilbioTechIcon'> </div>";
 	$categoryMarkup .= "<div class='biblioPad'>&nbsp;<a href='/news/bibliotech-index/' title='Bibliotech'>Bibliotech</a>";
 	$dateMarkup = "<span class='mitDate'>" .
@@ -60,7 +60,7 @@ function render( $post, $i, $type ) {
 	'</span>' .
 	'</div>';
 	} else {
-	// Non-biliotech articles
+	// Non-biliotech articles.
 	$category = get_the_category();
 	$rCat = count( $category );
 	$r = rand( 0, $rCat -1 );

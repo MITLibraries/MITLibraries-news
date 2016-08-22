@@ -18,17 +18,12 @@
 		<p>A biannual newsletter published by the MIT Libraries</p>
 	  </div>
 	  <div class="biblioBox col-sm-6 col-md-4 text-right">
-	<?php
-	 // Nav Menu Dropdown Class
-// include( get_stylesheet_directory() . '/lib/classes/nav-menu-dropdown.php');
-?>
 
 <?php
 $menu_name = 'BibliotechMenu';
 $locations = get_nav_menu_locations();
 $menu = wp_get_nav_menu_object( $menu_name );
 $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
-// print_r($menuitems);
 ?>
 <select name="bibMenu" id="bibMenu" onchange="window.location=this.value"><option value="">Select issue</option>
 <?php
@@ -61,11 +56,11 @@ foreach ( $menuitems as $m ) {  ?>
 
 <script>
 	jQuery(function(){
-	  // bind change event to select
+	  // Bind change event to select.
 	  jQuery('#bibMenu').bind('change', function () {
-		  var url = $(this).val(); // get selected value
-		  if (url) { // require a URL
-			  window.location = url; // redirect
+		  var url = $(this).val(); // Get selected value.
+		  if (url) { // Require a URL.
+			  window.location = url; // Redirect.
 		  }
 		  return false;
 	  });

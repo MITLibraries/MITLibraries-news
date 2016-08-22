@@ -57,7 +57,6 @@ the_date(); ?> </span>
 
 				echo '<a title="' . $category[ $r ]->cat_name . '"  title="' . $category[ $r ]->cat_name . '" href="' . get_category_link( $category[ $r ]->term_id ) . '">' . $category[ $r ]->cat_name . '</a>';
 			?>
-		<?php // echo ' in ' . array_slice($category, 0, 2); ?>
 		</span>
 		<?php endif; ?>
 	  </div> 
@@ -139,12 +138,12 @@ the_date(); ?> </span>
 	
 	<?php
 
-			// Echo type of Feature, if Feature
+			// Echo type of Feature, if Feature.
 			if ( $type_post === 'features' ) {
 				$type = get_field( 'feature_type' );
 				echo 'The feature type is' . $type;
 			}
-			// Echo start/end dates, if they exist
+			// Echo start/end dates, if they exist.
 			if ( $type_post === 'exhibits' || $type_post === 'updates' ) {
 				$date_start = get_field( 'date_start' );
 				$date_end = get_field( 'date_end' );
@@ -167,7 +166,6 @@ the_date(); ?> </span>
 <?php wp_reset_postdata(); ?>
 <?php wp_reset_query(); ?>
 	<?php endwhile; // end of the loop. ?>
-	<?php // get_template_part('inc/related'); ?>
 	<?php
 $catName = $category[ $r ]->cat_name;
 $currentPost = get_the_ID();
@@ -191,7 +189,6 @@ $args = array(
 $myposts = get_posts( $args );
 $y = 1 ;
 foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
-<?php // echo $GLOBALS['wp_query']->request; ?>
 	
 			  <?php renderRegularCard( $i, $post ); // --- CALLS REGULAR CARDS --- // ?>
 	

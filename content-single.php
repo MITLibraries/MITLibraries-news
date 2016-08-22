@@ -38,7 +38,6 @@ $category = get_the_category();
 				
 				
 			 
-				<?php // echo ' in ' . array_slice($category, 0, 2); ?>
 			</span>
 			<?php endif; ?>
 		</div><!-- .entry-meta -->
@@ -49,12 +48,12 @@ $category = get_the_category();
 		
 		 <?php
 			the_content();
-			// Echo type of Feature, if Feature
+			// Echo type of Feature, if Feature.
 			if ( $type_post === 'features' ) {
 				$type = get_field( 'feature_type' );
 				echo 'The feature type is' . $type;
 			}
-			// Echo start/end dates, if they exist
+			// Echo start/end dates, if they exist.
 			if ( $type_post === 'exhibits' || $type_post === 'updates' ) {
 				$date_start = get_field( 'date_start' );
 				$date_end = get_field( 'date_end' );
@@ -67,7 +66,7 @@ $category = get_the_category();
 
 			$date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 			// echo $date->format('d-m-Y');
-			// Check for events
+			// Check for events.
 			if ( $type_post == 'post' && get_field( 'is_event' ) == 1 ) { ?>
 			
 			<div class="event"><span class="grey">Event date </span> <?php echo $date->format( 'F, j Y' ); ?><span class="grey"> starting at</span> <?php echo  get_field( 'event_start_time' ); ?> <span class="grey"><?php if ( get_field( 'event_end_time' ) != '' ) { ?> and ending at</span> <?php echo get_field( 'event_end_time' ); }?></div>
