@@ -1,6 +1,7 @@
 <?php
 /**
  * This template loads additional Posts from search-results page if any exist.
+ * Template Name: Additional Posts - Search
  *
  * @package MITLibraries-News
  * @since 1.0

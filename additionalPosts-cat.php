@@ -1,6 +1,7 @@
 <?php
 /**
  * This template loads additional Posts if any exist by Category.
+ * Template Name: Additional Posts - Category
  *
  * @package MITLibraries-News
  * @since 1.0

@@ -1,6 +1,7 @@
 <?php
 /**
  * This template loads additional News posts if any exist.
+ * Template Name: Additional Posts - News
  *
  * @package MITLibraries-News
  * @since 1.0

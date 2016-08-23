@@ -1,6 +1,7 @@
 <?php
 /**
  * This template loads additional Events posts if any exist.
+ * Template Name: Additional Posts - Events
  *
  * @package MITLibraries-News
  * @since 1.0

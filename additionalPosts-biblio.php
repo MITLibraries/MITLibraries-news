@@ -1,6 +1,7 @@
 <?php
 /**
  * This template loads additional Bibliotech posts if any exist.
+ * Template Name: Additional Posts - Bibliotech
  *
  * @package MITLibraries-News
  * @since 1.0
