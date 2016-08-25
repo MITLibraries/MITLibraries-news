@@ -12,24 +12,24 @@
 <div class="innerPadding clearfix">
 <div class="title-page no-padding-left col-xs-12  col-sm-4 col-md-5 col-lg-5">
 	
-    <?php if( is_single($post)){ ?>
-    	<h2 class="name-site"><a href="/news/">News &amp; events</a></h2>
-      <?php }else{ ?>
-    
-    <h1 class="name-site"><a href="/news/">News &amp; events</a>
-	<?php 
-	if(is_category()){
-	 printf('<span>'. ': ' . single_cat_title( '', false ) . '</span>' ); 
-	}  ?>        
-    </h1>
+	<?php if ( is_single( $post ) ) { ?>
+		<h2 class="name-site"><a href="/news/">News &amp; events</a></h2>
+	  <?php } else { ?>
 	
-   <?php } ?>
-    
- </div>   
+	<h1 class="name-site"><a href="/news/">News &amp; events</a>
+	<?php
+	if ( is_category() ) {
+	 printf( '<span>' . ': ' . single_cat_title( '', false ) . '</span>' );
+	}  ?>        
+	</h1>
+	
+	<?php } ?>
+	
+	</div>   
 <div class="socialNav singleSocialNav hidden-xs not_on_phone socialNav col-xs-12 col-sm-8 col-md-7  col-lg-7 clearfix ">
 
 
- <?php get_template_part('inc/social'); ?>
+	<?php get_template_part( 'inc/social' ); ?>
 
 
 
@@ -37,22 +37,30 @@
 
 
 
-<?php /*?><a href="">Subscribe</a>
+<?php
+
+/*
+?><a href="">Subscribe</a>
 <?php previous_post('%','Previous story', 'no'); ?>
-<span class="not_on_phone">|</span> 
-<?php next_post('%','Next story ', 'no'); ?><?php */?>
+<span class="not_on_phone">|</span>
+<?php next_post('%','Next story ', 'no'); ?><?php
+*/
+?>
 </div>
 
 
 <hr class="news hidden-xs col-sm-12 col-md-12 col-lg-12 clearfix">
 
 
-<?php /*?><div class="flex-container subNavH">
+<?php
+
+/*
+?><div class="flex-container subNavH">
   <div class="leftNav">
     <div class="box-row newsNav">
-	 
+
 	   <?php
-//main nav
+// main nav
 $defaults = array(
 	'theme_location'  => '',
 	'menu'            => 'mainNav',
@@ -66,7 +74,7 @@ $defaults = array(
 	'before'          => '',
 	'after'           => '',
 	'link_before'     => '',
-	
+
 	'link_after'      => '',
 	'items_wrap'      => '<ul id="%1$s" class="%2$s udClear nav nav-pills" role="tablist">%3$s</ul><a href="#" id="pull">Menu</a>',
 	'depth'           => 0,
@@ -76,7 +84,7 @@ $defaults = array(
 wp_nav_menu( $defaults );
 
 
-?>	    
+?>
     </div>
   </div>
   <div class="rightNav">
@@ -128,7 +136,9 @@ wp_nav_menu( $defaults );
 </script>
  </div>
   </div>
-</div><?php */?>
+</div><?php
+*/
+?>
 </div><!--innerpadding-->
 </div><!--news-->
 </div>

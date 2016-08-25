@@ -38,7 +38,7 @@
 					relatedCompiled = _.template(
 						'<div class="post-preview">' +
 							'<h3><%= title %></h3>' +
-							'<img src="<?php echo the_field("listImg", $post_id); ?>" />' +
+							'<img src="<?php echo the_field( 'listImg', $post_id ); ?>" />' +
 						'</div>'
 					);
 					relatedTemplate = relatedCompiled(json[i]);

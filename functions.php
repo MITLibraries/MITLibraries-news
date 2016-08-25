@@ -1,87 +1,76 @@
-<?php 
-/** 
+<?php
+/**
  * News theme functions and definitions
  *
  * @package MITLibraries-News
  * @since Twenty Twelve 1.0
  */
 
-// Adds auto-loader for lib content
+// Adds auto-loader for lib content.
 $siteRoot = $_SERVER['DOCUMENT_ROOT'];
-foreach(glob($siteRoot."/wp-content/themes/mit-libraries-news/lib/*.php") as $file) require_once($file);
+foreach ( glob( $siteRoot . '/wp-content/themes/mit-libraries-news/lib/*.php' ) as $file ) { require_once( $file ); }
 
 /**
  * Add Bootstrap and mobile CSS for non-admin users
  */
 function not_admin() {
-	wp_enqueue_style( 'bootstrapCSS', get_stylesheet_directory_uri() . '/css/bootstrap.css', 'false', '', false);
-	wp_enqueue_style( 'newsmobile', get_stylesheet_directory_uri() . '/css/newsmobile.css', 'false', '', false);
-	wp_enqueue_script( 'bootstrap','https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js', array( 'jquery' ), '3.3.1', true);
+	wp_enqueue_style( 'bootstrapCSS', get_stylesheet_directory_uri() . '/css/bootstrap.css', 'false', '', false );
+	wp_enqueue_style( 'newsmobile', get_stylesheet_directory_uri() . '/css/newsmobile.css', 'false', '', false );
+	wp_enqueue_script( 'bootstrap','https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js', array( 'jquery' ), '3.3.1', true );
 }
 if ( ! is_admin() ) {
 	add_action( 'wp_enqueue_scripts', 'not_admin' );
-} 
+}
 
 /**
  * Add LazyLoad and MyScripts for all users
  */
 function add_scripts() {
-	wp_enqueue_script( 'lazyload', get_stylesheet_directory_uri() . '/js/lazyload.js', array( 'jquery' ), '', true);
+	wp_enqueue_script( 'lazyload', get_stylesheet_directory_uri() . '/js/lazyload.js', array( 'jquery' ), '', true );
 	wp_enqueue_script( 'myScripts', get_stylesheet_directory_uri() . '/js/myScripts.js', array( 'lazyload' ), '', true );
 }
-add_action( 'wp_enqueue_scripts', 'add_scripts' ); 
-
-/**
- * This de-registers scripts from the parent theme, but they don't seem to actually be used?
- */
-function remove_scripts(){
-	// wp_deregister_script('tabletop' );
-	// wp_deregister_script('productionJS');
-	// wp_deregister_script('underscore');
-	// wp_deregister_script('lib-hours');
-}
-add_action( 'wp_enqueue_scripts', 'remove_scripts', 100 ); 
+add_action( 'wp_enqueue_scripts', 'add_scripts' );
 
 /**
  * Remove dashboard menu items
  */
 function mitlibnews_remove_dashboard_menu_items() {
-	if (!current_user_can('add_users')) {
-		remove_menu_page('edit-comments.php');
-		remove_menu_page('tools.php');
-		remove_menu_page('edit.php?post_type=html_snippet');
+	if ( ! current_user_can( 'add_users' ) ) {
+		remove_menu_page( 'edit-comments.php' );
+		remove_menu_page( 'tools.php' );
+		remove_menu_page( 'edit.php?post_type=html_snippet' );
 	}
 }
-add_action('admin_menu', 'mitlibnews_remove_dashboard_menu_items');
+add_action( 'admin_menu', 'mitlibnews_remove_dashboard_menu_items' );
 
 /**
  * Remove unneeded dashboard widgets
  */
 function mitlibnews_remove_dashboard_widgets() {
-	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' ); // Quickpress widget
-	remove_meta_box( 'dashboard_primary', 'dashboard', 'side' ); // Wordpress news
-	if (!current_user_can('add_users')) {
-		remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' ); // "At a glance" widget
-		remove_meta_box( 'dashboard_activity', 'dashboard', 'normal'); // Activity widget
+	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' ); // Quickpress widget.
+	remove_meta_box( 'dashboard_primary', 'dashboard', 'side' ); // Wordpress news.
+	if ( ! current_user_can( 'add_users' ) ) {
+		remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' ); // "At a glance" widget.
+		remove_meta_box( 'dashboard_activity', 'dashboard', 'normal' ); // Activity widget.
 	}
-} 
-add_action('do_meta_boxes', 'mitlibnews_remove_dashboard_widgets' );
+}
+add_action( 'do_meta_boxes', 'mitlibnews_remove_dashboard_widgets' );
 
 /**
  * Hide addthis widget from non-admins on dashboard
  */
 function hide_addthis() {
 	global $user_level;
-	if ($user_level != '10' ) {
+	if ( '10' != $user_level ) {
 	   echo '<style type="text/css">
 		   #at_widget,
 		   .metabox-prefs label:nth-child(13) {
 			   display: none;
 			   }
 		 </style>';
-   }
+	}
 }
-add_action('admin_head', 'hide_addthis');
+add_action( 'admin_head', 'hide_addthis' );
 
 /**
  * Register the custom post types
@@ -91,9 +80,9 @@ function mitlibnews_register_news_posts() {
 		'title',
 		'editor',
 		'thumbnail',
-		'excerpt'
+		'excerpt',
 	);
-	// spotlight
+	// Define Spotlight posts.
 	$labelsFeatures = array(
 		'name' => 'Spotlights',
 		'singular_name' => 'Spotlight',
@@ -108,17 +97,17 @@ function mitlibnews_register_news_posts() {
 		'search_items' => 'Search Spotlights',
 		'parent_item_colon' => 'Parent Spotlights:',
 		'not_found' => 'No Spotlights found.',
-		'not_found_in_trash' => 'No Spotlights found in Trash.'
+		'not_found_in_trash' => 'No Spotlights found in Trash.',
 	);
 	$argsFeatures = array(
 		'labels'  => $labelsFeatures,
 		'public' => true,
 		'menu_position' => 5,
-		'supports' => array('title'),
-		'taxonomies' => array('category')
-		
+		'supports' => array( 'title' ),
+		'taxonomies' => array( 'category' ),
+
 	);
-	register_post_type('spotlights', $argsFeatures);
+	register_post_type( 'spotlights', $argsFeatures );
 
 	/**
 	 * Unknown function that does not seem to be used.
@@ -127,16 +116,15 @@ function mitlibnews_register_news_posts() {
 	 * @param string $post_type The type of a given post.
 	 */
 	function theme_apto_object_taxonomies( $object_taxonomies, $post_type ) {
-        if($post_type == 'spotlight')
-            {
-                if (array_search('Events', $object_taxonomies) !== FALSE)
-                    unset($object_taxonomies[array_search('Events', $object_taxonomies)]);
-            }
-        return $object_taxonomies;
-    }
-	add_filter('apto_object_taxonomies', 'theme_apto_object_taxonomies', 10, 2);
-	
-	// Bibliotech
+		if ( 'spotlight' == $post_type ) {
+				if ( array_search( 'Events', $object_taxonomies ) !== false ) {
+					unset( $object_taxonomies[ array_search( 'Events', $object_taxonomies ) ] ); }
+			}
+		return $object_taxonomies;
+	}
+	add_filter( 'apto_object_taxonomies', 'theme_apto_object_taxonomies', 10, 2 );
+
+	// Define Bibliotech posts.
 	$labelsFeatures = array(
 		'name' => 'Bibliotech',
 		'singular_name' => 'Bibliotech',
@@ -152,8 +140,7 @@ function mitlibnews_register_news_posts() {
 		'parent_item_colon' => 'Parent Bibliotech:',
 		'not_found' => 'No Bibliotech found.',
 		'not_found_in_trash' => 'No Bibliotech found in Trash.',
-		'taxonomies' => array('category')
-		
+		'taxonomies' => array( 'category' ),
 
 	);
 	$argsFeatures = array(
@@ -161,12 +148,11 @@ function mitlibnews_register_news_posts() {
 		'public' => true,
 		'menu_position' => 5,
 		'supports' => $supports_default,
-		'taxonomies' => array('category')
+		'taxonomies' => array( 'category' ),
 	);
-	register_post_type('bibliotech', $argsFeatures);
+	register_post_type( 'bibliotech', $argsFeatures );
 
-
-}	
+}
 
 /*
 'capabilities' => array(
@@ -182,17 +168,17 @@ function mitlibnews_register_news_posts() {
 )
 */
 
-add_action('init', 'mitlibnews_register_news_posts');
+add_action( 'init', 'mitlibnews_register_news_posts' );
 
-// Disable admin color scheme
+// Disable admin color scheme.
 remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
 
-//custom images for the news
+// Add custom images for the news.
 add_theme_support( 'post-thumbnails' );
-add_image_size( 'news-home', 111, 206, true ); // Hard Crop Mode
-add_image_size( 'news-listing', 323, 111, true ); // Hard Crop Mode
-add_image_size( 'news-feature', 657, 256, true ); /// Hard Crop Mode
-add_image_size( 'news-single', 451,'651', true ); /// Hard Crop Mode
+add_image_size( 'news-home', 111, 206, true ); // Hard Crop Mode.
+add_image_size( 'news-listing', 323, 111, true ); // Hard Crop Mode.
+add_image_size( 'news-feature', 657, 256, true ); // Hard Crop Mode.
+add_image_size( 'news-single', 451,'651', true ); // Hard Crop Mode.
 
 /**
  * This function trims a WP excerpt at a word limit defined by $limit. If no
@@ -200,19 +186,19 @@ add_image_size( 'news-single', 451,'651', true ); /// Hard Crop Mode
  *
  * @param int $limit The number of words requested.
  */
-function excerpt($limit = 0) {
-    $excerpt = get_the_excerpt();
-    if ($limit > 0) {
-        $excerpt = explode(' ', get_the_excerpt(), $limit);
-        if (count($excerpt)>=$limit) {
-            array_pop($excerpt);
-            $excerpt = implode(" ",$excerpt).'...';
-        } else {
-            $excerpt = implode(" ",$excerpt);
-        }
-    }
-    $excerpt = preg_replace('`\[[^\]]*\]`','',$excerpt);
-    return $excerpt;
+function excerpt( $limit = 0 ) {
+	$excerpt = get_the_excerpt();
+	if ( $limit > 0 ) {
+		$excerpt = explode( ' ', get_the_excerpt(), $limit );
+		if ( count( $excerpt ) >= $limit ) {
+			array_pop( $excerpt );
+			$excerpt = implode( ' ',$excerpt ) . '...';
+		} else {
+			$excerpt = implode( ' ',$excerpt );
+		}
+	}
+	$excerpt = preg_replace( '`\[[^\]]*\]`','',$excerpt );
+	return $excerpt;
 }
 
 /**
@@ -221,133 +207,114 @@ function excerpt($limit = 0) {
  *
  * @param int $limit The number of words requested.
  */
-function content($limit = 0) {
-    $content = get_the_content();
-    if ($limit > 0) {
-        $content = explode(' ', get_the_content(), $limit);
-        if (count($content)>=$limit) {
-            array_pop($content);
-            $content = implode(" ",$content).'...';
-        } else {
-            $content = implode(" ",$content);
-        }
-    }
-    $content = preg_replace('/\[.+\]/','', $content);
-    $content = apply_filters('the_content', $content);
-    $content = str_replace(']]>', ']]&gt;', $content);
-    return $content;
+function content( $limit = 0 ) {
+	$content = get_the_content();
+	if ( $limit > 0 ) {
+		$content = explode( ' ', get_the_content(), $limit );
+		if ( count( $content ) >= $limit ) {
+			array_pop( $content );
+			$content = implode( ' ',$content ) . '...';
+		} else {
+			$content = implode( ' ',$content );
+		}
+	}
+	$content = preg_replace( '/\[.+\]/','', $content );
+	$content = apply_filters( 'the_content', $content );
+	$content = str_replace( ']]>', ']]&gt;', $content );
+	return $content;
 }
 
 /**
  * Allows contributor to upload images
  */
 function allow_contributor_uploads() {
-	$contributor = get_role('contributor');
-	$contributor->add_cap('upload_files');
+	$contributor = get_role( 'contributor' );
+	$contributor->add_cap( 'upload_files' );
 }
-if ( current_user_can('contributor') && !current_user_can('upload_files') )
-	add_action('admin_init', 'allow_contributor_uploads');
+if ( current_user_can( 'contributor' ) && ! current_user_can( 'upload_files' ) ) {
+	add_action( 'admin_init', 'allow_contributor_uploads' ); }
 
 /**
  * Replaces category page # with category name
  *
  * @param object $request A request object.
  */
-function init_category($request) {
+function init_category( $request ) {
 	$vars = $request->query_vars;
-	if (is_category() && !is_category('bibliotech') && !array_key_exists('post_type', $vars)) :
+	if ( is_category() && ! is_category( 'bibliotech' ) && ! array_key_exists( 'post_type', $vars ) ) :
 		$vars = array_merge(
 			$vars,
-			array('post_type' => 'any')
+			array( 'post_type' => 'any' )
 		);
 		$request->query_vars = $vars;
 	endif;
 	return $request;
 }
-add_filter('pre_get_posts', 'init_category');
+add_filter( 'pre_get_posts', 'init_category' );
 
 
 /**
  * Event RSS feed
  */
-function eventRSS(){
-        add_feed('event', 'eventRSSFunc');
+function eventRSS() {
+		add_feed( 'event', 'eventRSSFunc' );
 }
-add_action('init', 'eventRSS');
+add_action( 'init', 'eventRSS' );
 
 /**
  * Event RSS Function
  */
-function eventRSSFunc(){
-        get_template_part('rss', 'event');
+function eventRSSFunc() {
+		get_template_part( 'rss', 'event' );
 }
-
-////removes plugins tools users
-//function remove_menu_items() {
-//  global $menu;
-//  $restricted = array(__('Links'), __('Comments')/*, __('Media')*/,
-//  /*__('Plugins'), __('Tools'),*/ __('Users'));
-//  end ($menu);
-//  while (prev($menu)){
-//    $value = explode(' ',$menu[key($menu)][0]);
-//    if(in_array($value[0] != NULL?$value[0]:"" , $restricted)){
-//      unset($menu[key($menu)]);}
-//    }
-//  }
-//
-//add_action('admin_menu', 'remove_menu_items');
 
 /**
  * Customize meta boxes on admin interface
  */
 function customize_meta_boxes() {
-  /* Removes meta boxes from Posts */
- // remove_meta_box('postcustom','post','normal');
-  remove_meta_box('trackbacksdiv','post','normal');
-  remove_meta_box('commentstatusdiv','post','normal');
-  remove_meta_box('commentsdiv','post','normal');
-  //remove_meta_box('tagsdiv-post_tag','post','normal');
-  remove_meta_box('postexcerpt','post','normal');
+	// Removes meta boxes from Posts.
+	remove_meta_box( 'trackbacksdiv','post','normal' );
+	remove_meta_box( 'commentstatusdiv','post','normal' );
+	remove_meta_box( 'commentsdiv','post','normal' );
+	remove_meta_box( 'postexcerpt','post','normal' );
 
-  
-  /* Removes meta boxes from pages */
- // remove_meta_box('postcustom','page','normal');
-  remove_meta_box('trackbacksdiv','page','normal');
-  remove_meta_box('commentstatusdiv','page','normal');
-  remove_meta_box('commentsdiv','page','normal');  
-  
+	// Removes meta boxes from pages.
+	remove_meta_box( 'trackbacksdiv','page','normal' );
+	remove_meta_box( 'commentstatusdiv','page','normal' );
+	remove_meta_box( 'commentsdiv','page','normal' );
+
 }
-add_action('admin_init','customize_meta_boxes');
+add_action( 'admin_init','customize_meta_boxes' );
 
 /**
  * Removes edit-comments.php file
  *
  * @param object $actions An object.
  */
-function custom_favorite_actions($actions) {
-  unset($actions['edit-comments.php']);
-  return $actions;
+function custom_favorite_actions( $actions ) {
+	unset( $actions['edit-comments.php'] );
+	return $actions;
 }
-add_filter('favorite_actions', 'custom_favorite_actions');
+add_filter( 'favorite_actions', 'custom_favorite_actions' );
 
 /**
  * Removes featured-image option for posts
  */
 function remove_thumbnail_box() {
-    remove_meta_box( 'postimagediv','post','side' );
+	remove_meta_box( 'postimagediv','post','side' );
 }
-add_action('do_meta_boxes', 'remove_thumbnail_box');
+add_action( 'do_meta_boxes', 'remove_thumbnail_box' );
 
 /**
  * Registers custom css file for admin dashboard
  */
-function registerCustomAdminCss(){
-$src = "/wp-content/themes/mit-libraries-news/custom-admin-css.css";
-$handle = "customAdminCss";
-wp_register_script($handle, $src);
-wp_enqueue_style($handle, $src, array(), false, false);
-    }
-    add_action('admin_head', 'registerCustomAdminCss');
+function registerCustomAdminCss() {
+$src = '/wp-content/themes/mit-libraries-news/custom-admin-css.css';
+$handle = 'customAdminCss';
+wp_register_script( $handle, $src );
+wp_enqueue_style( $handle, $src, array(), false, false );
+	}
+	add_action( 'admin_head', 'registerCustomAdminCss' );
 if ( ! function_exists( 'biblio_taxonomy' ) ) {
 
 	/**
@@ -386,7 +353,7 @@ if ( ! function_exists( 'biblio_taxonomy' ) ) {
 
 	}
 
-	// Hook into the 'init' action
+	// Hook into the 'init' action.
 	add_action( 'init', 'biblio_taxonomy', 0 );
 
 }
@@ -414,12 +381,10 @@ add_action( 'widgets_init', 'news_sidebar_widget' );
  *
  * @param object $query A query object.
  */
-function SearchFilter($query) {
-if ($query->is_search) {
-$query->set('post_type', array('post', 'Bibliotech', 'Spotlights'));
+function SearchFilter( $query ) {
+if ( $query->is_search ) {
+$query->set( 'post_type', array( 'post', 'Bibliotech', 'Spotlights' ) );
 }
 return $query;
 }
-add_filter('pre_get_posts','SearchFilter');
-
-?>
+add_filter( 'pre_get_posts','SearchFilter' );

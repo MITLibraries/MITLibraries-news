@@ -8,12 +8,12 @@
 
 ?>
 
-          <?php if(get_field('event_date')){ 
-				$date = DateTime::createFromFormat('Ymd', get_field('event_date'));
-				
+		  <?php if ( get_field( 'event_date' ) ) {
+				$date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
+
 			?>
-          <!--EVENT --> 
-          <div class="events classCheck">
+		  <!--EVENT --> 
+		  <div class="events classCheck">
 	      <span class="bg-image"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15px" height="15px" x="0px" y="0px"
 	 viewBox="-299 390 13 13" style="enable-background:new -299 390 13 13;" xml:space="preserve">
 <style type="text/css">
@@ -34,19 +34,19 @@
 </g>
 </svg>
 </span>    
-		  <span class="event"><?php echo $date->format('F j, Y'); ?></span> 
-          <span class="time">
-            <?php if( get_field('event_start_time') ){ 
-			  		echo the_field('event_start_time'); 
+		  <span class="event"><?php echo $date->format( 'F j, Y' ); ?></span> 
+		  <span class="time">
+			<?php if ( get_field( 'event_start_time' ) ) {
+			  		echo the_field( 'event_start_time' );
 					} ?>
-            <?php if(( get_field('event_start_time') ) && ( get_field('event_end_time') )){
+			<?php if ( ( get_field( 'event_start_time' ) ) && ( get_field( 'event_end_time' ) ) ) {
 				  				 echo '-';
 					} ?>
-            <?php if( get_field('event_end_time') ){ 
-			  		echo the_field('event_end_time'); 
+			<?php if ( get_field( 'event_end_time' ) ) {
+			  		echo the_field( 'event_end_time' );
 			}  ?>
-            </span> 
-          
-           </div>
-          <?php 	}	?>
-          <!--EVENT --> 
+			</span> 
+		  
+		   </div>
+		  <?php 	}	?>
+		  <!--EVENT --> 
