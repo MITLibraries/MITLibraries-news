@@ -19,10 +19,75 @@ window.mitlibnews.loader = {
 	},
 
 	/**
-	 * Post Loader
+	 * Simple Post Loader
 	 */
 	loadPosts : function() {
 		console.log('Loading more posts...');
-	}
+		$.ajax({
+			url: '/news/wp-json/posts',
+			data: {
+				filter: {
+					'posts_per_page': 9,
+					'offset': 10,
+				}
+			},
+			dataType: 'json',
+			type: 'GET',
+			success: function(data) {
+				console.log(data);
+			},
+			error: function() {
+				console.log("Error");
+			}
+		});
+	},
+
+	/**
+	 * Load More - Archive
+	 */
+	loadArchive : function() {
+		console.log('Loading Archive posts...');
+		$.ajax({
+			url: '/news/wp-json/posts',
+			data: {
+				filter: {
+					'posts_per_page': 9,
+					'offset': 10,
+				}
+			},
+			dataType: 'json',
+			type: 'GET',
+			success: function(data) {
+				console.log(data);
+			},
+			error: function() {
+				console.log("Error");
+			}
+		});
+	},
+
+	/**
+	 * Load More - Bibliotech Posts
+	 */
+
+	/**
+	 * Load More - by Category
+	 */
+
+	/**
+	 * Load More - Event Posts
+	 */
+
+	/**
+	 * Load More - Generic
+	 */
+
+	/**
+	 * Load More - News Posts
+	 */
+
+	/**
+	 * Load More - Search Results
+	 */
 
 }
