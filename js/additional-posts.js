@@ -22,7 +22,6 @@ window.mitlibnews.loader = {
 	 * Simple Post Loader
 	 */
 	loadPosts : function(offset, posts_per_page) {
-		console.log('Loading more posts...');
 		$.ajax({
 			url: '/news/wp-json/posts',
 			data: {
@@ -34,8 +33,17 @@ window.mitlibnews.loader = {
 			dataType: 'json',
 			type: 'GET',
 			success: function(data) {
-				console.log(typeof(data));
-				console.log(data);
+				$.each(data, function( index, value ) {
+					card = document.createElement( "div" );
+					$(card).addClass( "no-padding-left-mobile col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4" );
+					cardBody = document.createElement( "div" );
+					$(cardBody).addClass( "flex-item blueTop eventsBox no-image" );
+					$(card).append( cardBody );
+					$(cardBody).append( document.createTextNode( value.ID ) );
+					$(cardBody).append( document.createTextNode( "<br>" ) );
+					$(cardBody).append( document.createTextNode( value.title ) );
+					$("#mitlibnews").append( card );
+				});
 			},
 			error: function() {
 				console.log("Error");
