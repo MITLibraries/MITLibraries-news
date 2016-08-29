@@ -137,6 +137,19 @@ ul#menu-subscribe {
 .sticky img:hover {
 	cursor: pointer
 }
+
+/* Used by page-biblio-archive.php */
+.biblio-archive {
+	padding: 0 27.5px;
+}
+.biblio-archive h1 {
+	font-size: 27px;
+	color: #595959;
+	line-height: 1.5;
+	padding: 15px 0 25px;
+}
+/* End of used by page-biblio-archive.php */
+
 .newsBackGround {
 	background-color: rgb(233, 233, 233);
 	width: 100%;
