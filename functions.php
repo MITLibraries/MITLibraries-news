@@ -23,6 +23,15 @@ if ( ! is_admin() ) {
 }
 
 /**
+ * Add stylesheets for all users.
+ */
+function add_styles() {
+	// Load FontAwesome via CDN.
+	wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css' );
+}
+add_action( 'wp_enqueue_scripts', 'add_styles' );
+
+/**
  * Add LazyLoad and MyScripts for all users
  */
 function add_scripts() {
