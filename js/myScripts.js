@@ -15,7 +15,7 @@
 	// TODO: is initialization necessary?
 	APloader.initialize();
 	// TODO: add parameters for what type of load, and offset/posts_per_page
-	APloader.loadPosts();
+	APloader.loadPosts(10, 9);
 
 })(jQuery);
 

@@ -21,19 +21,20 @@ window.mitlibnews.loader = {
 	/**
 	 * Simple Post Loader
 	 */
-	loadPosts : function() {
+	loadPosts : function(offset, posts_per_page) {
 		console.log('Loading more posts...');
 		$.ajax({
 			url: '/news/wp-json/posts',
 			data: {
 				filter: {
-					'posts_per_page': 9,
-					'offset': 10,
+					'posts_per_page': posts_per_page,
+					'offset': offset,
 				}
 			},
 			dataType: 'json',
 			type: 'GET',
 			success: function(data) {
+				console.log(typeof(data));
 				console.log(data);
 			},
 			error: function() {
