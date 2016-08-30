@@ -6,16 +6,17 @@
  * @since Twenty Twelve 1.0
  */
 
-get_header(); ?>
+get_header();
 
-<?php get_template_part( 'inc/sub-header' ); ?>
+get_template_part( 'inc/sub-header' );
+?>
 
+<div id="content" role="main">
 
-		<div id="content" role="main">
+	<?php if ( have_posts() ) : ?>
 
-		<?php if ( have_posts() ) : ?>
-		    <div class="container">
-	  <div class="row">
+	<div class="container">
+		<div class="row">
 
 			<?php
 
@@ -65,7 +66,7 @@ get_header(); ?>
 			<?php /* Start the Loop
 			*/
 			?>
-			<div class="row">
+			<div class="row" id="mitlibnews-container" data-postcontent="author">
 
 			
 			
@@ -143,6 +144,7 @@ get_header(); ?>
 		<?php endif; ?>
 		    </div>
 		    </div>
+		    <?php get_template_part( 'inc/more-posts' ); ?>
 		</div><!-- #content -->
 
 <div class="container">
