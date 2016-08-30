@@ -38,17 +38,12 @@ window.mitlibnews.loader = {
 	 */
 	loadPosts : function(posts_per_page) {
 		console.log('Loading ' + posts_per_page + ' posts');
-		console.log('Filter: ');
-		var filter = {
-			'posts_per_page': posts_per_page,
-		};
-		console.log(filter);
+		console.log('Query: ');
+		var query = this.buildQuery(posts_per_page);
+		console.log(query);
 		jQuery.ajax({
 			url: '/news/wp-json/posts',
-			data: {
-				filter: filter,
-				page: this.page,
-			},
+			data: query,
 			dataType: 'json',
 			type: 'GET',
 			success: function(data) {
@@ -94,28 +89,25 @@ window.mitlibnews.loader = {
 	},
 
 	/**
-	 * Load More - Bibliotech Posts
+	 * Build query
+	 *
+	 * This builds the data object used to query the JSON API.
 	 */
-
-	/**
-	 * Load More - by Category
-	 */
-
-	/**
-	 * Load More - Event Posts
-	 */
-
-	/**
-	 * Load More - Generic
-	 */
-
-	/**
-	 * Load More - News Posts
-	 */
-
-	/**
-	 * Load More - Search Results
-	 */
+	buildQuery : function(posts_per_page) {
+		var query = {};
+		var filter = {
+			'posts_per_page': posts_per_page,
+		};
+		// If author mode, add that filter
+		if ( this.postcontent === 'author' ) {
+			filter.author = this.container.dataset.postauthor;
+		}
+		query = {
+			filter: filter,
+			page: this.page,
+		};
+		return query;
+	},
 
 	/**
 	 * Card Renderer
@@ -123,7 +115,7 @@ window.mitlibnews.loader = {
 	 * This takes a JSON object representing a post, and returns relevant markup
 	 */
 	renderCard : function(post) {
-		var card, cardBody, cardContainer, cardCategory;
+		var card, cardBody, cardContainer, cardCategory, cardTitle, cardLink;
 		console.log(post);
 
 		// Card outer element
@@ -143,9 +135,31 @@ window.mitlibnews.loader = {
 		jQuery(cardContainer).addClass( 'interiorCardContainer' );
 		jQuery(cardBody).append( cardContainer );
 
-		jQuery(cardContainer).append( document.createTextNode( post.ID ) );
-		jQuery(cardContainer).append( document.createElement( 'br' ) );
-		jQuery(cardContainer).append( document.createTextNode( post.title ) );
+		// Card image
+
+		// Card icon
+
+		// Card title
+		cardTitle = document.createElement( 'h2' );
+		jQuery(cardTitle).addClass( 'entry-title title-post' );
+
+		// Card link
+		cardLink = document.createElement( 'a' );
+		jQuery(cardLink).attr( 'href', 'http://www.cnn.com' );
+		jQuery(cardLink).append( document.createTextNode( post.title ) );
+
+		// Card excerpt
+
+		// Card dateline
+
+		// Card category
+
+		// Card date
+
+		// Assemble pieces
+		jQuery(cardTitle).append( cardLink );
+		jQuery(cardContainer).append( cardTitle );
+		jQuery(cardContainer).append( document.createTextNode( post.excerpt ) );
 
 		// category element
 		cardCategory = document.createElement( 'div' );
