@@ -163,7 +163,7 @@ window.mitlibnews.loader = {
 		} else {
 			jQuery(cardLink).attr( 'href', post.link );
 		}
-		jQuery(cardLink).append( document.createTextNode( post.title ) );
+		jQuery(cardLink).html( post.title );
 
 		// Card excerpt
 		cardExcerpt = document.createElement( 'div' );
