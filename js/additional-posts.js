@@ -101,11 +101,11 @@ window.mitlibnews.loader = {
 		// If author mode, add that filter
 		if ( this.postcontent === 'author' ) {
 			filter.author = this.container.dataset.postauthor;
+		} else if ( 'bibliotech' === this.postcontent ) {
+			query.type = 'bibliotech';
 		}
-		query = {
-			filter: filter,
-			page: this.page,
-		};
+		query.filter = filter;
+		query.page = this.page;
 		return query;
 	},
 
@@ -115,7 +115,14 @@ window.mitlibnews.loader = {
 	 * This takes a JSON object representing a post, and returns relevant markup
 	 */
 	renderCard : function(post) {
-		var card, cardBody, cardContainer, cardCategory, cardTitle, cardLink;
+		// Main card containers
+		var card, cardBody, cardContainer, cardFooter;
+		// Card content elements
+		var cardTitle, cardLink, cardExcerpt, cardCategory, cardDate, cardDateContainer, cardDateValue, cardImage, cardIcon;
+		// Bibliotech-specific containers
+		var cardBibliotechIcon, cardBibliotechInner, cardBibliotechLink;
+		// Random number
+		var cardRandomIndex;
 		console.log(post);
 
 		// Card outer element
@@ -128,44 +135,106 @@ window.mitlibnews.loader = {
 		// TODO: Is this string of classes standard?
 		jQuery(cardBody).addClass( 'flex-item blueTop eventsBox no-image' );
 		// TODO: need an onClick attribute?
-		jQuery(card).append( cardBody );
 
 		// interiorCardContainer
 		cardContainer = document.createElement( 'div' );
 		jQuery(cardContainer).addClass( 'interiorCardContainer' );
-		jQuery(cardBody).append( cardContainer );
 
 		// Card image
 
 		// Card icon
 
 		// Card title
+		// There are different classes for spotlights and other cards
 		cardTitle = document.createElement( 'h2' );
 		jQuery(cardTitle).addClass( 'entry-title title-post' );
+		if ( 'spotlights' === post.type ) {
+			jQuery(cardTitle).addClass( 'spotlights' );
+		} else {
+			jQuery(cardTitle).addClass( 'classCheck' );
+		}
 
 		// Card link
+		// This is a custom field for spotlight cards, but a post URL otherwise
 		cardLink = document.createElement( 'a' );
-		jQuery(cardLink).attr( 'href', 'http://www.cnn.com' );
+		if ( 'spotlight' === post.type ) {
+			// Spotlights link to a custom field
+			jQuery(cardLink).attr( 'href', post.meta.external_link );
+		} else {
+			jQuery(cardLink).attr( 'href', post.link );
+		}
 		jQuery(cardLink).append( document.createTextNode( post.title ) );
 
 		// Card excerpt
+		cardExcerpt = document.createElement( 'div' );
+		jQuery(cardExcerpt)
+			.addClass( 'excerpt-post classCheck' )
+			.html( post.excerpt );
 
-		// Card dateline
+		// Card footer
+		cardFooter = document.createElement( 'div' );
+		jQuery(cardFooter).addClass( 'category-post' );
 
-		// Card category
+		// Card Bibliotech footer
+		if ( 'bibliotech' === post.type ) {
+			// Bibliotech icon
+			cardBibliotechIcon = document.createElement( 'div' );
+			// TODO: spelling error
+			jQuery(cardBibliotechIcon).addClass( 'bilbioImg bilbioTechIcon' );
 
-		// Card date
+			// Bibliotech inner element
+			cardBibliotechInner = document.createElement( 'div' );
+			jQuery(cardBibliotechInner)
+				.addClass( 'biblioPadding' )
+				.append( document.createTextNode( '\u00A0' ) );
+
+			// Bibliotech link
+			cardBibliotechLink = document.createElement( 'a' );
+			jQuery(cardBibliotechLink)
+				.attr( 'href', '/news/bibliotech-index/' )
+				.attr( 'title', 'Bibliotech' )
+				.append( document.createTextNode( 'Bibliotech' ) );
+		}
+
+		// Card category link
+		cardCategory = document.createElement( 'a' );
+		// Pick a random category
+		cardRandomIndex = Math.floor( Math.random() * post.terms.category.length );
+		jQuery(cardCategory)
+			.attr( 'title', post.terms.category[cardRandomIndex].name )
+			.attr( 'href', post.terms.category[cardRandomIndex].link )
+			.html( post.terms.category[cardRandomIndex].name );
+
+		// Card date container
+		cardDateContainer = document.createElement( 'span' );
+		jQuery(cardDateContainer).addClass( 'mitDate' );
+		// Card time
+		cardDateValue = jQuery.datepicker.formatDate('MM d, yy', new Date( post.modified ) );
+		cardDate = document.createElement( 'time' );
+		jQuery(cardDate)
+			.addClass( 'updated' )
+			.attr( 'datetime', cardDateValue )
+			.append( document.createTextNode( cardDateValue ) );
 
 		// Assemble pieces
-		jQuery(cardTitle).append( cardLink );
+		jQuery(card).append( cardBody );
+		jQuery(cardBody).append( cardContainer );
+		jQuery(cardBody).append( cardFooter );
 		jQuery(cardContainer).append( cardTitle );
-		jQuery(cardContainer).append( document.createTextNode( post.excerpt ) );
+		jQuery(cardContainer).append( cardExcerpt );
+		jQuery(cardTitle).append( cardLink );
+		// If bibliotech, append specific footer
+		if ( 'bibliotech' === post.type ) {
+			jQuery(cardFooter).addClass( 'Bibliotech' );
+			jQuery(cardFooter).append( cardBibliotechIcon );
+			jQuery(cardFooter).append( cardBibliotechInner );
+			jQuery(cardBibliotechInner).append( cardBibliotechLink );
+		} else {
+			jQuery(cardFooter).append( cardCategory );
+			jQuery(cardFooter).append( cardDateContainer );
+			jQuery(cardDateContainer).append( cardDate );
 
-		// category element
-		cardCategory = document.createElement( 'div' );
-		jQuery(cardCategory).addClass( 'category-post' );
-		// TODO: Bibliotech class
-		jQuery(cardBody).append( cardCategory );
+		}
 
 		return card;
 	},

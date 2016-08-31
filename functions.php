@@ -36,7 +36,7 @@ add_action( 'wp_enqueue_scripts', 'add_styles' );
  */
 function add_scripts() {
 	wp_enqueue_script( 'lazyload', get_stylesheet_directory_uri() . '/js/lazyload.js', array( 'jquery' ), '', true );
-	wp_enqueue_script( 'additional-posts', get_stylesheet_directory_uri() . '/js/additional-posts.js', array( 'jquery' ), '', true );
+	wp_enqueue_script( 'additional-posts', get_stylesheet_directory_uri() . '/js/additional-posts.js', array( 'jquery', 'jquery-ui-datepicker' ), '', true );
 	wp_enqueue_script( 'myScripts', get_stylesheet_directory_uri() . '/js/myScripts.js', array( 'lazyload', 'additional-posts' ), '', true );
 }
 add_action( 'wp_enqueue_scripts', 'add_scripts' );
