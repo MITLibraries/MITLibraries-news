@@ -119,6 +119,7 @@ window.mitlibnews.loader = {
 		var card, cardBody, cardContainer, cardFooter;
 		// Card content elements
 		var cardTitle, cardLink, cardExcerpt, cardCategory, cardDate, cardDateContainer, cardDateValue, cardImage, cardIcon;
+		var cardEventContainer, cardEventDate, cardEventTime, cardEventDateValue, cardEventTimeValue;
 		// Bibliotech-specific containers
 		var cardBibliotechIcon, cardBibliotechInner, cardBibliotechLink;
 		// Random number
@@ -133,7 +134,7 @@ window.mitlibnews.loader = {
 		// Card inner element
 		cardBody = document.createElement( 'div' );
 		// TODO: Is this string of classes standard?
-		jQuery(cardBody).addClass( 'flex-item blueTop eventsBox no-image' );
+		jQuery(cardBody).addClass( 'flex-item blueTop eventsBox' );
 		// TODO: need an onClick attribute?
 
 		// interiorCardContainer
@@ -141,6 +142,20 @@ window.mitlibnews.loader = {
 		jQuery(cardContainer).addClass( 'interiorCardContainer' );
 
 		// Card image
+		if ( post.meta.listImg ) {
+			// Image has been declared
+			jQuery(cardBody).addClass( 'has-image' );
+			cardImage = document.createElement( 'img' );
+			jQuery(cardImage)
+				.attr( 'src', post.meta.listImg)
+				.attr( 'width', '100%' )
+				.attr( 'height', '111' )
+				.attr( 'alt', post.title )
+				.addClass('img-responsive');
+		} else {
+			// No image
+			jQuery(cardBody).addClass( 'no-image' );
+		}
 
 		// Card icon
 
@@ -164,6 +179,42 @@ window.mitlibnews.loader = {
 			jQuery(cardLink).attr( 'href', post.link );
 		}
 		jQuery(cardLink).html( post.title );
+
+		// Card event
+		if ( post.meta.event_date ) {
+			// The event_date field is stored as YYYYMMDD, which is not a format that js Date objects can parse
+			// So we do this ourselves, remembering that month is zero-based.
+			cardEventDateValue = new Date(
+				post.meta.event_date.substring(0,4),
+				post.meta.event_date.substring(4,6) - 1,
+				post.meta.event_date.substring(6,8)
+			);
+			// Event container
+			cardEventContainer = document.createElement( 'div' );
+			jQuery(cardEventContainer)
+				.addClass( 'events classCheck' )
+				.html( '<span class="bg-image"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15px" height="15px" x="0px" y="0px" viewBox="-299 390 13 13" style="enable-background:new -299 390 13 13;" xml:space="preserve"><style type="text/css">.st0{fill:#F58632;}</style><g><g id="XMLID_9_"><path id="XMLID_35_" class="st0" d="M-286.9,393.7v-0.8c0-0.4-0.4-0.8-0.8-0.8h-0.8v-0.8c0-0.4-0.4-0.8-0.8-0.8 c-0.4,0-0.8,0.4-0.8,0.8v0.8h-4.8v-0.8c0-0.4-0.4-0.8-0.8-0.8c-0.4,0-0.8,0.4-0.8,0.8v0.8h-0.8c-0.4,0-0.8,0.4-0.8,0.8v0.8 C-298.1,393.7-286.9,393.7-286.9,393.7z"/></g><g><path id="XMLID_76_" class="st0" d="M-298.1,394.5v7.2c0,0.4,0.4,0.8,0.8,0.8h9.6c0.4,0,0.8-0.4,0.8-0.8v-7.2H-298.1z M-294.9,400.9h-1.6v-1.6h1.6V400.9z M-294.9,397.7h-1.6v-1.6h1.6V397.7z M-291.7,400.9h-1.6v-1.6h1.6 C-291.7,399.3-291.7,400.9-291.7,400.9z M-291.7,397.7h-1.6v-1.6h1.6C-291.7,396.1-291.7,397.7-291.7,397.7z M-288.5,400.9h-1.6 v-1.6h1.6V400.9z M-288.5,397.7h-1.6v-1.6h1.6V397.7z"/></g></g></svg></span>' );
+			// Event date
+			cardEventDate = document.createElement( 'span' );
+			jQuery(cardEventDate)
+				.addClass( 'event' )
+				.append( document.createTextNode( jQuery.datepicker.formatDate('MM d, yy', new Date( cardEventDateValue ) ) ) );
+			// Event time
+			cardEventTimeValue = '';
+			if ( post.meta.event_start_time ) {
+				cardEventTimeValue += post.meta.event_start_time;
+			}
+			if ( post.meta.event_start_time && post.meta.event_end_time ) {
+				cardEventTimeValue += ' - ';
+			}
+			if ( post.meta.event_end_time ) {
+				cardEventTimeValue += post.meta.event_end_time;
+			}
+			cardEventTime = document.createElement( 'span' );
+			jQuery(cardEventTime)
+				.addClass( 'time' )
+				.html( cardEventTimeValue );
+		}
 
 		// Card excerpt
 		cardExcerpt = document.createElement( 'div' );
@@ -220,7 +271,15 @@ window.mitlibnews.loader = {
 		jQuery(card).append( cardBody );
 		jQuery(cardBody).append( cardContainer );
 		jQuery(cardBody).append( cardFooter );
+		if ( post.meta.listImg ) {
+			jQuery(cardContainer).append( cardImage );
+		}
 		jQuery(cardContainer).append( cardTitle );
+		if ( post.meta.event_date ) {
+			jQuery(cardContainer).append( cardEventContainer );
+			jQuery(cardEventContainer).append( cardEventDate );
+			jQuery(cardEventContainer).append( cardEventTime );
+		}
 		jQuery(cardContainer).append( cardExcerpt );
 		jQuery(cardTitle).append( cardLink );
 		// If bibliotech, append specific footer
