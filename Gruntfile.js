@@ -32,15 +32,15 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
   // There are basically three phases of building the production theme:
-  // 1) Testing / linting
+  // 0) Testing / linting
   grunt.registerTask('test', ['jshint']);
   // 1) Javascript preparation (concatenating and uglifying scripts)
-  // (coming soon)
+  grunt.registerTask('javascript', ['uglify']);
   // 2) Stylesheet preparation (SASS, autoprefixing, and minification)
   // (coming soon)
   // 3) Appending the most recent git commit to the theme version
   grunt.registerTask('release', ['gitinfo', 'replace']);
   // The default task performs all three phases.
-  grunt.registerTask('default', ['release']);
+  grunt.registerTask('default', ['test', 'javascript', 'release']);
 
 };

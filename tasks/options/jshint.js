@@ -1,9 +1,8 @@
 module.exports = {
 	all: [
 		'Gruntfile.js',
-		// 'js/**/*.js',
-		'js/additional-posts.js',
-		'js/myScripts.js'
+		'js/mitlibnews.js',
+		'js/mitlibnews-more.js'
 	],
 	options: {
 		jshintrc: '.jshintrc'
