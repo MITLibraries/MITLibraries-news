@@ -6,7 +6,6 @@
  * JSON objects into rendered HTML.
  *
  */
-
 var window, document, jQuery;
 
 window.mitlibnews = window.mitlibnews || {};
@@ -17,7 +16,6 @@ window.mitlibnews.loader = {
 	 * Properties
 	 */
 	container : '',
-	offset: 0,
 	page: 1,
 	postcontent: '',
 
@@ -25,30 +23,24 @@ window.mitlibnews.loader = {
 	 * Initialize
 	 */
 	initialize : function() {
-		console.log('MIT Libraries News Loader initializing...');
 		// Identify container that will receive post cards.
 		this.container = document.getElementById('mitlibnews-container');
 		// The type of query is identified by data attribute on the container.
 		this.setPostcontent();
-		console.log('Initialization complete.');
+		return true;
 	},
 
 	/**
 	 * Simple Post Loader
 	 */
 	loadPosts : function(posts_per_page) {
-		console.log('Loading ' + posts_per_page + ' posts');
-		console.log('Query: ');
 		var query = this.buildQuery(posts_per_page);
-		console.log(query);
 		jQuery.ajax({
 			url: '/news/wp-json/posts',
 			data: query,
 			dataType: 'json',
 			type: 'GET',
 			success: function(data) {
-				console.log(posts_per_page + ' posts requested');
-				console.log(data.length + ' posts received');
 				if ( data.length < posts_per_page) {
 					window.mitlibnews.loader.hideMore();
 				}
@@ -58,34 +50,6 @@ window.mitlibnews.loader = {
 					jQuery(target).append( window.mitlibnews.loader.renderCard(value) );
 				});
 				window.mitlibnews.loader.setPage( window.mitlibnews.loader.getPage() + 1);
-				console.log('New page: ');
-				console.log(window.mitlibnews.loader.getPage());
-
-			},
-			error: function() {
-				console.log("Error");
-			}
-		});
-		console.log('');
-	},
-
-	/**
-	 * Load More - Archive
-	 */
-	loadArchive : function() {
-		console.log('Loading Archive posts...');
-		jQuery.ajax({
-			url: '/news/wp-json/posts',
-			data: {
-				filter: {
-					'posts_per_page': 9,
-					'offset': 10,
-				}
-			},
-			dataType: 'json',
-			type: 'GET',
-			success: function(data) {
-				console.log(data);
 			},
 			error: function() {
 				console.log("Error");
@@ -318,14 +282,6 @@ window.mitlibnews.loader = {
 	},
 
 	/**
-	 * Get Offset
-	 */
-	getOffset : function() {
-		console.log("Retrieving offset value of " + this.offset);
-		return this.offset;
-	},
-
-	/**
 	 * Get Page
 	 */
 	getPage : function() {
@@ -340,31 +296,20 @@ window.mitlibnews.loader = {
 	},
 
 	/**
-	 * Set Offset
-	 */
-	setOffset : function(value) {
-		console.log("Replacing offset value of " + this.offset + " with " + value);
-		this.offset = value;
-		return this.getOffset();
-	},
-
-	/**
 	 * Set Page
 	 */
 	setPage : function(value) {
-		console.log("Replacing page value of " + this.page + " with " + value);
 		this.page = value;
 	},
 
 	/**
 	 * Set Post Content
 	 */
-	setPostcontent : function(value) {
+	setPostcontent : function() {
 		// The default value is 'all'.
 		this.postcontent = 'all';
 		// If everything is not set, just use the default.
 		if ( !this.container || !this.container.dataset || !this.container.dataset.postcontent ) {
-			console.log( 'Post content attribute not found! Using default value.' );
 			return true;
 		}
 		// If we're still here, use the real value.
