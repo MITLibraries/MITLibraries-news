@@ -308,7 +308,6 @@ window.mitlibnews.loader = {
 	 */
 	hideMore : function() {
 		jQuery("#mitlibnews-another").remove();
-		jQuery("#mitlibnews-nomore").attr('style', '');
 	},
 
 	/**
