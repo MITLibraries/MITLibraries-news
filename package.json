@@ -28,6 +28,7 @@
     "grunt-replace": "^1.0.1"
   },
   "dependencies": {
+    "jquery-lazyload": "^1.9.7",
     "load-grunt-tasks": "^3.5.0"
   }
 }
