@@ -47,7 +47,11 @@ window.mitlibnews.loader = {
 			dataType: 'json',
 			type: 'GET',
 			success: function(data) {
-				console.log(posts_per_page + ' posts loaded');
+				console.log(posts_per_page + ' posts requested');
+				console.log(data.length + ' posts received');
+				if ( data.length < posts_per_page) {
+					window.mitlibnews.loader.hideMore();
+				}
 				// identify targeted container
 				var target = window.mitlibnews.loader.getContainer();
 				jQuery.each(data, function( index, value ) {
@@ -56,6 +60,7 @@ window.mitlibnews.loader = {
 				window.mitlibnews.loader.setPage( window.mitlibnews.loader.getPage() + 1);
 				console.log('New page: ');
 				console.log(window.mitlibnews.loader.getPage());
+
 			},
 			error: function() {
 				console.log("Error");
@@ -296,6 +301,14 @@ window.mitlibnews.loader = {
 		}
 
 		return card;
+	},
+
+	/**
+	 * Hide "Show more" button
+	 */
+	hideMore : function() {
+		jQuery("#mitlibnews-another").remove();
+		jQuery("#mitlibnews-nomore").attr('style', '');
 	},
 
 	/**
