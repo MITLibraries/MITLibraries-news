@@ -1,4 +1,4 @@
-var window, jQuery, APloader;
+var window, jQuery, APloader, Loader;
 
 (function($) {
 
@@ -12,6 +12,8 @@ var window, jQuery, APloader;
 	//category force selection of all news
 	$('input:checkbox[id=in-category-43]').attr('checked',true);
 
+
+
 	// Additional Posts loader
 	APloader = window.mitlibnews.loader;
 	// TODO: is initialization necessary?
@@ -23,5 +25,8 @@ var window, jQuery, APloader;
 		// TODO: read data attribute in 'show more' markup that determines what type of 'more' to show
 		APloader.loadPosts(9);
 	});
+
+	// Rebuilt loader
+	var foo = new Loader();
 
 })(jQuery);

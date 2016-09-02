@@ -37,7 +37,8 @@ add_action( 'wp_enqueue_scripts', 'add_styles' );
 function add_scripts() {
 	wp_enqueue_script( 'lazyload', get_stylesheet_directory_uri() . '/js/build/jquery.lazyload.min.js', array( 'jquery' ), '', true );
 	wp_enqueue_script( 'mitlibnews-more', get_stylesheet_directory_uri() . '/js/build/mitlibnews-more.min.js', array( 'jquery', 'jquery-ui-datepicker' ), '', true );
-	wp_enqueue_script( 'mitlibnews', get_stylesheet_directory_uri() . '/js/build/mitlibnews.min.js', array( 'lazyload', 'mitlibnews-more' ), '', true );
+	wp_enqueue_script( 'mitlibnews-loader', get_stylesheet_directory_uri() . '/js/build/mitlibnews.loader.min.js', array( 'jquery', 'jquery-ui-datepicker' ), '', true );
+	wp_enqueue_script( 'mitlibnews', get_stylesheet_directory_uri() . '/js/build/mitlibnews.min.js', array( 'lazyload', 'mitlibnews-more', 'mitlibnews-loader' ), '', true );
 }
 add_action( 'wp_enqueue_scripts', 'add_scripts' );
 
