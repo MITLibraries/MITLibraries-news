@@ -103,8 +103,9 @@ window.mitlibnews.loader = {
 		// Card inner element
 		cardBody = document.createElement( 'div' );
 		// TODO: Is this string of classes standard?
-		jQuery(cardBody).addClass( 'flex-item blueTop eventsBox' );
-		// TODO: need an onClick attribute?
+		jQuery(cardBody)
+			.addClass( 'flex-item blueTop eventsBox' )
+			.attr( 'onClick', 'location.href="' + post.link + '"');
 
 		// interiorCardContainer
 		cardContainer = document.createElement( 'div' );
