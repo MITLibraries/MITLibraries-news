@@ -4,7 +4,7 @@ module.exports = {
     dest: 'js/build/mitlibnews.min.js'
   },
   loadMore: {
-    src: 'js/mitlibnews-more.js',
+    src: 'js/src/mitlibnews-more.js',
     dest: 'js/build/mitlibnews-more.min.js'
   },
   lazyLoad: {
