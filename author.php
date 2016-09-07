@@ -34,7 +34,7 @@ get_template_part( 'inc/sub-header' );
 				<h1 class="lib-header"><?php printf( 'Author: ' . '<strong>' . get_the_author( '', false ) . '</strong>' ); ?></h1>
 			</header><!-- .archive-header -->
 
-			<div class="row" id="mitlibnews-container" data-postcontent="author" data-postauthor="<?php the_author_id(); ?>"></div>
+			<div class="row" id="mitlibnews-container" data-postcontent="author" data-postauthor="<?php the_author_id(); ?>" data-postcount="9"></div>
 
 		</div>
 	</div>
