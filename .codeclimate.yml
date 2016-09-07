@@ -63,5 +63,6 @@ ratings:
   - "**.module"
   - "**.inc"
 exclude_paths:
-- js/**/*
+- js/build/**/*
+- js/tests/**/*
 - lib/classes/**/*

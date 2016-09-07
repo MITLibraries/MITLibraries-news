@@ -22,10 +22,14 @@
   "devDependencies": {
     "glob": "^7.0.5",
     "grunt": "^1.0.1",
+    "grunt-contrib-jasmine": "^1.0.3",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
     "grunt-gitinfo": "^0.1.8",
     "grunt-replace": "^1.0.1"
   },
   "dependencies": {
+    "jquery-lazyload": "^1.9.7",
     "load-grunt-tasks": "^3.5.0"
   }
 }
