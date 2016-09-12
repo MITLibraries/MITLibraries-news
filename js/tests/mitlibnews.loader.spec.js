@@ -43,4 +43,14 @@ describe("Loader test suite", function() {
 		expect( test.getPostcontent( test.setPostcontent('baz') ) ).toEqual('baz');
 	});
 
+	it("should build a query object", function() {
+		var test = new Loader();
+		defaultQuery = {
+			page: 1,
+			filter: {
+				posts_per_page: 9,
+			}
+		}
+		expect( test.buildQuery() ).toEqual(defaultQuery);
+	});
 });

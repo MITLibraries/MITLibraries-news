@@ -1,4 +1,4 @@
-var document;
+var document, jQuery;
 
 function Loader(params) {
 	"use strict";
@@ -41,7 +41,7 @@ Loader.prototype = {
 
 	// Initialization
 	initialize : function() {
-		// Connect to markup
+		// Look up specified post container in DOM
 		this.postcontainer = document.getElementById( this.getContainer() );
 
 		// If no post container is found, then we quit and do nothing further.
@@ -56,30 +56,78 @@ Loader.prototype = {
 		this.loadPosts();
 	},
 
+	/**
+	 * Build query
+	 *
+	 * This builds a JSON object that will be fed to the API in order to return posts
+	 */
+	buildQuery : function() {
+		var query = {
+			'page': this.getPage(),
+		};
+		var filter = {
+			'posts_per_page': this.getPagesize(),
+		};
+		// Context-specific values
+		if ( this.getPostcontent() === 'author' ) {
+			filter.author = this.postcontainer.dataset.postauthor;
+		}
+		// Assemble pieces into query object
+		query.filter = filter;
+		return query;
+	},
+
 	// Load attributes
 	loadAttributes : function() {
 		// If the post container doesn't have data attributes, then leave the defaults
 		if ( !this.postcontainer || !this.postcontainer.dataset ) {
-			console.log('Container or data attributes not found - leaving defaults');
 			return true;
 		}
 
 		if ( this.postcontainer.dataset.pagesize ) {
-			console.log('Overriding page size');
 			this.setPagesize( this.postcontainer.dataset.pagesize );
 		}
 
 		if ( this.postcontainer.dataset.postcontent ) {
-			console.log('Overriding post content');
 			this.setPostcontent( this.postcontainer.dataset.postcontent );
 		}
+
+		// At this point, the status of values like this.postcontent are set.
 
 		return true;
 	},
 
 	// Load posts
 	loadPosts : function() {
-		console.log('Loading ' + this.getPagesize() + ' posts (page ' + this.getPage() + ')');
+
+		// Assemble query object
+		var query = this.buildQuery();
+
+		console.log('Query object:');
+		console.log(query);
+
+		// Query the API
+		jQuery.ajax({
+			url: '/news/wp-json/posts',
+			data: query,
+			dataType: 'json',
+			type: 'GET',
+			success: function(data) {
+				jQuery.each(data, function( index, value ) {
+					console.log(value);
+				});
+			},
+			error: function() {
+				console.log('Error');
+			}
+		});
+	},
+
+	// Render a JSON object into HTML
+	renderCard: function(index, post) {
+		console.log(index);
+		console.log(post);
+		jQuery( this.postContainer ).append( post );
 	},
 
 	// Container getter and setter

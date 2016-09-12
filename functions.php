@@ -32,11 +32,12 @@ function add_styles() {
 add_action( 'wp_enqueue_scripts', 'add_styles' );
 
 /**
- * Add LazyLoad and main javascript for all users
+ * Add LazyLoad, loader, and main javascript for all users
  */
 function add_scripts() {
 	wp_enqueue_script( 'lazyload', get_stylesheet_directory_uri() . '/js/build/jquery.lazyload.min.js', array( 'jquery' ), '', true );
-	wp_enqueue_script( 'mitlibnews', get_stylesheet_directory_uri() . '/js/build/mitlibnews.min.js', array( 'lazyload' ), '', true );
+	wp_enqueue_script( 'loader', get_stylesheet_directory_uri() . '/js/build/mitlibnews.loader.min.js', '', '', true );
+	wp_enqueue_script( 'mitlibnews', get_stylesheet_directory_uri() . '/js/build/mitlibnews.min.js', array( 'lazyload', 'loader' ), '', true );
 }
 add_action( 'wp_enqueue_scripts', 'add_scripts' );
 
