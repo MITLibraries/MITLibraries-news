@@ -1,4 +1,4 @@
-var jQuery;
+var jQuery, NewsLoader, Loader;
 
 (function($) {
 
@@ -11,5 +11,7 @@ var jQuery;
 
 	//category force selection of all news
 	$('input:checkbox[id=in-category-43]').attr('checked',true);
+
+	NewsLoader = new Loader();
 
 })(jQuery);
