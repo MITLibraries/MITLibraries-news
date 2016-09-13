@@ -15,9 +15,9 @@ get_header(); ?>
 <div id="primary" class="content-area">
 	<main id="main" class="content-main" role="main">
 	<div class="container">
-	<div class="row">
+	<h2 class="search">Search results for <strong><?php echo esc_html( get_search_query() ); ?></strong></h2>
+	<div class="row" id="mitlibnews-container" data-postcontent="search" data-search="<?php echo esc_attr( get_search_query() ); ?>">
 	
-	<h2 class="search">Search results for <strong><?php echo $_GET['s'] ?></strong></h2>
 
 	 <?php  if ( '' == $post ) { ?>
 		

@@ -42,11 +42,15 @@ Loader.prototype = {
 	// Initialization
 	initialize : function() {
 		// Look up specified post container in DOM
+		console.log('Looking for ' + this.getContainer() );
 		this.postcontainer = document.getElementById( this.getContainer() );
 
 		// If no post container is found, then we quit and do nothing further.
 		if( !this.postcontainer ) {
+			console.log('Post container not found...');
 			return false;
+		} else {
+			console.log('Post container found. Continuing...');
 		}
 
 		// Read data attributes
@@ -68,12 +72,53 @@ Loader.prototype = {
 		var filter = {
 			'posts_per_page': this.getPagesize(),
 		};
+		var type = ['post', 'bibliotech', 'spotlights'];
 		// Context-specific values
 		if ( this.getPostcontent() === 'author' ) {
 			filter.author = this.postcontainer.dataset.postauthor;
+			// Author indexes don't show Spotlights
+			type = ['post', 'bibliotech'];
+		} else if ( this.getPostcontent() === 'bibliotech' ) {
+			// Only return bibliotech content
+			type = ['bibliotech'];
+		} else if ( this.getPostcontent() === 'category' ) {
+			query.categories = [this.postcontainer.dataset.postcategory];
+		} else if ( this.getPostcontent() === 'futureevents' ) {
+			// Only return post content
+			type = ['post'];
+			filter.meta_query = [{
+				'key': 'is_event',
+				'value': true,
+				'type': 'future',
+			}];
+		} else if ( this.getPostcontent() === 'issue' ) {
+			query.issue = this.postcontainer.dataset.postissue;
+			type = ['bibliotech'];
+		} else if ( this.getPostcontent() === 'news' ) {
+			// Only return post content
+			type = ['post'];
+			filter.meta_query = [{
+				'key': 'is_event',
+				'value': false,
+			}];
+		} else if ( this.getPostcontent() === 'pastevents' ) {
+			// Only return post content
+			type = ['post'];
+			filter.meta_query = [{
+				'key': 'is_event',
+				'value': true,
+				'type': 'past',
+			}];
+		} else if ( this.getPostcontent() === 'related' ) {
+			// Related queries are sorted randomly
+			filter.orderby = 'rand';
+			query.categories = [this.postcontainer.dataset.postcategory];
+		} else if ( this.getPostcontent() === 'search' ) {
+			query.search = this.postcontainer.dataset.search;
 		}
 		// Assemble pieces into query object
 		query.filter = filter;
+		query.type = type;
 		return query;
 	},
 
@@ -108,12 +153,13 @@ Loader.prototype = {
 
 		// Query the API
 		jQuery.ajax({
-			url: '/news/wp-json/posts',
+			url: '/news/wp-json/mitlibnews/v1/cards',
 			data: query,
 			dataType: 'json',
 			type: 'GET',
 			success: function(data) {
 				jQuery.each(data, function( index, value ) {
+					console.log('\n' + value.type + '\n' + value.title.rendered );
 					console.log(value);
 				});
 			},

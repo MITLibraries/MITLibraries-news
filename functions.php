@@ -113,6 +113,7 @@ function mitlibnews_register_news_posts() {
 		'labels'  => $labelsFeatures,
 		'public' => true,
 		'menu_position' => 5,
+		'show_in_rest' => true,
 		'supports' => array( 'title' ),
 		'taxonomies' => array( 'category' ),
 
@@ -157,6 +158,7 @@ function mitlibnews_register_news_posts() {
 		'labels'  => $labelsFeatures,
 		'public' => true,
 		'menu_position' => 5,
+		'show_in_rest' => true,
 		'supports' => $supports_default,
 		'taxonomies' => array( 'category' ),
 	);
@@ -357,6 +359,7 @@ if ( ! function_exists( 'biblio_taxonomy' ) ) {
 			'show_ui'                    => true,
 			'show_admin_column'          => true,
 			'show_in_nav_menus'          => true,
+			'show_in_rest'               => true,
 			'show_tagcloud'              => true,
 		);
 		register_taxonomy( 'bibliotech_issues', array( 'bibliotech' ), $args );
@@ -366,7 +369,7 @@ if ( ! function_exists( 'biblio_taxonomy' ) ) {
 	// Hook into the 'init' action.
 	add_action( 'init', 'biblio_taxonomy', 0 );
 
-} // End if().
+} // End bibliotechs custom taxonomy.
 
 /**
  * Registers news sidebar
@@ -398,3 +401,187 @@ $query->set( 'post_type', array( 'post', 'Bibliotech', 'Spotlights' ) );
 return $query;
 }
 add_filter( 'pre_get_posts','SearchFilter' );
+
+
+/**
+ * Custom API endpoints
+ *
+ * @param WP_REST_Request $request Full data about the request.
+ */
+function mitlibnews_cards( WP_REST_Request $request ) {
+
+	$args = array();
+	$response = array();
+
+	// Get passed parameters for building the right query.
+	$params = $request->get_params();
+
+	// Build query type.
+	$categories = $params['categories'];
+
+	// Posts per page needs to be an integer.
+	$args['posts_per_page'] = mitlibnews_cardargs_postsperpage( $params['filter']['posts_per_page'] );
+
+	// Only certain post types are recognized.
+	$args['post_type'] = mitlibnews_cardargs_posttype( $params['type'] );
+
+	// If requested, filter by author.
+	$args['author'] = mitlibnews_cardargs_author( $params['filter'] );
+
+	// If requested, filter by a single category.
+	if ( array_key_exists( 'categories', $params ) && is_array( $categories ) && is_int( (int) $params['categories'][0] ) ) {
+		$args['cat'] = (int) $params['categories'][0];
+	}
+
+	// If requested, filter by a single tag.
+	if ( array_key_exists( 'issue', $params ) ) {
+		$args['bibliotech_issues'] = (string) $params['issue'];
+	}
+
+	// If requested, filter by a single tag.
+	if ( array_key_exists( 's', $params ) ) {
+		$args['s'] = (string) $params['s'];
+	}
+
+	// If requested, change sort order.
+	$args['orderby'] = mitlibnews_cardargs_orderby( $params['filter'] );
+
+	// If requested, filter by custom field.
+	if ( array_key_exists( 'meta_query', $params['filter'] ) ) {
+		$args['meta_query'] = mitlibnews_cardargs_metaquery( $params['filter']['meta_query'] );
+	}
+
+	// Build the query.
+	$args['order'] = 'DESC';
+
+	// Execute the query.
+	$posts = new WP_Query( $args );
+
+	// Assemble the response.
+	$controller = new WP_REST_Posts_Controller( 'post' );
+	if ( $posts->have_posts() ) {
+		while ( $posts->have_posts() ) {
+			$posts->the_post();
+			$post = $posts->post;
+			$data = $controller->prepare_item_for_response( $post, $request );
+			$response[] = $controller->prepare_response_for_collection( $data );
+		}
+		wp_reset_postdata();
+	}
+
+	// Return the response.
+	return new WP_REST_Response( $response, 200 );
+
+}
+add_action( 'rest_api_init', function() {
+	register_rest_route( 'mitlibnews/v1', '/cards', array(
+		'methods' => 'GET',
+		'callback' => 'mitlibnews_cards',
+	));
+});
+
+/**
+ * Assemble API query: author
+ *
+ * @param array $input Contents of $params['filter'].
+ */
+function mitlibnews_cardargs_author( $input ) {
+	if ( array_key_exists( 'author', $input ) && is_int( (int) $input['author'] ) ) {
+		return (int) $input['author'];
+	}
+	return '';
+}
+
+/**
+ * Assemble API query: orderby
+ *
+ * @param array $input Contents of $params['filter'].
+ */
+function mitlibnews_cardargs_orderby( $input ) {
+	$orderby = 'post_date';
+	if ( array_key_exists( 'orderby', $input ) ) {
+		$orderby = (string) $input['orderby'];
+	}
+	return $orderby;
+}
+
+
+/**
+ * Assemble API query: posts_per_page
+ *
+ * @param int $input Contents of $params['filter']['posts_per_page'].
+ */
+function mitlibnews_cardargs_postsperpage( $input ) {
+	$posts_per_page = 9;
+	if ( is_int( (int) $input ) ) {
+		$posts_per_page = (int) $input;
+	}
+	return $posts_per_page;
+}
+
+/**
+ * Assemble API query: post_type
+ *
+ * Only three values are accepted for post_type queries
+ *
+ * @param int $input Contents of $params['type'].
+ */
+function mitlibnews_cardargs_posttype( $input ) {
+	$post_type = array();
+	if ( is_array( $input ) ) {
+		if ( in_array( 'bibliotech', $input, true ) ) {
+			$post_type[] = 'bibliotech';
+		}
+		if ( in_array( 'post', $input, true ) ) {
+			$post_type[] = 'post';
+		}
+		if ( in_array( 'spotlights', $input, true ) ) {
+			$post_type[] = 'spotlights';
+		}
+	}
+	return $post_type;
+}
+
+/**
+ * Assemble API query: meta_query array
+ *
+ * @param int $input Contents of $params['filter'].
+ */
+function mitlibnews_cardargs_metaquery( $input ) {
+	$meta_query = array();
+	if ( 'is_event' === $input[0]['key'] ) {
+		// We currently only support meta_queries based on the is_event custom field.
+		if ( 'false' === $input[0]['value'] ) {
+			// The query is for items which aren't events.
+			$meta_query[] = mitlibnews_cardargs_metaquery_item( 'is_event', '!=', '1', 'NUMERIC' );
+		} elseif ( 'true' === $input[0]['value'] ) {
+			// The query is for events, but past or future?
+			$meta_query[] = mitlibnews_cardargs_metaquery_item( 'is_event', '=', '1', 'NUMERIC' );
+			if ( 'future' === $input[0]['type'] ) {
+				// Query for future events.
+				$meta_query[] = mitlibnews_cardargs_metaquery_item( 'event_date', '>=', date( 'Y-m-d' ), 'DATE' );
+			} elseif ( 'past' === $input[0]['type'] ) {
+				// Query for past events.
+				$meta_query[] = mitlibnews_cardargs_metaquery_item( 'event_date', '<', date( 'Y-m-d' ), 'DATE' );
+			}
+		}
+	}
+	return $meta_query;
+}
+
+/**
+ * Assemble API query: meta_query item
+ *
+ * @param string $key The variable being tested.
+ * @param string $compare The comparision being performed.
+ * @param string $value The value being tested for.
+ * @param string $type The type of comparison being performed.
+ */
+function mitlibnews_cardargs_metaquery_item( $key, $compare, $value, $type ) {
+	return array(
+		'key' => $key,
+		'value' => $value,
+		'compare' => $compare,
+		'type' => $type,
+	);
+}

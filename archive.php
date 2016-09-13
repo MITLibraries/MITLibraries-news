@@ -20,15 +20,12 @@
 get_header();
 $date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 
+get_template_part( 'inc/sub-header' );
 
+if ( (get_post_type( get_the_ID() ) === 'bibliotech') || (cat_is_ancestor_of( 73, $cat ) or is_category( 73 )) ) {
+	get_template_part( 'inc/bib-header' );
+}
 ?>
-<?php get_template_part( 'inc/sub-header' ); ?>
-<?php
-if ( (get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73, $cat ) or is_category( 73 )) ) {  ?>
-<?php get_template_part( 'inc/bib-header' ); ?>
-<?php  } ?>
-
-
 
 <section id="" class="site-content">
 	<div id="content" role="main">
@@ -36,7 +33,7 @@ if ( (get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73,
 	
 	<!-- .archive-header -->
 	<div class="container">
-	<div class="row">
+	<div class="row" id="mitlibnews-container" data-postcontent="issue" data-postissue="<?php echo esc_attr( get_queried_object()->slug ); ?>">
 	
 	
 	  <?php
