@@ -366,7 +366,7 @@ if ( ! function_exists( 'biblio_taxonomy' ) ) {
 	// Hook into the 'init' action.
 	add_action( 'init', 'biblio_taxonomy', 0 );
 
-}
+} // End if().
 
 /**
  * Registers news sidebar

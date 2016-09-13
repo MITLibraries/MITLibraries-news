@@ -109,7 +109,7 @@ the_date(); ?> </span>
 			</span> 
 		  
 		   </div>
-		  <?php 	}	?>
+		  <?php 	} // End if(). ?>
 
 	<!--=================image=================== -->       
 	<?php if ( get_field( 'image' ) ) { ?>
