@@ -65,7 +65,7 @@ get_header(); ?>
 			<?php /* Start the Loop
 			*/
 			?>
-			<div class="row">
+			<div class="row" id="mitlibnews-container" data-postcontent="author" data-postauthor="<?php the_author_id(); ?>">
 
 			
 			
