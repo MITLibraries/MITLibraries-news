@@ -33,7 +33,7 @@ $date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 	
 			<?php if ( get_post_type( get_the_ID() ) == 'bibliotech' ) { ?>
 		   
-			<?php } //get_post_type( get_the_ID() ) == 'bibliotech' ?>
+			<?php } // End if(). ?>
 			  
 					<?php  wp_reset_query(); // Restore global post data stomped by the_post(). ?>
 		   

@@ -69,7 +69,7 @@ $ajaxLength = $the_query->post_count;
 $("#another").hide();
 </script>
 <?php }
-// Removes button end.
+// End if().
 ?>
 	
 <?php if ( $the_query->have_posts() ) :  ?>
@@ -86,7 +86,7 @@ while ( $the_query->have_posts() ) : $the_query->the_post();
 
 <?php if ( get_post_type( get_the_ID() ) == 'bibliotech' ) { ?>
 		   
-			<?php } //get_post_type( get_the_ID() ) == 'bibliotech' ?>
+			<?php } // End if(). ?>
 			  
 					<?php  wp_reset_query(); // Restore global post data stomped by the_post(). ?>
 		   

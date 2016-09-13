@@ -50,7 +50,7 @@ while ( $query2->have_posts() ) : $query2->the_post(); ?>
 			
 				<?php wp_reset_query(); ?>
 		  
-					<?php } //isset( $sticky[0] ) ?>
+					<?php } // End if(). ?>
 		 
 					<?php endwhile; ?>
 		

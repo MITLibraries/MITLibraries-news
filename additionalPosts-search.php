@@ -55,7 +55,7 @@ foreach ( $query_args as $key => $string ) {
 	if ( 'search' == $query_split[0] ) {
 	$search_args['s'] = urldecode( $query_split[1] );
 	}
-} // foreach
+} // End foreach().
 
 $the_query = new WP_Query( $search_args );
 // The set_search() function is defined above.

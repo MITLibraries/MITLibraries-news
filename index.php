@@ -133,7 +133,7 @@ endif;
 <?php
 if ( $i > 6 ) {
 	get_template_part( 'inc/more-posts' );
-} //$i > 6
+} // End if().
 ?>
 
 </div>

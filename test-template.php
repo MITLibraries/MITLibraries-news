@@ -82,7 +82,7 @@ echo '<a title="' . $category[0]->cat_name . '" href="' . get_category_link( $ca
 	</div>
 	<?php wp_reset_postdata(); ?>
 	<?php wp_reset_query(); ?>
-	  <?php  } ?>
+	  <?php  } // End if(). ?>
 	<?php endwhile; ?>
 	 <?php endif; ?>
 	
@@ -261,7 +261,7 @@ $thumb_url = $thumb_url_array[0];?>
 		  </p>
 		</div>
 		
-		<?php } ?>
+		<?php } // End if(). ?>
 		
 		<div class="category-post <?php  if ( get_post_type( get_the_ID() ) == 'bibliotech' ) { echo 'Bibliotech';} ?>">
 		
