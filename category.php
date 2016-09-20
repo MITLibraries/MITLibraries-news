@@ -8,8 +8,6 @@
 
 get_header();
 
-
-
 $date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 ?>
 <?php get_template_part( 'inc/sub-header' ); ?>
@@ -18,7 +16,7 @@ $date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 	<div id="content" role="main">
 	<?php if ( have_posts() ) : ?>
 	<div class="container container-fluid">
-	  <div class="row">
+	  <div class="row" id="mitlibnews-container" data-postcontent="category" data-postcategory="<?php echo esc_attr( get_query_var( 'cat' ) ); ?>">
 	      <?php
 	if ( is_category() ) {
 	 printf( '<h1 class="lib-header">' . 'Category: ' . '<strong>' . single_cat_title( '', false ) . '</strong>' . '</h1>' );
@@ -33,7 +31,7 @@ $date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 	
 			<?php if ( get_post_type( get_the_ID() ) == 'bibliotech' ) { ?>
 		   
-			<?php } //get_post_type( get_the_ID() ) == 'bibliotech' ?>
+			<?php } ?>
 			  
 					<?php  wp_reset_query(); // Restore global post data stomped by the_post(). ?>
 		   

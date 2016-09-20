@@ -50,7 +50,7 @@ while ( $query2->have_posts() ) : $query2->the_post(); ?>
 			
 				<?php wp_reset_query(); ?>
 		  
-					<?php } //isset( $sticky[0] ) ?>
+					<?php } ?>
 		 
 					<?php endwhile; ?>
 		
@@ -58,7 +58,7 @@ while ( $query2->have_posts() ) : $query2->the_post(); ?>
 						<div class="container container-fluid">
 			
 			<!-- OPEN ROW FOR MOBILE/STICKY CARD LAYOUT -->
-				<div class="row">  
+				<div class="row" id="mitlibnews-container" data-postcontent="bibliotech">  
 	
 			<?php
 $args = array(
