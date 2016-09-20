@@ -49,7 +49,8 @@ describe("Loader test suite", function() {
 			page: 1,
 			filter: {
 				posts_per_page: 9,
-			}
+			},
+			type: ['post', 'bibliotech', 'spotlights']
 		}
 		expect( test.buildQuery() ).toEqual(defaultQuery);
 	});

@@ -89,7 +89,7 @@ endif;
 	<div class="container container-fluid">
 
 		<!-- OPEN ROW FOR REGULAR CARD LAYOUT -->
-		<div class="row">
+		<div class="row" id="mitlibnews-container">
 
 <?php
 $args = array(
@@ -133,7 +133,7 @@ endif;
 <?php
 if ( $i > 6 ) {
 	get_template_part( 'inc/more-posts' );
-} // End if().
+}
 ?>
 
 </div>

@@ -68,9 +68,7 @@ $ajaxLength = $the_query->post_count;
 <script>
 $("#another").hide();
 </script>
-<?php }
-// End if().
-?>
+<?php } ?>
 	
 <?php if ( $the_query->have_posts() ) :  ?>
 
@@ -86,7 +84,7 @@ while ( $the_query->have_posts() ) : $the_query->the_post();
 
 <?php if ( get_post_type( get_the_ID() ) == 'bibliotech' ) { ?>
 		   
-			<?php } // End if(). ?>
+			<?php } ?>
 			  
 					<?php  wp_reset_query(); // Restore global post data stomped by the_post(). ?>
 		   
