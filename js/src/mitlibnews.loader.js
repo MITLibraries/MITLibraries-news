@@ -157,11 +157,25 @@ Loader.prototype = {
 			data: query,
 			dataType: 'json',
 			type: 'GET',
+			context: this,
 			success: function(data) {
+
+				// Unsure of how to transfer context inside .each() properly - bind is deprecated, proxy ?
+				// http://stackoverflow.com/questions/28347248/change-context-in-each
+				var self = this;
+
 				jQuery.each(data, function( index, value ) {
-					console.log('\n' + value.type + '\n' + value.title.rendered );
+					console.log( ( index + '          ' + value.type ).slice( '-12' ) + ': ' + value.title.rendered );
 					console.log(value);
+
+					// Render
+					self.renderCard(index, value);
+
 				});
+
+				// Increment pagination
+				this.setPage( this.getPage() + 1 );
+				console.log('Set page to ' + this.getPage() );
 			},
 			error: function() {
 				console.log('Error');
@@ -171,9 +185,38 @@ Loader.prototype = {
 
 	// Render a JSON object into HTML
 	renderCard: function(index, post) {
-		console.log(index);
-		console.log(post);
-		jQuery( this.postContainer ).append( post );
+		// Card components
+		var card, cardBody, cardContainer, cardFooter; // Structural components
+
+		// Card outer element.
+		card = document.createElement( 'div' );
+		jQuery( card )
+			.addClass( 'no-padding-left-mobile col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4' );
+
+		// Card inner element.
+		cardBody = document.createElement( 'div' );
+		jQuery( cardBody )
+			.addClass( 'flex-item blueTop eventsBox' )
+			.attr( 'onClick', 'location.href="' + post.link + '"' );
+
+		// Card container
+		cardContainer = document.createElement( 'div' );
+		jQuery( cardContainer )
+			.addClass( 'interiorCardContainer' );
+
+		// Card footer
+		cardFooter = document.createElement( 'div' );
+		jQuery( cardFooter )
+			.addClass( 'category-post' );
+
+		// Assemble pieces.
+		jQuery( card ).append( cardBody );
+
+		jQuery( cardBody ).append( cardContainer );
+		jQuery( cardBody ).append( cardFooter );
+
+		jQuery( this.postcontainer ).append( card );
+
 	},
 
 	// Container getter and setter
