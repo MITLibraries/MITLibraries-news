@@ -187,6 +187,7 @@ Loader.prototype = {
 	renderCard: function(index, post) {
 		// Card components
 		var card, cardBody, cardContainer, cardFooter; // Structural components
+		var cardTitle, cardLink; // Content components
 
 		// Card outer element.
 		card = document.createElement( 'div' );
@@ -209,11 +210,33 @@ Loader.prototype = {
 		jQuery( cardFooter )
 			.addClass( 'category-post' );
 
+		// Card title
+		cardTitle = document.createElement( 'h2' );
+		jQuery( cardTitle )
+			.addClass( 'entry-title title-post ');
+		if ( 'spotlights' === post.type ) {
+			jQuery( cardTitle ).addClass( 'spotlights' );
+		} else {
+			jQuery( cardTitle ).addClass( 'classCheck' );
+		}
+
+		// Card link
+		cardLink = document.createElement( 'a' );
+		if ( 'spotlights' === post.type ) {
+			jQuery( cardLink ).attr( 'href', post.external_link );
+		} else {
+			jQuery( cardLink ).attr( 'href', post.link );
+		}
+		jQuery( cardLink ).html( post.title.rendered );
+
 		// Assemble pieces.
 		jQuery( card ).append( cardBody );
 
 		jQuery( cardBody ).append( cardContainer );
 		jQuery( cardBody ).append( cardFooter );
+
+		jQuery( cardContainer ).append( cardTitle );
+		jQuery( cardTitle ).append( cardLink );
 
 		jQuery( this.postcontainer ).append( card );
 
