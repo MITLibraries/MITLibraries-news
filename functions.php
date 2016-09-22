@@ -593,7 +593,47 @@ function mitlibnews_register_fields() {
 	register_rest_field( 'post',
 		'external_link',
 		array(
-			'get_callback' => 'mitlibnews_get_link',
+			'get_callback' => 'mitlibnews_get_field',
+			'update_callback' => null,
+			'schema' => null,
+		)
+	);
+	register_rest_field( 'post',
+		'is_event',
+		array(
+			'get_callback' => 'mitlibnews_get_field',
+			'update_callback' => null,
+			'schema' => null,
+		)
+	);
+	register_rest_field( 'post',
+		'listImg',
+		array(
+			'get_callback' => 'mitlibnews_get_image',
+			'update_callback' => null,
+			'schema' => null,
+		)
+	);
+	register_rest_field( 'post',
+		'event_date',
+		array(
+			'get_callback' => 'mitlibnews_get_field',
+			'update_callback' => null,
+			'schema' => null,
+		)
+	);
+	register_rest_field( 'post',
+		'event_start_time',
+		array(
+			'get_callback' => 'mitlibnews_get_field',
+			'update_callback' => null,
+			'schema' => null,
+		)
+	);
+	register_rest_field( 'post',
+		'event_end_time',
+		array(
+			'get_callback' => 'mitlibnews_get_field',
 			'update_callback' => null,
 			'schema' => null,
 		)
@@ -610,6 +650,21 @@ add_action( 'rest_api_init', 'mitlibnews_register_fields' );
  *
  * @return mixed
  */
-function mitlibnews_get_link( $object, $field_name, $request ) {
+function mitlibnews_get_field( $object, $field_name, $request ) {
 	return get_post_meta( $object['id'], $field_name, true );
+}
+
+/**
+ * Get the value of the "external_link" field
+ *
+ * @param array           $object Details of current post.
+ * @param string          $field_name Name of field.
+ * @param WP_REST_Request $request Current request.
+ *
+ * @return mixed
+ */
+function mitlibnews_get_image( $object, $field_name, $request ) {
+	$image = json_decode( get_post_meta( $object['id'], $field_name, true ) );
+	$link = wp_get_attachment_image_src( $image->{'cropped_image'}, 'thumbnail-size' );
+	return $link;
 }

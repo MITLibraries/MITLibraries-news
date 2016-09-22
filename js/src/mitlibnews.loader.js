@@ -187,7 +187,7 @@ Loader.prototype = {
 	renderCard: function(index, post) {
 		// Card components
 		var card, cardBody, cardContainer, cardFooter; // Structural components
-		var cardTitle, cardLink; // Content components
+		var cardTitle, cardLink, cardImage; // Content components
 
 		// Card outer element.
 		card = document.createElement( 'div' );
@@ -210,24 +210,24 @@ Loader.prototype = {
 		jQuery( cardFooter )
 			.addClass( 'category-post' );
 
-		// Card title
-		cardTitle = document.createElement( 'h2' );
-		jQuery( cardTitle )
-			.addClass( 'entry-title title-post ');
-		if ( 'spotlights' === post.type ) {
-			jQuery( cardTitle ).addClass( 'spotlights' );
+		// Card image
+		if ( post.listImg ) {
+			// Image has been declared
+			jQuery( cardBody ).addClass( 'has-image' );
+			cardImage = document.createElement( 'img' );
+			jQuery( cardImage )
+				.attr( 'src', post.listImg[0] )
+				.attr( 'width', post.listImg[1] )
+				.attr( 'height', post.listImg[2] )
+				.attr( 'alt', post.title.rendered );
 		} else {
-			jQuery( cardTitle ).addClass( 'classCheck' );
+			// No image, so use blue border
+			jQuery( cardBody ).addClass( 'no-image' );
+
 		}
 
-		// Card link
-		cardLink = document.createElement( 'a' );
-		if ( 'spotlights' === post.type ) {
-			jQuery( cardLink ).attr( 'href', post.external_link );
-		} else {
-			jQuery( cardLink ).attr( 'href', post.link );
-		}
-		jQuery( cardLink ).html( post.title.rendered );
+		// Card title
+		cardTitle = this.renderCardTitle( post );
 
 		// Assemble pieces.
 		jQuery( card ).append( cardBody );
@@ -235,11 +235,36 @@ Loader.prototype = {
 		jQuery( cardBody ).append( cardContainer );
 		jQuery( cardBody ).append( cardFooter );
 
+		if ( post.listImg ) {
+			jQuery( cardContainer ).append( cardImage );
+		}
 		jQuery( cardContainer ).append( cardTitle );
-		jQuery( cardTitle ).append( cardLink );
 
 		jQuery( this.postcontainer ).append( card );
 
+	},
+
+	renderCardTitle : function( post ) {
+		// First create the header element
+		var title = document.createElement( 'h2' );
+		jQuery( title )
+			.addClass( 'entry-title title-post' );
+		if ( 'spotlights' === post.type ) {
+			jQuery( title ).addClass( 'spotlights' );
+		} else {
+			jQuery( title ).addClass( 'classCheck' );
+		}
+		// Second create link
+		var link = document.createElement( 'a' );
+		if ( 'spotlights' === post.type ) {
+			jQuery( link ).attr( 'href', post.external_link );
+		} else {
+			jQuery( link ).attr( 'href', post.link );
+		}
+		jQuery( link ).html( post.title.rendered );
+		// Finally nest the two, and return
+		jQuery (title ).append( link );
+		return title;
 	},
 
 	// Container getter and setter
