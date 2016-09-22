@@ -157,11 +157,25 @@ Loader.prototype = {
 			data: query,
 			dataType: 'json',
 			type: 'GET',
+			context: this,
 			success: function(data) {
+
+				// Unsure of how to transfer context inside .each() properly - bind is deprecated, proxy ?
+				// http://stackoverflow.com/questions/28347248/change-context-in-each
+				var self = this;
+
 				jQuery.each(data, function( index, value ) {
-					console.log('\n' + value.type + '\n' + value.title.rendered );
+					console.log( ( index + '          ' + value.type ).slice( '-12' ) + ': ' + value.title.rendered );
 					console.log(value);
+
+					// Render
+					self.renderCard(index, value);
+
 				});
+
+				// Increment pagination
+				this.setPage( this.getPage() + 1 );
+				console.log('Set page to ' + this.getPage() );
 			},
 			error: function() {
 				console.log('Error');
@@ -171,9 +185,86 @@ Loader.prototype = {
 
 	// Render a JSON object into HTML
 	renderCard: function(index, post) {
-		console.log(index);
-		console.log(post);
-		jQuery( this.postContainer ).append( post );
+		// Card components
+		var card, cardBody, cardContainer, cardFooter; // Structural components
+		var cardTitle, cardLink, cardImage; // Content components
+
+		// Card outer element.
+		card = document.createElement( 'div' );
+		jQuery( card )
+			.addClass( 'no-padding-left-mobile col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4' );
+
+		// Card inner element.
+		cardBody = document.createElement( 'div' );
+		jQuery( cardBody )
+			.addClass( 'flex-item blueTop eventsBox' )
+			.attr( 'onClick', 'location.href="' + post.link + '"' );
+
+		// Card container
+		cardContainer = document.createElement( 'div' );
+		jQuery( cardContainer )
+			.addClass( 'interiorCardContainer' );
+
+		// Card footer
+		cardFooter = document.createElement( 'div' );
+		jQuery( cardFooter )
+			.addClass( 'category-post' );
+
+		// Card image
+		if ( post.listImg ) {
+			// Image has been declared
+			jQuery( cardBody ).addClass( 'has-image' );
+			cardImage = document.createElement( 'img' );
+			jQuery( cardImage )
+				.attr( 'src', post.listImg[0] )
+				.attr( 'width', post.listImg[1] )
+				.attr( 'height', post.listImg[2] )
+				.attr( 'alt', post.title.rendered );
+		} else {
+			// No image, so use blue border
+			jQuery( cardBody ).addClass( 'no-image' );
+
+		}
+
+		// Card title
+		cardTitle = this.renderCardTitle( post );
+
+		// Assemble pieces.
+		jQuery( card ).append( cardBody );
+
+		jQuery( cardBody ).append( cardContainer );
+		jQuery( cardBody ).append( cardFooter );
+
+		if ( post.listImg ) {
+			jQuery( cardContainer ).append( cardImage );
+		}
+		jQuery( cardContainer ).append( cardTitle );
+
+		jQuery( this.postcontainer ).append( card );
+
+	},
+
+	renderCardTitle : function( post ) {
+		// First create the header element
+		var title = document.createElement( 'h2' );
+		jQuery( title )
+			.addClass( 'entry-title title-post' );
+		if ( 'spotlights' === post.type ) {
+			jQuery( title ).addClass( 'spotlights' );
+		} else {
+			jQuery( title ).addClass( 'classCheck' );
+		}
+		// Second create link
+		var link = document.createElement( 'a' );
+		if ( 'spotlights' === post.type ) {
+			jQuery( link ).attr( 'href', post.external_link );
+		} else {
+			jQuery( link ).attr( 'href', post.link );
+		}
+		jQuery( link ).html( post.title.rendered );
+		// Finally nest the two, and return
+		jQuery (title ).append( link );
+		return title;
 	},
 
 	// Container getter and setter
