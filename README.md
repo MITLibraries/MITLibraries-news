@@ -1,4 +1,4 @@
-[MIT Libraries News](http://libraries.mit.edu/news/) Wordpress Theme
+MIT Libraries News Wordpress Theme
 ========
 
 [![Build Status](https://travis-ci.org/MITLibraries/MITLibraries-news.svg?branch=master)](https://travis-ci.org/MITLibraries/MITLibraries-news)
