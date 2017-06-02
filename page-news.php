@@ -22,7 +22,7 @@ get_header(); ?>
 				<div class="container container-fluid">
 			
 			<!-- OPEN ROW FOR REGULAR CARD LAYOUT -->
-				<div class="row"> 
+				<div class="row" id="mitlibnews-container" data-postcontent="news">
 	                
 	                <h1 class="events-header">News</h1>
 	

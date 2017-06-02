@@ -109,7 +109,7 @@ the_date(); ?> </span>
 			</span> 
 		  
 		   </div>
-		  <?php 	}	?>
+			<?php } // End if get_field event_date. ?>
 
 	<!--=================image=================== -->       
 	<?php if ( get_field( 'image' ) ) { ?>
@@ -171,20 +171,21 @@ $catName = $category[ $r ]->cat_name;
 $currentPost = get_the_ID();
 
 
-$myCatId = $category[ $r ]->cat_ID;
+	$category_id = $category[ $r ]->cat_ID;
 
 $args = array(
 	'post_type' => array( 'post', 'bibliotech', 'spotlights' ),
-	'cat'          => $myCatId,
+	'cat'          => $category_id,
 	'posts_per_page'         => '3',
 	'order'                  => 'DESC',
 	'orderby'                => 'date',
 	'post__not_in'       => array( $currentPost ),
 );
-	?>
+
+?>
 	
 
-<div class="row">
+<div class="row" id="mitlibnews-container" data-postcontent="related" data-postcategory="<?php echo esc_attr( $category_id ); ?>" data-pagesize="3">
 <?php
 $myposts = get_posts( $args );
 $y = 1 ;
