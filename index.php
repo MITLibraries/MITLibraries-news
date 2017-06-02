@@ -89,7 +89,7 @@ endif;
 	<div class="container container-fluid">
 
 		<!-- OPEN ROW FOR REGULAR CARD LAYOUT -->
-		<div class="row">
+		<div class="row" id="mitlibnews">
 
 <?php
 $args = array(
