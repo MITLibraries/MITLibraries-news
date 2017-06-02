@@ -103,8 +103,8 @@ $the_archive = new WP_Query( $archive );
 $archive_posts = (array) $the_archive->posts;
 
 ?>
-	<div class="row">
 	<h1 class="events-header">Upcoming classes & events</h1>
+	<div class="row">
 	  <?php
 	  if ( count( $future_posts ) > 0 ) {
 		$i = -1;
@@ -123,7 +123,7 @@ $archive_posts = (array) $the_archive->posts;
 	<hr class="hidden-xs" />
 
 	<h2 class="padding-header">Past classes & events</h2>
-	<div class="row">
+	<div class="row" id="mitlibnews-container" data-postcontent="pastevents">
 	  <?php
 	  if ( count( $past_posts ) > 0 ) {
 		$i = -1;
@@ -146,9 +146,8 @@ $archive_posts = (array) $the_archive->posts;
 	
 	
 	
-	
 <script type="text/javascript">
-$(document).ready(function() {
+jQuery(document).ready(function() {
 	var offset = 11;
 	var limit = 9;
 	//$j("#postContainer").load("/news/add-posts-events/");
@@ -172,7 +171,6 @@ $(document).ready(function() {
 	});
 
 
-	
 
 });
 </script>

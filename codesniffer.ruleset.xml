@@ -13,6 +13,8 @@
 		<exclude name="Generic.WhiteSpace.ScopeIndent.IncorrectExact" />
 		<exclude name="Generic.WhiteSpace.ScopeIndent.Incorrect" />
 		<exclude name="PEAR.Functions.FunctionCallSignature.Indent" />
+		<exclude name="Squiz.Commenting.LongConditionClosingComment.Invalid" />
+		<exclude name="Squiz.Commenting.LongConditionClosingComment.Missing" />
 		<!-- Exclude the following known-failing sniffs -->
 		<exclude name="Generic.CodeAnalysis.EmptyStatement.DetectedELSE" />
 		<exclude name="Generic.Files.LineEndings.InvalidEOLChar" />
