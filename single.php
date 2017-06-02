@@ -188,6 +188,8 @@ $args = array(
 <?php
 $myposts = get_posts( $args );
 $y = 1 ;
+// this is an unused variable for the renderRegularCard function. it is assigned a value to stop error messages 
+$i = 0 ;
 foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
 	
 			  <?php renderRegularCard( $i, $post ); // --- CALLS REGULAR CARDS --- // ?>
