@@ -59,7 +59,7 @@ if ( have_posts() ) {
 ?>
 	<p><?php esc_html_e( 'Sorry, no posts matched your criteria.' ); ?></p>
 <?php
-}
+} // End if().
 ?>
 
 		</div><!-- news-content -->

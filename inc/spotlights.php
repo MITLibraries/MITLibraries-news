@@ -9,7 +9,8 @@
 ?>
 
 <!--spotlight -->
-<?php $field = get_field_object( 'feature_type' );
+<?php
+$field = get_field_object( 'feature_type' );
 $value = get_field( 'feature_type' );
 $label = $field['choices'][ $value ];
 

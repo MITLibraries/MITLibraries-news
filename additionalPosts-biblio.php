@@ -62,7 +62,8 @@ $("#another").hide();
 </script>
 
 
-<?php } // Removes button end. ?>
+<?php } // End if().
+// Removes button end. ?>
 	
 	
 	

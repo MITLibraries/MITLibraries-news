@@ -24,7 +24,7 @@ $date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 ?>
 <?php get_template_part( 'inc/sub-header' ); ?>
 <?php
-if ( (get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73, $cat ) or is_category( 73 )) ) {  ?>
+if ( (get_post_type( get_the_ID() ) == 'bibliotech') || ( cat_is_ancestor_of( 73, $cat ) || is_category( 73 ) ) ) {  ?>
 <?php get_template_part( 'inc/bib-header' ); ?>
 <?php  } ?>
 

@@ -54,10 +54,13 @@ function the_excerpt_max_charlength( $charlength ) {
 	  <h2>
 		<?php
 					if ( is_day() ) :
+						// Translators: Today's date.
 						printf( __( 'Daily Archives: %s', 'twentytwelve' ), '<span>' . get_the_date() . '</span>' );
 					elseif ( is_month() ) :
+						// Translators: Today's month.
 						printf( __( 'Monthly Archives: %s', 'twentytwelve' ), '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'twentytwelve' ) ) . '</span>' );
 					elseif ( is_year() ) :
+						// Translators: Today's year.
 						printf( __( 'Yearly Archives: %s', 'twentytwelve' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'twentytwelve' ) ) . '</span>' );
 					else :
 						_e( 'Archives', 'twentytwelve' );

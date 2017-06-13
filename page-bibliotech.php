@@ -37,20 +37,19 @@ if ( $query2->have_posts() ) :
 while ( $query2->have_posts() ) : $query2->the_post(); ?>
 <?php if ( isset( $sticky[0] ) ) { ?>
 
+	<!-- CALLS MOBILE CARDS -->
+	<?php renderMobileBiblioCard( $i, $post ); ?>
 
-					
-				<!-- CALLS MOBILE CARDS -->
-		<?php renderMobileBiblioCard( $i, $post ); ?>
+	<!-- CALLS STICKY CARDS -->
+	<?php renderFeatureCard( $i, $post ); ?>
 
-				<!-- CALLS STICKY CARDS -->
-		<?php renderFeatureCard( $i, $post ); ?>
+	<!-- RESETS QUERY -->
+	<?php wp_reset_postdata(); ?>
 
-				<!-- RESETS QUERY -->
-		 <?php wp_reset_postdata(); ?>
-			
-				<?php wp_reset_query(); ?>
-		  
-					<?php } //isset( $sticky[0] ) ?>
+	<?php wp_reset_query(); ?>
+
+<?php } // End if().
+// Closes isset( $sticky[0] ). ?>
 		 
 					<?php endwhile; ?>
 		
