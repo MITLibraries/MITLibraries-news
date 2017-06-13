@@ -17,7 +17,7 @@ $category = get_the_category();
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=mitlib" async="async"></script>
 <?php get_template_part( 'inc/sub-headerSingle' ); ?>
 <?php
-if ( (get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73, $cat ) or is_category( 73 )) ) {  ?>
+if ( (get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73, $cat ) || is_category( 73 )) ) {  ?>
 <?php get_template_part( 'inc/bib-header' ); ?>
 <?php  } ?>
 <div class="container">
@@ -109,7 +109,7 @@ the_date(); ?> </span>
 			</span> 
 		  
 		   </div>
-		  <?php 	}	?>
+		  <?php 	} // End if().	?>
 
 	<!--=================image=================== -->       
 	<?php if ( get_field( 'image' ) ) { ?>
@@ -188,14 +188,14 @@ $args = array(
 <?php
 $myposts = get_posts( $args );
 $y = 1 ;
-// this is an unused variable for the renderRegularCard function. it is assigned a value to stop error messages 
+// This is an unused variable for the renderRegularCard function. It is assigned a value to stop error messages.
 $i = 0 ;
 foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
 	
 			  <?php renderRegularCard( $i, $post ); // --- CALLS REGULAR CARDS --- // ?>
 	
 	<?php
-	$y = $y + 1;
+	$y++;
 	endforeach;
 wp_reset_postdata();?>
 	</div>

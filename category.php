@@ -30,11 +30,7 @@ $date = DateTime::createFromFormat( 'Ymd', get_field( 'event_date' ) );
 			$i++;
 				renderRegularCard( $i, $post ); // --- CALLS REGULAR CARDS --- //
 			?>
-	
-			<?php if ( get_post_type( get_the_ID() ) == 'bibliotech' ) { ?>
-		   
-			<?php } //get_post_type( get_the_ID() ) == 'bibliotech' ?>
-			  
+
 					<?php  wp_reset_query(); // Restore global post data stomped by the_post(). ?>
 		   
 					<?php endwhile; ?>

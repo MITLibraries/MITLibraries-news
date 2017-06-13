@@ -39,8 +39,9 @@ if ( $query2->have_posts() ) :
 	  		<div class="bgWhite col-xs-12 col-sm-4 col-md-4" onClick='location.href="<?php echo get_post_permalink(); ?>"'>
 			 <h2><?php the_title();?> </h2>
 		
-		<?php if ( get_field( 'event_date' ) ) {  $mitDate = get_field( 'event_date' );
-$mitDate = date( 'l t Y', strtotime( $mitDate ) ); ?>
+		<?php if ( get_field( 'event_date' ) ) {
+			$mitDate = get_field( 'event_date' );
+			$mitDate = date( 'l t Y', strtotime( $mitDate ) ); ?>
 		<div class="event"><?php echo $mitDate; ?>&nbsp;&nbsp; &nbsp; <span class="time">
 		  <?php if ( get_field( 'event_start_time' ) ) {
 			  			echo the_field( 'event_start_time' );
@@ -82,7 +83,7 @@ echo '<a title="' . $category[0]->cat_name . '" href="' . get_category_link( $ca
 	</div>
 	<?php wp_reset_postdata(); ?>
 	<?php wp_reset_query(); ?>
-	  <?php  } ?>
+	  <?php  } // End if(). ?>
 	<?php endwhile; ?>
 	 <?php endif; ?>
 	
@@ -261,7 +262,7 @@ $thumb_url = $thumb_url_array[0];?>
 		  </p>
 		</div>
 		
-		<?php } ?>
+		<?php } // End if(). ?>
 		
 		<div class="category-post <?php  if ( get_post_type( get_the_ID() ) == 'bibliotech' ) { echo 'Bibliotech';} ?>">
 		

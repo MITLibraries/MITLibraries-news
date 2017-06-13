@@ -6,9 +6,9 @@
  * @since 1.0
  */
 
-?>
+$category = get_the_category();
 
-<?php $category = get_the_category(); ?>
+?>
 <div class="posts--related">
 	<button>More in <?php echo $category[0]->cat_name; ?></button>
 	<div class="flex-container space-between"></div>

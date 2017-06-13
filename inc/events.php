@@ -48,5 +48,5 @@
 			</span> 
 		  
 		   </div>
-		  <?php 	}	?>
+		  <?php 	} // End if().	?>
 		  <!--EVENT --> 

@@ -91,11 +91,11 @@ wp_nav_menu( $defaults );
 			'exclude'		   => '44',
 			'exclude_tree'     => '44',
 		);
-		?>
 
-		<?php $select  = wp_dropdown_categories( $args ); ?>
-		<?php $replace = "<select$1 onchange='return this.form.submit()'>"; ?>
-		<?php $select  = preg_replace( '#<select([^>]*)>#', $replace, $select ); ?>
+		$select  = wp_dropdown_categories( $args );
+		$replace = "<select$1 onchange='return this.form.submit()'>";
+		$select  = preg_replace( '#<select([^>]*)>#', $replace, $select );
+		?>
 
 		<?php echo $select; ?>
 
