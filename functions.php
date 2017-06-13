@@ -253,7 +253,9 @@ function init_category( $request ) {
 	if ( is_category() && ! is_category( 'bibliotech' ) && ! array_key_exists( 'post_type', $vars ) ) :
 		$vars = array_merge(
 			$vars,
-			array( 'post_type' => 'any' )
+			array(
+				'post_type' => 'any',
+			)
 		);
 		$request->query_vars = $vars;
 	endif;
