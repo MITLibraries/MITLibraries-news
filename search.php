@@ -124,6 +124,7 @@ $(document).ready(function() {
 	var limit = 0;
 	var car = "<?php echo $_GET[ s ]; ?>";
 	var car = encodeURIComponent(car);
+	$("#postContainer").load("/news/search-results/");
 	$("#another").click(function(){
 	limit = limit + 18;
 	$("#postContainer")
