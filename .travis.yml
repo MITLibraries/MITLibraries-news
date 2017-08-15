@@ -4,6 +4,10 @@
 # For use with the MIT Libraries' news theme.
 # @link https://github.com/MITLibraries/MITLibraries-news
 
+# Declare what Travis environment should be used. Specifically, we need the
+# 'precise' environment rather than 'trusty' to get PHP 5.3.
+dist: precise
+
 # Declare project language.
 # @link http://about.travis-ci.org/docs/user/languages/php/
 language: php
@@ -26,10 +30,10 @@ env:
   # @link https://github.com/WordPress/WordPress
   # WP_VERSION=master WP_MULTISITE=0
   - WP_VERSION=master WP_MULTISITE=1
-  # WordPress 4.7
-  # @link https://github.com/WordPress/WordPress/tree/4.7-branch
-  # WP_VERSION=4.7 WP_MULTISITE=0
-  - WP_VERSION=4.7 WP_MULTISITE=1
+  # WordPress 4.8
+  # @link https://github.com/WordPress/WordPress/tree/4.8-branch
+  # WP_VERSION=4.8 WP_MULTISITE=0
+  - WP_VERSION=4.8 WP_MULTISITE=1
 
 # Declare "future" releases to be acceptable failures.
 # @link https://buddypress.trac.wordpress.org/ticket/5620
@@ -76,7 +80,7 @@ before_script:
   # Hop into CodeSniffer directory.
   - cd php-codesniffer
   # Checkout pre 3.x version
-  - git checkout tags/2.9.0
+  - git checkout tags/2.9.1
   # Set install path for WordPress Coding Standards.
   # @link https://github.com/squizlabs/PHP_CodeSniffer/blob/4237c2fc98cc838730b76ee9cee316f99286a2a7/CodeSniffer.php#L1941
   - scripts/phpcs --config-set installed_paths ../wordpress-coding-standards
