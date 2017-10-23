@@ -310,7 +310,9 @@ function renderRegularCard( $i, $post ) {
 function renderEventCard( $i, $post ) {
 ?>
 	<div id="theBox" class="col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4">
-	<div itemscope itemtype="http://data-vocabulary.org/Event" class="flex-item blueTop eventsBox <?php if ( get_field( 'listImg' ) ) { echo 'has-image';
+	<div itemscope itemtype="http://data-vocabulary.org/Event" class="flex-item blueTop eventsBox 
+	<?php if ( get_field( 'listImg' )  ) {
+		echo 'has-image';
 } else { echo 'no-image'; } ?>" onClick='location.href="<?php if ( ( '' != get_field( 'external_link' ) ) && 'spotlights' == $post->post_type ) { the_field( 'external_link' );
 } else { echo get_post_permalink();}  ?>"'>
 	<!-- INTERNAL CONTAINER TO CONTROL FOR OVERFLOW -->   
@@ -321,7 +323,13 @@ function renderEventCard( $i, $post ) {
 				if ( get_field( 'listImg' ) != '' ) { ?>
 		    	<?php get_template_part( 'inc/image' ); ?>
 		        <?php } ?><!-- .listImg -->  
-		         
+		        
+		         <?php
+				if ( get_field( 'calendar_image' ) != '' ) { ?>
+		    	<?php get_template_part( 'inc/imageEvent' ); ?>
+		        <?php } ?><!-- .listImg -->  
+
+
 				<!-- CALLS TITLE FOR REGULAR/SPOTLIGHT POST-TYPES -->   
 		        <?php get_template_part( 'inc/title' ); ?>
 		        <!-- TITLE -->  
