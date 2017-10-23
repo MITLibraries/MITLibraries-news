@@ -62,7 +62,7 @@ if ( (get_post_type( get_the_ID() ) == 'bibliotech') || (cat_is_ancestor_of( 73,
 	   
 		<?php
 		if ( get_field( 'listImg' ) != '' ) { ?>
-		<img data-original="<?php the_field( 'listImg' ) ?>" width="100%" height="111" class="img-responsive"  alt="<?php the_title(); ?>"/>
+		<img src="<?php the_field( 'listImg' ); ?>" width="100%" height="111" class="img-responsive" alt="<?php the_title(); ?>"/>
 		<?php } ?>
 		
 		
