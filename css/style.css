@@ -1676,11 +1676,8 @@ p.search {
 }
 
 #crop_the_image img {
- display:block;
+    display:block;
     margin:auto;
+    margin-top: -20%;
 
-    
-}
-#crop_the_image img {
-    position: absolute;
-  }
+ }

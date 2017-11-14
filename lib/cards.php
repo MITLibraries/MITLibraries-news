@@ -308,13 +308,23 @@ function renderRegularCard( $i, $post ) {
  * @param object $post A WP post object.
  */
 function renderEventCard( $i, $post ) {
+
+	$eventLink = get_post_permalink();
+	if ( ( '' != get_field( 'external_link' ) )  && ( 'spotlights' == $post->post_type ) ) { 
+		 $eventLink  = 	get_field( 'external_link' );
+	}
+
+	if ( get_field( 'calendar_url' ) ) { 
+		 $eventLink  = 	get_field( 'calendar_url' );
+	}
+
 ?>
 	<div id="theBox" class="col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4">
 	<div itemscope itemtype="http://data-vocabulary.org/Event" class="flex-item blueTop eventsBox 
-	<?php if ( get_field( 'listImg' )  ) {
+	<?php if ( get_field( 'listImg' ) || get_field( 'calendar_image' ) ) {
 		echo 'has-image';
-} else { echo 'no-image'; } ?>" onClick='location.href="<?php if ( ( '' != get_field( 'external_link' ) ) && 'spotlights' == $post->post_type ) { the_field( 'external_link' );
-} else { echo get_post_permalink();}  ?>"'>
+} else { echo 'no-image'; } ?>" 
+onClick='location.href="<?php echo $eventLink  ?>"'>
 	<!-- INTERNAL CONTAINER TO CONTROL FOR OVERFLOW -->   
 			 <div class="interiorCardContainer">
 				 
