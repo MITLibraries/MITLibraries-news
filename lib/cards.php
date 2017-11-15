@@ -246,12 +246,21 @@ function renderBiblioCard( $m, $post ) {
  * @param object $post A WP post object.
  */
 function renderRegularCard( $i, $post ) {
+
+	$postLink = get_post_permalink();
+	if ( ( '' != get_field( 'external_link' ) )  && ( 'spotlights' == $post->post_type ) ) { 
+		 $postLink  = 	get_field( 'external_link' );
+	}
+
+	if ( get_field( 'calendar_url' ) ) { 
+		 $postLink  = 	get_field( 'calendar_url' );
+	}
+
 ?>
 <div id="theBox" class="no-padding-left-mobile col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4">
 <div class="flex-item blueTop eventsBox <?php if ( get_field( 'listImg' ) ) { echo 'has-image';
 } else { echo 'no-image'; } ?>" 
-	onClick='location.href="<?php if ( ( '' != get_field( 'external_link' ) ) && 'spotlights' == $post->post_type ) { the_field( 'external_link' );
-} else { echo get_post_permalink();}  ?>"'
+	onClick='location.href="<?php echo $postLink  ?>"'
 	>
 	   		<!-- INTERNAL CONTAINER TO CONTROL FOR OVERFLOW -->   
 			 <div class="interiorCardContainer">
@@ -265,8 +274,10 @@ function renderRegularCard( $i, $post ) {
 		        <?php
 				if ( get_field( 'listImg' ) != '' ) { ?>
 		    	<?php get_template_part( 'inc/image' ); ?>
+		        <?php } else if ( get_field( 'calendar_image' ) != '' ) { ?>
+		    	<?php get_template_part( 'inc/imageEvent' ); ?>
 		        <?php } ?><!-- .listImg -->  
-		         
+
 				<!-- CALLS TITLE FOR REGULAR/SPOTLIGHT POST-TYPES -->   
 		        <?php get_template_part( 'inc/title' ); ?>
 		        <!-- TITLE -->  
@@ -332,10 +343,7 @@ onClick='location.href="<?php echo $eventLink  ?>"'>
 		        <?php
 				if ( get_field( 'listImg' ) != '' ) { ?>
 		    	<?php get_template_part( 'inc/image' ); ?>
-		        <?php } ?><!-- .listImg -->  
-		        
-		         <?php
-				if ( get_field( 'calendar_image' ) != '' ) { ?>
+		        <?php } else if ( get_field( 'calendar_image' ) != '' ) { ?>
 		    	<?php get_template_part( 'inc/imageEvent' ); ?>
 		        <?php } ?><!-- .listImg -->  
 
