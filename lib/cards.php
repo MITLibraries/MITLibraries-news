@@ -274,7 +274,7 @@ function renderRegularCard( $i, $post ) {
 		        <?php
 				if ( get_field( 'listImg' ) != '' ) { ?>
 		    	<?php get_template_part( 'inc/image' ); ?>
-				<?php } elseif ( '' !== get_field( 'calendar_image' ) ) { ?>
+				<?php } elseif ( strlen( get_field( 'calendar_image' ) ) > 0 ) { ?>
 				<?php get_template_part( 'inc/imageEvent' ); ?>
 		        <?php } ?><!-- .listImg -->  
 
@@ -345,7 +345,7 @@ function renderEventCard( $i, $post ) {
 		        <?php
 				if ( get_field( 'listImg' ) != '' ) { ?>
 		    	<?php get_template_part( 'inc/image' ); ?>
-				<?php } elseif ( get_field( 'calendar_image' ) !== '' ) { ?>
+				<?php } elseif ( strlen( get_field( 'calendar_image' ) ) > 0 ) { ?>
 				<?php get_template_part( 'inc/imageEvent' ); ?>
 		        <?php } ?><!-- .listImg -->  
 
