@@ -7,6 +7,22 @@
  */
 
 /**
+ * This returns either "no-image" or "has-image" based on whether a post has an image or not.
+ *
+ * @param object $post A WP post object.
+ */
+function check_image( $post ) {
+	$result = 'no-image';
+	// There are two possible fields that would have an image.
+	// listImg is for locally-declared images.
+	// calendar_image is for images imported from the MIT Calendar.
+	if ( get_field( 'listImg' ) || get_field( 'calendar_image' ) ) {
+		$result = 'has-image';
+	}
+	return $result;
+}
+
+/**
  * Render function
  *
  * @param object $post A WP post object.
@@ -20,12 +36,8 @@ function render( $post, $i, $type ) {
 	$outerClasses .= ' third';
 	}
 	// Default inner classes.
-	$innerClasses = 'flex-item blueTop eventsBox render-confirm-' . $type;
-	if ( get_field( 'listImg' ) ) {
-	$innerClasses .= ' has-image';
-	} else {
-	$innerClasses .= ' no-image';
-	}
+	$innerClasses = 'flex-item blueTop eventsBox render-confirm-' . $type . ' ' . check_image( $post );
+
 	// Inner onClick.
 	$innerOnClick = '';
 	if ( '' != get_field( 'external_link' ) && 'spotlights' == $post->post_type ) {
@@ -104,8 +116,8 @@ function render( $post, $i, $type ) {
 function renderMobileCard( $i, $post ) {
 ?>
 <div  class="visible-xs visible-sm hidden-md hidden-lg no-padding-left-mobile no-padding-left-tablet col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4 ">
-<div class="flex-item blueTop eventsBox <?php if ( get_field( 'listImg' ) ) { echo 'has-image';
-} else { echo 'no-image'; } ?>" onClick='location.href="<?php if ( ( '' != get_field( 'external_link' ) ) && 'spotlights' == $post->post_type ) { the_field( 'external_link' );
+<div class="flex-item blueTop eventsBox <?php echo esc_attr( check_image( $post ) ); ?>"
+	onClick='location.href="<?php if ( ( '' != get_field( 'external_link' ) ) && 'spotlights' == $post->post_type ) { the_field( 'external_link' );
 } else { echo get_post_permalink();}  ?>"'>
 	
 	   		<!-- INTERNAL CONTAINER TO CONTROL FOR OVERFLOW -->   
@@ -158,8 +170,8 @@ function renderMobileCard( $i, $post ) {
 function renderMobileBiblioCard( $i, $post ) {
 ?>
 <div  class="visible-xs visible-sm hidden-md hidden-lg no-padding-left-mobile no-padding-left-tablet col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4 ">
-<div class="flex-item blueTop eventsBox <?php if ( get_field( 'listImg' ) ) { echo 'has-image';
-} else { echo 'no-image'; } ?>" onClick='location.href="<?php if ( ( '' != get_field( 'external_link' ) ) && 'spotlights' == $post->post_type ) { the_field( 'external_link' );
+<div class="flex-item blueTop eventsBox <?php echo esc_attr( check_image( $post ) ); ?>"
+	onClick='location.href="<?php if ( ( '' != get_field( 'external_link' ) ) && 'spotlights' == $post->post_type ) { the_field( 'external_link' );
 } else { echo get_post_permalink();}  ?>"'>
 	
 	   		<!-- INTERNAL CONTAINER TO CONTROL FOR OVERFLOW -->   
@@ -202,8 +214,8 @@ function renderMobileBiblioCard( $i, $post ) {
 function renderBiblioCard( $m, $post ) {
 ?>
 <div  class="no-padding-left-mobile col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4">
-<div class="flex-item blueTop eventsBox <?php if ( get_field( 'listImg' ) ) { echo 'has-image';
-} else { echo 'no-image'; } ?>" onClick='location.href="<?php if ( ( '' != get_field( 'external_link' ) ) && 'spotlights' == $post->post_type ) { the_field( 'external_link' );
+<div class="flex-item blueTop eventsBox <?php echo esc_attr( check_image( $post ) ); ?>"
+	onClick='location.href="<?php if ( ( '' != get_field( 'external_link' ) ) && 'spotlights' == $post->post_type ) { the_field( 'external_link' );
 } else { echo get_post_permalink();}  ?>"'>
 	
 	   		<!-- INTERNAL CONTAINER TO CONTROL FOR OVERFLOW -->   
@@ -256,10 +268,11 @@ function renderRegularCard( $i, $post ) {
 		 $post_link = get_field( 'calendar_url' );
 	}
 
+	$image_class = check_image( $post );
+
 ?>
 <div id="theBox" class="no-padding-left-mobile col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4">
-<div class="flex-item blueTop eventsBox <?php if ( get_field( 'listImg' ) ) { echo 'has-image';
-} else { echo 'no-image'; } ?>" 
+<div class="flex-item blueTop eventsBox <?php echo esc_attr( $image_class ); ?>" 
 	onClick='location.href="<?php echo esc_url( $post_link ); ?>"'
 	>
 	   		<!-- INTERNAL CONTAINER TO CONTROL FOR OVERFLOW -->   
@@ -329,10 +342,7 @@ function renderEventCard( $i, $post ) {
 		$event_link = get_field( 'calendar_url' );
 	}
 
-	$image_class = 'no-image';
-	if ( get_field( 'listImg' ) || get_field( 'calendar_image' ) ) {
-		$image_class = 'has-image';
-	}
+	$image_class = check_image( $post );
 ?>
 	<div id="theBox" class="col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4">
 	<div itemscope itemtype="http://data-vocabulary.org/Event"
