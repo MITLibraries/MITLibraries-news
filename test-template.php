@@ -123,9 +123,8 @@ $the_query = new WP_Query( $args );
 
 	  ?>
 	<div class="col-xs-12 col-sm-4 col-md-4">
-	  <div class="hentry flex-item blueTop eventsBox <?php if ( has_post_thumbnail() ) { echo 'has-image';
-} elseif ( get_field( 'listImg' ) ) { echo 'has-image';
-} else { echo 'no-image'; } ?>" onClick='location.href="<?php if ( ( '' != get_field( 'external_link' ) ) && 'spotlights' == $post->post_type ) { the_field( 'external_link' );
+	  <div class="hentry flex-item blueTop eventsBox <?php echo esc_attr( check_image() ); ?>"
+		onClick='location.href="<?php if ( ( '' != get_field( 'external_link' ) ) && 'spotlights' == $post->post_type ) { the_field( 'external_link' );
 } else { echo get_post_permalink();}  ?>"'>
 	<?php if ( 'spotlights' == $post->post_type ) { ?>
 		<div class="featuredCol">Featured collection</div>

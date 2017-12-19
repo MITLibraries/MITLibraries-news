@@ -88,8 +88,8 @@ while ( $the_query->have_posts() ) : $the_query->the_post();
 
 
 	<div id="theBox" class="<?php if ( 0 == $o % 3 ) { echo 'third '; } ?> col-xs-12  col-xs-B-6 col-sm-4 col-md-4 no-padding-left-mobile">
-	  <div class="flex-item blueTop  eventsBox <?php if ( get_field( 'listImg' ) ) { echo 'has-image';
-} else { echo 'no-image'; } ?>" onClick='location.href="<?php if ( ( '' != get_field( 'external_link' ) ) && 'spotlights' == $post->post_type ) { the_field( 'external_link' );
+	  <div class="flex-item blueTop  eventsBox <?php echo esc_attr( check_image() ); ?>"
+		onClick='location.href="<?php if ( ( '' != get_field( 'external_link' ) ) && 'spotlights' == $post->post_type ) { the_field( 'external_link' );
 } else { echo get_post_permalink();}  ?>"'> 
 		<?php get_template_part( 'inc/spotlights' ); ?>
 	   
