@@ -280,6 +280,24 @@ function eventRSSFunc() {
 }
 
 /**
+ * Override the permalink in RSS displays for event posts
+ */
+function mitlib_alter_rss_permalink() {
+	global $post;
+	$url = $post->guid;
+	if ( 'post' === get_post_type() ) {
+		$is_event = get_post_meta( get_the_ID(), 'is_event' );
+		if ( '1' === $is_event[0] ) {
+			// This post has been marked as an event.
+			$calendar_url = get_post_meta( get_the_ID(), 'calendar_url' );
+			$url = $calendar_url[0];
+		}
+	}
+	return $url;
+}
+add_filter( 'the_permalink_rss', 'mitlib_alter_rss_permalink' );
+
+/**
  * Customize meta boxes on admin interface
  */
 function customize_meta_boxes() {
