@@ -68,7 +68,7 @@ echo '<?xml version="1.0"?>';
 
 	<item>
 	<title><?php echo get_the_title( $post->ID ); ?></title>
-	<link><?php echo get_permalink( $post->ID ); ?></link>
+	<link><?php the_permalink_rss( $post->ID ); ?></link>
 	<description><?php echo '<![CDATA[' . yoast_rss_text_limit( $post->post_content, 500 ) . '<br/><br/>Keep on reading: <a href="' . get_permalink( $post->ID ) . '">' . get_the_title( $post->ID ) . '</a>' . ']]>';  ?></description>
 	<pubDate><?php yoast_rss_date( strtotime( $post->post_date_gmt ) ); ?></pubDate>
 	<guid><?php echo get_permalink( $post->ID ); ?></guid>

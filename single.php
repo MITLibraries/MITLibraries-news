@@ -111,6 +111,13 @@ the_date(); ?> </span>
 		   </div>
 		  <?php 	}	?>
 
+	<?php
+	if ( get_field( 'calendar_url' ) ) {
+		$calendar_url = get_field( 'calendar_url' );
+		echo '<h2>For more about this event, please visit <a href="' . esc_url( $calendar_url ) . '">' . esc_url( $calendar_url ) . '</a></h2>';
+	}
+	?>
+
 	<!--=================image=================== -->       
 	<?php if ( get_field( 'image' ) ) { ?>
 	 <div class="mySinglePicMobile hidden-md hidden-lg col-xs-12">

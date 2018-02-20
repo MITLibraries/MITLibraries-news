@@ -280,6 +280,20 @@ function eventRSSFunc() {
 }
 
 /**
+ * Override the permalink in RSS displays for event posts
+ */
+function mitlib_alter_rss_permalink() {
+	global $post;
+	$url = $post->guid;
+	// If the post has an MIT Calendar URL specified, we use that instead.
+	if ( 'post' === get_post_type() && get_post_meta( get_the_ID(), 'calendar_url', true ) ) {
+		$url = get_post_meta( get_the_ID(), 'calendar_url', true );
+	}
+	return $url;
+}
+add_filter( 'the_permalink_rss', 'mitlib_alter_rss_permalink' );
+
+/**
  * Customize meta boxes on admin interface
  */
 function customize_meta_boxes() {
