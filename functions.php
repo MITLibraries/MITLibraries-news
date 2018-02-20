@@ -285,13 +285,9 @@ function eventRSSFunc() {
 function mitlib_alter_rss_permalink() {
 	global $post;
 	$url = $post->guid;
-	if ( 'post' === get_post_type() ) {
-		$is_event = get_post_meta( get_the_ID(), 'is_event' );
-		if ( '1' === $is_event[0] ) {
-			// This post has been marked as an event.
-			$calendar_url = get_post_meta( get_the_ID(), 'calendar_url' );
-			$url = $calendar_url[0];
-		}
+	// If the post has an MIT Calendar URL specified, we use that instead.
+	if ( 'post' === get_post_type() && get_post_meta( get_the_ID(), 'calendar_url', true ) ) {
+		$url = get_post_meta( get_the_ID(), 'calendar_url', true );
 	}
 	return $url;
 }
