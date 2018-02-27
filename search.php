@@ -17,7 +17,7 @@ get_header(); ?>
 	<div class="container">
 	<div class="row">
 	
-	<h2 class="search">Search results for <strong><?php echo $_GET['s'] ?></strong></h2>
+	<h2 class="search">Search results for <strong><?php echo esc_html( $_GET['s'] ); ?></strong></h2>
 
 	 <?php  if ( '' == $post ) { ?>
 		
@@ -122,7 +122,7 @@ $L++;
 $(document).ready(function() {
 	var offset = 9;
 	var limit = 0;
-	var car = "<?php echo $_GET[ s ]; ?>";
+	var car = "<?php echo esc_html( $_GET['s'] ); ?>";
 	var car = encodeURIComponent(car);
 	$("#postContainer").load("/news/search-results/");
 	$("#another").click(function(){
