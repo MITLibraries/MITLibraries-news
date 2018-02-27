@@ -6,18 +6,19 @@
  * @since Twenty Twelve 1.0
  */
 
-get_header(); ?>
-<?php get_template_part( 'inc/sub-header' ); ?>
+get_header();
 
+get_template_part( 'inc/sub-header' );
 
-
+$search_query = get_search_query();
+?>
 
 <div id="primary" class="content-area">
 	<main id="main" class="content-main" role="main">
 	<div class="container">
 	<div class="row">
 	
-	<h2 class="search">Search results for <strong><?php echo $_GET['s'] ?></strong></h2>
+	<h2 class="search">Search results for <strong><?php echo esc_html( $search_query ); ?></strong></h2>
 
 	 <?php  if ( '' == $post ) { ?>
 		
@@ -122,7 +123,7 @@ $L++;
 $(document).ready(function() {
 	var offset = 9;
 	var limit = 0;
-	var car = "<?php echo $_GET[ s ]; ?>";
+	var car = "<?php echo esc_html( $search_query ); ?>";
 	var car = encodeURIComponent(car);
 	$("#postContainer").load("/news/search-results/");
 	$("#another").click(function(){
