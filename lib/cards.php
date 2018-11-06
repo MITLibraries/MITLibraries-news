@@ -393,12 +393,14 @@ function renderEventCard( $i, $post ) {
  * @param object $post A WP post object.
  */
 function renderFeatureCard( $i, $post ) {
+	$card_url = the_post_permalink();
+	if ( ( '' != get_field( 'external_link' ) ) && 'spotlights' == $post->post_type ) {
+		$card_url = get_field( 'external_link' );
+	}
 ?>
 	<div class="sticky  hidden-xs hidden-sm col-md-12 clearfix">
-	<div class="no-padding-left-mobile sticky col-xs-3 col-xs-B-6 col-sm-8 col-lg-8 col-md-8" onClick='location.href="<?php if ( ( '' != get_field( 'external_link' ) ) && 'spotlights' == $post->post_type ) { the_field( 'external_link' );
-} else { echo get_post_permalink();}  ?>"' style="padding-right:0px; padding-left:6px !important;" > <img src="<?php the_field( 'featuredListImg' ); ?>" class="img-responsive" width="679" height="260" alt="<?php the_title();?>" /> </div>
-	<div class=" hidden-xs bgWhite col-xs-12 col-xs-B-6 col-sm-4 col-md-4 col-lg-4" onClick='location.href="<?php if ( ( '' != get_field( 'external_link' ) ) && 'spotlights' == $post->post_type ) { the_field( 'external_link' );
-} else { echo get_post_permalink();}  ?>"'>
+	<div class="no-padding-left-mobile sticky col-xs-3 col-xs-B-6 col-sm-8 col-lg-8 col-md-8" onClick='location.href="<?php echo esc_url( $card_url ); ?>"' style="padding-right:0px; padding-left:6px !important;" > <img src="<?php the_field( 'featuredListImg' ); ?>" class="img-responsive" width="679" height="260" alt="<?php the_title();?>" /> </div>
+	<div class=" hidden-xs bgWhite col-xs-12 col-xs-B-6 col-sm-4 col-md-4 col-lg-4" onClick='location.href="<?php echo esc_url( $card_url ); ?>"'>
 		
 				<!-- CHECKS FOR SPOTLIGHT -->   
 				<?php if ( 'spotlights' == $post->post_type ) { ?>
