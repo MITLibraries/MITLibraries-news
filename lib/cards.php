@@ -53,12 +53,7 @@ function render( $post, $i, $type ) {
 	$innerClasses = 'flex-item blueTop eventsBox render-confirm-' . $type . ' ' . check_image();
 
 	// Inner onClick.
-	$innerOnClick = '';
-	if ( '' != get_field( 'external_link' ) && 'spotlights' == $post->post_type ) {
-	$innerOnClick = get_field( 'external_link' );
-	} else {
-	$innerOnClick = get_permalink();
-	}
+	$card_url = lookup_url();
 	// Image handled by inc/card-image.
 	// Title handled by inc/card-title.
 	// Event handled by inc/events.
@@ -97,7 +92,7 @@ function render( $post, $i, $type ) {
 	}
 ?>
 	<div id="theBox" class="<?php echo $outerClasses; ?>">
-	<div class="<?php echo $innerClasses; ?>" onClick='location.href="<?php echo $innerOnClick; ?>"'>
+	<div class="<?php echo $innerClasses; ?>" onClick='location.href="<?php echo esc_url( $card_url ); ?>"'>
 
 	  <?php get_template_part( 'inc/spotlights' ); ?>
 
@@ -182,11 +177,11 @@ function renderMobileCard( $i, $post ) {
  * @param object $post A WP post object.
  */
 function renderMobileBiblioCard( $i, $post ) {
+	$card_url = lookup_url();
 ?>
 <div  class="visible-xs visible-sm hidden-md hidden-lg no-padding-left-mobile no-padding-left-tablet col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4 ">
 <div class="flex-item blueTop eventsBox <?php echo esc_attr( check_image() ); ?>"
-	onClick='location.href="<?php if ( ( '' != get_field( 'external_link' ) ) && 'spotlights' == $post->post_type ) { the_field( 'external_link' );
-} else { echo get_post_permalink();}  ?>"'>
+	onClick='location.href="<?php echo esc_url( $card_url ); ?>"'>
 	
 	   		<!-- INTERNAL CONTAINER TO CONTROL FOR OVERFLOW -->   
 			 <div class="interiorCardContainer">
@@ -226,11 +221,11 @@ function renderMobileBiblioCard( $i, $post ) {
  * @param object $post A WP post object.
  */
 function renderBiblioCard( $m, $post ) {
+	$card_url = lookup_url();
 ?>
 <div  class="no-padding-left-mobile col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4">
 <div class="flex-item blueTop eventsBox <?php echo esc_attr( check_image() ); ?>"
-	onClick='location.href="<?php if ( ( '' != get_field( 'external_link' ) ) && 'spotlights' == $post->post_type ) { the_field( 'external_link' );
-} else { echo get_post_permalink();}  ?>"'>
+	onClick='location.href="<?php echo esc_url( $card_url ); ?>"'>
 	
 	   		<!-- INTERNAL CONTAINER TO CONTROL FOR OVERFLOW -->   
 			 <div class="interiorCardContainer">
@@ -273,21 +268,14 @@ function renderBiblioCard( $m, $post ) {
  */
 function renderRegularCard( $i, $post ) {
 
-	$post_link = get_post_permalink();
-	if ( ( '' !== get_field( 'external_link' ) ) && ( 'spotlights' === $post->post_type ) ) {
-		 $post_link = get_field( 'external_link' );
-	}
-
-	if ( get_field( 'calendar_url' ) ) {
-		 $post_link = get_field( 'calendar_url' );
-	}
+	$card_url = lookup_url();
 
 	$image_class = check_image();
 
 ?>
 <div id="theBox" class="no-padding-left-mobile col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4">
 <div class="flex-item blueTop eventsBox <?php echo esc_attr( $image_class ); ?>" 
-	onClick='location.href="<?php echo esc_url( $post_link ); ?>"'
+	onClick='location.href="<?php echo esc_url( $card_url ); ?>"'
 	>
 	   		<!-- INTERNAL CONTAINER TO CONTROL FOR OVERFLOW -->   
 			 <div class="interiorCardContainer">
@@ -347,21 +335,14 @@ function renderRegularCard( $i, $post ) {
  */
 function renderEventCard( $i, $post ) {
 
-	$event_link = get_post_permalink();
-	if ( ( '' !== get_field( 'external_link' ) ) && ( 'spotlights' === $post->post_type ) ) {
-		$event_link = get_field( 'external_link' );
-	}
-
-	if ( get_field( 'calendar_url' ) ) {
-		$event_link = get_field( 'calendar_url' );
-	}
+	$card_url = lookup_url();
 
 	$image_class = check_image();
 ?>
 	<div id="theBox" class="col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4">
 	<div itemscope itemtype="http://data-vocabulary.org/Event"
 		class="flex-item blueTop eventsBox <?php echo esc_attr( $image_class ); ?>"
-		onClick='location.href="<?php echo esc_url( $event_link ); ?>"'>
+		onClick='location.href="<?php echo esc_url( $card_url ); ?>"'>
 	<!-- INTERNAL CONTAINER TO CONTROL FOR OVERFLOW -->   
 			 <div class="interiorCardContainer">
 				 
