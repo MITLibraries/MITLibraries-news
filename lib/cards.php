@@ -25,8 +25,10 @@ function check_image() {
  * 1. The post permalink (default value)
  * 2. The external_link field (for spotlight records)
  * 3. The calendar_url field (for imported records from the MIT Calendar)
+ *
+ * @param object $post A WP post object.
  */
-function lookup_url() {
+function lookup_url( $post ) {
 	$url = get_permalink();
 	if ( '' !== get_field( 'external_link' ) && 'spotlights' === $post->post_type ) {
 		$url = get_field( 'external_link' );
@@ -53,7 +55,7 @@ function render( $post, $i, $type ) {
 	$innerClasses = 'flex-item blueTop eventsBox render-confirm-' . $type . ' ' . check_image();
 
 	// Inner onClick.
-	$card_url = lookup_url();
+	$card_url = lookup_url( $post );
 	// Image handled by inc/card-image.
 	// Title handled by inc/card-title.
 	// Event handled by inc/events.
@@ -123,7 +125,7 @@ function render( $post, $i, $type ) {
  * @param object $post A WP post object.
  */
 function renderMobileCard( $i, $post ) {
-	$card_url = lookup_url();
+	$card_url = lookup_url( $post );
 ?>
 <div  class="visible-xs visible-sm hidden-md hidden-lg no-padding-left-mobile no-padding-left-tablet col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4 ">
 <div class="flex-item blueTop eventsBox <?php echo esc_attr( check_image() ); ?>"
@@ -177,7 +179,7 @@ function renderMobileCard( $i, $post ) {
  * @param object $post A WP post object.
  */
 function renderMobileBiblioCard( $i, $post ) {
-	$card_url = lookup_url();
+	$card_url = lookup_url( $post );
 ?>
 <div  class="visible-xs visible-sm hidden-md hidden-lg no-padding-left-mobile no-padding-left-tablet col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4 ">
 <div class="flex-item blueTop eventsBox <?php echo esc_attr( check_image() ); ?>"
@@ -221,7 +223,7 @@ function renderMobileBiblioCard( $i, $post ) {
  * @param object $post A WP post object.
  */
 function renderBiblioCard( $m, $post ) {
-	$card_url = lookup_url();
+	$card_url = lookup_url( $post );
 ?>
 <div  class="no-padding-left-mobile col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4">
 <div class="flex-item blueTop eventsBox <?php echo esc_attr( check_image() ); ?>"
@@ -268,7 +270,7 @@ function renderBiblioCard( $m, $post ) {
  */
 function renderRegularCard( $i, $post ) {
 
-	$card_url = lookup_url();
+	$card_url = lookup_url( $post );
 
 	$image_class = check_image();
 
@@ -335,7 +337,7 @@ function renderRegularCard( $i, $post ) {
  */
 function renderEventCard( $i, $post ) {
 
-	$card_url = lookup_url();
+	$card_url = lookup_url( $post );
 
 	$image_class = check_image();
 ?>
@@ -390,7 +392,7 @@ function renderEventCard( $i, $post ) {
  * @param object $post A WP post object.
  */
 function renderFeatureCard( $i, $post ) {
-	$card_url = lookup_url();
+	$card_url = lookup_url( $post );
 ?>
 	<div class="sticky  hidden-xs hidden-sm col-md-12 clearfix">
 	<div class="no-padding-left-mobile sticky col-xs-3 col-xs-B-6 col-sm-8 col-lg-8 col-md-8" onClick='location.href="<?php echo esc_url( $card_url ); ?>"' style="padding-right:0px; padding-left:6px !important;" > <img src="<?php the_field( 'featuredListImg' ); ?>" class="img-responsive" width="679" height="260" alt="<?php the_title(); ?>" /> </div>
