@@ -21,6 +21,22 @@ function check_image() {
 }
 
 /**
+ * This returns the URL that should be used for a given card. It can be drawn from three sources:
+ * 1. The post permalink (default value)
+ * 2. The external_link field (for spotlight records)
+ * 3. The calendar_url field (for imported records from the MIT Calendar)
+ */
+function lookup_url() {
+	$url = get_permalink();
+	if ( '' !== get_field( 'external_link' ) && 'spotlights' === $post->post_type ) {
+		$url = get_field( 'external_link' );
+	} elseif ( get_field( 'calendar_url' ) ) {
+		$url = get_field( 'calendar_url' );
+	}
+	return $url;
+}
+
+/**
  * Render function
  *
  * @param object $post A WP post object.
@@ -112,11 +128,11 @@ function render( $post, $i, $type ) {
  * @param object $post A WP post object.
  */
 function renderMobileCard( $i, $post ) {
+	$card_url = lookup_url();
 ?>
 <div  class="visible-xs visible-sm hidden-md hidden-lg no-padding-left-mobile no-padding-left-tablet col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4 ">
 <div class="flex-item blueTop eventsBox <?php echo esc_attr( check_image() ); ?>"
-	onClick='location.href="<?php if ( ( '' != get_field( 'external_link' ) ) && 'spotlights' == $post->post_type ) { the_field( 'external_link' );
-} else { echo get_post_permalink();}  ?>"'>
+	onClick='location.href="<?php echo esc_url( $card_url ); ?>"'>
 	
 	   		<!-- INTERNAL CONTAINER TO CONTROL FOR OVERFLOW -->   
 			 <div class="interiorCardContainer">
@@ -393,16 +409,10 @@ function renderEventCard( $i, $post ) {
  * @param object $post A WP post object.
  */
 function renderFeatureCard( $i, $post ) {
-	$card_url = get_post_permalink();
-	if ( ( '' !== get_field( 'external_link' ) ) && 'spotlights' === $post->post_type ) {
-		$card_url = get_field( 'external_link' );
-	} elseif ( get_field( 'calendar_url' ) ) {
-		$card_url = get_field( 'calendar_url' );
-	}
-
+	$card_url = lookup_url();
 ?>
 	<div class="sticky  hidden-xs hidden-sm col-md-12 clearfix">
-	<div class="no-padding-left-mobile sticky col-xs-3 col-xs-B-6 col-sm-8 col-lg-8 col-md-8" onClick='location.href="<?php echo esc_url( $card_url ); ?>"' style="padding-right:0px; padding-left:6px !important;" > <img src="<?php the_field( 'featuredListImg' ); ?>" class="img-responsive" width="679" height="260" alt="<?php the_title();?>" /> </div>
+	<div class="no-padding-left-mobile sticky col-xs-3 col-xs-B-6 col-sm-8 col-lg-8 col-md-8" onClick='location.href="<?php echo esc_url( $card_url ); ?>"' style="padding-right:0px; padding-left:6px !important;" > <img src="<?php the_field( 'featuredListImg' ); ?>" class="img-responsive" width="679" height="260" alt="<?php the_title(); ?>" /> </div>
 	<div class=" hidden-xs bgWhite col-xs-12 col-xs-B-6 col-sm-4 col-md-4 col-lg-4" onClick='location.href="<?php echo esc_url( $card_url ); ?>"'>
 		
 				<!-- CHECKS FOR SPOTLIGHT -->   
