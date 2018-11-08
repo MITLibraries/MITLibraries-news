@@ -314,7 +314,7 @@ h2.search {
 	color: #111
 }
 .biblio {
-	background-color: rgb(152, 150, 152);
+	background-color: #000;
 	color: white;
 	padding: 10px 0px;
 }
@@ -327,6 +327,9 @@ h2.search {
 
 .biblioBox:first-child {
 	border-right: 1px solid #ccc;
+}
+.biblioBox svg {
+	margin: 4% 3% 3% 3%;
 }
 .biblioBox img {
 	padding-left: 6px;
