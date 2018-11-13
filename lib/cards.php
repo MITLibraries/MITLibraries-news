@@ -52,7 +52,7 @@ function render( $post, $i, $type ) {
 	$outerClasses .= ' third';
 	}
 	// Default inner classes.
-	$innerClasses = 'flex-item blueTop eventsBox render-confirm-' . $type . ' ' . check_image();
+	$inner_classes = 'flex-item blueTop eventsBox render-confirm-' . $type . ' ' . check_image();
 
 	// Inner onClick.
 	$card_url = lookup_url( $post );
@@ -94,7 +94,7 @@ function render( $post, $i, $type ) {
 	}
 ?>
 	<div id="theBox" class="<?php echo $outerClasses; ?>">
-	<div class="<?php echo $innerClasses; ?>" onClick='location.href="<?php echo esc_url( $card_url ); ?>"'>
+	<div class="<?php echo esc_attr( $inner_classes ); ?>" onClick='location.href="<?php echo esc_url( $card_url ); ?>"'>
 
 	  <?php get_template_part( 'inc/spotlights' ); ?>
 
