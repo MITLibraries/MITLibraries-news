@@ -21,6 +21,24 @@ function check_image() {
 }
 
 /**
+ * This returns the URL that should be used for a given card. It can be drawn from three sources:
+ * 1. The post permalink (default value)
+ * 2. The external_link field (for spotlight records)
+ * 3. The calendar_url field (for imported records from the MIT Calendar)
+ *
+ * @param object $post A WP post object.
+ */
+function lookup_url( $post ) {
+	$url = get_permalink();
+	if ( '' !== get_field( 'external_link' ) && 'spotlights' === $post->post_type ) {
+		$url = get_field( 'external_link' );
+	} elseif ( get_field( 'calendar_url' ) ) {
+		$url = get_field( 'calendar_url' );
+	}
+	return $url;
+}
+
+/**
  * Render function
  *
  * @param object $post A WP post object.
@@ -34,15 +52,10 @@ function render( $post, $i, $type ) {
 	$outerClasses .= ' third';
 	}
 	// Default inner classes.
-	$innerClasses = 'flex-item blueTop eventsBox render-confirm-' . $type . ' ' . check_image();
+	$inner_classes = 'flex-item blueTop eventsBox render-confirm-' . $type . ' ' . check_image();
 
 	// Inner onClick.
-	$innerOnClick = '';
-	if ( '' != get_field( 'external_link' ) && 'spotlights' == $post->post_type ) {
-	$innerOnClick = get_field( 'external_link' );
-	} else {
-	$innerOnClick = get_permalink();
-	}
+	$card_url = lookup_url( $post );
 	// Image handled by inc/card-image.
 	// Title handled by inc/card-title.
 	// Event handled by inc/events.
@@ -81,7 +94,7 @@ function render( $post, $i, $type ) {
 	}
 ?>
 	<div id="theBox" class="<?php echo $outerClasses; ?>">
-	<div class="<?php echo $innerClasses; ?>" onClick='location.href="<?php echo $innerOnClick; ?>"'>
+	<div class="<?php echo esc_attr( $inner_classes ); ?>" onClick='location.href="<?php echo esc_url( $card_url ); ?>"'>
 
 	  <?php get_template_part( 'inc/spotlights' ); ?>
 
@@ -112,11 +125,11 @@ function render( $post, $i, $type ) {
  * @param object $post A WP post object.
  */
 function renderMobileCard( $i, $post ) {
+	$card_url = lookup_url( $post );
 ?>
 <div  class="visible-xs visible-sm hidden-md hidden-lg no-padding-left-mobile no-padding-left-tablet col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4 ">
 <div class="flex-item blueTop eventsBox <?php echo esc_attr( check_image() ); ?>"
-	onClick='location.href="<?php if ( ( '' != get_field( 'external_link' ) ) && 'spotlights' == $post->post_type ) { the_field( 'external_link' );
-} else { echo get_post_permalink();}  ?>"'>
+	onClick='location.href="<?php echo esc_url( $card_url ); ?>"'>
 	
 	   		<!-- INTERNAL CONTAINER TO CONTROL FOR OVERFLOW -->   
 			 <div class="interiorCardContainer">
@@ -166,11 +179,11 @@ function renderMobileCard( $i, $post ) {
  * @param object $post A WP post object.
  */
 function renderMobileBiblioCard( $i, $post ) {
+	$card_url = lookup_url( $post );
 ?>
 <div  class="visible-xs visible-sm hidden-md hidden-lg no-padding-left-mobile no-padding-left-tablet col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4 ">
 <div class="flex-item blueTop eventsBox <?php echo esc_attr( check_image() ); ?>"
-	onClick='location.href="<?php if ( ( '' != get_field( 'external_link' ) ) && 'spotlights' == $post->post_type ) { the_field( 'external_link' );
-} else { echo get_post_permalink();}  ?>"'>
+	onClick='location.href="<?php echo esc_url( $card_url ); ?>"'>
 	
 	   		<!-- INTERNAL CONTAINER TO CONTROL FOR OVERFLOW -->   
 			 <div class="interiorCardContainer">
@@ -210,11 +223,11 @@ function renderMobileBiblioCard( $i, $post ) {
  * @param object $post A WP post object.
  */
 function renderBiblioCard( $m, $post ) {
+	$card_url = lookup_url( $post );
 ?>
 <div  class="no-padding-left-mobile col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4">
 <div class="flex-item blueTop eventsBox <?php echo esc_attr( check_image() ); ?>"
-	onClick='location.href="<?php if ( ( '' != get_field( 'external_link' ) ) && 'spotlights' == $post->post_type ) { the_field( 'external_link' );
-} else { echo get_post_permalink();}  ?>"'>
+	onClick='location.href="<?php echo esc_url( $card_url ); ?>"'>
 	
 	   		<!-- INTERNAL CONTAINER TO CONTROL FOR OVERFLOW -->   
 			 <div class="interiorCardContainer">
@@ -257,21 +270,14 @@ function renderBiblioCard( $m, $post ) {
  */
 function renderRegularCard( $i, $post ) {
 
-	$post_link = get_post_permalink();
-	if ( ( '' !== get_field( 'external_link' ) ) && ( 'spotlights' === $post->post_type ) ) {
-		 $post_link = get_field( 'external_link' );
-	}
-
-	if ( get_field( 'calendar_url' ) ) {
-		 $post_link = get_field( 'calendar_url' );
-	}
+	$card_url = lookup_url( $post );
 
 	$image_class = check_image();
 
 ?>
 <div id="theBox" class="no-padding-left-mobile col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4">
 <div class="flex-item blueTop eventsBox <?php echo esc_attr( $image_class ); ?>" 
-	onClick='location.href="<?php echo esc_url( $post_link ); ?>"'
+	onClick='location.href="<?php echo esc_url( $card_url ); ?>"'
 	>
 	   		<!-- INTERNAL CONTAINER TO CONTROL FOR OVERFLOW -->   
 			 <div class="interiorCardContainer">
@@ -331,21 +337,14 @@ function renderRegularCard( $i, $post ) {
  */
 function renderEventCard( $i, $post ) {
 
-	$event_link = get_post_permalink();
-	if ( ( '' !== get_field( 'external_link' ) ) && ( 'spotlights' === $post->post_type ) ) {
-		$event_link = get_field( 'external_link' );
-	}
-
-	if ( get_field( 'calendar_url' ) ) {
-		$event_link = get_field( 'calendar_url' );
-	}
+	$card_url = lookup_url( $post );
 
 	$image_class = check_image();
 ?>
 	<div id="theBox" class="col-xs-12 col-xs-B-6 col-sm-6 col-md-4 col-lg-4">
 	<div itemscope itemtype="http://data-vocabulary.org/Event"
 		class="flex-item blueTop eventsBox <?php echo esc_attr( $image_class ); ?>"
-		onClick='location.href="<?php echo esc_url( $event_link ); ?>"'>
+		onClick='location.href="<?php echo esc_url( $card_url ); ?>"'>
 	<!-- INTERNAL CONTAINER TO CONTROL FOR OVERFLOW -->   
 			 <div class="interiorCardContainer">
 				 
@@ -393,11 +392,11 @@ function renderEventCard( $i, $post ) {
  * @param object $post A WP post object.
  */
 function renderFeatureCard( $i, $post ) {
+	$card_url = lookup_url( $post );
 ?>
 	<div class="sticky  hidden-xs hidden-sm col-md-12 clearfix">
-	<div class="no-padding-left-mobile sticky col-xs-3 col-xs-B-6 col-sm-8 col-lg-8 col-md-8" onClick='location.href="<?php echo get_post_permalink(); ?>"' style="padding-right:0px; padding-left:6px !important;" > <img src="<?php the_field( 'featuredListImg' ); ?>" class="img-responsive" width="679" height="260" alt="<?php the_title();?>" /> </div>
-	<div class=" hidden-xs bgWhite col-xs-12 col-xs-B-6 col-sm-4 col-md-4 col-lg-4" onClick='location.href="<?php if ( ( '' != get_field( 'external_link' ) ) && 'spotlights' == $post->post_type ) { the_field( 'external_link' );
-} else { echo get_post_permalink();}  ?>"'>
+	<div class="no-padding-left-mobile sticky col-xs-3 col-xs-B-6 col-sm-8 col-lg-8 col-md-8" onClick='location.href="<?php echo esc_url( $card_url ); ?>"' style="padding-right:0px; padding-left:6px !important;" > <img src="<?php the_field( 'featuredListImg' ); ?>" class="img-responsive" width="679" height="260" alt="<?php the_title(); ?>" /> </div>
+	<div class=" hidden-xs bgWhite col-xs-12 col-xs-B-6 col-sm-4 col-md-4 col-lg-4" onClick='location.href="<?php echo esc_url( $card_url ); ?>"'>
 		
 				<!-- CHECKS FOR SPOTLIGHT -->   
 				<?php if ( 'spotlights' == $post->post_type ) { ?>
