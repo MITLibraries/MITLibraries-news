@@ -107,7 +107,7 @@ script:
   # --extensions: Only sniff PHP files.
   # --report=source: Return summary table.
   # --report=full: Returns verbose list of problems by test and line.
-  - $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=./codesniffer.ruleset.xml --extensions=php --report=source --report=full
+  - $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=./codesniffer.mitlib.xml --extensions=php --report=source --report=full
 
 # Receive notifications for build results.
 # @link http://docs.travis-ci.com/user/notifications/#Email-notifications
