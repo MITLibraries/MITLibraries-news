@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<ruleset name="MITlib-WordPress">
+	<!-- See https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-ruleset.xml -->
+	<!-- See https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/blob/develop/WordPress-Core/ruleset.xml -->
+
+	<!-- Set a description for this ruleset. -->
+	<description>A custom set of code standard rules to check for WordPress themes.</description>
+
+	<exclude-pattern>/lib/classes/*</exclude-pattern>
+
+	<!-- Include the WordPress ruleset, with exclusions. -->
+	<rule ref="WordPress">
+		<!-- Exclude non-security sniffs -->
+		<exclude name="Generic" />
+		<exclude name="PEAR" />
+		<exclude name="PSR2" />
+		<exclude name="Squiz" />
+		<exclude name="WordPress.Arrays" />
+		<exclude name="WordPress.Classes" />
+		<exclude name="WordPress.CodeAnalysis" />
+		<exclude name="WordPress.DB" />
+		<exclude name="WordPress.Files" />
+		<exclude name="WordPress.Functions" />
+		<exclude name="WordPress.NamingConventions" />
+		<exclude name="WordPress.PHP" />
+		<exclude name="WordPress.Utils" />
+		<exclude name="WordPress.Variables" />
+		<exclude name="WordPress.WP" />
+		<exclude name="WordPress.WhiteSpace" />
+	</rule>
+</ruleset>
