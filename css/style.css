@@ -8,19 +8,20 @@
 */
 
 @import url("../libraries/style.css");
-a:link {
+
+
+.content-area a, 
+.content-area a:link, 
+.content-area a:visited {
+	color: #000;
+	text-decoration: underline;
 }
-a:visited {
+.content-area a:hover, 
+.content-area a:active {
+	color: #00F;
 	text-decoration: none;
 }
-a:hover {
-}
-a:focus {
-	text-decoration: none
-}
-a:active {
-	text-decoration: none
-}
+
 .container-fluid {
   margin-right: auto;
   margin-left: auto;
