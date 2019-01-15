@@ -9,6 +9,19 @@
 
 @import url("../libraries/style.css");
 
+
+.content-area a, 
+.content-area a:link, 
+.content-area a:visited {
+	color: #000;
+	text-decoration: underline;
+}
+.content-area a:hover, 
+.content-area a:active {
+	color: #00F;
+	text-decoration: none;
+}
+
 .container-fluid {
   margin-right: auto;
   margin-left: auto;
