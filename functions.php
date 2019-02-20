@@ -280,7 +280,7 @@ function eventRSSFunc() {
 }
 
 /**
- * Override the permalink in RSS displays for event posts
+ * Override the permalink in RSS displays for event posts and spotlights
  */
 function mitlib_alter_rss_permalink() {
 	global $post;
@@ -288,6 +288,9 @@ function mitlib_alter_rss_permalink() {
 	// If the post has an MIT Calendar URL specified, we use that instead.
 	if ( 'post' === get_post_type() && get_post_meta( get_the_ID(), 'calendar_url', true ) ) {
 		$url = get_post_meta( get_the_ID(), 'calendar_url', true );
+	} // If the post has an external link specified, we use that instead.
+	elseif ( 'spotlights' === get_post_type() && get_post_meta( get_the_ID(), 'external_link', true ) ) {
+		$url = get_post_meta( get_the_ID(), 'external_link', true );
 	}
 	return $url;
 }
