@@ -20,11 +20,9 @@
 		<exclude name="WordPress.CodeAnalysis" />
 		<exclude name="WordPress.DB" />
 		<exclude name="WordPress.Files" />
-		<exclude name="WordPress.Functions" />
 		<exclude name="WordPress.NamingConventions" />
 		<exclude name="WordPress.PHP" />
 		<exclude name="WordPress.Utils" />
-		<exclude name="WordPress.Variables" />
 		<exclude name="WordPress.WP" />
 		<exclude name="WordPress.WhiteSpace" />
 	</rule>
