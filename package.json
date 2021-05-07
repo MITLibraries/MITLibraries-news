@@ -21,7 +21,7 @@
   "homepage": "https://github.com/MITLibraries/MITLibraries-news#readme",
   "devDependencies": {
     "glob": "^7.1.2",
-    "grunt": "^1.0.1",
+    "grunt": "^1.3.0",
     "grunt-gitinfo": "^0.1.8",
     "grunt-replace-regex": "^1.0.3"
   },
